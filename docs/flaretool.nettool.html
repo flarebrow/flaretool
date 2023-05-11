@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool.nettool package &mdash; flaretool 0.0.6 documentation</title>
+  <title>flaretool.nettool package &mdash; flaretool 0.0.7 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -51,6 +51,17 @@
 <li><a class="reference internal" href="#flaretool.nettool.common.is_japan_ip"><code class="docutils literal notranslate"><span class="pre">is_japan_ip()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.common.lookup_domain"><code class="docutils literal notranslate"><span class="pre">lookup_domain()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.common.lookup_ip"><code class="docutils literal notranslate"><span class="pre">lookup_ip()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-flaretool.nettool.model">flaretool.nettool.model module</a><ul>
+<li><a class="reference internal" href="#flaretool.nettool.model.BaseClass"><code class="docutils literal notranslate"><span class="pre">BaseClass</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.nettool.model.BaseDataModel"><code class="docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.nettool.model.IpInfo"><code class="docutils literal notranslate"><span class="pre">IpInfo</span></code></a><ul>
+<li><a class="reference internal" href="#flaretool.nettool.model.IpInfo.country"><code class="docutils literal notranslate"><span class="pre">IpInfo.country</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.nettool.model.IpInfo.hostname"><code class="docutils literal notranslate"><span class="pre">IpInfo.hostname</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.nettool.model.IpInfo.ipaddr"><code class="docutils literal notranslate"><span class="pre">IpInfo.ipaddr</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-flaretool.nettool">Module contents</a></li>
@@ -108,7 +119,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="flaretool.nettool.common.get_global_ipaddr_info">
-<span class="sig-prename descclassname"><span class="pre">flaretool.nettool.common.</span></span><span class="sig-name descname"><span class="pre">get_global_ipaddr_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">IpInfo</span></span></span><a class="headerlink" href="#flaretool.nettool.common.get_global_ipaddr_info" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">flaretool.nettool.common.</span></span><span class="sig-name descname"><span class="pre">get_global_ipaddr_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#flaretool.nettool.model.IpInfo" title="flaretool.nettool.model.IpInfo"><span class="pre">IpInfo</span></a></span></span><a class="headerlink" href="#flaretool.nettool.common.get_global_ipaddr_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>指定されたグローバルIPアドレスの情報を取得する関数
 (指定がない場合は実行端末のグローバルIPを取得)</p>
 <dl class="field-list simple">
@@ -119,7 +130,7 @@
 <dd class="field-even"><p>IPアドレスの情報</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>IpInfo</p>
+<dd class="field-odd"><p><a class="reference internal" href="#flaretool.nettool.model.IpInfo" title="flaretool.nettool.model.IpInfo">IpInfo</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -191,6 +202,42 @@
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
+</dd></dl>
+
+</section>
+<section id="module-flaretool.nettool.model">
+<span id="flaretool-nettool-model-module"></span><h2>flaretool.nettool.model module<a class="headerlink" href="#module-flaretool.nettool.model" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="flaretool.nettool.model.BaseClass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.nettool.model.</span></span><span class="sig-name descname"><span class="pre">BaseClass</span></span><a class="headerlink" href="#flaretool.nettool.model.BaseClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="flaretool.nettool.model.BaseDataModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.nettool.model.</span></span><span class="sig-name descname"><span class="pre">BaseDataModel</span></span><a class="headerlink" href="#flaretool.nettool.model.BaseDataModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="flaretool.nettool.model.IpInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.nettool.model.</span></span><span class="sig-name descname"><span class="pre">IpInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipaddr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hostname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.nettool.model.IpInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flaretool.nettool.model.BaseDataModel" title="flaretool.nettool.model.BaseDataModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.nettool.model.IpInfo.country">
+<span class="sig-name descname"><span class="pre">country</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.nettool.model.IpInfo.country" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.nettool.model.IpInfo.hostname">
+<span class="sig-name descname"><span class="pre">hostname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.nettool.model.IpInfo.hostname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.nettool.model.IpInfo.ipaddr">
+<span class="sig-name descname"><span class="pre">ipaddr</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.nettool.model.IpInfo.ipaddr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </section>
