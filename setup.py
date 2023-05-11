@@ -19,10 +19,10 @@ with open("version.txt") as f:
 setup(
     name='flaretool',  # パッケージ名（pip listで表示される）
     version=version,  # バージョン
-    description="sample of minimum package",  # 説明
+    description="this is flarebrow package",  # 説明
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/flarebrow/flaretool.git",
+    url="https://main.flarebrow.com",
     author='flarebrow',  # 作者名
     license='MIT',  # ライセンス
     packages=find_packages("repos"),
@@ -41,5 +41,9 @@ setup(
         'console_scripts': [
             'flaretool=flaretool.command:main',
         ],
+    },
+    project_urls={
+        # "Documentation": "",
+        "Source": "https://github.com/flarebrow/flaretool",
     },
 )
