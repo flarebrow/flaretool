@@ -30,9 +30,9 @@ def main():
         if args.mode == "info":
             network_info = nettool.get_global_ipaddr_info()
             print("=== Your IP Infomation ===")
-            print("ip:", network_info["ipaddr"])
-            print("hostname:", network_info["hostname"])
-            print("country:", network_info["country"])
+            print("ip:", network_info.ipaddr)
+            print("hostname:", network_info.hostname)
+            print("country:", network_info.country)
         else:
             try:
                 print(getattr(nettool, args.mode)(*args.args))

@@ -22,9 +22,9 @@ from flaretool import nettool
 
 network_info = nettool.get_global_ipaddr_info()
 print("=== Your IP Infomation ===")
-print("ip:", network_info["ipaddr"])
-print("hostname:", network_info["hostname"])
-print("country:", network_info["country"])
+print("ip:", network_info.ipaddr)
+print("hostname:", network_info.hostname)
+print("country:", network_info.country)
 ```
 
 ### NetTool Command sample

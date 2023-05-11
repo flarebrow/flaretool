@@ -4,9 +4,10 @@ import requests
 import socket
 import whois
 import ipaddress
+from .model import IpInfo
 
 
-def get_global_ipaddr_info(addr: str = None) -> str:
+def get_global_ipaddr_info(addr: str = None) -> IpInfo:
     """
     指定されたグローバルIPアドレスの情報を取得する関数
     (指定がない場合は実行端末のグローバルIPを取得)
@@ -15,11 +16,13 @@ def get_global_ipaddr_info(addr: str = None) -> str:
         addr (str): IPアドレス または ホスト名（デフォルトはNone）
 
     Returns:
-        str: IPアドレスの情報
+        IpInfo: IPアドレスの情報
 
     """
     addr = "" if addr is None else f"/{addr}"
-    return requests.get(f"https://api.flarebrow.com/v2/ip{addr}".format()).json()
+    result = requests.get(
+        f"https://api.flarebrow.com/v2/ip{addr}".format()).json()
+    return IpInfo(**result)
 
 
 def lookup_ip(domain) -> str:
