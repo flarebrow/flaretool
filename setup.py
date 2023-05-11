@@ -1,0 +1,45 @@
+from setuptools import setup, find_packages
+from glob import glob
+from os.path import basename
+from os.path import splitext
+
+from setuptools import setup
+from setuptools import find_packages
+
+
+with open('requirements.txt', "r") as f:
+    install_requires = f.read().splitlines()
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+with open("version.txt") as f:
+    version = f.read()
+
+setup(
+    name='flaretool',  # パッケージ名（pip listで表示される）
+    version=version,  # バージョン
+    description="sample of minimum package",  # 説明
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/flarebrow/flaretool.git",
+    author='flarebrow',  # 作者名
+    license='MIT',  # ライセンス
+    packages=find_packages("repos"),
+    package_dir={"": "repos"},
+    py_modules=[splitext(basename(path))[0] for path in glob('repos/**/*.py')],
+    include_package_data=True,
+    zip_safe=False,
+    install_requires=install_requires,
+    python_requires='>=3.8',
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    entry_points={
+        'console_scripts': [
+            'flaretool=flaretool.command:main',
+        ],
+    },
+)
