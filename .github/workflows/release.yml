@@ -44,8 +44,8 @@ jobs:
           pip install --upgrade setuptools wheel twine sphinx sphinx_rtd_theme
           pip install -r requirements.txt
 
-      - name: Init Deoloy Process
-        run: python init_deploy.py
+      # - name: Init Deoloy Process
+      #   run: python init_deploy.py
 
       - name: Documnt ReMake
         run: |
@@ -67,17 +67,17 @@ jobs:
       - name: Build package
         run: python setup.py sdist bdist_wheel
 
-      # - name: Publish to test.pypi.org
-      #   run: |
-      #     echo "[distutils]
-      #     index-servers =
-      #         pypi
-      #         testpypi
+      - name: Publish to test.pypi.org
+        run: |
+          echo "[distutils]
+          index-servers =
+              pypi
+              testpypi
 
-      #     [testpypi]
-      #     repository = https://test.pypi.org/legacy/
-      #     username = __token__
-      #     password = ${TESTPYPI_TOKEN}" > ~/.pypirc
-      #     twine upload --repository testpypi dist/*
-      #   env:
-      #     TESTPYPI_TOKEN: ${{ secrets.TESTPYPI_TOKEN }}
+          [testpypi]
+          repository = https://test.pypi.org/legacy/
+          username = __token__
+          password = ${TESTPYPI_TOKEN}" > ~/.pypirc
+          twine upload --repository testpypi dist/*
+        env:
+          TESTPYPI_TOKEN: ${{ secrets.TESTPYPI_TOKEN }}
