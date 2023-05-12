@@ -1,9 +1,9 @@
-name: Deploy
+name: Deploy Prod
 on:
   workflow_dispatch:
 jobs:
   release:
-    name: Deploy
+    name: Deploy Prod
     runs-on: ubuntu-latest
     permissions:
       contents: write
