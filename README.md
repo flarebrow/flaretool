@@ -32,3 +32,6 @@ print("country:", network_info.country)
 ```bash
 flaretool nettool get_global_ipaddr_info
 ```
+
+All methods within Netttol can be executed as commands.
+

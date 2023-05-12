@@ -18,11 +18,20 @@ def main():
     subparsers = parser.add_subparsers(dest='command', required=True)
 
     parser_nettool = subparsers.add_parser('nettool')
+    nettool_func_list = [func for func in dir(
+        nettool) if inspect.isfunction(getattr(nettool, func))]
+    nettool_func_doc = ""
+    for func in nettool_func_list:
+        method = getattr(flaretool.nettool, func)
+        doc = method.__doc__.splitlines()[1].strip(
+        ) if method.__doc__ else "unknown"
+        nettool_func_doc += f"[{method.__name__}]:{doc} \t"
     parser_nettool.add_argument(
-        "mode", choices=["info"] + [func for func in dir(
-            nettool) if inspect.isfunction(getattr(nettool, func))]
+        "mode",
+        choices=["info"] + nettool_func_list,
+        help=nettool_func_doc,
     )
-    parser_nettool.add_argument('args', nargs='*', default=[])
+    parser_nettool.add_argument('args', nargs='*', default=[], help="引数")
 
     args = parser.parse_args()
 

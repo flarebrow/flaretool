@@ -4,7 +4,7 @@ import requests
 import socket
 import whois
 import ipaddress
-from .model import IpInfo
+from .model import IpInfo, PunyDomainInfo
 
 
 def get_global_ipaddr_info(addr: str = None) -> IpInfo:
@@ -97,14 +97,39 @@ def domain_exists(domain: str) -> bool:
 
 
 def get_japanip_list() -> list[str]:
+    """
+    日本のIPアドレスを取得する関数
+
+    Returns:
+        list[str]: 日本のIPアドレスのリスト
+    """
     return requests.get(
         "https://raw.githubusercontent.com/flarebrow/public/master/IPAddress/japan_ipv4.txt"
     ).text.splitlines()
 
 
 def is_japan_ip(ipaddr: str) -> bool:
+    """
+    指定されたアドレスが日本のIPアドレスか確認する関数
+
+    Args:
+        ipaddr (str): IPアドレス
+
+    Returns:
+        bool: 指定されたIPアドレスが日本のIPの場合はTrue、それ以外の場合はFalse
+    """
     return is_ip_in_allowed_networks(ipaddr, get_japanip_list())
 
 
-def get_puny_code(domain: str) -> dict:
-    return requests.get(f"https://api.flarebrow.com/v2/puny/{domain}").json()
+def get_puny_code(domain: str) -> PunyDomainInfo:
+    """
+    日本語を含むドメインをpunycodeに変換する関数
+
+    Args:
+        domain (str): ドメイン名
+
+    Returns:
+        dict: 取得結果
+    """
+    result = requests.get(f"https://api.flarebrow.com/v2/puny/{domain}").json()
+    return PunyDomainInfo(**result)
