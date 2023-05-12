@@ -25,6 +25,7 @@ setup(
     url="https://main.flarebrow.com",
     author='flarebrow',  # 作者名
     license='MIT',  # ライセンス
+    keywords='flaretool',
     packages=find_packages("repos"),
     package_dir={"": "repos"},
     py_modules=[splitext(basename(path))[0] for path in glob('repos/**/*.py')],

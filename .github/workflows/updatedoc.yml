@@ -1,0 +1,40 @@
+name: Release on tag push
+
+on:
+  push:
+    branches: [ main ]
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      checks: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade setuptools wheel twine sphinx sphinx_rtd_theme
+          pip install -r requirements.txt
+
+      - name: Documnt ReMake
+        run: |
+          export PYTHONPATH=./repos/
+          sphinx-apidoc -f -o ./docs_src ./repos/flaretool
+          sphinx-build ./docs_src ./docs
+
+      - name: Update Document
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: '[actions] auto update'
+          file_pattern: |
+            ./docs_src/*
+            ./docs/*
