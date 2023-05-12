@@ -9,6 +9,11 @@
 **Attention**  
 This library is under development and may exhibit unexpected behavior. New features will be released soon. Please stay tuned.
 
+## pypi link
+
+https://pypi.org/project/flaretool/
+
+https://test.pypi.org/project/flaretool/
 
 ## install
 ```bash
