@@ -30,7 +30,8 @@ jobs:
         uses: dorny/paths-filter@v2.1.0
         with:
           filters: |
-            CHANGELOG.md
+            paths:
+              - CHANGELOG.md
         id: changelog
       - name: Get diff
         id: diff
