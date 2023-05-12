@@ -1,12 +1,13 @@
 # flaretool
 
-**flaretool** is flarebrow Library.  
+**flaretool** is flarebrow Library.
 
 ![](https://img.shields.io/badge/python-%3E%3D3.9-blue)
 
 [API Doc](https://flarebrow.github.io/flaretool/)
 
-**Attention**  
+**Attention**
+
 This library is under development and may exhibit unexpected behavior. New features will be released soon. Please stay tuned.
 
 ## pypi link
@@ -29,6 +30,7 @@ pip install -i https://test.pypi.org/simple/ flaretool
 
 [NetTool Doc](https://flarebrow.github.io/flaretool/flaretool.nettool.html)
 
+
 ### NetTool sample
 ```python
 from flaretool import nettool
@@ -48,3 +50,9 @@ flaretool nettool get_global_ipaddr_info
 
 All methods within Netttol can be executed as commands.
 
+
+### Help Command
+
+```bash
+flaretool -h
+```
