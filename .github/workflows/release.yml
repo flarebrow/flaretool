@@ -33,10 +33,6 @@ jobs:
             CHANGELOG.md
         id: changelog
       - name: Get diff
-        uses: dorny/paths-filter@v2.1.0
-        with:
-          filters: |
-            CHANGELOG.md
         id: diff
         run: |
           echo -e "# Changelog\n\n$(git --no-pager diff --name-only $(git describe --tags --abbrev=0) HEAD -- CHANGELOG.md | awk '{printf("- [%s](https://github.com/USER/REPO/commit/%s)\n", $0, $0)}')" > changelog.md
