@@ -33,3 +33,29 @@ jobs:
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -d "{ \"tag_name\": \"${{ steps.release_tag.outputs.release_tag }}\", \"name\": \"Pre Release ${{ steps.release_tag.outputs.release_tag }}\", \"body\": \"${{ steps.diff.outputs.changelog }}\", \"prerelease\":true }" \
             https://api.github.com/repos/${{ github.repository }}/releases
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install --upgrade setuptools wheel twine
+
+      - name: Build package
+        run: python setup.py sdist bdist_wheel
+
+      - name: Publish to test.pypi.org
+        run: |
+          echo "[distutils]
+          index-servers =
+              pypi
+              testpypi
+
+          [testpypi]
+          repository = https://test.pypi.org/legacy/
+          username = __token__
+          password = ${TESTPYPI_TOKEN}" > ~/.pypirc
+          twine upload --repository testpypi dist/*
+        env:
+          TESTPYPI_TOKEN: ${{ secrets.TESTPYPI_TOKEN }}
