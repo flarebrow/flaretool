@@ -159,7 +159,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 before_process.py
-deploy_dev.sh
-deploy_local.sh
+deploy_*
 test.py
 .vscode/
