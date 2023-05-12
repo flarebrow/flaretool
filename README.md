@@ -13,7 +13,7 @@ This library is under development and may exhibit unexpected behavior. New featu
 
 https://pypi.org/project/flaretool/
 
-https://test.pypi.org/project/flaretool/
+【dev】 https://test.pypi.org/project/flaretool/ 
 
 ## install
 ```bash
