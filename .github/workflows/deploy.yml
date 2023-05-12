@@ -1,0 +1,78 @@
+name: Deploy
+
+jobs:
+  release:
+    name: Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      checks: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade setuptools wheel twine sphinx sphinx_rtd_theme
+          pip install -r requirements.txt
+
+      - name: Documnt ReMake
+        run: |
+          export PYTHONPATH=./repos/
+          sphinx-apidoc -f -o ./docs_src ./repos/flaretool
+          sphinx-build ./docs_src ./docs
+
+      - name: Update Document
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: '[actions] auto update'
+          file_pattern: |
+            ./version.txt
+            ./repos/flaretool/VERSION.py
+            ./requirements.txt
+            ./docs_src/*
+            ./docs/*
+
+      - name: Build package
+        run: python setup.py sdist bdist_wheel
+
+      - name: Publish to test.pypi.org
+        run: |
+          echo "[distutils]
+          index-servers =
+              pypi
+              testpypi
+
+          [testpypi]
+          repository = https://test.pypi.org/legacy/
+          username = __token__
+          password = ${TESTPYPI_TOKEN}" > ~/.pypirc
+          twine upload --repository testpypi dist/*
+        env:
+          TESTPYPI_TOKEN: ${{ secrets.TESTPYPI_TOKEN }}
+  
+      - name: Get previous tag
+        id: pre_tag
+        run: |
+          echo "::set-output name=pre_tag::$(curl -H 'Accept: application/vnd.github.v3+json' -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)"
+      - name: Generate release tag
+        id: release_tag
+        run: |
+          TAG=$(cat version.txt)
+          echo "::set-output name=release_tag::v$TAG"
+      - name: Generate release note
+        id: release_note
+        run: |
+          echo "::set-output name=release_note::$(curl -X POST -H 'Accept: application/vnd.github.v3+json' -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/${{ github.repository }}/releases/generate-notes -d '{"tag_name":"${{ steps.release_tag.outputs.release_tag }}", "previous_tag_name":"${{ steps.pre_tag.outputs.pre_tag }}"}' | jq .body | sed 's/"//g')"
+      - name: Create Release
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -d "{ \"tag_name\": \"${{ steps.release_tag.outputs.release_tag }}\", \"name\": \"Pre Release ${{ steps.release_tag.outputs.release_tag }}\", \"body\": \"${{ steps.diff.outputs.changelog }}\", \"prerelease\":true }" \
+            https://api.github.com/repos/${{ github.repository }}/releases
