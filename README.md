@@ -4,7 +4,7 @@
 
 ![](https://img.shields.io/badge/python-%3E%3D3.8-blue)
 
-[API Doc](https://flarebrow.github.io/flaretool/flaretool.nettool.html#module-flaretool.nettool)
+[API Doc](https://flarebrow.github.io/flaretool/flaretool.nettool.html)
 
 **Attention**  
 This library is under development and may exhibit unexpected behavior. New features will be released soon. Please stay tuned.

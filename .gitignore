@@ -127,6 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.deploy
 
 # Spyder project settings
 .spyderproject
@@ -159,6 +160,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 before_process.py
-deploy_*
+*.sh
 test.py
 .vscode/
