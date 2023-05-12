@@ -30,12 +30,12 @@ jobs:
         run: |
           echo -e "# Changelog\n\n$(git --no-pager diff --name-only $(git describe --tags --abbrev=0) HEAD -- CHANGELOG.md | awk '{printf("- [%s](https://github.com/flarebrow/flaretool/commit/%s)\n", $0, $0)}')" > CHANGELOG.md
           echo "::set-output name=changelog::$(cat CHANGELOG.md)"
-        id: changelog
       - name: Commit changelog
         uses: EndBug/add-and-commit@v7
         with:
           message: 'docs: update changelog [skip ci]'
           add: 'CHANGELOG.md'
+        id: changelog
       - name: Create release
         uses: peter-evans/create-pull-request@v3.11.0
         with:
