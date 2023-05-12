@@ -11,4 +11,5 @@ from flaretool.nettool.common import (
     is_japan_ip,
     get_puny_code,
     IpInfo,
+    PunyDomainInfo,
 )

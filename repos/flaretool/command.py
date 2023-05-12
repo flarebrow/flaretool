@@ -22,7 +22,7 @@ def main():
         nettool) if inspect.isfunction(getattr(nettool, func))]
     nettool_func_doc = ""
     for func in nettool_func_list:
-        method = getattr(flaretool.nettool, func)
+        method = getattr(nettool, func)
         doc = method.__doc__.splitlines()[1].strip(
         ) if method.__doc__ else "unknown"
         nettool_func_doc += f"[{method.__name__}]:{doc} \t"
