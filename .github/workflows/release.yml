@@ -19,6 +19,23 @@ jobs:
           TAG=$(cat version.txt)
           echo "::set-output name=tag::$TAG"
         id: get_tag
+      - name: Get changelog
+        uses: dorny/paths-filter@v2.1.0
+        with:
+          filters: |
+            paths:
+              - CHANGELOG.md
+      - name: Get diff
+        id: diff
+        run: |
+          echo -e "# Changelog\n\n$(git --no-pager diff --name-only $(git describe --tags --abbrev=0) HEAD -- CHANGELOG.md | awk '{printf("- [%s](https://github.com/flarebrow/flaretool/commit/%s)\n", $0, $0)}')" > CHANGELOG.md
+          echo "::set-output name=changelog::$(cat CHANGELOG.md)"
+        id: changelog
+      - name: Commit changelog
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'docs: update changelog [skip ci]'
+          add: 'CHANGELOG.md'
       - name: Create release
         uses: peter-evans/create-pull-request@v3.11.0
         with:
@@ -30,20 +47,3 @@ jobs:
           base: 'main'
           draft: true
           labels: 'pre-release'
-      - name: Get changelog
-        uses: dorny/paths-filter@v2.1.0
-        with:
-          filters: |
-            paths:
-              - CHANGELOG.md
-        id: changelog
-      - name: Get diff
-        id: diff
-        run: |
-          echo -e "# Changelog\n\n$(git --no-pager diff --name-only $(git describe --tags --abbrev=0) HEAD -- CHANGELOG.md | awk '{printf("- [%s](https://github.com/flarebrow/flaretool/commit/%s)\n", $0, $0)}')" > CHANGELOG.md
-          echo "::set-output name=changelog::$(cat CHANGELOG.md)"
-      - name: Commit changelog
-        uses: EndBug/add-and-commit@v7
-        with:
-          message: 'docs: update changelog [skip ci]'
-          add: 'CHANGELOG.md'
