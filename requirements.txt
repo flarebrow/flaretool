@@ -1,4 +1,4 @@
-pydantic>=1.10.7
+pydantic
 certifi>=2023.5.7
 charset-normalizer>=3.1.0
 future>=0.18.3
