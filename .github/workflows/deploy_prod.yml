@@ -56,5 +56,5 @@ jobs:
         run: |
           curl -X POST \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -d "{ \"tag_name\": \"${{ steps.release_tag.outputs.release_tag }}\", \"name\": \"Release ${{ steps.release_tag.outputs.release_tag }}\", \"body\": \"${{ steps.release_note.outputs.release_note }}\"}" \
+            -d "{ \"tag_name\": \"${{ steps.release_tag.outputs.release_tag }}\", \"name\": \"Release ${{ steps.release_tag.outputs.release_tag }}\", \"body\": \"https://pypi.org/project/flaretool/ \n\n ${{ steps.release_note.outputs.release_note }}\"}" \
             https://api.github.com/repos/${{ github.repository }}/releases
