@@ -1,4 +1,4 @@
-name: Vsersion Increment
+name: Version Increment
 on:
   workflow_dispatch:
 jobs:
