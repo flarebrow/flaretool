@@ -20,25 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install --upgrade setuptools wheel twine sphinx sphinx_rtd_theme
-          pip install -r requirements.txt
-
-      - name: Documnt ReMake
-        run: |
-          export PYTHONPATH=./repos/
-          sphinx-apidoc -f -o ./docs_src ./repos/flaretool
-          sphinx-build ./docs_src ./docs
-
-      - name: Update Document
-        uses: EndBug/add-and-commit@v7
-        with:
-          message: '[actions] auto update'
-          file_pattern: |
-            ./version.txt
-            ./repos/flaretool/VERSION.py
-            ./requirements.txt
-            ./docs_src/*
-            ./docs/*
+          pip install --upgrade setuptools wheel twine
 
       - name: Build package
         run: python setup.py sdist bdist_wheel
