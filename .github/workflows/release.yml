@@ -44,8 +44,8 @@ jobs:
           pip install --upgrade setuptools wheel twine sphinx sphinx_rtd_theme
           pip install -r requirements.txt
 
-      # - name: Init Deoloy Process
-      #   run: python init_deploy.py
+      - name: Init Deoloy Process
+        run: python init_deploy.py
 
       - name: Documnt ReMake
         run: |
