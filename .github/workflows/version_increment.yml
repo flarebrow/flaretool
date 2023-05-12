@@ -1,0 +1,31 @@
+name: Vsersion Increment
+on:
+  workflow_dispatch:
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      checks: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Init Deoloy Process
+        run: python init_deploy.py
+
+      - name: Update Document
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: '[actions] auto update'
+          file_pattern: |
+            ./version.txt
+            ./repos/flaretool/VERSION.py
+            ./requirements.txt
