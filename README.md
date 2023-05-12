@@ -10,6 +10,11 @@
 This library is under development and may exhibit unexpected behavior. New features will be released soon. Please stay tuned.
 
 
+## install
+```bash
+pip install flaretool
+```
+
 ## install (dev)
 ```bash
 pip install -i https://test.pypi.org/simple/ flaretool
