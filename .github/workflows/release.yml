@@ -40,10 +40,10 @@ jobs:
       - name: Get diff
         id: diff
         run: |
-          echo -e "# Changelog\n\n$(git --no-pager diff --name-only $(git describe --tags --abbrev=0) HEAD -- CHANGELOG.md | awk '{printf("- [%s](https://github.com/USER/REPO/commit/%s)\n", $0, $0)}')" > changelog.md
-          echo "::set-output name=changelog::$(cat changelog.md)"
+          echo -e "# Changelog\n\n$(git --no-pager diff --name-only $(git describe --tags --abbrev=0) HEAD -- CHANGELOG.md | awk '{printf("- [%s](https://github.com/USER/REPO/commit/%s)\n", $0, $0)}')" > CHANGELOG.md
+          echo "::set-output name=changelog::$(cat CHANGELOG.md)"
       - name: Commit changelog
         uses: EndBug/add-and-commit@v7
         with:
           message: 'docs: update changelog [skip ci]'
-          add: 'changelog.md'
+          add: 'CHANGELOG.md'
