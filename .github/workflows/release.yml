@@ -30,7 +30,6 @@ jobs:
         run: |
           echo -e "# Changelog\n\n$(git --no-pager diff --name-only $(git describe --tags --abbrev=0) HEAD -- CHANGELOG.md | awk '{printf("- [%s](https://github.com/flarebrow/flaretool/commit/%s)\n", $0, $0)}')" > CHANGELOG.md
           echo "::set-output name=changelog::$(cat CHANGELOG.md)"
-          echo "# Changelog\n\n$(git --no-pager diff --name-only $(git describe --tags --abbrev=0) HEAD -- CHANGELOG.md | awk '{printf("- [%s](https://github.com/flarebrow/flaretool/commit/%s)\n", $0, $0)}')"
       - name: Commit changelog
         uses: EndBug/add-and-commit@v7
         with:
@@ -52,5 +51,5 @@ jobs:
         run: |
           curl -X POST \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -d "{ \"tag_name\": \"v${{ steps.get_tag.outputs.tag }}\", \"name\": \"Pre Release v${{ steps.get_tag.outputs.tag }}\", \"body\": \"${{ steps.release_note.outputs.release_note }}\"}" \
-            https://api.github.com/repos/${{ github.repository }}/prereleases
+            -d "{ \"tag_name\": \"v${{ steps.get_tag.outputs.tag }}\", \"name\": \"Pre Release v${{ steps.get_tag.outputs.tag }}\", \"body\": \"${{ steps.diff.outputs.changelog }}\", \"prerelease\":true }" \
+            https://api.github.com/repos/${{ github.repository }}/releases
