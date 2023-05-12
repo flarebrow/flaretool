@@ -4,31 +4,45 @@ on:
   push:
     branches: [ main ]
 jobs:
-  build:
+  release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get current tag
+        run: |
+          TAG=$(cat version.txt)
+          echo "::set-output name=tag::$TAG"
+        id: get_tag
+      - name: Create release
+        uses: peter-evans/create-pull-request@v3.11.0
         with:
-          python-version: 3.8
-      - name: Get version from version.txt
-        id: version
-        run: echo "::set-output name=version::$(cat version.txt)"
-      - name: Get previous release tag
-        uses: peter-evans/release-branch-convention@v1
-        id: get_previous_release
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create Release
-        uses: ncipollo/release-action@v1
-        with:
-          name: Pre Release ${{ steps.version.outputs.version }}
-          tag: v${{ steps.version.outputs.version }}
-          prerelease: true
-          draft: false
+          commit-message: 'chore: release ${{ steps.get_tag.outputs.tag }}'
+          title: 'chore: release ${{ steps.get_tag.outputs.tag }}'
           body: |
-            Changes since ${{ steps.get_previous_release.outputs.previous_tag }}:
-            ${{ steps.get_previous_release.outputs.changelog }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            ${{ steps.diff.outputs.changelog }}
+          branch: 'main'
+          base: 'main'
+          draft: true
+          labels: 'pre-release'
+      - name: Get changelog
+        uses: dorny/paths-filter@v2.1.0
+        with:
+          filters: |
+            CHANGELOG.md
+        id: changelog
+      - name: Get diff
+        uses: dorny/paths-filter@v2.1.0
+        with:
+          filters: |
+            CHANGELOG.md
+        id: diff
+        run: |
+          echo -e "# Changelog\n\n$(git --no-pager diff --name-only $(git describe --tags --abbrev=0) HEAD -- CHANGELOG.md | awk '{printf("- [%s](https://github.com/USER/REPO/commit/%s)\n", $0, $0)}')" > changelog.md
+          echo "::set-output name=changelog::$(cat changelog.md)"
+      - name: Commit changelog
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'docs: update changelog [skip ci]'
+          add: 'changelog.md'
