@@ -2,9 +2,9 @@
 
 **flaretool** is flarebrow Library.  
 
-![](https://img.shields.io/badge/python-%3E%3D3.8-blue)
+![](https://img.shields.io/badge/python-%3E%3D3.9-blue)
 
-[API Doc](https://flarebrow.github.io/flaretool/flaretool.nettool.html)
+[API Doc](https://flarebrow.github.io/flaretool/)
 
 **Attention**  
 This library is under development and may exhibit unexpected behavior. New features will be released soon. Please stay tuned.
@@ -21,6 +21,9 @@ pip install -i https://test.pypi.org/simple/ flaretool
 ```
 
 ## usage
+
+[NetTool Doc](https://flarebrow.github.io/flaretool/flaretool.nettool.html)
+
 ### NetTool sample
 ```python
 from flaretool import nettool
