@@ -22,7 +22,7 @@ jobs:
           title: 'chore: release ${{ steps.get_tag.outputs.tag }}'
           body: |
             ${{ steps.diff.outputs.changelog }}
-          branch: 'main'
+          branch: 'release'
           base: 'main'
           draft: true
           labels: 'pre-release'
