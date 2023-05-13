@@ -29,4 +29,4 @@ def yamato(codes: list[str]) -> list[dict]:
     ).json()["result"]
 
 
-#__all__ = ["yamato"]
+__all__ = []

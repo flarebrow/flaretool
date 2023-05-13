@@ -7,7 +7,6 @@ flaretool python module
 from flaretool.VERSION import VERSION
 from flaretool import settings
 from flaretool import nettool
-from flaretool.functions import tracking
 
 api_key: str = None
 
@@ -20,7 +19,6 @@ __version__ = get_lib_version()
 __all__ = [
     "api_key",
     "nettool",
-    "tracking",
     "settings",
     "error",
 ]
