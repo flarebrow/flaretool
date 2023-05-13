@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool package &mdash; flaretool 0.1.13 documentation</title>
+  <title>flaretool package &mdash; flaretool 0.1.14 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -49,6 +49,16 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#module-flaretool.common">flaretool.common module</a></li>
+<li><a class="reference internal" href="#module-flaretool.enums">flaretool.enums module</a><ul>
+<li><a class="reference internal" href="#flaretool.enums.Algo"><code class="docutils literal notranslate"><span class="pre">Algo</span></code></a><ul>
+<li><a class="reference internal" href="#flaretool.enums.Algo.md5"><code class="docutils literal notranslate"><span class="pre">Algo.md5</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.enums.Algo.sha1"><code class="docutils literal notranslate"><span class="pre">Algo.sha1</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.enums.Algo.sha256"><code class="docutils literal notranslate"><span class="pre">Algo.sha256</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.enums.Algo.sha512"><code class="docutils literal notranslate"><span class="pre">Algo.sha512</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-flaretool.error">flaretool.error module</a><ul>
 <li><a class="reference internal" href="#flaretool.error.AuthenticationError"><code class="docutils literal notranslate"><span class="pre">AuthenticationError</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.error.FlareToolError"><code class="docutils literal notranslate"><span class="pre">FlareToolError</span></code></a></li>
@@ -94,16 +104,11 @@
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="flaretool.functions.html">flaretool.functions package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.functions.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.functions.html#module-flaretool.functions.tracking">flaretool.functions.tracking module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.functions.html#flaretool.functions.tracking.yamato"><code class="docutils literal notranslate"><span class="pre">yamato()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.functions.html#module-flaretool.functions">Module contents</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.functions.html#flaretool.functions.yamato"><code class="docutils literal notranslate"><span class="pre">yamato()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="flaretool.funcs.html">flaretool.funcs package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.hash">flaretool.funcs.hash module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.tracking">flaretool.funcs.tracking module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.nettool.html">flaretool.nettool package</a><ul>
@@ -157,6 +162,35 @@
 </section>
 <section id="module-flaretool.common">
 <span id="flaretool-common-module"></span><h2>flaretool.common module<a class="headerlink" href="#module-flaretool.common" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-flaretool.enums">
+<span id="flaretool-enums-module"></span><h2>flaretool.enums module<a class="headerlink" href="#module-flaretool.enums" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="flaretool.enums.Algo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.enums.</span></span><span class="sig-name descname"><span class="pre">Algo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.enums.Algo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.enums.Algo.md5">
+<span class="sig-name descname"><span class="pre">md5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'md5'</span></em><a class="headerlink" href="#flaretool.enums.Algo.md5" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.enums.Algo.sha1">
+<span class="sig-name descname"><span class="pre">sha1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sha1'</span></em><a class="headerlink" href="#flaretool.enums.Algo.sha1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.enums.Algo.sha256">
+<span class="sig-name descname"><span class="pre">sha256</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sha256'</span></em><a class="headerlink" href="#flaretool.enums.Algo.sha256" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.enums.Algo.sha512">
+<span class="sig-name descname"><span class="pre">sha512</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sha512'</span></em><a class="headerlink" href="#flaretool.enums.Algo.sha512" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-flaretool.error">
 <span id="flaretool-error-module"></span><h2>flaretool.error module<a class="headerlink" href="#module-flaretool.error" title="Permalink to this heading">¶</a></h2>

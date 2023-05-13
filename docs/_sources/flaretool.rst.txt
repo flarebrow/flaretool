@@ -7,7 +7,7 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   flaretool.functions
+   flaretool.funcs
    flaretool.nettool
 
 Submodules
@@ -33,6 +33,14 @@ flaretool.common module
 -----------------------
 
 .. automodule:: flaretool.common
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+flaretool.enums module
+----------------------
+
+.. automodule:: flaretool.enums
    :members:
    :undoc-members:
    :show-inheritance:
