@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    flaretool.funcs
+   flaretool.holiday
    flaretool.nettool
 
 Submodules

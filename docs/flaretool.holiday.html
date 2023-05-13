@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>flaretool.holiday package &mdash; flaretool 0.1.14 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            flaretool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">flaretool.holiday package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-flaretool.holiday.common">flaretool.holiday.common module</a><ul>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays</span></code></a><ul>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.get_holiday_name"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_holiday_name()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.get_holidays_in_range"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_holidays_in_range()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_autumn_equinox"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_autumn_equinox()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_childrens_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_childrens_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_coming_of_age_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_coming_of_age_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_constitution_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_constitution_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_culture_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_culture_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_emperors_birthday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_emperors_birthday()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_foundation_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_foundation_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_greenery_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_greenery_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_health_and_sports_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_health_and_sports_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_labour_thanksgiving_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_labour_thanksgiving_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_marine_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_marine_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_mountain_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_mountain_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_new_year"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_new_year()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_respect_for_the_aged_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_respect_for_the_aged_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_showa_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_showa_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_spring_equinox"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_spring_equinox()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.common.JapaneseHolidays.is_transfer_holiday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_transfer_holiday()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-flaretool.holiday">Module contents</a><ul>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays</span></code></a><ul>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.get_holiday_name"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_holiday_name()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.get_holidays_in_range"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_holidays_in_range()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_autumn_equinox"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_autumn_equinox()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_childrens_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_childrens_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_coming_of_age_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_coming_of_age_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_constitution_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_constitution_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_culture_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_culture_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_emperors_birthday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_emperors_birthday()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_foundation_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_foundation_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_greenery_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_greenery_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_health_and_sports_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_health_and_sports_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_labour_thanksgiving_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_labour_thanksgiving_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_marine_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_marine_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_mountain_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_mountain_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_new_year"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_new_year()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_respect_for_the_aged_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_respect_for_the_aged_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_showa_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_showa_day()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_spring_equinox"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_spring_equinox()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.holiday.JapaneseHolidays.is_transfer_holiday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_transfer_holiday()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">flaretool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">flaretool.holiday package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/flaretool.holiday.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="flaretool-holiday-package">
+<h1>flaretool.holiday package<a class="headerlink" href="#flaretool-holiday-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-flaretool.holiday.common">
+<span id="flaretool-holiday-common-module"></span><h2>flaretool.holiday.common module<a class="headerlink" href="#module-flaretool.holiday.common" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.holiday.common.</span></span><span class="sig-name descname"><span class="pre">JapaneseHolidays</span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>日本の祝日を取得するクラス</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.get_holiday_name">
+<span class="sig-name descname"><span class="pre">get_holiday_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.get_holiday_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>祝日名を取得するメソッド</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime</em><em> or </em><em>date</em>) – 日時</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>祝日名（祝日ではない場合はNone）</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.get_holidays_in_range">
+<span class="sig-name descname"><span class="pre">get_holidays_in_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_datetime</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_datetime</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.get_holidays_in_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>特定の期間内の祝日一覧を取得</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_datetime</strong> (<em>datetime.date</em>) – 開始日</p></li>
+<li><p><strong>end_datetime</strong> (<em>datetime.date</em>) – 終了日</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>祝日一覧</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[tuple[str, datetime.datetime]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_autumn_equinox">
+<span class="sig-name descname"><span class="pre">is_autumn_equinox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_autumn_equinox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_childrens_day">
+<span class="sig-name descname"><span class="pre">is_childrens_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_childrens_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_coming_of_age_day">
+<span class="sig-name descname"><span class="pre">is_coming_of_age_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_coming_of_age_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_constitution_day">
+<span class="sig-name descname"><span class="pre">is_constitution_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_constitution_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_culture_day">
+<span class="sig-name descname"><span class="pre">is_culture_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_culture_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_emperors_birthday">
+<span class="sig-name descname"><span class="pre">is_emperors_birthday</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_emperors_birthday" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_foundation_day">
+<span class="sig-name descname"><span class="pre">is_foundation_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_foundation_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_greenery_day">
+<span class="sig-name descname"><span class="pre">is_greenery_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_greenery_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_health_and_sports_day">
+<span class="sig-name descname"><span class="pre">is_health_and_sports_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_health_and_sports_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_labour_thanksgiving_day">
+<span class="sig-name descname"><span class="pre">is_labour_thanksgiving_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_labour_thanksgiving_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_marine_day">
+<span class="sig-name descname"><span class="pre">is_marine_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_marine_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_mountain_day">
+<span class="sig-name descname"><span class="pre">is_mountain_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_mountain_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_new_year">
+<span class="sig-name descname"><span class="pre">is_new_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_new_year" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_respect_for_the_aged_day">
+<span class="sig-name descname"><span class="pre">is_respect_for_the_aged_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_respect_for_the_aged_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_showa_day">
+<span class="sig-name descname"><span class="pre">is_showa_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_showa_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_spring_equinox">
+<span class="sig-name descname"><span class="pre">is_spring_equinox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_spring_equinox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_transfer_holiday">
+<span class="sig-name descname"><span class="pre">is_transfer_holiday</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_transfer_holiday" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-flaretool.holiday">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-flaretool.holiday" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.holiday.</span></span><span class="sig-name descname"><span class="pre">JapaneseHolidays</span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>日本の祝日を取得するクラス</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.get_holiday_name">
+<span class="sig-name descname"><span class="pre">get_holiday_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.get_holiday_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>祝日名を取得するメソッド</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime</em><em> or </em><em>date</em>) – 日時</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>祝日名（祝日ではない場合はNone）</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.get_holidays_in_range">
+<span class="sig-name descname"><span class="pre">get_holidays_in_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_datetime</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_datetime</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.get_holidays_in_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>特定の期間内の祝日一覧を取得</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_datetime</strong> (<em>datetime.date</em>) – 開始日</p></li>
+<li><p><strong>end_datetime</strong> (<em>datetime.date</em>) – 終了日</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>祝日一覧</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[tuple[str, datetime.datetime]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_autumn_equinox">
+<span class="sig-name descname"><span class="pre">is_autumn_equinox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_autumn_equinox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_childrens_day">
+<span class="sig-name descname"><span class="pre">is_childrens_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_childrens_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_coming_of_age_day">
+<span class="sig-name descname"><span class="pre">is_coming_of_age_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_coming_of_age_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_constitution_day">
+<span class="sig-name descname"><span class="pre">is_constitution_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_constitution_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_culture_day">
+<span class="sig-name descname"><span class="pre">is_culture_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_culture_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_emperors_birthday">
+<span class="sig-name descname"><span class="pre">is_emperors_birthday</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_emperors_birthday" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_foundation_day">
+<span class="sig-name descname"><span class="pre">is_foundation_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_foundation_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_greenery_day">
+<span class="sig-name descname"><span class="pre">is_greenery_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_greenery_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_health_and_sports_day">
+<span class="sig-name descname"><span class="pre">is_health_and_sports_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_health_and_sports_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_labour_thanksgiving_day">
+<span class="sig-name descname"><span class="pre">is_labour_thanksgiving_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_labour_thanksgiving_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_marine_day">
+<span class="sig-name descname"><span class="pre">is_marine_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_marine_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_mountain_day">
+<span class="sig-name descname"><span class="pre">is_mountain_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_mountain_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_new_year">
+<span class="sig-name descname"><span class="pre">is_new_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_new_year" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_respect_for_the_aged_day">
+<span class="sig-name descname"><span class="pre">is_respect_for_the_aged_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_respect_for_the_aged_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_showa_day">
+<span class="sig-name descname"><span class="pre">is_showa_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_showa_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_spring_equinox">
+<span class="sig-name descname"><span class="pre">is_spring_equinox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_spring_equinox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_transfer_holiday">
+<span class="sig-name descname"><span class="pre">is_transfer_holiday</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_transfer_holiday" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Copyright© 2018-2023 FlareBrow All Rights Reserved..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
