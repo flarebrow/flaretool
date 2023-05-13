@@ -1,9 +1,9 @@
-name: Update Tag
+name: Update Tag Dev
 on:
   workflow_dispatch:
 jobs:
   release:
-    name: Update Tag
+    name: Update Tag Dev
     runs-on: ubuntu-latest
     permissions:
       contents: write
