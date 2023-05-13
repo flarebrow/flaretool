@@ -163,4 +163,4 @@ before_process.py
 *.sh
 test.py
 .vscode/
-docs/.*
+# docs/.*
