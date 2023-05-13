@@ -2,6 +2,8 @@ name: Update Docs
 
 on:
   workflow_dispatch:
+    types:
+      - updatedocs
   # push:
   #   branches: [ main ]
 jobs:
