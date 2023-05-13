@@ -16,7 +16,7 @@ def get_global_ipaddr_info(addr: str = None) -> IpInfo:
         addr (str): IPアドレス または ホスト名（デフォルトはNone）
 
     Returns:
-        IpInfo: IPアドレスの情報
+        IpInfo: IPアドレスの情報(取得できない項目はNoneをセット)
 
     """
     addr = "" if addr is None else f"/{addr}"

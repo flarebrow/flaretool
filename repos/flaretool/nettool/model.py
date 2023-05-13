@@ -8,9 +8,9 @@ class BaseDataModel(BaseModel):
 
 
 class IpInfo(BaseDataModel):
-    ipaddr: str
-    hostname: str
-    country: str
+    ipaddr: str = None
+    hostname: str = None
+    country: str = None
 
 
 class PunyDomainInfo(BaseDataModel):
