@@ -119,6 +119,15 @@ class JapaneseHolidays:
             return value
 
     def get_holiday_name(self, date) -> str:
+        """
+        祝日名を取得するメソッド
+
+        Args:
+            date (datetime or date): 日時
+
+        Returns:
+            str: 祝日名（祝日ではない場合はNone）
+        """
         date = self._to_date(date)
         if self.is_new_year(date):
             return "元日"
