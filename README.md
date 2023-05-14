@@ -10,12 +10,6 @@
 
 This library is under development and may exhibit unexpected behavior. New features will be released soon. Please stay tuned.
 
-## pypi link
-
-https://pypi.org/project/flaretool/
-
-【dev】 https://test.pypi.org/project/flaretool/ 
-
 ## install
 ```bash
 pip install flaretool
@@ -42,12 +36,12 @@ print("hostname:", ip_info.hostname)
 print("country:", ip_info.country)
 # 出力例：
 # ip: 192.168.0.1
-# hostname: 192.168.0.1
-# country: None
+# hostname: sample.com
+# country: earth
 
 # ドメイン名からIPアドレスを取得する例
 ip_address = nettool.lookup_ip("example.com")
-print(ip_address)  # 123.456.789
+print(ip_address)  # 123.456.789.001
 
 # IPアドレスからドメイン名を取得する例
 domain_name = nettool.lookup_domain("1.1.1.1")
@@ -96,7 +90,7 @@ All methods within Netttol can be executed as commands.
 ### Help Command
 
 ```bash
-flaretool -h
+flaretool nettool -h
 ```
 
 ## JapaneseHoliday usage
