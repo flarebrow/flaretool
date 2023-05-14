@@ -13,15 +13,51 @@ class JapaneseHolidays:
         pass
 
     def is_new_year(self, date: datetime.date) -> bool:
+        """
+        指定された日付が元日かどうかを判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: 元日であればTrue、そうでなければFalse
+        """
         return date.month == 1 and date.day == 1
 
     def is_coming_of_age_day(self, date: datetime.date) -> bool:
+        """
+        指定された日付が成人の日かどうかを判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: 成人の日であればTrue、そうでなければFalse
+        """
         return date.month == 1 and date.weekday() == 0 and 8 <= date.day <= 14
 
     def is_foundation_day(self, date: datetime.date) -> bool:
+        """
+        指定された日付が建国記念日かどうかを判定します。
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: 建国記念日であればTrue、そうでなければFalse
+        """
         return date.month == 2 and date.day == 11
 
     def is_spring_equinox(self, date: datetime.date) -> bool:
+        """
+        指定された日付が春分の日かどうかを判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: 春分の日であればTrue、そうでなければFalse
+        """
         if date.year < 1900 or date.year > 2099:
             return False
         spring_equinox = 20.8431 + 0.242194 * \
@@ -69,7 +105,7 @@ class JapaneseHolidays:
             return False
         # 2020: 国民の祝日に関する法律の一部を改正する法律(平成30年法律第57号)
         #       国民の祝日に関する法律(昭和23年法律第178号)の特例
-        if date.year >= 2020 and date.month == 10 and date.day == self._week_day(date, 2, 1).day:
+        if date.year >= 2020 and date.month == 10 and date.day == self.week_day(date, 2, 1).day:
             return True
 
         return date.month == 10 and date.weekday() == 0 and 8 <= date.day <= 14
@@ -94,12 +130,32 @@ class JapaneseHolidays:
         return False
 
     def is_transfer_holiday(self, date: datetime.date) -> bool:
+        """
+        振替休日チェック
+
+        Args:
+            date (datetime.date): 日付
+
+        Returns:
+            bool: 振替休日の場合はTrue、そうでない場合はFalse
+        """
         if date.weekday() == 0:  # 日曜日の場合
             previous_date = date - datetime.timedelta(days=1)
-            return self.get_holiday_name(previous_date)
+            return True if self.get_holiday_name(previous_date) else False
         return False
 
-    def _week_day(self, date: datetime.date, week: int, weekday: int) -> datetime.date:
+    def week_day(self, date: datetime.date, week: int, weekday: int) -> datetime.date:
+        """
+        指定された日付の週と曜日に該当する日付を取得
+
+        Args:
+            date (datetime.date): 日付
+            week (int): 週 (1から5)
+            weekday (int): 曜日 (1から7, 月曜日を1とする)
+
+        Returns:
+            datetime.date: 週と曜日に該当する日付
+        """
         if week < 1 or week > 5:
             return None
         if weekday < 1 or weekday > 7:
@@ -113,14 +169,37 @@ class JapaneseHolidays:
         return datetime.date(date.year, date.month, days[week - 1])
 
     def _to_date(self, value):
+        """
+        日付オブジェクトに変換します。
+
+        Args:
+            value: 変換する値
+
+        Returns:
+            datetime.date: 変換後の日付オブジェクト
+        """
         if isinstance(value, datetime.datetime):
             return value.date()
         if isinstance(value, datetime.date):
             return value
 
+    def get_last_day(self, date: datetime.date):
+        """
+        指定された月の最終日を取得
+
+        Args:
+            date (datetime.date): 月を指定した日付
+
+        Returns:
+            datetime.date: 最終日の日付オブジェクト
+        """
+        last_day = calendar.monthrange(date.year, date.month)[1]
+        last_date = datetime.date(date.year, date.month, last_day)
+        return last_date
+
     def get_holiday_name(self, date) -> str:
         """
-        祝日名を取得するメソッド
+        祝日名を取得
 
         Args:
             date (datetime or date): 日時
@@ -162,26 +241,136 @@ class JapaneseHolidays:
         elif self.is_emperors_birthday(date):
             return "天皇誕生日"
         elif self.is_transfer_holiday(date):
-            return self.is_transfer_holiday(date) + "（振替休日）"
+            return self.get_holiday_name(date - datetime.timedelta(days=1)) + "（振替休日）"
         else:
             return None
 
-    def get_holidays_in_range(self, start_datetime: datetime.date, end_datetime: datetime.date) -> list[tuple[str, datetime.datetime]]:
+    def get_holidays_in_range(self, start_date: datetime.date, end_date: datetime.date) -> list[tuple[str, datetime.datetime]]:
         """
         特定の期間内の祝日一覧を取得
 
         Args:
-            start_datetime (datetime.date): 開始日
-            end_datetime (datetime.date): 終了日
+            start_date (datetime.date): 開始日
+            end_date (datetime.date): 終了日
 
         Returns:
             list[tuple[str, datetime.datetime]]: 祝日一覧
         """
         holidays = []
-        current_datetime = start_datetime
-        while current_datetime <= end_datetime:
-            holiday_name = self.get_holiday_name(current_datetime)
+        current_date = start_date
+        while current_date <= end_date:
+            holiday_name = self.get_holiday_name(current_date)
             if holiday_name is not None:
-                holidays.append((holiday_name, current_datetime))
-            current_datetime += datetime.timedelta(days=1)
+                holidays.append((holiday_name, current_date))
+            current_date += datetime.timedelta(days=1)
         return holidays
+
+    def get_business_date_range(self, start_date: datetime.date, end_date: datetime.date) -> list[datetime.date]:
+        """
+        指定期間内の営業日の一覧を取得
+
+        Args:
+            start_date (datetime.date): 開始日
+            end_date (datetime.date): 終了日
+
+        Returns:
+            list[datetime.date]: 日付のリスト
+        """
+        business_days = []
+        current_date = start_date
+        while current_date <= end_date:
+            if current_date.weekday() < 5:  # 土曜日(5)と日曜日(6)を除外
+                holiday_name = self.get_holiday_name(current_date)
+                if holiday_name is None:
+                    business_days.append(current_date)
+            current_date += datetime.timedelta(days=1)
+        return business_days
+
+    def get_last_business_day(self, date: datetime.date) -> datetime.date:
+        """
+        指定された日付から最終営業日を取得します。
+
+        Args:
+            date (datetime.date): 日付
+
+        Returns:
+            datetime.date: 最終営業日
+        """
+        return self.get_business_date_range(
+            datetime.date(date.year, date.month, 1),
+            self.get_last_day(datetime.date(date.year, date.month, 1)),
+        )[-1]
+
+    def print_calendar(self, date: datetime.date):
+        """
+        カレンダーを出力
+
+        Args:
+            date (datetime.date): 対象年月
+
+        """
+        from flaretool.constants import ConsoleColor as Color
+        year = date.year
+        month = date.month
+
+        def format_day(year, month, day, weekday):
+            if weekday == 0:
+                return f'{Color.RED}{day:2d}{Color.RESET} '
+            elif weekday == 6:
+                return f'{Color.BLUE}{day:2d}{Color.RESET} '
+            else:
+                if self.get_holiday_name(datetime.date(year, month, day)):
+                    return f'{Color.GREEN}{day:2d}{Color.RESET} '
+                else:
+                    return f"{day:2d} "
+        calendar.setfirstweekday(calendar.SUNDAY)
+
+        # カレンダーを取得
+        cal = calendar.monthcalendar(year, month)
+
+        # 月と年を出力
+        print("    ", calendar.month_name[month], year)
+        print("Su Mo Tu We Th Fr Sa")
+
+        # カレンダーを出力
+        for week in cal:
+            line = ""
+            for w, day in enumerate(week):
+                if day == 0:
+                    line += "   "
+                else:
+                    line += format_day(year, month, day, w)
+            print(line)
+
+    def get_date_information(self, date: datetime.date) -> tuple:
+        """
+        指定された日付から週番号、曜日、および祝日の名称を取得します。
+
+        Args:
+            date (datetime.date): 日付
+
+        Returns:
+            tuple: 週番号(int)、曜日(str)、祝日の名称(str)のタプル
+        """
+        _, last_day = calendar.monthrange(date.year, date.month)
+        first_day = datetime.date(date.year, date.month, 1)
+        if first_day.weekday() == 6:
+            first_sunday = first_day
+        else:
+            first_sunday = first_day + \
+                datetime.timedelta(days=(6 - first_day.weekday() + 1))
+        if first_sunday > date:
+            week_number = 1
+        else:
+            weeks = ((date - first_sunday).days + 1) // 7
+            if date.day > last_day - 6:
+                weeks += 1
+            week_number = weeks
+
+        weekdays = ['Monday', 'Tuesday', 'Wednesday',
+                    'Thursday', 'Friday', 'Saturday', 'Sunday']
+        weekday = weekdays[date.weekday()]
+
+        holiday_name = self.get_holiday_name(date)
+
+        return week_number, weekday, holiday_name

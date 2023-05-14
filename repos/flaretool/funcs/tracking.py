@@ -11,8 +11,9 @@ def yamato(codes: list[str]) -> list[dict]:
 
     Returns:
         list[dict]: 取得結果
-    """    
+    """
     from flaretool.common import requests
+
     def __insert_str(text: str, insert: str, num: int):
         return insert.join(text[i:i+num] for i in range(0, len(text), num))
     codes = list(map(str, codes))
