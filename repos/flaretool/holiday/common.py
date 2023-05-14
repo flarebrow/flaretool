@@ -14,7 +14,7 @@ class JapaneseHolidays:
 
     def is_new_year(self, date: datetime.date) -> bool:
         """
-        指定された日付が元日かどうかを判定
+        元日の判定
 
         Args:
             date (datetime.date): 判定する日付
@@ -26,7 +26,7 @@ class JapaneseHolidays:
 
     def is_coming_of_age_day(self, date: datetime.date) -> bool:
         """
-        指定された日付が成人の日かどうかを判定
+        成人の日の判定
 
         Args:
             date (datetime.date): 判定する日付
@@ -38,7 +38,7 @@ class JapaneseHolidays:
 
     def is_foundation_day(self, date: datetime.date) -> bool:
         """
-        指定された日付が建国記念日かどうかを判定します。
+        建国記念日の判定
 
         Args:
             date (datetime.date): 判定する日付
@@ -50,7 +50,7 @@ class JapaneseHolidays:
 
     def is_spring_equinox(self, date: datetime.date) -> bool:
         """
-        指定された日付が春分の日かどうかを判定
+        春分の日の判定
 
         Args:
             date (datetime.date): 判定する日付
@@ -65,27 +65,99 @@ class JapaneseHolidays:
         return date == datetime.date(date.year, 3, int(spring_equinox))
 
     def is_showa_day(self, date: datetime.date) -> bool:
+        """
+        昭和の日の判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: 昭和の日であればTrue、そうでなければFalse
+        """
         return date.month == 4 and date.day == 29
 
     def is_constitution_day(self, date: datetime.date) -> bool:
+        """
+        憲法記念日の判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: 憲法記念日であればTrue、そうでなければFalse
+        """
         return date.month == 5 and date.day == 3
 
     def is_greenery_day(self, date: datetime.date) -> bool:
+        """
+        みどりの日の判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: みどりの日であればTrue、そうでなければFalse
+        """
         return date.month == 5 and date.day == 4
 
     def is_childrens_day(self, date: datetime.date) -> bool:
+        """
+        こどもの日の判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: こどもの日であればTrue、そうでなければFalse
+        """
         return date.month == 5 and date.day == 5
 
     def is_marine_day(self, date: datetime.date) -> bool:
+        """
+        海の日の判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: 海の日であればTrue、そうでなければFalse
+        """
         return date.month == 7 and date.weekday() == 0 and 15 <= date.day <= 21
 
     def is_mountain_day(self, date: datetime.date) -> bool:
+        """
+        山の日の判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: 山の日であればTrue、そうでなければFalse
+        """
         return date.month == 8 and date.day == 11
 
     def is_respect_for_the_aged_day(self, date: datetime.date) -> bool:
+        """
+        敬老の日の判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: 敬老の日であればTrue、そうでなければFalse
+        """
         return date.month == 9 and date.weekday() == 0 and 15 <= date.day <= 21
 
     def is_autumn_equinox(self, date: datetime.date) -> bool:
+        """
+        秋分の日の判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: 秋分の日であればTrue、そうでなければFalse
+        """
         if date.year < 1900 or date.year > 2099:
             return False
         autumn_equinox = 23.2488 + 0.242194 * \
@@ -93,6 +165,15 @@ class JapaneseHolidays:
         return date == datetime.date(date.year, 9, int(autumn_equinox))
 
     def is_health_and_sports_day(self, date: datetime.date) -> bool:
+        """
+        スポーツの日の判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: スポーツの日であればTrue、そうでなければFalse
+        """
         # 2020: 国民の祝日に関する法律(昭和23年法律第178号)の特例
         if date.year == 2020:
             if date == datetime.date(2020, 7, 24):
@@ -111,12 +192,39 @@ class JapaneseHolidays:
         return date.month == 10 and date.weekday() == 0 and 8 <= date.day <= 14
 
     def is_culture_day(self, date: datetime.date) -> bool:
+        """
+        文化の日の判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: 文化の日であればTrue、そうでなければFalse
+        """
         return date.month == 11 and date.day == 3
 
     def is_labour_thanksgiving_day(self, date: datetime.date) -> bool:
+        """
+        勤労感謝の判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: 勤労感謝であればTrue、そうでなければFalse
+        """
         return date.month == 11 and date.day == 23
 
     def is_emperors_birthday(self, date: datetime.date) -> bool:
+        """
+        天皇誕生日の判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: 天皇誕生日であればTrue、そうでなければFalse
+        """
         # 1948-1988年
         if date.year in range(1948, 1988 + 1) and date.month == 4 and date.day == 29:
             return True
@@ -170,7 +278,7 @@ class JapaneseHolidays:
 
     def _to_date(self, value):
         """
-        日付オブジェクトに変換します。
+        日付オブジェクトに変換
 
         Args:
             value: 変換する値
@@ -288,7 +396,7 @@ class JapaneseHolidays:
 
     def get_last_business_day(self, date: datetime.date) -> datetime.date:
         """
-        指定された日付から最終営業日を取得します。
+        指定された日付から最終営業日を取得
 
         Args:
             date (datetime.date): 日付
@@ -344,13 +452,13 @@ class JapaneseHolidays:
 
     def get_date_information(self, date: datetime.date) -> tuple:
         """
-        指定された日付から週番号、曜日、および祝日の名称を取得します。
+        指定された日付から週番号、曜日、および祝日の名称を取得
 
         Args:
             date (datetime.date): 日付
 
         Returns:
-            tuple: 週番号(int)、曜日(str)、祝日の名称(str)のタプル
+            tuple: 週番号(int)、曜日(str)、曜日(int)、祝日の名称(str)のタプル
         """
         _, last_day = calendar.monthrange(date.year, date.month)
         first_day = datetime.date(date.year, date.month, 1)
@@ -373,4 +481,4 @@ class JapaneseHolidays:
 
         holiday_name = self.get_holiday_name(date)
 
-        return week_number, weekday, holiday_name
+        return week_number, weekday, date.weekday(), holiday_name
