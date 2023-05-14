@@ -167,13 +167,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.get_date_information">
 <span class="sig-name descname"><span class="pre">get_date_information</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.get_date_information" title="Permalink to this definition">¶</a></dt>
-<dd><p>指定された日付から週番号、曜日、および祝日の名称を取得します。</p>
+<dd><p>指定された日付から週番号、曜日、および祝日の名称を取得</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 日付</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>週番号(int)、曜日(str)、祝日の名称(str)のタプル</p>
+<dd class="field-even"><p>週番号(int)、曜日(str)、曜日(int)、祝日の名称(str)のタプル</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tuple</p>
@@ -221,7 +221,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.get_last_business_day">
 <span class="sig-name descname"><span class="pre">get_last_business_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">date</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.get_last_business_day" title="Permalink to this definition">¶</a></dt>
-<dd><p>指定された日付から最終営業日を取得します。</p>
+<dd><p>指定された日付から最終営業日を取得</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 日付</p>
@@ -255,17 +255,41 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_autumn_equinox">
 <span class="sig-name descname"><span class="pre">is_autumn_equinox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_autumn_equinox" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>秋分の日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>秋分の日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_childrens_day">
 <span class="sig-name descname"><span class="pre">is_childrens_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_childrens_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>こどもの日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>こどもの日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_coming_of_age_day">
 <span class="sig-name descname"><span class="pre">is_coming_of_age_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_coming_of_age_day" title="Permalink to this definition">¶</a></dt>
-<dd><p>指定された日付が成人の日かどうかを判定</p>
+<dd><p>成人の日の判定</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
@@ -282,22 +306,58 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_constitution_day">
 <span class="sig-name descname"><span class="pre">is_constitution_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_constitution_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>憲法記念日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>憲法記念日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_culture_day">
 <span class="sig-name descname"><span class="pre">is_culture_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_culture_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>文化の日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>文化の日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_emperors_birthday">
 <span class="sig-name descname"><span class="pre">is_emperors_birthday</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_emperors_birthday" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>天皇誕生日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>天皇誕生日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_foundation_day">
 <span class="sig-name descname"><span class="pre">is_foundation_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_foundation_day" title="Permalink to this definition">¶</a></dt>
-<dd><p>指定された日付が建国記念日かどうかを判定します。</p>
+<dd><p>建国記念日の判定</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
@@ -314,32 +374,92 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_greenery_day">
 <span class="sig-name descname"><span class="pre">is_greenery_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_greenery_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>みどりの日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>みどりの日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_health_and_sports_day">
 <span class="sig-name descname"><span class="pre">is_health_and_sports_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_health_and_sports_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>スポーツの日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>スポーツの日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_labour_thanksgiving_day">
 <span class="sig-name descname"><span class="pre">is_labour_thanksgiving_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_labour_thanksgiving_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>勤労感謝の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>勤労感謝であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_marine_day">
 <span class="sig-name descname"><span class="pre">is_marine_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_marine_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>海の日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>海の日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_mountain_day">
 <span class="sig-name descname"><span class="pre">is_mountain_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_mountain_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>山の日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>山の日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_new_year">
 <span class="sig-name descname"><span class="pre">is_new_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_new_year" title="Permalink to this definition">¶</a></dt>
-<dd><p>指定された日付が元日かどうかを判定</p>
+<dd><p>元日の判定</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
@@ -356,17 +476,41 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_respect_for_the_aged_day">
 <span class="sig-name descname"><span class="pre">is_respect_for_the_aged_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_respect_for_the_aged_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>敬老の日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>敬老の日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_showa_day">
 <span class="sig-name descname"><span class="pre">is_showa_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_showa_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>昭和の日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>昭和の日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.common.JapaneseHolidays.is_spring_equinox">
 <span class="sig-name descname"><span class="pre">is_spring_equinox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.common.JapaneseHolidays.is_spring_equinox" title="Permalink to this definition">¶</a></dt>
-<dd><p>指定された日付が春分の日かどうかを判定</p>
+<dd><p>春分の日の判定</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
@@ -462,13 +606,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.get_date_information">
 <span class="sig-name descname"><span class="pre">get_date_information</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.get_date_information" title="Permalink to this definition">¶</a></dt>
-<dd><p>指定された日付から週番号、曜日、および祝日の名称を取得します。</p>
+<dd><p>指定された日付から週番号、曜日、および祝日の名称を取得</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 日付</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>週番号(int)、曜日(str)、祝日の名称(str)のタプル</p>
+<dd class="field-even"><p>週番号(int)、曜日(str)、曜日(int)、祝日の名称(str)のタプル</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tuple</p>
@@ -516,7 +660,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.get_last_business_day">
 <span class="sig-name descname"><span class="pre">get_last_business_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">date</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.get_last_business_day" title="Permalink to this definition">¶</a></dt>
-<dd><p>指定された日付から最終営業日を取得します。</p>
+<dd><p>指定された日付から最終営業日を取得</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 日付</p>
@@ -550,17 +694,41 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_autumn_equinox">
 <span class="sig-name descname"><span class="pre">is_autumn_equinox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_autumn_equinox" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>秋分の日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>秋分の日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_childrens_day">
 <span class="sig-name descname"><span class="pre">is_childrens_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_childrens_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>こどもの日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>こどもの日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_coming_of_age_day">
 <span class="sig-name descname"><span class="pre">is_coming_of_age_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_coming_of_age_day" title="Permalink to this definition">¶</a></dt>
-<dd><p>指定された日付が成人の日かどうかを判定</p>
+<dd><p>成人の日の判定</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
@@ -577,22 +745,58 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_constitution_day">
 <span class="sig-name descname"><span class="pre">is_constitution_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_constitution_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>憲法記念日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>憲法記念日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_culture_day">
 <span class="sig-name descname"><span class="pre">is_culture_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_culture_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>文化の日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>文化の日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_emperors_birthday">
 <span class="sig-name descname"><span class="pre">is_emperors_birthday</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_emperors_birthday" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>天皇誕生日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>天皇誕生日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_foundation_day">
 <span class="sig-name descname"><span class="pre">is_foundation_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_foundation_day" title="Permalink to this definition">¶</a></dt>
-<dd><p>指定された日付が建国記念日かどうかを判定します。</p>
+<dd><p>建国記念日の判定</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
@@ -609,32 +813,92 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_greenery_day">
 <span class="sig-name descname"><span class="pre">is_greenery_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_greenery_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>みどりの日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>みどりの日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_health_and_sports_day">
 <span class="sig-name descname"><span class="pre">is_health_and_sports_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_health_and_sports_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>スポーツの日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>スポーツの日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_labour_thanksgiving_day">
 <span class="sig-name descname"><span class="pre">is_labour_thanksgiving_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_labour_thanksgiving_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>勤労感謝の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>勤労感謝であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_marine_day">
 <span class="sig-name descname"><span class="pre">is_marine_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_marine_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>海の日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>海の日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_mountain_day">
 <span class="sig-name descname"><span class="pre">is_mountain_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_mountain_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>山の日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>山の日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_new_year">
 <span class="sig-name descname"><span class="pre">is_new_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_new_year" title="Permalink to this definition">¶</a></dt>
-<dd><p>指定された日付が元日かどうかを判定</p>
+<dd><p>元日の判定</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
@@ -651,17 +915,41 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_respect_for_the_aged_day">
 <span class="sig-name descname"><span class="pre">is_respect_for_the_aged_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_respect_for_the_aged_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>敬老の日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>敬老の日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_showa_day">
 <span class="sig-name descname"><span class="pre">is_showa_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_showa_day" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>昭和の日の判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>昭和の日であればTrue、そうでなければFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.holiday.JapaneseHolidays.is_spring_equinox">
 <span class="sig-name descname"><span class="pre">is_spring_equinox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.holiday.JapaneseHolidays.is_spring_equinox" title="Permalink to this definition">¶</a></dt>
-<dd><p>指定された日付が春分の日かどうかを判定</p>
+<dd><p>春分の日の判定</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>date</strong> (<em>datetime.date</em>) – 判定する日付</p>
