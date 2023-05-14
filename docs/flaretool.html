@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool package &mdash; flaretool 0.1.15 documentation</title>
+  <title>flaretool package &mdash; flaretool 0.1.16 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -49,6 +49,35 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#module-flaretool.common">flaretool.common module</a></li>
+<li><a class="reference internal" href="#module-flaretool.constants">flaretool.constants module</a><ul>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor"><code class="docutils literal notranslate"><span class="pre">ConsoleColor</span></code></a><ul>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BG_BLACK"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BG_BLACK</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BG_BLUE"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BG_BLUE</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BG_CYAN"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BG_CYAN</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BG_DEFAULT"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BG_DEFAULT</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BG_GREEN"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BG_GREEN</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BG_MAGENTA"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BG_MAGENTA</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BG_RED"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BG_RED</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BG_WHITE"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BG_WHITE</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BG_YELLOW"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BG_YELLOW</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BLACK"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BLACK</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BLUE"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BLUE</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BOLD"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BOLD</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.COLOR_DEFAULT"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.COLOR_DEFAULT</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.CYAN"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.CYAN</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.GREEN"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.GREEN</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.INVISIBLE"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.INVISIBLE</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.MAGENTA"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.MAGENTA</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.RED"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.RED</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.RESET"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.RESET</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.REVERCE"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.REVERCE</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.UNDERLINE"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.UNDERLINE</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.WHITE"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.WHITE</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.constants.ConsoleColor.YELLOW"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.YELLOW</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-flaretool.enums">flaretool.enums module</a><ul>
 <li><a class="reference internal" href="#flaretool.enums.Algo"><code class="docutils literal notranslate"><span class="pre">Algo</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.enums.Algo.md5"><code class="docutils literal notranslate"><span class="pre">Algo.md5</span></code></a></li>
@@ -115,8 +144,12 @@
 <li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday.common">flaretool.holiday.common module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.get_business_date_range"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_business_date_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.get_date_information"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_date_information()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.get_holiday_name"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_holiday_name()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.get_holidays_in_range"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_holidays_in_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.get_last_business_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_last_business_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.get_last_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_last_day()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_autumn_equinox"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_autumn_equinox()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_childrens_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_childrens_day()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_coming_of_age_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_coming_of_age_day()</span></code></a></li>
@@ -134,14 +167,20 @@
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_showa_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_showa_day()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_spring_equinox"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_spring_equinox()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_transfer_holiday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_transfer_holiday()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.print_calendar"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.print_calendar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.week_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.week_day()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_business_date_range"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_business_date_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_date_information"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_date_information()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_holiday_name"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_holiday_name()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_holidays_in_range"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_holidays_in_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_last_business_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_last_business_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_last_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_last_day()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_autumn_equinox"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_autumn_equinox()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_childrens_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_childrens_day()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_coming_of_age_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_coming_of_age_day()</span></code></a></li>
@@ -159,6 +198,8 @@
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_showa_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_showa_day()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_spring_equinox"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_spring_equinox()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_transfer_holiday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_transfer_holiday()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.print_calendar"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.print_calendar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.week_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.week_day()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -216,6 +257,130 @@
 </section>
 <section id="module-flaretool.common">
 <span id="flaretool-common-module"></span><h2>flaretool.common module<a class="headerlink" href="#module-flaretool.common" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-flaretool.constants">
+<span id="flaretool-constants-module"></span><h2>flaretool.constants module<a class="headerlink" href="#module-flaretool.constants" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.constants.</span></span><span class="sig-name descname"><span class="pre">ConsoleColor</span></span><a class="headerlink" href="#flaretool.constants.ConsoleColor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_BLACK">
+<span class="sig-name descname"><span class="pre">BG_BLACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[40m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_BLACK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_BLUE">
+<span class="sig-name descname"><span class="pre">BG_BLUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[44m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_BLUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_CYAN">
+<span class="sig-name descname"><span class="pre">BG_CYAN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[46m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_CYAN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_DEFAULT">
+<span class="sig-name descname"><span class="pre">BG_DEFAULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[49m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_DEFAULT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_GREEN">
+<span class="sig-name descname"><span class="pre">BG_GREEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[42m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_GREEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_MAGENTA">
+<span class="sig-name descname"><span class="pre">BG_MAGENTA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[45m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_MAGENTA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_RED">
+<span class="sig-name descname"><span class="pre">BG_RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[41m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_RED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_WHITE">
+<span class="sig-name descname"><span class="pre">BG_WHITE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[47m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_WHITE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_YELLOW">
+<span class="sig-name descname"><span class="pre">BG_YELLOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[43m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_YELLOW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BLACK">
+<span class="sig-name descname"><span class="pre">BLACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[30m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BLACK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BLUE">
+<span class="sig-name descname"><span class="pre">BLUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[34m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BLUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BOLD">
+<span class="sig-name descname"><span class="pre">BOLD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[1m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BOLD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.COLOR_DEFAULT">
+<span class="sig-name descname"><span class="pre">COLOR_DEFAULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[39m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.COLOR_DEFAULT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.CYAN">
+<span class="sig-name descname"><span class="pre">CYAN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[36m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.CYAN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.GREEN">
+<span class="sig-name descname"><span class="pre">GREEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[32m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.GREEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.INVISIBLE">
+<span class="sig-name descname"><span class="pre">INVISIBLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[08m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.INVISIBLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.MAGENTA">
+<span class="sig-name descname"><span class="pre">MAGENTA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[35m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.MAGENTA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.RED">
+<span class="sig-name descname"><span class="pre">RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[31m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.RED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.RESET">
+<span class="sig-name descname"><span class="pre">RESET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[0m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.RESET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.REVERCE">
+<span class="sig-name descname"><span class="pre">REVERCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[07m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.REVERCE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.UNDERLINE">
+<span class="sig-name descname"><span class="pre">UNDERLINE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[4m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.UNDERLINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.WHITE">
+<span class="sig-name descname"><span class="pre">WHITE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[37m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.WHITE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.YELLOW">
+<span class="sig-name descname"><span class="pre">YELLOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[33m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.YELLOW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-flaretool.enums">
 <span id="flaretool-enums-module"></span><h2>flaretool.enums module<a class="headerlink" href="#module-flaretool.enums" title="Permalink to this heading">¶</a></h2>

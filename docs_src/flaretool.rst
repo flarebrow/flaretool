@@ -38,6 +38,14 @@ flaretool.common module
    :undoc-members:
    :show-inheritance:
 
+flaretool.constants module
+--------------------------
+
+.. automodule:: flaretool.constants
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 flaretool.enums module
 ----------------------
 
