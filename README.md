@@ -26,7 +26,7 @@ pip install flaretool
 pip install -i https://test.pypi.org/simple/ flaretool
 ```
 
-## usage
+## NetTool usage
 
 [NetTool Doc](https://flarebrow.github.io/flaretool/flaretool.nettool.html)
 
@@ -35,17 +35,59 @@ pip install -i https://test.pypi.org/simple/ flaretool
 ```python
 from flaretool import nettool
 
-network_info = nettool.get_global_ipaddr_info()
-print("=== Your IP Infomation ===")
-print("ip:", network_info.ipaddr)
-print("hostname:", network_info.hostname)
-print("country:", network_info.country)
+# 指定されたIPアドレスの情報を取得する例
+ip_info = nettool.get_global_ipaddr_info("192.168.0.1")
+print("ip:", ip_info.ipaddr)
+print("hostname:", ip_info.hostname)
+print("country:", ip_info.country)
+# 出力例：
+# ip: 192.168.0.1
+# hostname: 192.168.0.1
+# country: None
+
+# ドメイン名からIPアドレスを取得する例
+ip_address = nettool.lookup_ip("example.com")
+print(ip_address)  # 123.456.789
+
+# IPアドレスからドメイン名を取得する例
+domain_name = nettool.lookup_domain("1.1.1.1")
+print(domain_name)  # one.one.one.one
+
+# 指定されたIPアドレスが指定されたネットワークに属しているかどうかを判定する例
+allowed_networks = ["192.168.0.0/24", "10.0.0.0/16"]
+is_allowed = nettool.is_ip_in_allowed_networks(
+    "192.168.0.100", allowed_networks)
+print(is_allowed)  # True
+
+# 指定されたドメイン名が存在するかどうかを判定する例
+domain_exists = nettool.domain_exists("example.com")
+print(domain_exists)  # True
+
+# 日本のIPアドレスのリストを取得する例
+japan_ips = nettool.get_japanip_list()
+print(japan_ips)
+
+# 指定されたアドレスが日本のIPアドレスか確認する例
+is_japan = nettool.is_japan_ip("203.0.113.1")
+print(is_japan)  # False
+
+# 日本語を含むドメインをpunycodeに変換する例
+puny_info = nettool.get_puny_code("日本語ドメイン.jp")
+print("originalvalue:", puny_info.originalvalue)
+print("encodevalue:", puny_info.encodevalue)
+print("decodevalue=:", puny_info.decodevalue)
+# 出力例：
+# originalvalue: 日本語ドメイン.jp
+# encodevalue: xn--eckwd4c7c5976acvb2w6i.jp
+# decodevalue=: 日本語ドメイン.jp
 ```
 
 ### NetTool Command sample
 
 ```bash
 flaretool nettool get_global_ipaddr_info
+# usage
+# flaretool nettool {FunctionName} [args...]
 ```
 
 All methods within Netttol can be executed as commands.
@@ -55,4 +97,41 @@ All methods within Netttol can be executed as commands.
 
 ```bash
 flaretool -h
+```
+
+## JapaneseHoliday usage
+
+```python
+from flaretool.holiday import JapaneseHolidays
+
+# JapaneseHolidaysクラスのインスタンスを作成
+holidays = JapaneseHolidays()
+
+# 特定の日付が祝日かどうかを判定
+date = datetime.date(2023, 1, 1)
+is_holiday = holidays.get_holiday_name(date)
+print(is_holiday)  # "元日" が出力される
+
+# 特定の期間内の祝日一覧を取得
+start_date = datetime.date(2023, 1, 1)
+end_date = datetime.date(2023, 12, 31)
+holiday_list = holidays.get_holidays_in_range(start_date, end_date)
+for holiday in holiday_list:
+    print(holiday)
+# 出力例:
+# ("元日", datetime.date(2023, 1, 1))
+# ('元日（振替休日）', datetime.date(2023, 1, 2))
+# ("成人の日", datetime.date(2023, 1, 9))
+# ("建国記念の日", datetime.date(2023, 2, 11))
+# ...
+
+# 特定期間内の営業日のリストを取得
+business_days = holidays.get_business_date_range(start_date, end_date)
+for business_day in business_days:
+    print(business_day)
+# 出力例:
+# 2023-01-03
+# 2023-01-04
+# 2023-01-05
+# ...
 ```
