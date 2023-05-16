@@ -8,9 +8,10 @@ class JapaneseHolidays:
     """
     日本の祝日を取得するクラス
     """
+    _additional_holidays: dict[datetime.date, str]
 
     def __init__(self):
-        pass
+        self._additional_holidays = {}
 
     def is_new_year(self, date: datetime.date) -> bool:
         """
@@ -252,6 +253,28 @@ class JapaneseHolidays:
             return True if self.get_holiday_name(previous_date) else False
         return False
 
+    def is_additional_holiday(self, date: datetime.date) -> bool:
+        """
+        追加休日チェック
+
+        Args:
+            date (datetime.date): 日付
+
+        Returns:
+            bool: 追加休日の場合はTrue、そうでない場合はFalse
+        """
+        return date in self._additional_holidays.keys()
+
+    def set_additional_holiday(self, name: str, date: datetime.date):
+        """
+        独自の休日を追加
+
+        Args:
+            name (str): 休日名
+            date (datetime.date): 休日の日付
+        """
+        self._additional_holidays[date] = name
+
     def week_day(self, date: datetime.date, week: int, weekday: int) -> datetime.date:
         """
         指定された日付の週と曜日に該当する日付を取得
@@ -350,8 +373,35 @@ class JapaneseHolidays:
             return "天皇誕生日"
         elif self.is_transfer_holiday(date):
             return self.get_holiday_name(date - datetime.timedelta(days=1)) + "（振替休日）"
+        elif self.is_additional_holiday(date):
+            return self._additional_holidays.get(date)
         else:
             return None
+
+    def get_rest_days_in_range(self, start_date: datetime.date, end_date: datetime.date) -> list[tuple[str, datetime.datetime]]:
+        """
+        特定の期間内の休みの一覧を取得（土日含む）
+
+        Args:
+            start_date (datetime.date): 開始日
+            end_date (datetime.date): 終了日
+
+        Returns:
+            list[tuple[str, datetime.datetime]]: 休み一覧
+        """
+        holidays = []
+        current_date = start_date
+        while current_date <= end_date:
+            if current_date.weekday() == 5:
+                holidays.append(("土曜日", current_date))
+            elif current_date.weekday() == 6:
+                holidays.append(("日曜日", current_date))
+            else:
+                holiday_name = self.get_holiday_name(current_date)
+                if holiday_name is not None:
+                    holidays.append((holiday_name, current_date))
+            current_date += datetime.timedelta(days=1)
+        return holidays
 
     def get_holidays_in_range(self, start_date: datetime.date, end_date: datetime.date) -> list[tuple[str, datetime.datetime]]:
         """
@@ -396,7 +446,7 @@ class JapaneseHolidays:
 
     def get_last_business_day(self, date: datetime.date) -> datetime.date:
         """
-        指定された日付から最終営業日を取得
+        指定された月の最終営業日を取得
 
         Args:
             date (datetime.date): 日付
@@ -458,7 +508,7 @@ class JapaneseHolidays:
             date (datetime.date): 日付
 
         Returns:
-            tuple: 週番号(int)、曜日(str)、曜日(int)、祝日の名称(str)のタプル
+            tuple: 週番号(int)(0-4)、曜日(str)、曜日(int)(0-6)、祝日の名称(str)のタプル
         """
         _, last_day = calendar.monthrange(date.year, date.month)
         first_day = datetime.date(date.year, date.month, 1)
