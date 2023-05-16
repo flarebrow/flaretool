@@ -22,7 +22,7 @@ pip install -i https://test.pypi.org/simple/ flaretool
 
 ## NetTool usage
 
-[NetTool Doc](https://flarebrow.github.io/flaretool/flaretool.nettool.html)
+[NetTool Usage](https://flarebrow.github.io/flaretool/flaretool.nettool.html)
 
 
 ### NetTool sample
@@ -94,6 +94,8 @@ flaretool nettool -h
 ```
 
 ## JapaneseHoliday usage
+
+[Holiday Usage](https://flarebrow.github.io/flaretool/flaretool.holiday.html#module-flaretool.holiday)
 
 ```python
 from flaretool.holiday import JapaneseHolidays
