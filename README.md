@@ -97,6 +97,7 @@ flaretool nettool -h
 
 ```python
 from flaretool.holiday import JapaneseHolidays
+import datetime
 
 # JapaneseHolidaysクラスのインスタンスを作成
 holidays = JapaneseHolidays()
