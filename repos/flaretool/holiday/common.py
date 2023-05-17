@@ -6,7 +6,7 @@ import calendar
 
 class JapaneseHolidays:
     """
-    日本の祝日を取得するクラス
+    日本の祝日を管理するクラス
     """
     _additional_holidays: dict[datetime.date, str]
 
