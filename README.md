@@ -23,10 +23,10 @@ pip install -i https://test.pypi.org/simple/ flaretool
 
 ## NetTool usage
 
-[NetTool Usage](https://flarebrow.github.io/flaretool/flaretool.nettool.html)
+[NetTool Usage Document](https://flarebrow.github.io/flaretool/flaretool.nettool.html)
 
 
-### NetTool sample
+### NetTool Examples of usage
 ```python
 from flaretool import nettool
 
@@ -77,7 +77,7 @@ print("decodevalue=:", puny_info.decodevalue)
 # decodevalue=: 日本語ドメイン.jp
 ```
 
-### NetTool Command sample
+### NetTool Command Examples of usage
 
 ```bash
 flaretool nettool get_global_ipaddr_info
@@ -94,9 +94,9 @@ All methods within Netttol can be executed as commands.
 flaretool nettool -h
 ```
 
-## JapaneseHoliday usage
+## JapaneseHoliday Examples of usage
 
-[Holiday Usage](https://flarebrow.github.io/flaretool/flaretool.holiday.html#module-flaretool.holiday)
+[Holiday Usage Document](https://flarebrow.github.io/flaretool/flaretool.holiday.html#module-flaretool.holiday)
 
 ```python
 from flaretool.holiday import JapaneseHolidays
