@@ -2,7 +2,8 @@
 
 **flaretool** is flarebrow Library.
 
-![](https://img.shields.io/badge/python-%3E%3D3.9-blue)
+[![python](https://img.shields.io/badge/python-%3E%3D3.9-blue)](https://github.com/flarebrow/flaretool)
+[![Downloads](https://static.pepy.tech/badge/flaretool)](https://pepy.tech/project/flaretool)
 
 [API Doc](https://flarebrow.github.io/flaretool/)
 
