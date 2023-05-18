@@ -70,11 +70,11 @@ print(is_japan)  # False
 puny_info = nettool.get_puny_code("日本語ドメイン.jp")
 print("originalvalue:", puny_info.originalvalue)
 print("encodevalue:", puny_info.encodevalue)
-print("decodevalue=:", puny_info.decodevalue)
+print("decodevalue:", puny_info.decodevalue)
 # 出力例：
 # originalvalue: 日本語ドメイン.jp
 # encodevalue: xn--eckwd4c7c5976acvb2w6i.jp
-# decodevalue=: 日本語ドメイン.jp
+# decodevalue: 日本語ドメイン.jp
 ```
 
 ### NetTool Command Examples of usage
