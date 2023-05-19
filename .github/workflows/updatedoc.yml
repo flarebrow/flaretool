@@ -19,9 +19,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: git pull
-        run: |
-          git pull
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
