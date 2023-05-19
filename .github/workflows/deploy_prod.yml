@@ -46,6 +46,6 @@ jobs:
         run: |
           echo "${PYPI_TOKEN}"
         env:
-          PYPI_TOKEN: ${{ secrets.TEST }}
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
       
           
