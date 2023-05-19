@@ -5,6 +5,7 @@ on:
   repository_dispatch:
     types:
       - updatedocs
+  workflow_call:
   # push:
   #   branches: [ main ]
 jobs:
