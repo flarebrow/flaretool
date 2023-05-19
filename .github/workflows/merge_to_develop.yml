@@ -23,7 +23,7 @@ jobs:
       - name: Merge to develop
         run: |
           git checkout develop
-          git merge main
+          git merge main --allow-unrelated-histories
           # マージコミットの作成とプッシュ
           git commit -m "Merge main into develop" --allow-empty
           git push origin develop
