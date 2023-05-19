@@ -1,8 +1,11 @@
 name: Merge to develop
 
 on:
-    workflow_dispatch:
-    workflow_call:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  workflow_call:
 
 jobs:
   merge:
