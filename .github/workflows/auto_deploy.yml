@@ -7,4 +7,7 @@ on:
     workflow_dispatch:
 jobs:
     call-workflow:
-        uses: .github/workflows/updatedoc.yml
+        step:
+          - uses: actions/checkout@v3
+          uses: .github/workflows/updatedoc.yml
+
