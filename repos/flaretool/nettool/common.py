@@ -1,10 +1,12 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
-import requests
+import os
+import tempfile
 import socket
 import whois
 import ipaddress
 from .model import IpInfo, PunyDomainInfo
+from flaretool.common import requests
 
 
 def get_global_ipaddr_info(addr: str = None) -> IpInfo:
@@ -25,7 +27,7 @@ def get_global_ipaddr_info(addr: str = None) -> IpInfo:
     return IpInfo(**result)
 
 
-def lookup_ip(domain) -> str:
+def lookup_ip(domain: str) -> str:
     """
     指定されたドメイン名からIPアドレスを取得する関数
 
@@ -43,7 +45,7 @@ def lookup_ip(domain) -> str:
         return None
 
 
-def lookup_domain(ip) -> str:
+def lookup_domain(ip: str) -> str:
     """
     指定されたIPアドレスからドメイン名を取得する関数
 
@@ -133,3 +135,31 @@ def get_puny_code(domain: str) -> PunyDomainInfo:
     """
     result = requests.get(f"https://api.flarebrow.com/v2/puny/{domain}").json()
     return PunyDomainInfo(**result)
+
+
+def get_adhost(domain: str = None) -> list[str]:
+    """
+    広告および危険なホストのリストを取得
+
+    Args:
+        domain (str, optional): 検索ドメイン（デフォルトはNone）
+
+    Returns:
+        list[str]: ホストリスト
+    """
+    url = "https://raw.githubusercontent.com/flarebrow/public/master/Adhost/hostlist.txt"
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+        file_path = os.path.join(temp_dir, os.path.basename(url))
+
+        with open(file_path, "wb") as file:
+            response = requests.get(url)
+            file.write(response.content)
+
+        with open(file_path, "r") as file:
+            file_content_list = [
+                host for host in file.read().splitlines() if "#" not in host]
+            return file_content_list if domain is None else [host for host in file_content_list if domain in host]
+
+
+__all__ = []
