@@ -21,7 +21,7 @@ jobs:
           git config user.email "dummy@dummy"
           git config user.name "github-actions"
           git checkout develop
-          git merge main --allow-unrelated-histories
+          git merge main --allow-unrelated-histories -X ours
           # マージコミットの作成とプッシュ
           git commit -m "Merge main into develop" --allow-empty
           git push origin develop
