@@ -23,4 +23,4 @@ jobs:
       - name: Run custom action
     #     uses: ./.github/workflows/updatedoc.yml
         run: |
-            ls -l
+            ls -la
