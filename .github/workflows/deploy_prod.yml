@@ -2,6 +2,9 @@ name: Deploy Prod
 on:
   workflow_dispatch:
   workflow_call:
+    secrets:
+      PYPI_TOKEN:
+        required: true
 jobs:
   release:
     name: Deploy Prod
@@ -13,6 +16,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: git pull
+        run: |
+          git pull
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -39,4 +46,3 @@ jobs:
           twine upload --repository pypi dist/*
         env:
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
-          

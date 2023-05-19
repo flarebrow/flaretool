@@ -13,7 +13,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-          
+      - name: git pull
+        run: |
+          git pull
       - name: Get previous tag
         id: pre_tag
         run: |

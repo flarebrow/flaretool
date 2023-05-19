@@ -15,17 +15,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       
-      - name: test
-        run: |
-          git fetch
-          git branch -a
-        
       - name: Merge to develop
         run: |
+          git fetch
           git config user.email "dummy@dummy"
           git config user.name "github-actions"
           git checkout develop
-          git merge main --allow-unrelated-histories
+          git merge main --allow-unrelated-histories -X ours
           # マージコミットの作成とプッシュ
           git commit -m "Merge main into develop" --allow-empty
           git push origin develop
