@@ -15,7 +15,7 @@ jobs:
         needs: update-docs
         uses: ./.github/workflows/deploy_prod.yml
         secrets:
-            PYPI_TOKEN: ${{ secrets.TEST }}
+            PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
     update-tag:
         needs: deploy-prod
         uses: ./.github/workflows/tag_update_prod.yml
