@@ -14,6 +14,9 @@ jobs:
           checks: write
           pull-requests: write
         step:
+          - name: checkout
           - uses: actions/checkout@v3
+          - name: call workflow
           uses: .github/workflows/updatedoc.yml
 
+          
