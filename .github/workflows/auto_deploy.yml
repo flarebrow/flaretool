@@ -1,0 +1,24 @@
+name: Auto Deploy
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+on:
+    workflow_dispatch:
+jobs:
+  my-job:
+    name: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      checks: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Run custom action
+        uses: ./updatedoc.yml
