@@ -22,6 +22,8 @@ jobs:
         
       - name: Merge to develop
         run: |
+          git config user.email "dummy@dummy"
+          git config user.name "github-actions"
           git checkout develop
           git merge main --allow-unrelated-histories
           # マージコミットの作成とプッシュ
