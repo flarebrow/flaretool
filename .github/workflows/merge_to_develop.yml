@@ -1,0 +1,22 @@
+name: Merge to develop
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Merge to develop
+        run: |
+          git checkout develop
+          git merge main
+          # マージコミットの作成とプッシュ
+          git commit -m "Merge main into develop" --allow-empty
+          git push origin develop

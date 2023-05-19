@@ -6,20 +6,11 @@ on:
 #       - main
     workflow_dispatch:
 jobs:
-    call-workflow:
-        name: Update Docs
-        runs-on: ubuntu-latest
-        permissions:
-          contents: write
-          checks: write
-          pull-requests: write
-        steps:
-            - name: Checkout
-              uses: actions/checkout@main
-
-            # - name: call workflow
-            #   uses: ./.github/workflows/updatedoc.yml
-    call-workflow2:
+    # version-increment:
+    #     uses: ./.github/workflows/version_increment.yml
+    update-docs:
         uses: ./.github/workflows/updatedoc.yml
+    merge-develop:
+        uses: ./.github/workflows/merge_to_develop.yml
 
 
