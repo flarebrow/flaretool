@@ -7,5 +7,5 @@ on:
     workflow_dispatch:
 jobs:
   updatedoc:
-    uses: flarebrow/flaretool/.github/workflows/updatedocs.yml@main
+    uses: flarebrow/flaretool/.github/workflows/updatedoc.yml@main
 
