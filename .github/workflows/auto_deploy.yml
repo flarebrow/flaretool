@@ -7,6 +7,7 @@ on:
     workflow_dispatch:
 jobs:
   updatedoc:
-    name: ドキュメント アップデート
-    uses: .github/workflows/updatedoc.yml
-
+    runs-on: ubuntu-latest
+    steps:
+      - name: ドキュメント アップデート
+        uses: .github/workflows/updatedoc.yml
