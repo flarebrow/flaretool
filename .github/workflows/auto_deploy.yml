@@ -11,12 +11,12 @@ jobs:
     # update-docs:
     #     needs: version-increment
     #     uses: ./.github/workflows/updatedoc.yml
-    # deploy-prod:
-    #     needs: update-docs
-    #     uses: ./.github/workflows/deploy_prod.yml
-    update-tag:
-        needs: deploy-prod
-        uses: ./.github/workflows/tag_update_prod.yml
+    deploy-prod:
+        # needs: update-docs
+        uses: ./.github/workflows/deploy_prod.yml
+    # update-tag:
+    #     needs: deploy-prod
+    #     uses: ./.github/workflows/tag_update_prod.yml
     # merge-develop:
     #     uses: ./.github/workflows/merge_to_develop.yml
 
