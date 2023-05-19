@@ -15,9 +15,11 @@ jobs:
           pull-requests: write
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@main
 
-            - name: call workflow
-              uses: ./.github/workflows/updatedoc.yml
+            # - name: call workflow
+            #   uses: ./.github/workflows/updatedoc.yml
+    call-workflow2:
+        uses: ./.github/workflows/updatedoc.yml
 
 
