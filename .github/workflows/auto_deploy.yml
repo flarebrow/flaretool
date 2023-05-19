@@ -21,6 +21,9 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Run custom action
-    #     uses: ./.github/workflows/updatedoc.yml
         run: |
-            ls -la
+            ls -la ./.github/workflows/updatedoc.yml
+        
+      - name: Run custom action2
+        uses: ./.github/workflows/updatedoc.yml
+
