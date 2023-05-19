@@ -24,6 +24,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          git pull
           pip install --upgrade setuptools wheel twine
 
       - name: Build package
