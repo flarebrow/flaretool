@@ -22,3 +22,4 @@ jobs:
         
       - name: Run custom action
         uses: ./.github/workflows/updatedoc.yml
+
