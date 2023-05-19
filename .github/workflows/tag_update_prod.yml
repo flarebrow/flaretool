@@ -1,6 +1,7 @@
 name: Update Tag Prod
 on:
   workflow_dispatch:
+  workflow_call:
 jobs:
   release:
     name: Update Tag Prod

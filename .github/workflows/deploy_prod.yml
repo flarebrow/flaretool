@@ -1,6 +1,7 @@
 name: Deploy Prod
 on:
   workflow_dispatch:
+  workflow_call:
 jobs:
   release:
     name: Deploy Prod
@@ -20,22 +21,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install --upgrade setuptools wheel twine sphinx sphinx_rtd_theme
-          pip install -r requirements.txt
-
-      - name: Documnt ReMake
-        run: |
-          export PYTHONPATH=./repos/
-          sphinx-apidoc -f -o ./docs_src ./repos/flaretool
-          sphinx-build ./docs_src ./docs
-
-      - name: Update Document
-        uses: EndBug/add-and-commit@v7
-        with:
-          message: '[actions] auto update'
-          file_pattern: |
-            ./docs_src/*
-            ./docs/*
+          pip install --upgrade setuptools wheel twine
 
       - name: Build package
         run: python setup.py sdist bdist_wheel
@@ -54,22 +40,3 @@ jobs:
         env:
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
           
-      - name: Get previous tag
-        id: pre_tag
-        run: |
-          echo "::set-output name=pre_tag::$(curl -H 'Accept: application/vnd.github.v3+json' -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)"
-      - name: Generate release tag
-        id: release_tag
-        run: |
-          TAG=$(cat version.txt)
-          echo "::set-output name=release_tag::v$TAG"
-      - name: Generate release note
-        id: release_note
-        run: |
-          echo "::set-output name=release_note::$(curl -X POST -H 'Accept: application/vnd.github.v3+json' -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/${{ github.repository }}/releases/generate-notes -d '{"tag_name":"${{ steps.release_tag.outputs.release_tag }}", "previous_tag_name":"${{ steps.pre_tag.outputs.pre_tag }}"}' | jq .body | sed 's/"//g')"
-      - name: Create Release
-        run: |
-          curl -X POST \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -d "{ \"tag_name\": \"${{ steps.release_tag.outputs.release_tag }}\", \"name\": \"Release ${{ steps.release_tag.outputs.release_tag }}\", \"body\": \"https://pypi.org/project/flaretool/ \n\n ${{ steps.release_note.outputs.release_note }}\"}" \
-            https://api.github.com/repos/${{ github.repository }}/releases

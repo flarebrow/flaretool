@@ -1,6 +1,7 @@
 name: Version Increment
 on:
   workflow_dispatch:
+  workflow_call:
 jobs:
   release:
     name: Release

@@ -7,5 +7,6 @@ on:
     workflow_dispatch:
 jobs:
   updatedoc:
-    uses: flarebrow/flaretool/.github/workflows/updatedoc.yml@main
+    name: ドキュメント アップデート
+    uses: .github/workflows/updatedoc.yml
 
