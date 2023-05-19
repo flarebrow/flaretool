@@ -7,10 +7,4 @@ on:
     workflow_dispatch:
 jobs:
   updatedoc:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: ドキュメント アップデート
-        uses: .github/workflows/updatedoc.yml
+    uses: .github/workflows/updatedoc.yml
