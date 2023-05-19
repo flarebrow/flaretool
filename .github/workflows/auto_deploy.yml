@@ -6,5 +6,5 @@ on:
 #       - main
     workflow_dispatch:
 jobs:
-  call-workflow:
-    uses: .github/workflows/updatedoc.yml
+    call-workflow:
+        uses: .github/workflows/updatedoc.yml
