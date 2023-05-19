@@ -20,6 +20,7 @@ jobs:
         needs: deploy-prod
         uses: ./.github/workflows/tag_update_prod.yml
     merge-develop:
+        needs: update-tag
         uses: ./.github/workflows/merge_to_develop.yml
 
 
