@@ -14,29 +14,35 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
+      # - name: Set up Python
+      #   uses: actions/setup-python@v2
+      #   with:
+      #     python-version: 3.x
 
-      - name: Install dependencies
+      # - name: Install dependencies
+      #   run: |
+      #     pip install --upgrade setuptools wheel twine
+
+      # - name: Build package
+      #   run: python setup.py sdist bdist_wheel
+
+      # - name: Publish to pypi.org
+      #   run: |
+      #     echo "[distutils]
+      #     index-servers =
+      #         pypi
+
+      #     [pypi]
+      #     repository = https://upload.pypi.org/legacy/
+      #     username = __token__
+      #     password = ${PYPI_TOKEN}" > ~/.pypirc
+      #     twine upload --repository pypi dist/*
+      #   env:
+      #     PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+      - name: ENV CHECK
         run: |
-          pip install --upgrade setuptools wheel twine
-
-      - name: Build package
-        run: python setup.py sdist bdist_wheel
-
-      - name: Publish to pypi.org
-        run: |
-          echo "[distutils]
-          index-servers =
-              pypi
-
-          [pypi]
-          repository = https://upload.pypi.org/legacy/
-          username = __token__
-          password = ${PYPI_TOKEN}" > ~/.pypirc
-          twine upload --repository pypi dist/*
+          echo "${PYPI_TOKEN}"
         env:
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+          PYPI_TOKEN: ${{ secrets.TEST }}
+      
           
