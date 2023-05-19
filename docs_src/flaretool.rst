@@ -70,6 +70,14 @@ flaretool.settings module
    :undoc-members:
    :show-inheritance:
 
+flaretool.utills module
+-----------------------
+
+.. automodule:: flaretool.utills
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

@@ -4,13 +4,15 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool package &mdash; flaretool 0.1.17 documentation</title>
+  <title>flaretool package &mdash; flaretool 0.1.19 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -98,6 +100,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#module-flaretool.settings">flaretool.settings module</a></li>
+<li><a class="reference internal" href="#module-flaretool.utills">flaretool.utills module</a></li>
 <li><a class="reference internal" href="#module-flaretool">Module contents</a></li>
 </ul>
 </li>
@@ -135,8 +138,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.funcs.html">flaretool.funcs package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.hash">flaretool.funcs.hash module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.tracking">flaretool.funcs.tracking module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.hash">flaretool.funcs.hash module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.hash.get_hash"><code class="docutils literal notranslate"><span class="pre">get_hash()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.tracking">flaretool.funcs.tracking module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.tracking.yamato"><code class="docutils literal notranslate"><span class="pre">yamato()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs">Module contents</a></li>
 </ul>
 </li>
@@ -214,17 +223,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.nettool.html">flaretool.nettool package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#module-flaretool.nettool.common">flaretool.nettool.common module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.common.domain_exists"><code class="docutils literal notranslate"><span class="pre">domain_exists()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.common.get_global_ipaddr_info"><code class="docutils literal notranslate"><span class="pre">get_global_ipaddr_info()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.common.get_japanip_list"><code class="docutils literal notranslate"><span class="pre">get_japanip_list()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.common.get_puny_code"><code class="docutils literal notranslate"><span class="pre">get_puny_code()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.common.is_ip_in_allowed_networks"><code class="docutils literal notranslate"><span class="pre">is_ip_in_allowed_networks()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.common.is_japan_ip"><code class="docutils literal notranslate"><span class="pre">is_japan_ip()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.common.lookup_domain"><code class="docutils literal notranslate"><span class="pre">lookup_domain()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.common.lookup_ip"><code class="docutils literal notranslate"><span class="pre">lookup_ip()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#module-flaretool.nettool.common">flaretool.nettool.common module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#module-flaretool.nettool.model">flaretool.nettool.model module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.model.BaseDataModel"><code class="docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.model.IpInfo"><code class="docutils literal notranslate"><span class="pre">IpInfo</span></code></a><ul>
@@ -241,7 +240,30 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#module-flaretool.nettool">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#module-flaretool.nettool">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.IpInfo"><code class="docutils literal notranslate"><span class="pre">IpInfo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.IpInfo.country"><code class="docutils literal notranslate"><span class="pre">IpInfo.country</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.IpInfo.hostname"><code class="docutils literal notranslate"><span class="pre">IpInfo.hostname</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.IpInfo.ipaddr"><code class="docutils literal notranslate"><span class="pre">IpInfo.ipaddr</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.PunyDomainInfo"><code class="docutils literal notranslate"><span class="pre">PunyDomainInfo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.PunyDomainInfo.decodevalue"><code class="docutils literal notranslate"><span class="pre">PunyDomainInfo.decodevalue</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.PunyDomainInfo.encodevalue"><code class="docutils literal notranslate"><span class="pre">PunyDomainInfo.encodevalue</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.PunyDomainInfo.originalvalue"><code class="docutils literal notranslate"><span class="pre">PunyDomainInfo.originalvalue</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.domain_exists"><code class="docutils literal notranslate"><span class="pre">domain_exists()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.get_adhost"><code class="docutils literal notranslate"><span class="pre">get_adhost()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.get_global_ipaddr_info"><code class="docutils literal notranslate"><span class="pre">get_global_ipaddr_info()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.get_japanip_list"><code class="docutils literal notranslate"><span class="pre">get_japanip_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.get_puny_code"><code class="docutils literal notranslate"><span class="pre">get_puny_code()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.is_ip_in_allowed_networks"><code class="docutils literal notranslate"><span class="pre">is_ip_in_allowed_networks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.is_japan_ip"><code class="docutils literal notranslate"><span class="pre">is_japan_ip()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.lookup_domain"><code class="docutils literal notranslate"><span class="pre">lookup_domain()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.lookup_ip"><code class="docutils literal notranslate"><span class="pre">lookup_ip()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -445,6 +467,9 @@
 </section>
 <section id="module-flaretool.settings">
 <span id="flaretool-settings-module"></span><h2>flaretool.settings module<a class="headerlink" href="#module-flaretool.settings" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-flaretool.utills">
+<span id="flaretool-utills-module"></span><h2>flaretool.utills module<a class="headerlink" href="#module-flaretool.utills" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="module-flaretool">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-flaretool" title="Permalink to this heading">¶</a></h2>
