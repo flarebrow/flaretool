@@ -14,9 +14,6 @@ def get_hash(value: str, algo: Algo = Algo.md5):
     Returns:
         str: ハッシュ値の文字列
 
-    Raises:
-        ValueError: サポートされていないハッシュアルゴリズムが指定された場合
-
     Examples:
         >>> get_hash("Hello, World!")
         '6cd3556deb0da54bca060b4c39479839'
@@ -35,4 +32,4 @@ def get_hash(value: str, algo: Algo = Algo.md5):
     return hash_val
 
 
-__all__ = []
+__all__ = ["get_hash"]

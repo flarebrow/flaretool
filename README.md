@@ -16,11 +16,6 @@ This library is under development and may exhibit unexpected behavior. New featu
 pip install flaretool
 ```
 
-## install (dev)
-```bash
-pip install -i https://test.pypi.org/simple/ flaretool
-```
-
 ## NetTool usage
 
 [NetTool Usage Document](https://flarebrow.github.io/flaretool/flaretool.nettool.html)
@@ -118,7 +113,7 @@ for holiday in holiday_list:
     print(holiday)
 # 出力例:
 # ("元日", datetime.date(2023, 1, 1))
-# ('元日（振替休日）', datetime.date(2023, 1, 2))
+# ("元日（振替休日）", datetime.date(2023, 1, 2))
 # ("成人の日", datetime.date(2023, 1, 9))
 # ("建国記念の日", datetime.date(2023, 2, 11))
 # ...
