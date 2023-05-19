@@ -1,32 +1,11 @@
 name: Auto Deploy
 
-# on:
+on:
 #   push:
 #     branches:
 #       - main
-
-on:
     workflow_dispatch:
 jobs:
-  my-job:
-    name: deploy
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      checks: write
-      pull-requests: write
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      
-      - name: Checkout code
-        uses: actions/checkout@v2
-        
-      - name: Run custom action
-        run: |
-            ls -la ./.github/workflows/updatedoc.yml
-        
-  call-workflow:
-    uses: ./.github/workflows/updatedoc.yml
+  updatedoc:
+    uses: flarebrow/flaretool/.github/workflows/updatedocs.yml@main
 
