@@ -15,13 +15,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       
-      - name: test
-        run: |
-          git fetch
-          git branch -a
-        
       - name: Merge to develop
         run: |
+          git fetch
           git config user.email "dummy@dummy"
           git config user.name "github-actions"
           git checkout develop
