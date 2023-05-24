@@ -5,10 +5,11 @@ flaretool python module
 [Terms of service](https://main.flarebrow.com/terms)
 """
 from flaretool.VERSION import VERSION
-from flaretool import settings
 from flaretool import nettool
+from flaretool.settings import get_settings
 
-api_key: str = None
+settings = get_settings()
+api_key: str = settings.api_key
 
 
 def get_lib_version():
