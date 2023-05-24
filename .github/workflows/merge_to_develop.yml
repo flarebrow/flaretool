@@ -17,7 +17,6 @@ jobs:
       
       # - name: Merge to develop
       #   run: |
-      #     git fetch
       #     git config user.email "dummy@dummy"
       #     git config user.name "github-actions"
       #     git checkout develop
@@ -27,7 +26,8 @@ jobs:
       #     git push origin develop
           
       - name: Recreate branch
-        run: |
+      run: |
+          git fetch
           git push origin --delete develop
           git branch develop origin/main
           git push -u origin develop

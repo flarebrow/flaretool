@@ -74,7 +74,7 @@ print("decodevalue:", puny_info.decodevalue)
 # 特定のユーザーエージェントでスクレイピング可否を確認する例
 url = "http://example.com/page.html"
 user_agent = "MyScraperBot"
-allowed = is_scraping_allowed(url, user_agent) # user_agentはオプション引数
+allowed = nettool.is_scraping_allowed(url, user_agent) # user_agentはオプション引数
 if allowed:
     print(f"{url} はユーザーエージェント '{user_agent}' でのスクレイピングが許可されています。")
 else:
