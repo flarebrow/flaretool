@@ -1,4 +1,4 @@
-name: Merge to develop
+name: Recreate develop branch
 
 on:
   push:
@@ -25,8 +25,8 @@ jobs:
       #     git commit -m "Merge main into develop" --allow-empty
       #     git push origin develop
           
-      - name: Recreate branch
-      run: |
+      - name: Recreate develop branch
+        run: |
           git fetch
           git push origin --delete develop
           git branch develop origin/main
