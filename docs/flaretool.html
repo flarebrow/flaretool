@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool package &mdash; flaretool 0.1.20 documentation</title>
+  <title>flaretool package &mdash; flaretool 0.1.21 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -99,7 +99,19 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-flaretool.settings">flaretool.settings module</a></li>
+<li><a class="reference internal" href="#module-flaretool.settings">flaretool.settings module</a><ul>
+<li><a class="reference internal" href="#flaretool.settings.BaseSettings"><code class="docutils literal notranslate"><span class="pre">BaseSettings</span></code></a><ul>
+<li><a class="reference internal" href="#flaretool.settings.BaseSettings.Config"><code class="docutils literal notranslate"><span class="pre">BaseSettings.Config</span></code></a><ul>
+<li><a class="reference internal" href="#flaretool.settings.BaseSettings.Config.env_prefix"><code class="docutils literal notranslate"><span class="pre">BaseSettings.Config.env_prefix</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#flaretool.settings.BaseSettings.api_key"><code class="docutils literal notranslate"><span class="pre">BaseSettings.api_key</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.settings.BaseSettings.get"><code class="docutils literal notranslate"><span class="pre">BaseSettings.get()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#flaretool.settings.get_settings"><code class="docutils literal notranslate"><span class="pre">get_settings()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-flaretool.utills">flaretool.utills module</a></li>
 <li><a class="reference internal" href="#module-flaretool">Module contents</a></li>
 </ul>
@@ -258,8 +270,10 @@
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.get_global_ipaddr_info"><code class="docutils literal notranslate"><span class="pre">get_global_ipaddr_info()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.get_japanip_list"><code class="docutils literal notranslate"><span class="pre">get_japanip_list()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.get_puny_code"><code class="docutils literal notranslate"><span class="pre">get_puny_code()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.get_robots_txt_url"><code class="docutils literal notranslate"><span class="pre">get_robots_txt_url()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.is_ip_in_allowed_networks"><code class="docutils literal notranslate"><span class="pre">is_ip_in_allowed_networks()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.is_japan_ip"><code class="docutils literal notranslate"><span class="pre">is_japan_ip()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.is_scraping_allowed"><code class="docutils literal notranslate"><span class="pre">is_scraping_allowed()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.lookup_domain"><code class="docutils literal notranslate"><span class="pre">lookup_domain()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.lookup_ip"><code class="docutils literal notranslate"><span class="pre">lookup_ip()</span></code></a></li>
 </ul>
@@ -414,8 +428,9 @@
 <span id="flaretool-enums-module"></span><h2>flaretool.enums module<a class="headerlink" href="#module-flaretool.enums" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="flaretool.enums.Algo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.enums.</span></span><span class="sig-name descname"><span class="pre">Algo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.enums.Algo" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.enums.</span></span><span class="sig-name descname"><span class="pre">Algo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.enums.Algo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.enums.Algo.md5">
 <span class="sig-name descname"><span class="pre">md5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'md5'</span></em><a class="headerlink" href="#flaretool.enums.Algo.md5" title="Permalink to this definition">¶</a></dt>
@@ -443,13 +458,13 @@
 <span id="flaretool-error-module"></span><h2>flaretool.error module<a class="headerlink" href="#module-flaretool.error" title="Permalink to this heading">¶</a></h2>
 <dl class="py exception">
 <dt class="sig sig-object py" id="flaretool.error.AuthenticationError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.error.</span></span><span class="sig-name descname"><span class="pre">AuthenticationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.error.AuthenticationError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.error.</span></span><span class="sig-name descname"><span class="pre">AuthenticationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.error.AuthenticationError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flaretool.error.FlareToolError" title="flaretool.error.FlareToolError"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlareToolError</span></code></a></p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="flaretool.error.FlareToolError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.error.</span></span><span class="sig-name descname"><span class="pre">FlareToolError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.error.FlareToolError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.error.</span></span><span class="sig-name descname"><span class="pre">FlareToolError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.error.FlareToolError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 </dd></dl>
 
@@ -467,6 +482,38 @@
 </section>
 <section id="module-flaretool.settings">
 <span id="flaretool-settings-module"></span><h2>flaretool.settings module<a class="headerlink" href="#module-flaretool.settings" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="flaretool.settings.BaseSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.settings.</span></span><span class="sig-name descname"><span class="pre">BaseSettings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_env_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'&lt;object</span> <span class="pre">object&gt;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_file_encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_nested_delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_secrets_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.settings.BaseSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseSettings</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="flaretool.settings.BaseSettings.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#flaretool.settings.BaseSettings.Config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.settings.BaseSettings.Config.env_prefix">
+<span class="sig-name descname"><span class="pre">env_prefix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#flaretool.settings.BaseSettings.Config.env_prefix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.settings.BaseSettings.api_key">
+<span class="sig-name descname"><span class="pre">api_key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.settings.BaseSettings.api_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.settings.BaseSettings.get">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.settings.BaseSettings.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flaretool.settings.get_settings">
+<span class="sig-prename descclassname"><span class="pre">flaretool.settings.</span></span><span class="sig-name descname"><span class="pre">get_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.settings.get_settings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </section>
 <section id="module-flaretool.utills">
 <span id="flaretool-utills-module"></span><h2>flaretool.utills module<a class="headerlink" href="#module-flaretool.utills" title="Permalink to this heading">¶</a></h2>

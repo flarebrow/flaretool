@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool.nettool package &mdash; flaretool 0.1.20 documentation</title>
+  <title>flaretool.nettool package &mdash; flaretool 0.1.21 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -79,8 +79,10 @@
 <li><a class="reference internal" href="#flaretool.nettool.get_global_ipaddr_info"><code class="docutils literal notranslate"><span class="pre">get_global_ipaddr_info()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.get_japanip_list"><code class="docutils literal notranslate"><span class="pre">get_japanip_list()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.get_puny_code"><code class="docutils literal notranslate"><span class="pre">get_puny_code()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.nettool.get_robots_txt_url"><code class="docutils literal notranslate"><span class="pre">get_robots_txt_url()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.is_ip_in_allowed_networks"><code class="docutils literal notranslate"><span class="pre">is_ip_in_allowed_networks()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.is_japan_ip"><code class="docutils literal notranslate"><span class="pre">is_japan_ip()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.nettool.is_scraping_allowed"><code class="docutils literal notranslate"><span class="pre">is_scraping_allowed()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.lookup_domain"><code class="docutils literal notranslate"><span class="pre">lookup_domain()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.lookup_ip"><code class="docutils literal notranslate"><span class="pre">lookup_ip()</span></code></a></li>
 </ul>
@@ -235,7 +237,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="flaretool.nettool.get_adhost">
-<span class="sig-prename descclassname"><span class="pre">flaretool.nettool.</span></span><span class="sig-name descname"><span class="pre">get_adhost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#flaretool.nettool.get_adhost" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">flaretool.nettool.</span></span><span class="sig-name descname"><span class="pre">get_adhost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#flaretool.nettool.get_adhost" title="Permalink to this definition">¶</a></dt>
 <dd><p>広告および危険なホストのリストを取得</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -252,7 +254,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="flaretool.nettool.get_global_ipaddr_info">
-<span class="sig-prename descclassname"><span class="pre">flaretool.nettool.</span></span><span class="sig-name descname"><span class="pre">get_global_ipaddr_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#flaretool.nettool.model.IpInfo" title="flaretool.nettool.model.IpInfo"><span class="pre">IpInfo</span></a></span></span><a class="headerlink" href="#flaretool.nettool.get_global_ipaddr_info" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">flaretool.nettool.</span></span><span class="sig-name descname"><span class="pre">get_global_ipaddr_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#flaretool.nettool.model.IpInfo" title="flaretool.nettool.model.IpInfo"><span class="pre">IpInfo</span></a></span></span><a class="headerlink" href="#flaretool.nettool.get_global_ipaddr_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>指定されたグローバルIPアドレスの情報を取得する関数
 (指定がない場合は実行端末のグローバルIPを取得)</p>
 <dl class="field-list simple">
@@ -300,6 +302,23 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="flaretool.nettool.get_robots_txt_url">
+<span class="sig-prename descclassname"><span class="pre">flaretool.nettool.</span></span><span class="sig-name descname"><span class="pre">get_robots_txt_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#flaretool.nettool.get_robots_txt_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>スクレイピング対象URLからrobots.txtファイルのURLを生成</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – スクレイピング対象のURL</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>robots.txtファイルのURL</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="flaretool.nettool.is_ip_in_allowed_networks">
 <span class="sig-prename descclassname"><span class="pre">flaretool.nettool.</span></span><span class="sig-name descname"><span class="pre">is_ip_in_allowed_networks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ipaddr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_networks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.nettool.is_ip_in_allowed_networks" title="Permalink to this definition">¶</a></dt>
 <dd><p>指定されたIPアドレスが指定されたネットワークに属しているかどうかを判定する関数</p>
@@ -329,6 +348,26 @@
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>指定されたIPアドレスが日本のIPの場合はTrue、それ以外の場合はFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flaretool.nettool.is_scraping_allowed">
+<span class="sig-prename descclassname"><span class="pre">flaretool.nettool.</span></span><span class="sig-name descname"><span class="pre">is_scraping_allowed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_agent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'*'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.nettool.is_scraping_allowed" title="Permalink to this definition">¶</a></dt>
+<dd><p>指定されたURLに対してスクレイピングが許可されているかどうかを判定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>str</em>) – スクレイピング対象のURL</p></li>
+<li><p><strong>user_agent</strong> (<em>str</em><em>, </em><em>optional</em>) – 使用するユーザーエージェント デフォルトは”*”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>スクレイピングが許可されている場合はTrue、禁止されている場合はFalse</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
