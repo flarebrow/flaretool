@@ -7,6 +7,8 @@ import whois
 import ipaddress
 from .model import IpInfo, PunyDomainInfo
 from flaretool.common import requests
+from urllib import robotparser
+from urllib.parse import urlparse, urlunparse
 
 
 def get_global_ipaddr_info(addr: str = None) -> IpInfo:
@@ -160,6 +162,41 @@ def get_adhost(domain: str = None) -> list[str]:
             file_content_list = [
                 host for host in file.read().splitlines() if "#" not in host]
             return file_content_list if domain is None else [host for host in file_content_list if domain in host]
+
+
+def get_robots_txt_url(url: str) -> str:
+    """
+    スクレイピング対象URLからrobots.txtファイルのURLを生成
+
+    Args:
+        url (str): スクレイピング対象のURL
+
+    Returns:
+        str: robots.txtファイルのURL
+    """
+    parsed_url = urlparse(url)
+    robots_txt_url = urlunparse(
+        (parsed_url.scheme, parsed_url.netloc, '/robots.txt', '', '', ''))
+    return robots_txt_url
+
+
+def is_scraping_allowed(url: str, user_agent: str = "*") -> bool:
+    """
+    指定されたURLに対してスクレイピングが許可されているかどうかを判定
+
+    Args:
+        url (str): スクレイピング対象のURL
+        user_agent (str, optional): 使用するユーザーエージェント デフォルトは"*"
+
+    Returns:
+        bool: スクレイピングが許可されている場合はTrue、禁止されている場合はFalse
+    """
+    rp = robotparser.RobotFileParser()
+    # robots.txtファイルのURLを設定
+    rp.set_url(get_robots_txt_url(url))
+    rp.read()
+    # 指定されたURLに対するスクレイピングが許可されているかどうかを判断
+    return rp.can_fetch(user_agent, url)
 
 
 __all__ = []

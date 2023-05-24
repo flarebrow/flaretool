@@ -11,6 +11,8 @@ from flaretool.nettool.common import (
     is_japan_ip,
     get_puny_code,
     get_adhost,
+    get_robots_txt_url,
+    is_scraping_allowed,
     IpInfo,
     PunyDomainInfo,
 )
@@ -26,6 +28,8 @@ __all__ = [
     "is_japan_ip",
     "get_puny_code",
     "get_adhost",
+    "get_robots_txt_url",
+    "is_scraping_allowed",
     "IpInfo",
     "PunyDomainInfo",
 ]

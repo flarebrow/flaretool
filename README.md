@@ -70,6 +70,15 @@ print("decodevalue:", puny_info.decodevalue)
 # originalvalue: 日本語ドメイン.jp
 # encodevalue: xn--eckwd4c7c5976acvb2w6i.jp
 # decodevalue: 日本語ドメイン.jp
+
+# 特定のユーザーエージェントでスクレイピング可否を確認する例
+url = "http://example.com/page.html"
+user_agent = "MyScraperBot"
+allowed = is_scraping_allowed(url, user_agent) # user_agentはオプション引数
+if allowed:
+    print(f"{url} はユーザーエージェント '{user_agent}' でのスクレイピングが許可されています。")
+else:
+    print(f"{url} はユーザーエージェント '{user_agent}' でのスクレイピングが禁止されています。")
 ```
 
 ### NetTool Command Examples of usage
