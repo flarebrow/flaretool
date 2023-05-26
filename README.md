@@ -137,3 +137,69 @@ for business_day in business_days:
 # 2023-01-05
 # ...
 ```
+
+# ShortURL Usage
+
+To use this class, you need to set up an API key.
+
+## Configuration API Key
+
+The library you are using relies on an API key to communicate with an external service. To securely store the API key, it needs to be defined either as an environment variable or in a `.env` file or script setting. Please follow the instructions below:
+
+### Using an script setting:
+
+```python
+import flaretool
+flaretool.api_key = "your_api_key_here"
+```
+
+### Using an environment variable:
+   Set the API key as an environment variable using the following variable name:
+   - API_KEY
+
+   Example of defining an environment variable (Linux/macOS):
+   ```bash
+   export API_KEY=your_api_key_here
+   ```
+
+   Example of defining an environment variable (Windows):
+   ```bat
+   set API_KEY=your_api_key_here
+   ```
+
+### Using a `.env` file:
+   Create a `.env` file in the root directory of your project and define the API key as follows:
+   ```env
+   API_KEY=your_api_key_here
+   ```
+   The library will read the API key from the `.env` file.
+
+You need to log in to the external service's account to obtain an API key. Be careful not to share your API key with others, and avoid committing the `.env` file to a public version control system.
+
+Please refer to the documentation of the library you are using to find the specific instructions for setting the API key and the exact name of the environment variable.
+
+## Usage
+
+```python
+from flaretool.shorturl import ShortUrlService
+shorturl = ShortUrlService()
+
+# 新規登録
+result = shorturl.create_short_url("https://example.com")
+print("ShortLink:", result.link)   # https://○○○/○○○
+print("OriginalURL:", result.url)  # https://example.com
+
+# 情報取得
+result = shorturl.get_short_url_info(result.id)[0]
+print("ShortLink:", result.link)   # https://○○○/○○○
+print("OriginalURL:", result.url)  # https://example.com
+
+# 更新
+result.url = "https://example.com/sample"
+result = shorturl.update_short_url(result)
+print("ShortLink:", result.link)   # https://○○○/○○○
+print("OriginalURL:", result.url)  # https://example.com/
+
+# 削除
+shorturl.delete_short_url(result)
+```

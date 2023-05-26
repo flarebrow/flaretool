@@ -1,19 +1,33 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
+"""
+Class for interacting with a short URL service.
+
+Warning:
+    This class may undergo updates and its usage may change in the near future.
+"""
 import flaretool
 from flaretool.error import AuthenticationError
 from flaretool.common import requests
-from .models import ShortInfo, ShortInfoUpdate, UrlInfo, UrlRecode
+from flaretool.shorturl.error import ShortUrlAuthenticationError, ShortUrlDataUpdateError, ShortUrlError
+from .models import ShortUrlInfo
 import warnings
 
 
-class ShortUrl:
-    """Class for interacting with a short URL service."""
+class ShortUrlService:
+    """
+    Class for interacting with a short URL service.
+    WebAPI Wrapper class.
+
+    Warning:
+        This class may undergo updates and its usage may change in the near future.
+    """
 
     base_url = "https://api.flarebrow.com/v2/shorturl"
 
     def __init__(self) -> None:
         """Initialize the ShortUrl class.
+        WebAPI Wrapper class.
 
         Warning:
             This class may undergo updates and its usage may change in the near future.
@@ -25,7 +39,7 @@ class ShortUrl:
                 "No API key provided. You can set your API key in code using 'flaretool.api_key = <API-KEY>', or you can set the environment variable api_key=<API-KEY>). "
             )
 
-    def _request(self, method, data: dict = {}, params: dict = {}) -> dict:
+    def _send_request(self, method, data: dict = {}, params: dict = {}) -> dict:
         """Send a request to the short URL service.
 
         Args:
@@ -35,45 +49,91 @@ class ShortUrl:
 
         Returns:
             dict: Response data from the short URL service.
+
+        Raises:
+            ShortUrlAuthenticationError: If the response code is 401.
+            ShortUrlDataUpdateError: If the response code is 409.
+            ShortUrlError: If the response code is not 200.
         """
         params["apikey"] = flaretool.api_key
-        return requests.request(
+        result = requests.request(
             method,
             self.base_url,
             params=params,
             data=data,
         ).json()
+        response = result["response"]
+        if response == 401:
+            raise ShortUrlAuthenticationError(**result)
+        if response == 409:
+            raise ShortUrlDataUpdateError(**result)
+        if response != 200:
+            raise ShortUrlError(**result)
+        return result
 
-    def get(self, id: int = None) -> ShortInfo:
+    def get_short_url_info(self, id: int = None) -> list[ShortUrlInfo]:
         """Get information about a short URL.
 
         Args:
             id (int): ID of the short URL (default: None).
 
         Returns:
-            ShortInfo: Information about the short URL.
-        """
-        return ShortInfo(**self._request("get", params={"id": id if id is not None else 0}))
+            list[ShortUrlInfo]: Information about the short URL.
 
-    def post(self, url: str) -> ShortInfo:
+        Raises:
+            ShortUrlAuthenticationError: If the response code is 401.
+            ShortUrlDataUpdateError: If the response code is 409.
+            ShortUrlError: If the response code is not 200.
+        """
+        result = self._send_request(
+            "get", params={"id": id if id is not None else 0})["data"]
+        return [ShortUrlInfo(**data) for data in result] if result else []
+
+    def create_short_url(self, url: str) -> ShortUrlInfo:
         """Create a new short URL.
 
         Args:
             url (str): Long URL to be shortened.
 
         Returns:
-            ShortInfo: Information about the created short URL.
-        """
-        return ShortInfo(**self._request("post", data={"url": url}))
+            ShortUrlInfo: Information about the created short URL.
 
-    def put(self, id: int, url_info: UrlInfo) -> ShortInfoUpdate:
+        Raises:
+            ShortUrlAuthenticationError: If the response code is 401.
+            ShortUrlDataUpdateError: If the response code is 409.
+            ShortUrlError: If the response code is not 200.
+        """
+        return ShortUrlInfo(**self._send_request("post", data={"url": url})["data"][0])
+
+    def update_short_url(self, url_info: ShortUrlInfo) -> ShortUrlInfo:
         """Update a short URL.
 
         Args:
-            id (int): ID of the short URL.
-            url_info (UrlInfo): Updated information about the short URL.
+            url_info (ShortUrlInfo): Updated information about the short URL.
 
         Returns:
-            ShortInfoUpdate: Information about the updated short URL.
+            ShortUrlInfo: Information about the updated short URL.
+
+        Raises:
+            ShortUrlAuthenticationError: If the response code is 401.
+            ShortUrlDataUpdateError: If the response code is 409.
+            ShortUrlError: If the response code is not 200.
         """
-        return ShortInfoUpdate(**self._request("put", data=url_info.dict(), params={"id": id}))
+        return ShortUrlInfo(**self._send_request("put", data=url_info.dict(), params={
+            "id": url_info.id})["data"]["after"][0])
+
+    def delete_short_url(self, url_info: ShortUrlInfo) -> ShortUrlInfo:
+        """Delete a short URL.
+
+        Args:
+            url_info (ShortUrlInfo): Updated information about the short URL.
+
+        Returns:
+            ShortUrlInfo: Information about the delete short URL.
+
+        Raises:
+            ShortUrlAuthenticationError: If the response code is 401.
+            ShortUrlDataUpdateError: If the response code is 409.
+            ShortUrlError: If the response code is not 200.
+        """
+        return ShortUrlInfo(**self._send_request("delete", params={"id": url_info.id})["data"][0])
