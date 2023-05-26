@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 class FlareToolError(Exception):
     def __init__(self, message: str = None) -> None:
-        super(FlareToolError).__init__(message)
+        super().__init__(message)
 
 
 class FlareToolNetworkError(FlareToolError):
@@ -14,6 +14,7 @@ class FlareToolNetworkError(FlareToolError):
         json_body=None,
         headers=None,
         code=None,
+        **param,
     ):
         super(FlareToolError, self).__init__(message)
 
@@ -33,8 +34,6 @@ class FlareToolNetworkError(FlareToolError):
         self.headers = headers or {}
         self.code = code
         self.request_id = self.headers.get("request-id", None)
-        # self.error = self.construct_error_object()
-        self.organization = self.headers.get("FlaresApp-organization", None)
 
     def __str__(self):
         msg = self._message or "<empty message>"
@@ -43,10 +42,6 @@ class FlareToolNetworkError(FlareToolError):
         else:
             return msg
 
-    # Returns the underlying `Exception` (base class) message, which is usually
-    # the raw message returned by FlaresApp's API. This was previously available
-    # in python2 via `error.message`. Unlike `str(error)`, it omits "Request
-    # req_..." from the beginning of the string.
     @property
     def user_message(self):
         return self._message
