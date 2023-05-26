@@ -8,10 +8,10 @@ on:
         types: [closed]
     workflow_dispatch:
 jobs:
-    version-increment:
-        uses: ./.github/workflows/version_increment.yml
+    # version-increment:
+    #     uses: ./.github/workflows/version_increment.yml
     update-docs:
-        needs: version-increment
+        # needs: version-increment
         uses: ./.github/workflows/updatedoc.yml
     deploy-prod:
         needs: update-docs
