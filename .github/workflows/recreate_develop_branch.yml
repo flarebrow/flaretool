@@ -1,9 +1,9 @@
 name: Recreate develop branch
 
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
   workflow_dispatch:
   workflow_call:
 
