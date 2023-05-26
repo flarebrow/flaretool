@@ -198,7 +198,7 @@ print("OriginalURL:", result.url)  # https://example.com
 result.url = "https://example.com/sample"
 result = shorturl.update_short_url(result)
 print("ShortLink:", result.link)   # https://○○○/○○○
-print("OriginalURL:", result.url)  # https://example.com/
+print("OriginalURL:", result.url)  # https://example.com/sample
 
 # 削除
 shorturl.delete_short_url(result)
