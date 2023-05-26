@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool.nettool package &mdash; flaretool 0.1.21 documentation</title>
+  <title>flaretool.nettool package &mdash; flaretool 0.1.22 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -46,7 +46,6 @@
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-flaretool.nettool.common">flaretool.nettool.common module</a></li>
 <li><a class="reference internal" href="#module-flaretool.nettool.model">flaretool.nettool.model module</a><ul>
-<li><a class="reference internal" href="#flaretool.nettool.model.BaseDataModel"><code class="docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.model.IpInfo"><code class="docutils literal notranslate"><span class="pre">IpInfo</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.nettool.model.IpInfo.country"><code class="docutils literal notranslate"><span class="pre">IpInfo.country</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.model.IpInfo.hostname"><code class="docutils literal notranslate"><span class="pre">IpInfo.hostname</span></code></a></li>
@@ -126,15 +125,9 @@
 <section id="module-flaretool.nettool.model">
 <span id="flaretool-nettool-model-module"></span><h2>flaretool.nettool.model module<a class="headerlink" href="#module-flaretool.nettool.model" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="flaretool.nettool.model.BaseDataModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.nettool.model.</span></span><span class="sig-name descname"><span class="pre">BaseDataModel</span></span><a class="headerlink" href="#flaretool.nettool.model.BaseDataModel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="flaretool.nettool.model.IpInfo">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.nettool.model.</span></span><span class="sig-name descname"><span class="pre">IpInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipaddr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hostname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.nettool.model.IpInfo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#flaretool.nettool.model.BaseDataModel" title="flaretool.nettool.model.BaseDataModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="flaretool.html#flaretool.basemodels.BaseDataModel" title="flaretool.basemodels.BaseDataModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.nettool.model.IpInfo.country">
 <span class="sig-name descname"><span class="pre">country</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.nettool.model.IpInfo.country" title="Permalink to this definition">¶</a></dt>
@@ -155,7 +148,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="flaretool.nettool.model.PunyDomainInfo">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.nettool.model.</span></span><span class="sig-name descname"><span class="pre">PunyDomainInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">originalvalue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encodevalue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decodevalue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.nettool.model.PunyDomainInfo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#flaretool.nettool.model.BaseDataModel" title="flaretool.nettool.model.BaseDataModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="flaretool.html#flaretool.basemodels.BaseDataModel" title="flaretool.basemodels.BaseDataModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.nettool.model.PunyDomainInfo.decodevalue">
 <span class="sig-name descname"><span class="pre">decodevalue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.nettool.model.PunyDomainInfo.decodevalue" title="Permalink to this definition">¶</a></dt>
@@ -179,7 +172,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="flaretool.nettool.IpInfo">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.nettool.</span></span><span class="sig-name descname"><span class="pre">IpInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipaddr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hostname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.nettool.IpInfo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#flaretool.nettool.model.BaseDataModel" title="flaretool.nettool.model.BaseDataModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="flaretool.html#flaretool.basemodels.BaseDataModel" title="flaretool.basemodels.BaseDataModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.nettool.IpInfo.country">
 <span class="sig-name descname"><span class="pre">country</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.nettool.IpInfo.country" title="Permalink to this definition">¶</a></dt>
@@ -200,7 +193,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="flaretool.nettool.PunyDomainInfo">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.nettool.</span></span><span class="sig-name descname"><span class="pre">PunyDomainInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">originalvalue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encodevalue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decodevalue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.nettool.PunyDomainInfo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#flaretool.nettool.model.BaseDataModel" title="flaretool.nettool.model.BaseDataModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="flaretool.html#flaretool.basemodels.BaseDataModel" title="flaretool.basemodels.BaseDataModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.nettool.PunyDomainInfo.decodevalue">
 <span class="sig-name descname"><span class="pre">decodevalue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.nettool.PunyDomainInfo.decodevalue" title="Permalink to this definition">¶</a></dt>

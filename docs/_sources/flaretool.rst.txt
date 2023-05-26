@@ -10,6 +10,7 @@ Subpackages
    flaretool.funcs
    flaretool.holiday
    flaretool.nettool
+   flaretool.shorturl
 
 Submodules
 ----------
@@ -18,6 +19,14 @@ flaretool.VERSION module
 ------------------------
 
 .. automodule:: flaretool.VERSION
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+flaretool.basemodels module
+---------------------------
+
+.. automodule:: flaretool.basemodels
    :members:
    :undoc-members:
    :show-inheritance:
@@ -42,6 +51,14 @@ flaretool.constants module
 --------------------------
 
 .. automodule:: flaretool.constants
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+flaretool.decorators module
+---------------------------
+
+.. automodule:: flaretool.decorators
    :members:
    :undoc-members:
    :show-inheritance:
