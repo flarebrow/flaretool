@@ -138,7 +138,7 @@ for business_day in business_days:
 # ...
 ```
 
-# Flare Service
+# Flarebrow Service
 
 There are the following services available:
 
