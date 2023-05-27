@@ -138,7 +138,12 @@ for business_day in business_days:
 # ...
 ```
 
-# ShortURL Usage
+# Flare Service
+
+There are the following services available:
+
+1. Short URL service: This service allows you to shorten URLs.
+2. DDNS (Dynamic DNS) service: This service provides Dynamic DNS functionality.
 
 To use this class, you need to set up an API key.
 
@@ -178,7 +183,7 @@ You need to log in to the external service's account to obtain an API key. Be ca
 
 Please refer to the documentation of the library you are using to find the specific instructions for setting the API key and the exact name of the environment variable.
 
-## Usage
+## ShortURL Service Usage
 
 ```python
 from flaretool.shorturl import ShortUrlService
@@ -203,3 +208,16 @@ print("OriginalURL:", result.url)  # https://example.com/sample
 # 削除
 shorturl.delete_short_url(result)
 ```
+
+## DDNS Service Usage
+
+```python
+from flaretool.ddns import DdnsService
+service = DdnsService()
+info = service.update_ddns("example", "192.168.0.100")
+print(info.status)    # successful
+print(info.currentIp) # 192.168.0.99
+print(info.updateIp)  # 192.168.0.100
+print(info.domain)    # example.○○○.○○
+```
+
