@@ -7,6 +7,7 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   flaretool.ddns
    flaretool.funcs
    flaretool.holiday
    flaretool.nettool
