@@ -23,8 +23,6 @@ class ShortUrlService:
         This class may undergo updates and its usage may change in the near future.
     """
 
-    base_url = "https://api.flarebrow.com/v2/shorturl"
-
     def __init__(self) -> None:
         """Initialize the ShortUrl class.
         WebAPI Wrapper class.
@@ -55,10 +53,11 @@ class ShortUrlService:
             ShortUrlDataUpdateError: If the response code is 409.
             ShortUrlError: If the response code is not 200.
         """
+        base_url = "https://api.flarebrow.com/v2/shorturl"
         params["apikey"] = flaretool.api_key
         result = requests.request(
             method,
-            self.base_url,
+            base_url,
             params=params,
             data=data,
         ).json()
