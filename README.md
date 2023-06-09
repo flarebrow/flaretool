@@ -100,7 +100,7 @@ flaretool nettool -h
 
 ## String utills usage
 
-[String Utills Usage Document](https://flarebrow.github.io/flaretool/flaretool.utills.html)
+[String Utills Usage Document](https://flarebrow.github.io/flaretool/flaretool.html#module-flaretool.utills)
 
 ```python
 from flaretool import utills
