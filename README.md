@@ -89,13 +89,51 @@ flaretool nettool get_global_ipaddr_info
 # flaretool nettool {FunctionName} [args...]
 ```
 
-All methods within Netttol can be executed as commands.
+All methods within NetTool can be executed as commands.
 
 
 ### Help Command
 
 ```bash
 flaretool nettool -h
+```
+
+## Utills usage
+
+[Utills Usage Document](https://flarebrow.github.io/flaretool/flaretool.utills.html)
+
+```python
+from flaretool import utills
+from flaretool.utills import ConversionMode
+
+# 文字列変換
+# 半角
+value = "１２３４５６７８９６７８９"
+result = utills.convert_value(value)
+print(result)  # "1234567896789"
+
+# 全角
+value = "Hello"
+result = utills.convert_value(value, ConversionMode.FULL_WIDTH)
+print(result)  # "Ｈｅｌｌｏ"
+
+# 文字列のみ半角
+value = "ＡＢＣａｂｃ１２３"
+result = utills.convert_value(
+    value, ascii=True, digit=False, kana=False)
+print(result)  # "ABCabc１２３"
+
+# 小文字
+value = "ABCabc"
+result = utills.convert_value(
+    value, ConversionMode.LOWER)
+print(result)  # "abcabc"
+
+# 大文字
+value = "ABCabc"
+result = utills.convert_value(
+    value, ConversionMode.UPPER)
+print(result)  # "ABCABC"
 ```
 
 ## JapaneseHoliday Examples of usage
@@ -185,6 +223,8 @@ Please refer to the documentation of the library you are using to find the speci
 
 ## ShortURL Service Usage
 
+[ShortURL Usage Document](https://flarebrow.github.io/flaretool/flaretool.shorturl.html#module-flaretool.shorturl)
+
 ```python
 from flaretool.shorturl import ShortUrlService
 shorturl = ShortUrlService()
@@ -195,7 +235,7 @@ print("ShortLink:", result.link)   # https://○○○/○○○
 print("OriginalURL:", result.url)  # https://example.com
 
 # 情報取得
-result = shorturl.get_short_url_info(result.id)[0]
+result = shorturl.get_short_url_info_list(result.id)[0]
 print("ShortLink:", result.link)   # https://○○○/○○○
 print("OriginalURL:", result.url)  # https://example.com
 
@@ -209,7 +249,9 @@ print("OriginalURL:", result.url)  # https://example.com/sample
 shorturl.delete_short_url(result)
 ```
 
-## DDNS Service Usage
+## Dynamic DNS Service Usage
+
+[Dynamic DNS Usage Document](https://flarebrow.github.io/flaretool/flaretool.ddns.html#module-flaretool.ddns)
 
 ```python
 from flaretool.ddns import DdnsService
