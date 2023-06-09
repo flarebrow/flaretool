@@ -70,8 +70,8 @@ class ShortUrlService:
             raise ShortUrlError(**result)
         return result
 
-    def get_short_url_info(self, id: int = None) -> list[ShortUrlInfo]:
-        """Get information about a short URL.
+    def get_short_url_info_list(self, id: int = None) -> list[ShortUrlInfo]:
+        """Get informations about a short URL.
 
         Args:
             id (int): ID of the short URL (default: None).

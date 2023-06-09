@@ -30,6 +30,6 @@ __all__ = [
     "get_adhost",
     "get_robots_txt_url",
     "is_scraping_allowed",
-    "IpInfo",
-    "PunyDomainInfo",
+    # "IpInfo",
+    # "PunyDomainInfo",
 ]
