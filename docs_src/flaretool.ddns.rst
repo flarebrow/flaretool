@@ -4,6 +4,14 @@ flaretool.ddns package
 Submodules
 ----------
 
+flaretool.ddns.DdnsService module
+---------------------------------
+
+.. automodule:: flaretool.ddns.DdnsService
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 flaretool.ddns.error module
 ---------------------------
 

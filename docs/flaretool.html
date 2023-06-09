@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool package &mdash; flaretool 0.1.23 documentation</title>
+  <title>flaretool package &mdash; flaretool 0.1.24 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -85,15 +85,27 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#module-flaretool.decorators">flaretool.decorators module</a><ul>
-<li><a class="reference internal" href="#flaretool.decorators.network_check"><code class="docutils literal notranslate"><span class="pre">network_check()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.decorators.network_required"><code class="docutils literal notranslate"><span class="pre">network_required()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-flaretool.enums">flaretool.enums module</a><ul>
-<li><a class="reference internal" href="#flaretool.enums.Algo"><code class="docutils literal notranslate"><span class="pre">Algo</span></code></a><ul>
-<li><a class="reference internal" href="#flaretool.enums.Algo.md5"><code class="docutils literal notranslate"><span class="pre">Algo.md5</span></code></a></li>
-<li><a class="reference internal" href="#flaretool.enums.Algo.sha1"><code class="docutils literal notranslate"><span class="pre">Algo.sha1</span></code></a></li>
-<li><a class="reference internal" href="#flaretool.enums.Algo.sha256"><code class="docutils literal notranslate"><span class="pre">Algo.sha256</span></code></a></li>
-<li><a class="reference internal" href="#flaretool.enums.Algo.sha512"><code class="docutils literal notranslate"><span class="pre">Algo.sha512</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.enums.Base64Mode"><code class="docutils literal notranslate"><span class="pre">Base64Mode</span></code></a><ul>
+<li><a class="reference internal" href="#flaretool.enums.Base64Mode.DECODE"><code class="docutils literal notranslate"><span class="pre">Base64Mode.DECODE</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.enums.Base64Mode.ENCODE"><code class="docutils literal notranslate"><span class="pre">Base64Mode.ENCODE</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#flaretool.enums.ConversionMode"><code class="docutils literal notranslate"><span class="pre">ConversionMode</span></code></a><ul>
+<li><a class="reference internal" href="#flaretool.enums.ConversionMode.FULL_WIDTH"><code class="docutils literal notranslate"><span class="pre">ConversionMode.FULL_WIDTH</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.enums.ConversionMode.HALF_WIDTH"><code class="docutils literal notranslate"><span class="pre">ConversionMode.HALF_WIDTH</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.enums.ConversionMode.LOWER"><code class="docutils literal notranslate"><span class="pre">ConversionMode.LOWER</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.enums.ConversionMode.UPPER"><code class="docutils literal notranslate"><span class="pre">ConversionMode.UPPER</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#flaretool.enums.HashMode"><code class="docutils literal notranslate"><span class="pre">HashMode</span></code></a><ul>
+<li><a class="reference internal" href="#flaretool.enums.HashMode.MD5"><code class="docutils literal notranslate"><span class="pre">HashMode.MD5</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.enums.HashMode.SHA1"><code class="docutils literal notranslate"><span class="pre">HashMode.SHA1</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.enums.HashMode.SHA256"><code class="docutils literal notranslate"><span class="pre">HashMode.SHA256</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.enums.HashMode.SHA512"><code class="docutils literal notranslate"><span class="pre">HashMode.SHA512</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -120,7 +132,12 @@
 <li><a class="reference internal" href="#flaretool.settings.get_settings"><code class="docutils literal notranslate"><span class="pre">get_settings()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-flaretool.utills">flaretool.utills module</a></li>
+<li><a class="reference internal" href="#module-flaretool.utills">flaretool.utills module</a><ul>
+<li><a class="reference internal" href="#flaretool.utills.base64_convert"><code class="docutils literal notranslate"><span class="pre">base64_convert()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.utills.convert_value"><code class="docutils literal notranslate"><span class="pre">convert_value()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.utills.hash_value"><code class="docutils literal notranslate"><span class="pre">hash_value()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-flaretool">Module contents</a></li>
 </ul>
 </li>
@@ -158,6 +175,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.ddns.html">flaretool.ddns package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#module-flaretool.ddns.DdnsService">flaretool.ddns.DdnsService module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#module-flaretool.ddns.error">flaretool.ddns.error module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.error.DdnsAuthenticationError"><code class="docutils literal notranslate"><span class="pre">DdnsAuthenticationError</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.error.DdnsError"><code class="docutils literal notranslate"><span class="pre">DdnsError</span></code></a></li>
@@ -190,11 +208,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.funcs.html">flaretool.funcs package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.hash">flaretool.funcs.hash module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.hash.get_hash"><code class="docutils literal notranslate"><span class="pre">get_hash()</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.tracking">flaretool.funcs.tracking module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.tracking.japanpost"><code class="docutils literal notranslate"><span class="pre">japanpost()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.tracking.yamato"><code class="docutils literal notranslate"><span class="pre">yamato()</span></code></a></li>
 </ul>
 </li>
@@ -203,40 +218,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.holiday.html">flaretool.holiday package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday.common">flaretool.holiday.common module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.get_business_date_range"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_business_date_range()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.get_date_information"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_date_information()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.get_holiday_name"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_holiday_name()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.get_holidays_in_range"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_holidays_in_range()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.get_last_business_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_last_business_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.get_last_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_last_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.get_rest_days_in_range"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_rest_days_in_range()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_additional_holiday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_additional_holiday()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_autumn_equinox"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_autumn_equinox()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_childrens_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_childrens_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_coming_of_age_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_coming_of_age_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_constitution_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_constitution_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_culture_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_culture_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_emperors_birthday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_emperors_birthday()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_foundation_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_foundation_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_greenery_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_greenery_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_health_and_sports_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_health_and_sports_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_labour_thanksgiving_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_labour_thanksgiving_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_marine_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_marine_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_mountain_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_mountain_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_new_year"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_new_year()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_respect_for_the_aged_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_respect_for_the_aged_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_showa_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_showa_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_spring_equinox"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_spring_equinox()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.is_transfer_holiday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_transfer_holiday()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.print_calendar"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.print_calendar()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.set_additional_holiday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.set_additional_holiday()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.common.JapaneseHolidays.week_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.week_day()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday.JapaneseHolidays">flaretool.holiday.JapaneseHolidays module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_business_date_range"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_business_date_range()</span></code></a></li>
@@ -292,18 +274,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#module-flaretool.nettool">Module contents</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.IpInfo"><code class="docutils literal notranslate"><span class="pre">IpInfo</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.IpInfo.country"><code class="docutils literal notranslate"><span class="pre">IpInfo.country</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.IpInfo.hostname"><code class="docutils literal notranslate"><span class="pre">IpInfo.hostname</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.IpInfo.ipaddr"><code class="docutils literal notranslate"><span class="pre">IpInfo.ipaddr</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.PunyDomainInfo"><code class="docutils literal notranslate"><span class="pre">PunyDomainInfo</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.PunyDomainInfo.decodevalue"><code class="docutils literal notranslate"><span class="pre">PunyDomainInfo.decodevalue</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.PunyDomainInfo.encodevalue"><code class="docutils literal notranslate"><span class="pre">PunyDomainInfo.encodevalue</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.PunyDomainInfo.originalvalue"><code class="docutils literal notranslate"><span class="pre">PunyDomainInfo.originalvalue</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.domain_exists"><code class="docutils literal notranslate"><span class="pre">domain_exists()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.get_adhost"><code class="docutils literal notranslate"><span class="pre">get_adhost()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.get_global_ipaddr_info"><code class="docutils literal notranslate"><span class="pre">get_global_ipaddr_info()</span></code></a></li>
@@ -345,7 +315,7 @@
 <li class="toctree-l3"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.ShortUrlService"><code class="docutils literal notranslate"><span class="pre">ShortUrlService</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.ShortUrlService.create_short_url"><code class="docutils literal notranslate"><span class="pre">ShortUrlService.create_short_url()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.ShortUrlService.delete_short_url"><code class="docutils literal notranslate"><span class="pre">ShortUrlService.delete_short_url()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.ShortUrlService.get_short_url_info"><code class="docutils literal notranslate"><span class="pre">ShortUrlService.get_short_url_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.ShortUrlService.get_short_url_info_list"><code class="docutils literal notranslate"><span class="pre">ShortUrlService.get_short_url_info_list()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.ShortUrlService.update_short_url"><code class="docutils literal notranslate"><span class="pre">ShortUrlService.update_short_url()</span></code></a></li>
 </ul>
 </li>
@@ -509,8 +479,8 @@
 <section id="module-flaretool.decorators">
 <span id="flaretool-decorators-module"></span><h2>flaretool.decorators module<a class="headerlink" href="#module-flaretool.decorators" title="Permalink to this heading">¶</a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="flaretool.decorators.network_check">
-<span class="sig-prename descclassname"><span class="pre">flaretool.decorators.</span></span><span class="sig-name descname"><span class="pre">network_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.decorators.network_check" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="flaretool.decorators.network_required">
+<span class="sig-prename descclassname"><span class="pre">flaretool.decorators.</span></span><span class="sig-name descname"><span class="pre">network_required</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.decorators.network_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>ネットワーク接続のチェックを行い、接続されている場合には指定されたメソッドを実行します。
 接続されていない場合にはFlareToolNetworkErrorを発生させます。</p>
 <dl class="field-list simple">
@@ -533,28 +503,72 @@
 <section id="module-flaretool.enums">
 <span id="flaretool-enums-module"></span><h2>flaretool.enums module<a class="headerlink" href="#module-flaretool.enums" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="flaretool.enums.Algo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.enums.</span></span><span class="sig-name descname"><span class="pre">Algo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.enums.Algo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dt class="sig sig-object py" id="flaretool.enums.Base64Mode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.enums.</span></span><span class="sig-name descname"><span class="pre">Base64Mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.enums.Base64Mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
 <p>An enumeration.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="flaretool.enums.Algo.md5">
-<span class="sig-name descname"><span class="pre">md5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'md5'</span></em><a class="headerlink" href="#flaretool.enums.Algo.md5" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="flaretool.enums.Base64Mode.DECODE">
+<span class="sig-name descname"><span class="pre">DECODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#flaretool.enums.Base64Mode.DECODE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="flaretool.enums.Algo.sha1">
-<span class="sig-name descname"><span class="pre">sha1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sha1'</span></em><a class="headerlink" href="#flaretool.enums.Algo.sha1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="flaretool.enums.Base64Mode.ENCODE">
+<span class="sig-name descname"><span class="pre">ENCODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#flaretool.enums.Base64Mode.ENCODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="flaretool.enums.ConversionMode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.enums.</span></span><span class="sig-name descname"><span class="pre">ConversionMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.enums.ConversionMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.enums.ConversionMode.FULL_WIDTH">
+<span class="sig-name descname"><span class="pre">FULL_WIDTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#flaretool.enums.ConversionMode.FULL_WIDTH" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="flaretool.enums.Algo.sha256">
-<span class="sig-name descname"><span class="pre">sha256</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sha256'</span></em><a class="headerlink" href="#flaretool.enums.Algo.sha256" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="flaretool.enums.ConversionMode.HALF_WIDTH">
+<span class="sig-name descname"><span class="pre">HALF_WIDTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#flaretool.enums.ConversionMode.HALF_WIDTH" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="flaretool.enums.Algo.sha512">
-<span class="sig-name descname"><span class="pre">sha512</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sha512'</span></em><a class="headerlink" href="#flaretool.enums.Algo.sha512" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="flaretool.enums.ConversionMode.LOWER">
+<span class="sig-name descname"><span class="pre">LOWER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#flaretool.enums.ConversionMode.LOWER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.enums.ConversionMode.UPPER">
+<span class="sig-name descname"><span class="pre">UPPER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#flaretool.enums.ConversionMode.UPPER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="flaretool.enums.HashMode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.enums.</span></span><span class="sig-name descname"><span class="pre">HashMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.enums.HashMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.enums.HashMode.MD5">
+<span class="sig-name descname"><span class="pre">MD5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#flaretool.enums.HashMode.MD5" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.enums.HashMode.SHA1">
+<span class="sig-name descname"><span class="pre">SHA1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#flaretool.enums.HashMode.SHA1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.enums.HashMode.SHA256">
+<span class="sig-name descname"><span class="pre">SHA256</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#flaretool.enums.HashMode.SHA256" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.enums.HashMode.SHA512">
+<span class="sig-name descname"><span class="pre">SHA512</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#flaretool.enums.HashMode.SHA512" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -572,6 +586,7 @@
 <dt class="sig sig-object py" id="flaretool.error.FlareToolError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.error.</span></span><span class="sig-name descname"><span class="pre">FlareToolError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.error.FlareToolError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Base exception class for FlareTool errors.</p>
 </dd></dl>
 
 <dl class="py exception">
@@ -623,6 +638,81 @@
 </section>
 <section id="module-flaretool.utills">
 <span id="flaretool-utills-module"></span><h2>flaretool.utills module<a class="headerlink" href="#module-flaretool.utills" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="flaretool.utills.base64_convert">
+<span class="sig-prename descclassname"><span class="pre">flaretool.utills.</span></span><span class="sig-name descname"><span class="pre">base64_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#flaretool.enums.Base64Mode" title="flaretool.enums.Base64Mode"><span class="pre">Base64Mode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Base64Mode.ENCODE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#flaretool.utills.base64_convert" title="Permalink to this definition">¶</a></dt>
+<dd><p>文字列のBase64エンコードまたはデコードを行います。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>str</em>) – エンコードまたはデコードする文字列</p></li>
+<li><p><strong>mode</strong> (<a class="reference internal" href="#flaretool.enums.Base64Mode" title="flaretool.enums.Base64Mode"><em>Base64Mode</em></a><em>, </em><em>optional</em>) – 処理モード. デフォルトはBase64Mode.ENCODE.</p></li>
+<li><p><strong>encoding</strong> (<em>str</em><em>, </em><em>optional</em>) – エンコードに使用する文字エンコーディング. デフォルトは’utf-8’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>エンコードまたはデコード後の文字列</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – 無効な処理モードが指定された場合</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flaretool.utills.convert_value">
+<span class="sig-prename descclassname"><span class="pre">flaretool.utills.</span></span><span class="sig-name descname"><span class="pre">convert_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#flaretool.enums.ConversionMode" title="flaretool.enums.ConversionMode"><span class="pre">ConversionMode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ConversionMode.HALF_WIDTH</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kana</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">non_convert_chars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#flaretool.utills.convert_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>文字列を変換(半角/全角/大文字/小文字)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>str</em>) – 変換する文字列</p></li>
+<li><p><strong>mode</strong> (<a class="reference internal" href="#flaretool.enums.ConversionMode" title="flaretool.enums.ConversionMode"><em>ConversionMode</em></a><em>, </em><em>optional</em>) – 変換モード. デフォルトはConversionMode.HALF_WIDTH.</p></li>
+<li><p><strong>ascii</strong> (<em>bool</em><em>, </em><em>optional</em>) – ASCII文字の変換を有効にするかどうか. デフォルトはTrue.</p></li>
+<li><p><strong>digit</strong> (<em>bool</em><em>, </em><em>optional</em>) – 数字の変換を有効にするかどうか. デフォルトはTrue.</p></li>
+<li><p><strong>kana</strong> (<em>bool</em><em>, </em><em>optional</em>) – カナ文字の変換を有効にするかどうか. デフォルトはTrue.</p></li>
+<li><p><strong>non_convert_chars</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – 変換しない文字列. デフォルトはNone.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>変換後の文字列</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – 無効な変換モードが指定された場合</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flaretool.utills.hash_value">
+<span class="sig-prename descclassname"><span class="pre">flaretool.utills.</span></span><span class="sig-name descname"><span class="pre">hash_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#flaretool.enums.HashMode" title="flaretool.enums.HashMode"><span class="pre">HashMode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">HashMode.MD5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#flaretool.utills.hash_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>文字列のハッシュ計算を行います。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>str</em>) – ハッシュ計算する文字列</p></li>
+<li><p><strong>mode</strong> (<a class="reference internal" href="#flaretool.enums.HashMode" title="flaretool.enums.HashMode"><em>HashMode</em></a><em>, </em><em>optional</em>) – ハッシュモード. デフォルトはHashMode.MD5.</p></li>
+<li><p><strong>encoding</strong> (<em>str</em><em>, </em><em>optional</em>) – 文字列のエンコーディング. デフォルトは’utf-8’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ハッシュ値の16進数表現</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – 無効なハッシュモードが指定された場合</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-flaretool">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-flaretool" title="Permalink to this heading">¶</a></h2>
