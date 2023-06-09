@@ -4,8 +4,20 @@
 from enum import Enum
 
 
-class Algo(str, Enum):
-    md5 = "md5"
-    sha1 = "sha1"
-    sha256 = "sha256"
-    sha512 = "sha512"
+class ConversionMode(Enum):
+    HALF_WIDTH = 1
+    FULL_WIDTH = 2
+    UPPER = 3
+    LOWER = 4
+
+
+class Base64Mode(Enum):
+    ENCODE = 1
+    DECODE = 2
+
+
+class HashMode(Enum):
+    MD5 = 1
+    SHA1 = 2
+    SHA256 = 3
+    SHA512 = 4

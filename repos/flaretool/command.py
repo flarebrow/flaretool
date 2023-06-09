@@ -15,7 +15,7 @@ description = """
 def main():
 
     parser = argparse.ArgumentParser(description=description)
-    subparsers = parser.add_subparsers(dest='command', required=True)
+    subparsers = parser.add_subparsers(dest='func', required=True)
 
     parser_nettool = subparsers.add_parser('nettool')
     nettool_func_list = [func for func in dir(

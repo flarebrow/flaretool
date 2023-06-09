@@ -5,7 +5,7 @@ from functools import wraps
 from flaretool.error import FlareToolNetworkError
 
 
-def network_check(func):
+def network_required(func):
     """
     ネットワーク接続のチェックを行い、接続されている場合には指定されたメソッドを実行します。
     接続されていない場合にはFlareToolNetworkErrorを発生させます。

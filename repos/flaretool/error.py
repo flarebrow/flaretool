@@ -1,8 +1,44 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
+
+
 class FlareToolError(Exception):
+    """Base exception class for FlareTool errors."""
+
     def __init__(self, message: str = None) -> None:
+        """
+        Initialize FlareToolError.
+
+        Args:
+            message (str): Optional error message (default: None).
+        """
         super().__init__(message)
+        self.message = message
+
+    def __str__(self) -> str:
+        """
+        Return a string representation of the exception.
+
+        Returns:
+            str: String representation of the exception.
+        """
+        return self.message
+
+    def __repr__(self) -> str:
+        """
+        Return a string representation of the exception.
+
+        Returns:
+            str: String representation of the exception.
+        """
+        columns = ', '.join([
+            '{0}={1}'.format(k, repr(self.__dict__[k]))
+            for k in self.__dict__.keys() if not k.startswith("_")
+        ])
+
+        return '<{0}({1})>'.format(
+            self.__class__.__name__, columns
+        )
 
 
 class FlareToolNetworkError(FlareToolError):
