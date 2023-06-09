@@ -98,9 +98,9 @@ All methods within NetTool can be executed as commands.
 flaretool nettool -h
 ```
 
-## Utills usage
+## String utills usage
 
-[Utills Usage Document](https://flarebrow.github.io/flaretool/flaretool.utills.html)
+[String Utills Usage Document](https://flarebrow.github.io/flaretool/flaretool.utills.html)
 
 ```python
 from flaretool import utills
