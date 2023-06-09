@@ -4,14 +4,6 @@ flaretool.funcs package
 Submodules
 ----------
 
-flaretool.funcs.hash module
----------------------------
-
-.. automodule:: flaretool.funcs.hash
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 flaretool.funcs.tracking module
 -------------------------------
 

@@ -4,10 +4,10 @@ flaretool.holiday package
 Submodules
 ----------
 
-flaretool.holiday.common module
--------------------------------
+flaretool.holiday.JapaneseHolidays module
+-----------------------------------------
 
-.. automodule:: flaretool.holiday.common
+.. automodule:: flaretool.holiday.JapaneseHolidays
    :members:
    :undoc-members:
    :show-inheritance:

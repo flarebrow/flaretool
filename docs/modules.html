@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool &mdash; flaretool 0.1.23 documentation</title>
+  <title>flaretool &mdash; flaretool 0.1.24 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -77,6 +77,7 @@
 <li class="toctree-l2"><a class="reference internal" href="flaretool.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.ddns.html">flaretool.ddns package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.ddns.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.ddns.html#module-flaretool.ddns.DdnsService">flaretool.ddns.DdnsService module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.ddns.html#module-flaretool.ddns.error">flaretool.ddns.error module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.ddns.html#module-flaretool.ddns.models">flaretool.ddns.models module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.ddns.html#module-flaretool.ddns">Module contents</a></li>
@@ -84,14 +85,13 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.funcs.html">flaretool.funcs package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.funcs.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.hash">flaretool.funcs.hash module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.tracking">flaretool.funcs.tracking module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.holiday.html">flaretool.holiday package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday.common">flaretool.holiday.common module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday.JapaneseHolidays">flaretool.holiday.JapaneseHolidays module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday">Module contents</a></li>
 </ul>
 </li>
@@ -152,15 +152,27 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.html#module-flaretool.decorators">flaretool.decorators module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.decorators.network_check"><code class="docutils literal notranslate"><span class="pre">network_check()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.decorators.network_required"><code class="docutils literal notranslate"><span class="pre">network_required()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.html#module-flaretool.enums">flaretool.enums module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.enums.Algo"><code class="docutils literal notranslate"><span class="pre">Algo</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.enums.Algo.md5"><code class="docutils literal notranslate"><span class="pre">Algo.md5</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.enums.Algo.sha1"><code class="docutils literal notranslate"><span class="pre">Algo.sha1</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.enums.Algo.sha256"><code class="docutils literal notranslate"><span class="pre">Algo.sha256</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.enums.Algo.sha512"><code class="docutils literal notranslate"><span class="pre">Algo.sha512</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.enums.Base64Mode"><code class="docutils literal notranslate"><span class="pre">Base64Mode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.enums.Base64Mode.DECODE"><code class="docutils literal notranslate"><span class="pre">Base64Mode.DECODE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.enums.Base64Mode.ENCODE"><code class="docutils literal notranslate"><span class="pre">Base64Mode.ENCODE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.enums.ConversionMode"><code class="docutils literal notranslate"><span class="pre">ConversionMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.enums.ConversionMode.FULL_WIDTH"><code class="docutils literal notranslate"><span class="pre">ConversionMode.FULL_WIDTH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.enums.ConversionMode.HALF_WIDTH"><code class="docutils literal notranslate"><span class="pre">ConversionMode.HALF_WIDTH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.enums.ConversionMode.LOWER"><code class="docutils literal notranslate"><span class="pre">ConversionMode.LOWER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.enums.ConversionMode.UPPER"><code class="docutils literal notranslate"><span class="pre">ConversionMode.UPPER</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.enums.HashMode"><code class="docutils literal notranslate"><span class="pre">HashMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.enums.HashMode.MD5"><code class="docutils literal notranslate"><span class="pre">HashMode.MD5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.enums.HashMode.SHA1"><code class="docutils literal notranslate"><span class="pre">HashMode.SHA1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.enums.HashMode.SHA256"><code class="docutils literal notranslate"><span class="pre">HashMode.SHA256</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.enums.HashMode.SHA512"><code class="docutils literal notranslate"><span class="pre">HashMode.SHA512</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -184,7 +196,12 @@
 <li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.settings.get_settings"><code class="docutils literal notranslate"><span class="pre">get_settings()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.html#module-flaretool.utills">flaretool.utills module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.html#module-flaretool.utills">flaretool.utills module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.utills.base64_convert"><code class="docutils literal notranslate"><span class="pre">base64_convert()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.utills.convert_value"><code class="docutils literal notranslate"><span class="pre">convert_value()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.utills.hash_value"><code class="docutils literal notranslate"><span class="pre">hash_value()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.html#module-flaretool">Module contents</a></li>
 </ul>
 </li>
