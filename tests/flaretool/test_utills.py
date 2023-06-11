@@ -98,8 +98,8 @@ class UtillsTestCase(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_han_to_zen_all(self):
-        text = "ABCabc1230123456789ｱｲｳｴｵｶﾞｷﾞｸﾞｹﾞｺﾞ"
-        expected = "ＡＢＣａｂｃ１２３０１２３４５６７８９アイウエオガギグゲゴ"
+        text = "ABCabc1230123456789ｱｲｳｴｵｶﾞｷﾞｸﾞｹﾞｺﾞﾊﾟ"
+        expected = "ＡＢＣａｂｃ１２３０１２３４５６７８９アイウエオガギグゲゴパ"
         result = convert_value(
             text, ConversionMode.FULL_WIDTH, ascii=True, digit=True, kana=True)
         self.assertEqual(result, expected)
@@ -118,6 +118,10 @@ class UtillsTestCase(unittest.TestCase):
             text, ConversionMode.UPPER)
         self.assertEqual(result, expected)
 
+    def test_convert_value_raise(self):
+        with self.assertRaises(ValueError):
+            convert_value("test", "test")
+
     def test_base64_convert(self):
         # Base64Mode.ENCODEの場合
         result = base64_convert("Hello, World!", Base64Mode.ENCODE)
@@ -126,6 +130,10 @@ class UtillsTestCase(unittest.TestCase):
         # Base64Mode.DECODEの場合
         result = base64_convert("SGVsbG8sIFdvcmxkIQ==", Base64Mode.DECODE)
         self.assertEqual(result, "Hello, World!")
+
+        # error
+        with self.assertRaises(ValueError):
+            base64_convert("test", "test")
 
     def test_hash_value(self):
         # HashMode.MD5の場合
@@ -141,6 +149,11 @@ class UtillsTestCase(unittest.TestCase):
         self.assertEqual(
             result, "dffd6021bb2bd5b0af676290809ec3a53191dd81c7f70a4b28688a362182986f")
 
+        # HashMode.SHA512の場合
+        result = hash_value("Hello, World!", HashMode.SHA512)
+        self.assertEqual(
+            result, "374d794a95cdcfd8b35993185fef9ba368f160d8daf432d08ba9f1ed1e5abe6cc69291e0fa2fe0006a52570ef18c19def4e617c33ce52ef0a6e5fbe318cb0387")
 
-if __name__ == '__main__':
-    unittest.main()
+        # error
+        with self.assertRaises(ValueError):
+            hash_value("test", "test")

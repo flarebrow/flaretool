@@ -225,7 +225,3 @@ class JapaneseHolidaysTest(unittest.TestCase):
         expected_info = (1, 'Monday', 0, None)
         self.assertEqual(
             self.holidays.get_date_information(date), expected_info)
-
-
-if __name__ == '__main__':
-    unittest.main()
