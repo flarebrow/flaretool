@@ -79,5 +79,4 @@ jobs:
         id: check_status
         run: |
           echo -e ${{ steps.coverageComment.outputs.summaryReport }} >> $GITHUB_STEP_SUMMARY
-          cat ./results/pytest-coverage.txt >> $GITHUB_STEP_SUMMARY
     
