@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from flaretool.error import FlareToolNetworkError
+from flaretool.errors import FlareToolNetworkError
 from flaretool.decorators import network_required
 
 

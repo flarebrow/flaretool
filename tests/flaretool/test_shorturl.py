@@ -2,8 +2,8 @@ import unittest
 from unittest.mock import patch
 from datetime import datetime
 import flaretool
-from flaretool.error import AuthenticationError
-from flaretool.shorturl.error import (
+from flaretool.errors import AuthenticationError
+from flaretool.shorturl.errors import (
     ShortUrlError,
     ShortUrlAuthenticationError,
     ShortUrlDataUpdateError,

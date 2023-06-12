@@ -2,10 +2,10 @@ import unittest
 from unittest.mock import MagicMock, patch
 
 import flaretool
-from flaretool.ddns.error import DdnsAuthenticationError, DdnsError
+from flaretool.ddns.errors import DdnsAuthenticationError, DdnsError
 from flaretool.ddns.models import DdnsInfo
 from flaretool.ddns import DdnsService
-from flaretool.error import AuthenticationError
+from flaretool.errors import AuthenticationError
 
 
 class DdnsServiceTest(unittest.TestCase):

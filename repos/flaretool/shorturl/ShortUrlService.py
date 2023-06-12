@@ -7,9 +7,9 @@ Warning:
     This class may undergo updates and its usage may change in the near future.
 """
 import flaretool
-from flaretool.error import AuthenticationError
+from flaretool.errors import AuthenticationError
 from flaretool.common import requests
-from flaretool.shorturl.error import ShortUrlAuthenticationError, ShortUrlDataUpdateError, ShortUrlError
+from flaretool.shorturl.errors import ShortUrlAuthenticationError, ShortUrlDataUpdateError, ShortUrlError
 from .models import ShortUrlInfo
 import warnings
 

@@ -501,6 +501,7 @@ class JapaneseHolidays:
                 else:
                     line += format_day(year, month, day, w)
             print(line)
+        calendar.setfirstweekday(calendar.MONDAY)
 
     def get_date_information(self, date: datetime.date) -> tuple:
         """
@@ -519,13 +520,10 @@ class JapaneseHolidays:
         else:
             first_sunday = first_day + \
                 datetime.timedelta(days=(6 - first_day.weekday() + 1))
-        if first_sunday > date:
-            week_number = 1
-        else:
-            weeks = ((date - first_sunday).days + 1) // 7
-            if date.day > last_day - 6:
-                weeks += 1
-            week_number = weeks
+        weeks = ((date - first_sunday).days + 1) // 7
+        if date.day > last_day - 6:
+            weeks += 1
+        week_number = weeks
 
         weekdays = ['Monday', 'Tuesday', 'Wednesday',
                     'Thursday', 'Friday', 'Saturday', 'Sunday']
