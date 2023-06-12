@@ -322,7 +322,8 @@ class JapaneseHolidaysTest(unittest.TestCase):
                 ('土曜日', datetime.date(2023, 12, 23)),
                 ('日曜日', datetime.date(2023, 12, 24)),
                 ('土曜日', datetime.date(2023, 12, 30)),
-                ('日曜日', datetime.date(2023, 12, 31))]
+                ('日曜日', datetime.date(2023, 12, 31)),
+            ]
         )
 
     def test_get_rest_days_in_range(self):

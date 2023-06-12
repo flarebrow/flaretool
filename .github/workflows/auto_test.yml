@@ -14,6 +14,7 @@ jobs:
     strategy:
       matrix:
         python-version: [3.9, '3.10', 3.11]
+    permissions: write-all
 
     runs-on: ubuntu-latest
 
@@ -62,7 +63,7 @@ jobs:
       #   with:
       #     junit_files: artifacts/**/*.xml
 
-      - name: Print time
+      - name: Print Name
         run: |
           echo "This is Python ${{ matrix.python-version }} summary!" >> $GITHUB_STEP_SUMMARY
       
@@ -75,8 +76,13 @@ jobs:
           pytest-coverage-path: ./pytest-coverage.txt
           junitxml-path: ./results/pytest.xml
 
-      - name: Write job summary
-        id: check_status
-        run: |
-          echo -e ${{ steps.coverageComment.outputs.summaryReport }} >> $GITHUB_STEP_SUMMARY
-    
+      - name: Create Coverage Badge
+        uses: schneegans/dynamic-badges-action@v1.3.0
+        with:
+          auth: ${{ secrets.BADGE_GIST }}
+          gistID: e31fc348a9dea0098de9540dc5961668
+          filename: pytest-coverage-comment.json
+          label: Coverage
+          message: ${{ steps.coverageComment.outputs.coverage }}
+          color: ${{ steps.coverageComment.outputs.color }}
+          namedLogo: python
