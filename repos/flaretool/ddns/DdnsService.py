@@ -4,9 +4,9 @@ import warnings
 
 from flaretool.common import requests
 import flaretool
-from flaretool.ddns.error import DdnsAuthenticationError, DdnsError
+from flaretool.ddns.errors import DdnsAuthenticationError, DdnsError
 from flaretool.ddns.models import DdnsInfo
-from flaretool.error import AuthenticationError
+from flaretool.errors import AuthenticationError
 
 __all__ = []
 

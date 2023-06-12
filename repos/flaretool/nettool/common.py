@@ -5,7 +5,7 @@ import tempfile
 import socket
 import whois
 import ipaddress
-from .model import IpInfo, PunyDomainInfo
+from .models import IpInfo, PunyDomainInfo
 from flaretool.common import requests
 from urllib import robotparser
 from urllib.parse import urlparse, urlunparse
@@ -133,7 +133,7 @@ def get_puny_code(domain: str) -> PunyDomainInfo:
         domain (str): ドメイン名
 
     Returns:
-        dict: 取得結果
+        PunyDomainInfo: 取得結果
     """
     result = requests.get(f"https://api.flarebrow.com/v2/puny/{domain}").json()
     return PunyDomainInfo(**result)

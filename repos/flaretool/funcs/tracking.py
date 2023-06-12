@@ -1,7 +1,9 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
+from flaretool.decorators import network_required
 
 
+@network_required
 def yamato(codes: list[str]) -> list[dict]:
     """
     ヤマト運輸の荷物追跡をする関数 
@@ -30,6 +32,7 @@ def yamato(codes: list[str]) -> list[dict]:
     ).json()["result"]
 
 
+@network_required
 def japanpost(code: str) -> dict:
     """
     日本郵便の荷物追跡をする関数 

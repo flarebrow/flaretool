@@ -35,7 +35,7 @@ def main():
 
     args = parser.parse_args()
 
-    if args.command == 'nettool':
+    if args.func == 'nettool':
         if args.mode == "info":
             network_info = nettool.get_global_ipaddr_info()
             print("=== Your IP Infomation ===")
@@ -47,5 +47,5 @@ def main():
                 print(getattr(nettool, args.mode)(*args.args))
             except TypeError as e:
                 print(e)
-                return 9
-    return 0
+                exit(9)
+    exit(0)

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import socket
 from functools import wraps
-from flaretool.error import FlareToolNetworkError
+from flaretool.errors import FlareToolNetworkError
 
 
 def network_required(func):

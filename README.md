@@ -2,7 +2,13 @@
 
 **flaretool** is flarebrow Library.
 
+![License](https://img.shields.io/github/license/flarebrow/flaretool)
 [![python](https://img.shields.io/badge/python-%3E%3D3.9-blue)](https://github.com/flarebrow/flaretool)
+![CodeSize](https://img.shields.io/github/languages/code-size/flarebrow/flaretool)
+[![version](https://img.shields.io/github/v/release/flarebrow/flaretool?include_prereleases)](https://github.com/flarebrow/flaretool/releases/latest)
+[![ReleaseDate](https://img.shields.io/github/release-date/flarebrow/flaretool)](https://github.com/flarebrow/flaretool/releases/latest)
+![build](https://img.shields.io/github/actions/workflow/status/flarebrow/flaretool/auto_test.yml)
+![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/flarebrow/e31fc348a9dea0098de9540dc5961668/raw/pytest-coverage-3.9.json)
 [![Downloads](https://static.pepy.tech/badge/flaretool)](https://pepy.tech/project/flaretool)
 
 [API Doc](https://flarebrow.github.io/flaretool/)

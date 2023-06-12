@@ -1,8 +1,6 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
-
-
-from flaretool.error import FlareToolError
+from flaretool.errors import FlareToolError
 
 
 class ShortUrlError(FlareToolError):
