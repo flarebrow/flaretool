@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool.ddns package &mdash; flaretool 0.1.24 documentation</title>
+  <title>flaretool.ddns package &mdash; flaretool 0.1.25 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -45,9 +45,9 @@
 <li><a class="reference internal" href="#">flaretool.ddns package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-flaretool.ddns.DdnsService">flaretool.ddns.DdnsService module</a></li>
-<li><a class="reference internal" href="#module-flaretool.ddns.error">flaretool.ddns.error module</a><ul>
-<li><a class="reference internal" href="#flaretool.ddns.error.DdnsAuthenticationError"><code class="docutils literal notranslate"><span class="pre">DdnsAuthenticationError</span></code></a></li>
-<li><a class="reference internal" href="#flaretool.ddns.error.DdnsError"><code class="docutils literal notranslate"><span class="pre">DdnsError</span></code></a></li>
+<li><a class="reference internal" href="#module-flaretool.ddns.errors">flaretool.ddns.errors module</a><ul>
+<li><a class="reference internal" href="#flaretool.ddns.errors.DdnsAuthenticationError"><code class="docutils literal notranslate"><span class="pre">DdnsAuthenticationError</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.ddns.errors.DdnsError"><code class="docutils literal notranslate"><span class="pre">DdnsError</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-flaretool.ddns.models">flaretool.ddns.models module</a><ul>
@@ -109,18 +109,18 @@
 <section id="module-flaretool.ddns.DdnsService">
 <span id="flaretool-ddns-ddnsservice-module"></span><h2>flaretool.ddns.DdnsService module<a class="headerlink" href="#module-flaretool.ddns.DdnsService" title="Permalink to this heading">¶</a></h2>
 </section>
-<section id="module-flaretool.ddns.error">
-<span id="flaretool-ddns-error-module"></span><h2>flaretool.ddns.error module<a class="headerlink" href="#module-flaretool.ddns.error" title="Permalink to this heading">¶</a></h2>
+<section id="module-flaretool.ddns.errors">
+<span id="flaretool-ddns-errors-module"></span><h2>flaretool.ddns.errors module<a class="headerlink" href="#module-flaretool.ddns.errors" title="Permalink to this heading">¶</a></h2>
 <dl class="py exception">
-<dt class="sig sig-object py" id="flaretool.ddns.error.DdnsAuthenticationError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.ddns.error.</span></span><span class="sig-name descname"><span class="pre">DdnsAuthenticationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currentIp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updateIp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.ddns.error.DdnsAuthenticationError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#flaretool.ddns.error.DdnsError" title="flaretool.ddns.error.DdnsError"><code class="xref py py-class docutils literal notranslate"><span class="pre">DdnsError</span></code></a></p>
+<dt class="sig sig-object py" id="flaretool.ddns.errors.DdnsAuthenticationError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.ddns.errors.</span></span><span class="sig-name descname"><span class="pre">DdnsAuthenticationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currentIp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updateIp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.ddns.errors.DdnsAuthenticationError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flaretool.ddns.errors.DdnsError" title="flaretool.ddns.errors.DdnsError"><code class="xref py py-class docutils literal notranslate"><span class="pre">DdnsError</span></code></a></p>
 </dd></dl>
 
 <dl class="py exception">
-<dt class="sig sig-object py" id="flaretool.ddns.error.DdnsError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.ddns.error.</span></span><span class="sig-name descname"><span class="pre">DdnsError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currentIp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updateIp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.ddns.error.DdnsError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="flaretool.html#flaretool.error.FlareToolError" title="flaretool.error.FlareToolError"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlareToolError</span></code></a></p>
+<dt class="sig sig-object py" id="flaretool.ddns.errors.DdnsError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.ddns.errors.</span></span><span class="sig-name descname"><span class="pre">DdnsError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currentIp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updateIp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.ddns.errors.DdnsError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="flaretool.html#flaretool.errors.FlareToolError" title="flaretool.errors.FlareToolError"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlareToolError</span></code></a></p>
 </dd></dl>
 
 </section>
@@ -244,8 +244,8 @@
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#flaretool.ddns.error.DdnsAuthenticationError" title="flaretool.ddns.error.DdnsAuthenticationError"><strong>DdnsAuthenticationError</strong></a> – If the response code is 401.</p></li>
-<li><p><a class="reference internal" href="#flaretool.ddns.error.DdnsError" title="flaretool.ddns.error.DdnsError"><strong>DdnsError</strong></a> – If the response code is not 200.</p></li>
+<li><p><a class="reference internal" href="#flaretool.ddns.errors.DdnsAuthenticationError" title="flaretool.ddns.errors.DdnsAuthenticationError"><strong>DdnsAuthenticationError</strong></a> – If the response code is 401.</p></li>
+<li><p><a class="reference internal" href="#flaretool.ddns.errors.DdnsError" title="flaretool.ddns.errors.DdnsError"><strong>DdnsError</strong></a> – If the response code is not 200.</p></li>
 </ul>
 </dd>
 </dl>

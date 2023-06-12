@@ -12,10 +12,10 @@ flaretool.ddns.DdnsService module
    :undoc-members:
    :show-inheritance:
 
-flaretool.ddns.error module
----------------------------
+flaretool.ddns.errors module
+----------------------------
 
-.. automodule:: flaretool.ddns.error
+.. automodule:: flaretool.ddns.errors
    :members:
    :undoc-members:
    :show-inheritance:

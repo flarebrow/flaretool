@@ -72,10 +72,10 @@ flaretool.enums module
    :undoc-members:
    :show-inheritance:
 
-flaretool.error module
-----------------------
+flaretool.errors module
+-----------------------
 
-.. automodule:: flaretool.error
+.. automodule:: flaretool.errors
    :members:
    :undoc-members:
    :show-inheritance:

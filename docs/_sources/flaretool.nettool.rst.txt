@@ -12,10 +12,10 @@ flaretool.nettool.common module
    :undoc-members:
    :show-inheritance:
 
-flaretool.nettool.model module
-------------------------------
+flaretool.nettool.models module
+-------------------------------
 
-.. automodule:: flaretool.nettool.model
+.. automodule:: flaretool.nettool.models
    :members:
    :undoc-members:
    :show-inheritance:

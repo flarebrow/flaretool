@@ -4,6 +4,22 @@ flaretool.funcs package
 Submodules
 ----------
 
+flaretool.funcs.amazon module
+-----------------------------
+
+.. automodule:: flaretool.funcs.amazon
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+flaretool.funcs.models module
+-----------------------------
+
+.. automodule:: flaretool.funcs.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 flaretool.funcs.tracking module
 -------------------------------
 

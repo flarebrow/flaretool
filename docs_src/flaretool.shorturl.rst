@@ -4,10 +4,18 @@ flaretool.shorturl package
 Submodules
 ----------
 
-flaretool.shorturl.error module
--------------------------------
+flaretool.shorturl.ShortUrlService module
+-----------------------------------------
 
-.. automodule:: flaretool.shorturl.error
+.. automodule:: flaretool.shorturl.ShortUrlService
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+flaretool.shorturl.errors module
+--------------------------------
+
+.. automodule:: flaretool.shorturl.errors
    :members:
    :undoc-members:
    :show-inheritance:
