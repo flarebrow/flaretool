@@ -81,7 +81,7 @@ jobs:
         with:
           auth: ${{ secrets.TOKEN }}
           gistID: e31fc348a9dea0098de9540dc5961668
-          filename: pytest-coverage-comment.json
+          filename: pytest-coverage-${{ matrix.python-version }}.json
           label: Coverage
           message: ${{ steps.coverageComment.outputs.coverage }}
           color: ${{ steps.coverageComment.outputs.color }}
