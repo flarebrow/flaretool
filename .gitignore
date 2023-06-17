@@ -166,3 +166,4 @@ work*.py
 docs/.*
 work/
 .work/
+htmlcov

@@ -18,7 +18,7 @@ class FuncsTest(unittest.TestCase):
     def tearDown(self):
         self.patcher.stop()
 
-    @patch("flaretool.common.requests.get")
+    @patch("flaretool.common.requests.post")
     def test_amazon_info(self, mock_requests):
         url = "https://www.amazon.com/example-product"
         response_data = {
@@ -43,7 +43,7 @@ class FuncsTest(unittest.TestCase):
         self.assertEqual(info.sender, "Amazon")
         self.assertEqual(info.evaluation, "4.5/5")
         mock_requests.assert_called_once_with(
-            "https://api.flarebrow.com/v2/amazon", params={"url": url}
+            "https://api.flarebrow.com/v2/amazon", data={"url": url}
         )
 
     @patch("flaretool.common.requests.get")

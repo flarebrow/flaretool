@@ -7,6 +7,10 @@ flaretool python module
 from flaretool.VERSION import VERSION
 from flaretool import nettool
 from flaretool.settings import get_settings
+from flaretool import logger
+import logging
+
+logging.getLogger(__name__).addHandler(logging.NullHandler())
 
 settings = get_settings()
 api_key: str = settings.api_key
@@ -21,5 +25,6 @@ __all__ = [
     "api_key",
     # "nettool",
     "settings",
-    "error",
+    "logger",
+    # "errors",
 ]

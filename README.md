@@ -182,6 +182,26 @@ for business_day in business_days:
 # ...
 ```
 
+# Decorator Usage
+
+```python
+from flaretool.errors import FlareToolNetworkError
+from flaretool.decorators import network_required
+
+@network_required
+def network_access(url):
+    # ネットワークに接続されている場合に実行する処理
+    response = requests.get(url)
+    return response.json()
+
+def main():
+    try:
+        network_access()
+    except FlareToolNetworkError:
+        # ネットワークに接続されていない場合の処理
+        pass
+```
+
 # Flarebrow Service
 
 There are the following services available:

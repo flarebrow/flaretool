@@ -5,7 +5,7 @@ from flaretool.nettool.models import *
 from unittest.mock import patch
 
 
-class TestMyModule(unittest.TestCase):
+class NettoolTest(unittest.TestCase):
 
     def test_get_global_ipaddr_info(self):
         # グローバルIPアドレス情報を取得する場合のテスト

@@ -1,5 +1,8 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
+from .logger import get_logger
+
+logger = get_logger()
 
 
 class FlareToolError(Exception):
@@ -14,6 +17,7 @@ class FlareToolError(Exception):
         """
         super().__init__(message)
         self.message = message
+        logger.error(repr(self))
 
     def __str__(self) -> str:
         """
