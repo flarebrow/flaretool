@@ -50,5 +50,5 @@ class requests():
         return requests.request("GET", url, **kwargs)
 
     @staticmethod
-    def post(url, *params, **kwargs) -> Response:
+    def post(url, **kwargs) -> Response:
         return requests.request("POST", url, **kwargs)
