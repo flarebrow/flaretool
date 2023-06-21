@@ -231,7 +231,37 @@ def hash_value(value: str, mode: HashMode = HashMode.MD5, encoding: str = 'utf-8
     hash_object.update(value.encode(encoding))
     return hash_object.hexdigest()
 
+
 class DictToFieldConverter:
+    """
+    This class converts a dictionary into field values.
+
+    Args:
+        dictionary (dict): The dictionary to convert.
+
+    Attributes:
+        dictionary (dict): The dictionary being converted.
+
+    Raises:
+        AttributeError: If a requested field does not exist in the dictionary.
+
+    Example:
+        # Create a dictionary
+        dictionary = {'name': 'John', 'age': 30, 'city': 'Tokyo'}
+
+        # Create an instance of DictToFieldConverter
+        converter = DictToFieldConverter(dictionary)
+
+        # Access field values
+        name = converter.name
+        age = converter.age
+        city = converter.city
+
+        print(name)  # Output: 'John'
+        print(age)   # Output: 30
+        print(city)  # Output: 'Tokyo'
+    """
+
     def __init__(self, dictionary):
         self.dictionary = dictionary
 
@@ -239,4 +269,5 @@ class DictToFieldConverter:
         if field_name in self.dictionary:
             return self.dictionary[field_name]
         else:
-            raise AttributeError(f"'DictToFieldConverter' object has no attribute '{field_name}'")
+            raise AttributeError(
+                f"'DictToFieldConverter' object has no attribute '{field_name}'")
