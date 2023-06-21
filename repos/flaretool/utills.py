@@ -230,3 +230,13 @@ def hash_value(value: str, mode: HashMode = HashMode.MD5, encoding: str = 'utf-8
 
     hash_object.update(value.encode(encoding))
     return hash_object.hexdigest()
+
+class DictToFieldConverter:
+    def __init__(self, dictionary):
+        self.dictionary = dictionary
+
+    def __getattr__(self, field_name):
+        if field_name in self.dictionary:
+            return self.dictionary[field_name]
+        else:
+            raise AttributeError(f"'DictToFieldConverter' object has no attribute '{field_name}'")
