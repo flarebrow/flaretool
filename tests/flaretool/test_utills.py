@@ -162,12 +162,11 @@ class UtillsTestCase(unittest.TestCase):
         dictionary = {'name': 'John', 'age': 30, 'city': 'Tokyo'}
         converter = DictToFieldConverter(dictionary)
 
-        assert converter.name == 'John'
-        assert converter.age == 30
-        assert converter.city == 'Tokyo'
+        self.assertEqual(converter.name, 'John')
+        self.assertEqual(converter.age, 30)
+        self.assertEqual(converter.city, 'Tokyo')
 
-        try:
-            assert converter.gender
-        except AttributeError as e:
-            assert str(
-                e) == "'DictToFieldConverter' object has no attribute 'gender'"
+        with self.assertRaises(AttributeError) as e:
+            converter.gender
+        self.assertEqual(
+            str(e.exception), "'DictToFieldConverter' object has no attribute 'gender'")
