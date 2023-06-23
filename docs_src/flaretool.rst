@@ -80,6 +80,14 @@ flaretool.errors module
    :undoc-members:
    :show-inheritance:
 
+flaretool.logger module
+-----------------------
+
+.. automodule:: flaretool.logger
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 flaretool.settings module
 -------------------------
 

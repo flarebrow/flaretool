@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool &mdash; flaretool 0.1.25 documentation</title>
+  <title>flaretool &mdash; flaretool 0.1.26 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -124,7 +124,15 @@
 <li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.command.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.html#module-flaretool.common">flaretool.common module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.html#module-flaretool.common">flaretool.common module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.common.requests"><code class="docutils literal notranslate"><span class="pre">requests</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.common.requests.get"><code class="docutils literal notranslate"><span class="pre">requests.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.common.requests.post"><code class="docutils literal notranslate"><span class="pre">requests.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.common.requests.request"><code class="docutils literal notranslate"><span class="pre">requests.request()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.html#module-flaretool.constants">flaretool.constants module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.constants.ConsoleColor"><code class="docutils literal notranslate"><span class="pre">ConsoleColor</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.constants.ConsoleColor.BG_BLACK"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BG_BLACK</span></code></a></li>
@@ -156,6 +164,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.html#module-flaretool.decorators">flaretool.decorators module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.decorators.network_required"><code class="docutils literal notranslate"><span class="pre">network_required()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.decorators.retry"><code class="docutils literal notranslate"><span class="pre">retry()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.html#module-flaretool.enums">flaretool.enums module</a><ul>
@@ -186,6 +195,11 @@
 <li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.errors.FlareToolNetworkError"><code class="docutils literal notranslate"><span class="pre">FlareToolNetworkError</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.html#module-flaretool.logger">flaretool.logger module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.logger.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.logger.setup_logger"><code class="docutils literal notranslate"><span class="pre">setup_logger()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.html#module-flaretool.settings">flaretool.settings module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.settings.BaseSettings"><code class="docutils literal notranslate"><span class="pre">BaseSettings</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.settings.BaseSettings.Config"><code class="docutils literal notranslate"><span class="pre">BaseSettings.Config</span></code></a></li>
@@ -197,6 +211,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.html#module-flaretool.utills">flaretool.utills module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.utills.DictToFieldConverter"><code class="docutils literal notranslate"><span class="pre">DictToFieldConverter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.html#flaretool.utills.DictToFieldConverter.dictionary"><code class="docutils literal notranslate"><span class="pre">DictToFieldConverter.dictionary</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.utills.base64_convert"><code class="docutils literal notranslate"><span class="pre">base64_convert()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.utills.convert_value"><code class="docutils literal notranslate"><span class="pre">convert_value()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.html#flaretool.utills.hash_value"><code class="docutils literal notranslate"><span class="pre">hash_value()</span></code></a></li>
