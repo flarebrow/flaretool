@@ -182,6 +182,33 @@ for business_day in business_days:
 # ...
 ```
 
+## Decorator Usage
+
+```python
+from flaretool.errors import FlareToolNetworkError
+from flaretool.decorators import network_required, retry
+
+# ネットワーク接続を必須とするデコレーター
+@network_required
+def network_access(url):
+    # ネットワークに接続されている場合に実行する処理
+    response = requests.get(url)
+    return response.json()
+
+def main():
+    try:
+        network_access()
+    except FlareToolNetworkError:
+        # ネットワークに接続されていない場合の処理
+        pass
+
+# 例外が発生した場合にリトライを行うデコレーター
+@retry(max_attempts=3, delay=2) # 2秒毎に3回までリトライ
+def example_function():
+    pass
+
+```
+
 # Flarebrow Service
 
 There are the following services available:

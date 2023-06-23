@@ -76,6 +76,11 @@ jobs:
           pytest-coverage-path: ./pytest-coverage.txt
           junitxml-path: ./results/pytest.xml
 
+      - name: Write job summary
+        id: check_status
+        run: |
+          echo -e ${{ steps.coverageComment.outputs.summaryReport }} >> $GITHUB_STEP_SUMMARY
+  
       - name: Create Coverage Badge
         uses: schneegans/dynamic-badges-action@v1.3.0
         with:

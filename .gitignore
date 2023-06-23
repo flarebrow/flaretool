@@ -162,7 +162,9 @@ cython_debug/
 before_process.py
 *.sh
 work*.py
+work*.md
 .vscode/
 docs/.*
 work/
 .work/
+htmlcov

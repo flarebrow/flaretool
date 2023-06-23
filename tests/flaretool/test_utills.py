@@ -157,3 +157,16 @@ class UtillsTestCase(unittest.TestCase):
         # error
         with self.assertRaises(ValueError):
             hash_value("test", "test")
+
+    def test_dict_to_field_converter(self):
+        dictionary = {'name': 'John', 'age': 30, 'city': 'Tokyo'}
+        converter = DictToFieldConverter(dictionary)
+
+        self.assertEqual(converter.name, 'John')
+        self.assertEqual(converter.age, 30)
+        self.assertEqual(converter.city, 'Tokyo')
+
+        with self.assertRaises(AttributeError) as e:
+            converter.gender
+        self.assertEqual(
+            str(e.exception), "'DictToFieldConverter' object has no attribute 'gender'")

@@ -1,3 +1,5 @@
+#!/bin/python
+# -*- coding: utf-8 -*-
 
 from flaretool.basemodels import BaseDataModel
 
