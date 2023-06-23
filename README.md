@@ -182,7 +182,7 @@ for business_day in business_days:
 # ...
 ```
 
-# Decorator Usage
+## Decorator Usage
 
 ```python
 from flaretool.errors import FlareToolNetworkError
