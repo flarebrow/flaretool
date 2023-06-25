@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: develop
+          ref: main
       - name: git pull
         run: |
           git pull
