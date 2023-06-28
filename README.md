@@ -184,11 +184,13 @@ for business_day in business_days:
 # ...
 ```
 
-## Decorator Usage
+## Decorator Examples of usage
+
+[Decorator Usage Document](https://flarebrow.github.io/flaretool/flaretool.html#module-flaretool.decorators)
 
 ```python
 from flaretool.errors import FlareToolNetworkError
-from flaretool.decorators import network_required, retry
+from flaretool.decorators import network_required, retry, repeat
 
 # ネットワーク接続を必須とするデコレーター
 @network_required
@@ -206,7 +208,17 @@ def main():
 
 # 例外が発生した場合にリトライを行うデコレーター
 @retry(max_attempts=3, delay=2) # 2秒毎に3回までリトライ
-def example_function():
+# @retry(3) # ←この場合は1秒毎に3回までリトライ
+def retry_function():
+    pass
+
+# 複数回実行を行うデコレーター
+@repeat(repeat_count=3, interval=2) # 2秒毎に3回メソッドを実行
+# @repeat(2) # ←この場合は連続で2回実行
+def repeat_function():
+    # 強制的に実行を止めたい場合はStopIterationをraiseさせる
+    if 複数回の実行をとめたい条件:
+        raise StopIteration("Stop the loop!")
     pass
 
 ```
