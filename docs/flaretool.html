@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool package &mdash; flaretool 0.1.26 documentation</title>
+  <title>flaretool package &mdash; flaretool 0.1.27 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -94,6 +94,7 @@
 </li>
 <li><a class="reference internal" href="#module-flaretool.decorators">flaretool.decorators module</a><ul>
 <li><a class="reference internal" href="#flaretool.decorators.network_required"><code class="docutils literal notranslate"><span class="pre">network_required()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.decorators.repeat"><code class="docutils literal notranslate"><span class="pre">repeat()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.decorators.retry"><code class="docutils literal notranslate"><span class="pre">retry()</span></code></a></li>
 </ul>
 </li>
@@ -273,6 +274,7 @@
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_labour_thanksgiving_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_labour_thanksgiving_day()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_marine_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_marine_day()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_mountain_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_mountain_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_national_holiday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_national_holiday()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_new_year"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_new_year()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_respect_for_the_aged_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_respect_for_the_aged_day()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_showa_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_showa_day()</span></code></a></li>
@@ -549,6 +551,26 @@
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#flaretool.errors.FlareToolNetworkError" title="flaretool.errors.FlareToolNetworkError"><strong>FlareToolNetworkError</strong></a> – ネットワークに接続されていない場合に発生する例外。</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flaretool.decorators.repeat">
+<span class="sig-prename descclassname"><span class="pre">flaretool.decorators.</span></span><span class="sig-name descname"><span class="pre">repeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repeat_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.decorators.repeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>指定された間隔で関数を指定回数再実行するデコレーター。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>repeat_count</strong> (<em>int</em>) – リピートする回数</p></li>
+<li><p><strong>interval</strong> (<em>int</em><em>, </em><em>optional</em>) – 実行間隔（秒単位）デフォルト値は0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>デコレートされた関数</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>function</p>
 </dd>
 </dl>
 </dd></dl>
