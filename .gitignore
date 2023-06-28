@@ -161,8 +161,7 @@ cython_debug/
 #.idea/
 before_process.py
 *.sh
-work*.py
-work*.md
+work*
 .vscode/
 docs/.*
 work/

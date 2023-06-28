@@ -146,6 +146,8 @@ print(result)  # "ABCABC"
 
 [Holiday Usage Document](https://flarebrow.github.io/flaretool/flaretool.holiday.html#module-flaretool.holiday)
 
+Supports from 1980/01/01 to 2024/12/31.
+
 ```python
 from flaretool.holiday import JapaneseHolidays
 import datetime
