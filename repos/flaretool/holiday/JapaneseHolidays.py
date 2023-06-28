@@ -37,6 +37,8 @@ class JapaneseHolidays:
         Returns:
             bool: 成人の日であればTrue、そうでなければFalse
         """
+        if date.year < 2000:
+            return date.month == 1 and date.day == 15
         return date.month == 1 and date.weekday() == 0 and 8 <= date.day <= 14
 
     def is_foundation_day(self, date: datetime.date) -> bool:
@@ -49,6 +51,8 @@ class JapaneseHolidays:
         Returns:
             bool: 建国記念日であればTrue、そうでなければFalse
         """
+        if date.year < 1967:
+            return False
         return date.month == 2 and date.day == 11
 
     def is_spring_equinox(self, date: datetime.date) -> bool:
@@ -77,6 +81,8 @@ class JapaneseHolidays:
         Returns:
             bool: 昭和の日であればTrue、そうでなければFalse
         """
+        if 1989 <= date.year <= 2006:
+            return False
         return date.month == 4 and date.day == 29
 
     def is_constitution_day(self, date: datetime.date) -> bool:
@@ -101,6 +107,10 @@ class JapaneseHolidays:
         Returns:
             bool: みどりの日であればTrue、そうでなければFalse
         """
+        if date.year < 1989:
+            return False
+        if 1989 <= date.year <= 2006:
+            return date.month == 4 and date.day == 29
         return date.month == 5 and date.day == 4
 
     def is_childrens_day(self, date: datetime.date) -> bool:
@@ -125,7 +135,17 @@ class JapaneseHolidays:
         Returns:
             bool: 海の日であればTrue、そうでなければFalse
         """
-        return date.month == 7 and date.weekday() == 0 and 15 <= date.day <= 21
+        if date.year < 1996:
+            return False
+        if date.month != 7:
+            return False
+        if date.year < 2003:
+            return date.day == 20
+        if date.year == 2020:
+            return date.day == 23
+        if date.year == 2021:
+            return date.day == 22
+        return date.weekday() == 0 and 15 <= date.day <= 21
 
     def is_mountain_day(self, date: datetime.date) -> bool:
         """
@@ -137,6 +157,12 @@ class JapaneseHolidays:
         Returns:
             bool: 山の日であればTrue、そうでなければFalse
         """
+        if date.year < 2016:
+            return False
+        if date.year == 2020 and date.month == 8:
+            return date.day == 10
+        if date.year == 2021 and date.month == 8:
+            return date.day == 8
         return date.month == 8 and date.day == 11
 
     def is_respect_for_the_aged_day(self, date: datetime.date) -> bool:
@@ -149,6 +175,8 @@ class JapaneseHolidays:
         Returns:
             bool: 敬老の日であればTrue、そうでなければFalse
         """
+        if date.year <= 2002:
+            return date.month == 9 and date.day == 15
         return date.month == 9 and date.weekday() == 0 and 15 <= date.day <= 21
 
     def is_autumn_equinox(self, date: datetime.date) -> bool:
@@ -177,18 +205,12 @@ class JapaneseHolidays:
         Returns:
             bool: スポーツの日であればTrue、そうでなければFalse
         """
-        # 2020: 国民の祝日に関する法律(昭和23年法律第178号)の特例
+        if date.year < 2000:
+            return date.month == 10 and date.day == 10
         if date.year == 2020:
-            if date == datetime.date(2020, 7, 24):
-                return True
-            return False
-        # 2021: 五輪特別措置法改正案
+            return date == datetime.date(2020, 7, 24)
         if date.year == 2021:
-            if date == datetime.date(2021, 7, 23):
-                return True
-            return False
-        # 2020: 国民の祝日に関する法律の一部を改正する法律(平成30年法律第57号)
-        #       国民の祝日に関する法律(昭和23年法律第178号)の特例
+            return date == datetime.date(2021, 7, 23)
         if date.year >= 2020 and date.month == 10 and date.day == self.week_day(date, 2, 1).day:
             return True
 
@@ -231,12 +253,45 @@ class JapaneseHolidays:
         # 1948-1988年
         if date.year in range(1948, 1988 + 1) and date.month == 4 and date.day == 29:
             return True
-        # 1988-2018年
+        # 1989-2018年
         # 2019: 国民の祝日に関する法律(昭和23年法律第178号)の一部改正
-        elif date.year in range(1988, 2018 + 1) and date.month == 12 and date.day == 23:
+        elif date.year in range(1989, 2018 + 1) and date.month == 12 and date.day == 23:
             return True
         # 2019: 国民の祝日に関する法律(昭和23年法律第178号)の一部改正
         elif date.year >= 2020 and date.month == 2 and date.day == 23:
+            return True
+        return False
+
+    def is_national_holiday(self, date: datetime.date) -> bool:
+        """
+        国民の休日の判定
+
+        Args:
+            date (datetime.date): 判定する日付
+
+        Returns:
+            bool: 国民の休日であればTrue、そうでなければFalse
+        """
+        if datetime.date(2019, 4, 30) <= date <= datetime.date(2019, 5, 2):
+            return True
+        if date in [
+            datetime.date(1989, 2, 24),
+            datetime.date(1990, 11, 12),
+            datetime.date(1993, 6, 9),
+            datetime.date(2019, 10, 22),
+        ]:
+            return True
+        if 2007 <= date.year and date.month == 5:
+            return False
+        if date.year <= 1985:
+            return False
+        previous_date = date - datetime.timedelta(days=1)
+        next_date = date + datetime.timedelta(days=1)
+        is_may_holiday = self.is_constitution_day(
+            previous_date) and self.is_childrens_day(next_date)
+        is_sep_holiday = self.is_respect_for_the_aged_day(
+            previous_date) and self.is_autumn_equinox(next_date)
+        if (is_may_holiday or is_sep_holiday) and date.weekday() < 6:
             return True
         return False
 
@@ -250,9 +305,10 @@ class JapaneseHolidays:
         Returns:
             bool: 振替休日の場合はTrue、そうでない場合はFalse
         """
-        if date.weekday() == 0:  # 日曜日の場合
-            previous_date = date - datetime.timedelta(days=1)
-            return True if self.get_holiday_name(previous_date) else False
+        if date.weekday() == 0:  # 月曜日の場合
+            return bool(self.get_holiday_name(date - datetime.timedelta(days=1)))
+        if date.year in [2008, 2009, 2014, 2015, 2020] and date.month == 5 and date.day == 6:
+            return True
         return False
 
     def is_additional_holiday(self, date: datetime.date) -> bool:
@@ -350,9 +406,13 @@ class JapaneseHolidays:
         elif self.is_spring_equinox(date):
             return "春分の日"
         elif self.is_showa_day(date):
+            if date.year < 1990:
+                return "天皇誕生日"
             return "昭和の日"
         elif self.is_constitution_day(date):
             return "憲法記念日"
+        elif self.is_national_holiday(date):
+            return "国民の休日"
         elif self.is_greenery_day(date):
             return "みどりの日"
         elif self.is_childrens_day(date):
@@ -366,6 +426,8 @@ class JapaneseHolidays:
         elif self.is_autumn_equinox(date):
             return "秋分の日"
         elif self.is_health_and_sports_day(date):
+            if date.year < 2020:
+                return "体育の日"
             return "スポーツの日"
         elif self.is_culture_day(date):
             return "文化の日"

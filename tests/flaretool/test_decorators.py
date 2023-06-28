@@ -1,4 +1,6 @@
+from time import sleep
 import unittest
+from unittest.mock import MagicMock
 from unittest.mock import patch
 
 from flaretool.errors import FlareToolNetworkError
@@ -74,6 +76,37 @@ class RetryDecoratorTestCase(unittest.TestCase):
 
     def tearDown(self):
         self.logger.reset()
+
+
+class RepeatDecoratorTestCase(unittest.TestCase):
+    def setUp(self):
+        self.logger = LogCapturing()
+
+    def tearDown(self):
+        self.logger.reset()
+
+    # モック用の関数を定義
+    def mock_function(self):
+        pass
+
+    def test_repeat_decorator(self):
+        # モック関数の作成
+        with patch('logging.getLogger') as mock_logger:
+            mock_logger.return_value = self.logger
+            mock_func = MagicMock(
+                side_effect=[self.mock_function, StopIteration("Stop the loop")])
+
+            # テスト対象の関数とデコレーターの組み合わせを作成します
+            @repeat(5, 3)
+            def test_function():
+                mock_func()
+
+            # テスト関数を呼び出します
+            test_function()
+
+            self.assertEqual(mock_func.call_count, 2)
+
+            self.assertIn("Stop the loop", self.logger.log)
 
 
 class LogCapturing:

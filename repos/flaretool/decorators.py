@@ -76,3 +76,55 @@ def retry(max_attempts: int, delay: int = 1):
                     time.sleep(delay)
         return wrapper
     return decorator
+
+
+def repeat(repeat_count: int, interval: int = 0):
+    """
+    指定された間隔で関数を指定回数再実行するデコレーター。
+
+    Args:
+        repeat_count (int): リピートする回数
+        interval (int, optional): 実行間隔（秒単位）デフォルト値は0
+
+
+    Returns:
+        function: デコレートされた関数
+    """
+    """
+    指定された間隔で関数を指定回数再実行するデコレーター。
+
+    Args:
+        repeat_count (int): リピートする回数
+        interval (int, optional): 実行間隔（秒単位）。デフォルト値は0。
+
+    Returns:
+        function: デコレートされた関数
+
+    Examples:
+        >>> @repeat(5, 3)
+        ... def print_hello():
+        ...     print("Hello, world!")
+        ...     if some_condition: # 実行を止めたい場合の条件
+        ...         raise StopIteration("Stop the loop")
+        ...
+        >>> print_hello()
+        Hello, world!
+        Hello, world!
+        Hello, world!
+        Hello, world!
+        Hello, world!
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            logger = get_logger()
+            for _ in range(repeat_count):
+                try:
+                    result = func(*args, **kwargs)
+                except StopIteration as e:
+                    logger.error(str(e))
+                    break
+                time.sleep(interval)
+            return result
+        return wrapper
+    return decorator
