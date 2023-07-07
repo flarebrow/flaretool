@@ -12,8 +12,13 @@ class ShortUrlInfo(BaseDataModel):
     code: str
     disabled: bool
     insert_time: datetime
-    limit_time: Union[datetime, str]
+    limit_time: Union[datetime, None]
     link: str
+
+    # def __init__(self, *args, **param):
+    #     param["limit_time"] = param.pop("limit_time")
+    #     super(BaseDataModel, self).__init__(*args, **param)
+    #     # super().__init__()
 
     def __sub__(self, other):
         diff = {}
