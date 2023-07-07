@@ -2,6 +2,7 @@ from setuptools import setup, find_packages
 from glob import glob
 from os.path import basename
 from os.path import splitext
+import re
 
 from setuptools import setup
 from setuptools import find_packages
@@ -13,8 +14,8 @@ with open('requirements.txt', "r") as f:
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-with open("version.txt") as f:
-    version = f.read()
+with open("repos/flaretool/VERSION.py") as f:
+    version = re.search(r'(?<=VERSION\s=\s")[^"]+', f.read()).group(0)
 
 setup(
     name='flaretool',  # パッケージ名（pip listで表示される）

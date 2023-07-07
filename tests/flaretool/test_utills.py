@@ -111,11 +111,23 @@ class UtillsTestCase(unittest.TestCase):
             text, ConversionMode.LOWER)
         self.assertEqual(result, expected)
 
+        text = "ABCabc"
+        expected = "aBcabc"
+        result = convert_value(
+            text, ConversionMode.LOWER, non_convert_chars="B")
+        self.assertEqual(result, expected)
+
     def test_upper(self):
         text = "ABCabc"
         expected = "ABCABC"
         result = convert_value(
             text, ConversionMode.UPPER)
+        self.assertEqual(result, expected)
+
+        text = "ABCabc"
+        expected = "ABCaBc"
+        result = convert_value(
+            text, ConversionMode.UPPER, non_convert_chars=["a", "c"])
         self.assertEqual(result, expected)
 
     def test_convert_value_raise(self):

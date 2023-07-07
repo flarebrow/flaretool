@@ -1,12 +1,14 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
 import os
-from pydantic import BaseSettings as bs
+from typing import Union
+from pydantic import ValidationError
+from pydantic_settings import BaseSettings as bs
 from dotenv import load_dotenv
 
 
 class BaseSettings(bs):
-    api_key: str = None
+    api_key: Union[str, None] = None
 
     class Config:
         env_prefix = ""

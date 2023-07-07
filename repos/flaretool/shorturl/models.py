@@ -15,6 +15,15 @@ class ShortUrlInfo(BaseDataModel):
     limit_time: Union[datetime, str]
     link: str
 
+    def __init__(self, *args, **param):
+        limit_time = param.pop("limit_time")
+        try:
+            limit_time = datetime.strptime(limit_time, "%Y-%m-%d %H:%M:%S")
+        except:
+            pass
+        param["limit_time"] = limit_time
+        super(BaseDataModel, self).__init__(*args, **param)
+
     def __sub__(self, other):
         diff = {}
         for field, value in other.dict().items():

@@ -10,6 +10,10 @@ from flaretool.common import requests
 from urllib import robotparser
 from urllib.parse import urlparse, urlunparse
 
+from flaretool.logger import get_logger
+
+logger = get_logger()
+
 
 def get_global_ipaddr_info(addr: str = None) -> IpInfo:
     """
@@ -43,7 +47,7 @@ def lookup_ip(domain: str) -> str:
     try:
         return socket.gethostbyname(domain)
     except socket.gaierror as e:
-        print(f"Error during forward DNS lookup: {e}")
+        logger.error(f"Error during forward DNS lookup: {e}")
         return None
 
 
@@ -61,7 +65,7 @@ def lookup_domain(ip: str) -> str:
     try:
         return socket.gethostbyaddr(ip)[0]
     except socket.herror as e:
-        print(f"Error during reverse DNS lookup: {e}")
+        logger.error(f"Error during reverse DNS lookup: {e}")
         return None
 
 
