@@ -27,8 +27,4 @@ class BaseSettings(bs):
 
 
 def get_settings():
-    try:
-        return BaseSettings()
-    except ValidationError as exc:
-        print(repr(exc.errors()[0]['type']))
-        # > 'time_type'
+    return BaseSettings()
