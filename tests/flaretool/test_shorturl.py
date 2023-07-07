@@ -66,7 +66,7 @@ class ShortUrlServiceTest(unittest.TestCase):
                     "code": "abcd",
                     "disabled": False,
                     "insert_time": "2023-06-10T12:00:00",
-                    "limit_time": "2023-06-20T12:00:00",
+                    "limit_time": "2023-06-20 12:00:00",
                     "link": "https://exsample.com/abcd",
                 },
                 {
@@ -76,7 +76,7 @@ class ShortUrlServiceTest(unittest.TestCase):
                     "code": "efgh",
                     "disabled": True,
                     "insert_time": "2023-06-11T12:00:00",
-                    "limit_time": "2023-06-20T12:00:00",
+                    "limit_time": "2023-06-20 12:00:00",
                     "link": "https://exsample.com/efgh",
                 },
             ],
@@ -122,7 +122,7 @@ class ShortUrlServiceTest(unittest.TestCase):
                     "code": "abcd",
                     "disabled": False,
                     "insert_time": "2023-06-10T12:00:00",
-                    "limit_time": "2023-06-20T12:00:00",
+                    "limit_time": "2023-06-20 12:00:00",
                     "link": "https://exsample.com/abcd",
                 }
             ],
@@ -156,7 +156,7 @@ class ShortUrlServiceTest(unittest.TestCase):
                         "code": "abcd",
                         "disabled": False,
                         "insert_time": "2023-06-10T12:00:00",
-                        "limit_time": "2023-06-20T12:00:00",
+                        "limit_time": "2023-06-20 12:00:00",
                         "link": "https://exsample.com/abcd",
                     }
                 ],
@@ -168,7 +168,7 @@ class ShortUrlServiceTest(unittest.TestCase):
                         "code": "efgh",
                         "disabled": True,
                         "insert_time": "2023-06-11T12:00:00",
-                        "limit_time": "2023-06-20T12:00:00",
+                        "limit_time": "2023-06-20 12:00:00",
                         "link": "https://exsample.com/efgh",
                     }
                 ],
@@ -219,7 +219,7 @@ class ShortUrlServiceTest(unittest.TestCase):
                     "code": "abcd",
                     "disabled": False,
                     "insert_time": "2023-06-10T12:00:00",
-                    "limit_time": "2023-06-20T12:00:00",
+                    "limit_time": "2023-06-20 12:00:00",
                     "link": "https://exsample.com/abcd",
                 }
             ],
