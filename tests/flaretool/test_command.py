@@ -35,6 +35,22 @@ class CommandTest(unittest.TestCase):
                 self.assertEqual(fake_out.getvalue(
                 ), "=== Your IP Infomation ===\nip: 192.168.0.1\nhostname: example.com\ncountry: US\n")
 
+    def test_main_with_get_global_ipaddr_info(self):
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            with patch.object(nettool, 'get_global_ipaddr_info') as mock_method:
+                mock_method.return_value = nettool.IpInfo(
+                    ipaddr='192.168.0.1', hostname='example.com', country='US'
+                )
+                with pytest.raises(SystemExit) as e:
+                    args = argparse.Namespace(
+                        func='nettool', mode='get_global_ipaddr_info', args=[])
+                    self.mock_create_connection.return_value = args
+                    main()
+                    self.assertEqual(e.type, SystemExit)
+                    self.assertEqual(e.value.code, 0)
+                self.assertEqual(fake_out.getvalue(
+                ), "ipaddr='192.168.0.1'\nhostname='example.com'\ncountry='US'\n")
+
     def test_main_with_invalid_mode(self):
         with patch('sys.stdout', new=StringIO()) as fake_out:
             with patch.object(nettool, 'get_global_ipaddr_info') as mock_method:

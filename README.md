@@ -155,10 +155,35 @@ import datetime
 # JapaneseHolidaysクラスのインスタンスを作成
 holidays = JapaneseHolidays()
 
-# 特定の日付が祝日かどうかを判定
+# 特定の日付が祝日かどうかを判定1(date型)
 date = datetime.date(2023, 1, 1)
 is_holiday = holidays.get_holiday_name(date)
 print(is_holiday)  # "元日" が出力される
+
+# 特定の日付が祝日かどうかを判定(str型)
+date = "2023/1/1"
+is_holiday = holidays.get_holiday_name(date)
+print(is_holiday)  # "元日" が出力される
+
+# 特定の日付が祝日かどうかを判定(祝日ではない場合)
+date = "2023/1/3"
+is_holiday = holidays.get_holiday_name(date)
+print(is_holiday)  # None が出力される
+
+# 営業日を取得
+date = datetime.date(2023, 7, 1)
+
+## 第1営業日を取得
+business_day = holidays.get_first_business_day(date)
+print(business_day)  # "2023-07-03" が出力される
+
+## 第4営業日を取得
+business_day = holidays.get_first_business_day(date, 4)
+print(business_day)  # "2023-07-06" が出力される
+
+## 最終営業日を取得
+business_day = holidays.get_last_business_day(date)
+print(business_day)  # "2023-07-31" が出力される
 
 # 特定の期間内の祝日一覧を取得
 start_date = datetime.date(2023, 1, 1)

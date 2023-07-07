@@ -179,10 +179,14 @@ class JapaneseHolidaysTest(unittest.TestCase):
     def test__to_date(self):
         datetime_value = datetime.datetime(2023, 6, 10, 12, 30, 0)
         expected_date = datetime.date(2023, 6, 10)
-        self.assertEqual(self.holidays._to_date(datetime_value), expected_date)
+        self.assertEqual(self.holidays.to_date(datetime_value), expected_date)
 
         date_value = datetime.date(2023, 6, 10)
-        self.assertEqual(self.holidays._to_date(date_value), date_value)
+        self.assertEqual(self.holidays.to_date(date_value), date_value)
+
+        date_value = "aaaaaaaaaaa"
+        with self.assertRaises(ValueError):
+            self.holidays.to_date(date_value)
 
     def test_get_last_day(self):
         date = datetime.date(2023, 6, 10)
@@ -198,9 +202,24 @@ class JapaneseHolidaysTest(unittest.TestCase):
         expected_name = "みどりの日"
         self.assertEqual(self.holidays.get_holiday_name(date), expected_name)
 
+        date_str = "2023/5/4"
+        self.assertEqual(self.holidays.get_holiday_name(
+            date_str), expected_name)
+
         date = datetime.date(2023, 12, 24)
         expected_name = None  # Not a holiday
         self.assertEqual(self.holidays.get_holiday_name(date), expected_name)
+
+    def test_get_rest_days_in_range(self):
+        start_date = datetime.date(2023, 7, 10)
+        end_date = datetime.date(2023, 7, 20)
+        expected_rest_days = [
+            ("土曜日", datetime.date(2023, 7, 15)),
+            ("日曜日", datetime.date(2023, 7, 16)),
+            ("海の日", datetime.date(2023, 7, 17)),
+        ]
+        self.assertEqual(self.holidays.get_rest_days_in_range(
+            start_date, end_date), expected_rest_days)
 
         start_date = datetime.date(2023, 1, 1)
         end_date = datetime.date(2023, 12, 31)
@@ -328,17 +347,6 @@ class JapaneseHolidaysTest(unittest.TestCase):
                 ('日曜日', datetime.date(2023, 12, 31)),
             ]
         )
-
-    def test_get_rest_days_in_range(self):
-        start_date = datetime.date(2023, 7, 10)
-        end_date = datetime.date(2023, 7, 20)
-        expected_rest_days = [
-            ("土曜日", datetime.date(2023, 7, 15)),
-            ("日曜日", datetime.date(2023, 7, 16)),
-            ("海の日", datetime.date(2023, 7, 17)),
-        ]
-        self.assertEqual(self.holidays.get_rest_days_in_range(
-            start_date, end_date), expected_rest_days)
 
     def test_get_holidays_in_range(self):
         start_date = datetime.date(1980, 1, 1)
@@ -1096,6 +1104,16 @@ class JapaneseHolidaysTest(unittest.TestCase):
         ]
         self.assertEqual(self.holidays.get_business_date_range(
             start_date, end_date), expected_business_days)
+
+    def test_get_first_business_day(self):
+        date = datetime.date(2023, 7, 10)
+        expected_last_business_day = datetime.date(2023, 7, 3)
+        self.assertEqual(self.holidays.get_first_business_day(
+            date), expected_last_business_day)
+
+        expected_last_business_day = datetime.date(2023, 7, 4)
+        self.assertEqual(self.holidays.get_first_business_day(
+            date, 2), expected_last_business_day)
 
     def test_get_last_business_day(self):
         date = datetime.date(2023, 6, 10)

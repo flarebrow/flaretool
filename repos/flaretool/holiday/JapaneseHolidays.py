@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 import calendar
+from typing import Union
 
 __all__ = []
 
@@ -9,6 +10,7 @@ __all__ = []
 class JapaneseHolidays:
     """
     日本の祝日を管理するクラス
+    オフライン版（オンライン版はComing Soon）
     """
     _additional_holidays: dict[datetime.date, str]
 
@@ -357,20 +359,50 @@ class JapaneseHolidays:
             days.append(line[weekday - 1])
         return datetime.date(date.year, date.month, days[week - 1])
 
-    def _to_date(self, value):
+    def to_date(self, date: Union[
+        str, datetime.datetime, datetime.date
+    ]) -> datetime.date:
         """
-        日付オブジェクトに変換
+        日付文字列をdateオブジェクトに変換します
 
         Args:
-            value: 変換する値
+            date (str or datetime or date): 変換する日付文字列。
 
         Returns:
-            datetime.date: 変換後の日付オブジェクト
+            date: 変換されたdateオブジェクト。
+
+        Raises:
+            ValueError: サポートされていない日付形式の場合に発生します。
         """
-        if isinstance(value, datetime.datetime):
-            return value.date()
-        if isinstance(value, datetime.date):
-            return value
+        if isinstance(date, datetime.datetime):
+            return date.date()
+        if isinstance(date, datetime.date):
+            return date
+
+        formats = [
+            '%Y-%m-%d',           # 2021-01-01
+            '%Y-%m-%d %H:%M',     # 2021-01-01 12:34
+            '%Y-%m-%d %H:%M:%S',  # 2021-01-01 12:34:56
+            '%Y/%m/%d',           # 2021/01/01
+            '%Y/%m/%d %H:%M',     # 2021/01/01 12:34
+            '%Y/%m/%d %H:%M:%S',  # 2021/01/01 12:34:56
+            '%Y%m%d',             # 20210101
+            '%d-%b-%Y',           # 01-Jan-2021
+            '%d-%b-%Y %H:%M:%S',  # 01-Jan-2021 12:34:56
+            '%m-%d-%Y',           # 01-01-2021
+            '%b %d, %Y',          # Jan 01, 2021
+            '%B %d, %Y',          # January 01, 2021
+            '%d %b %Y',           # 01 Jan 2021
+            '%d %B %Y',           # 01 January 2021
+        ]
+
+        for fmt in formats:
+            try:
+                return datetime.datetime.strptime(date, fmt).date()
+            except ValueError:
+                pass
+
+        raise ValueError("Unsupported date format")
 
     def get_last_day(self, date: datetime.date):
         """
@@ -386,17 +418,19 @@ class JapaneseHolidays:
         last_date = datetime.date(date.year, date.month, last_day)
         return last_date
 
-    def get_holiday_name(self, date) -> str:
+    def get_holiday_name(self, date: Union[
+        str, datetime.datetime, datetime.date
+    ]) -> str:
         """
         祝日名を取得
 
         Args:
-            date (datetime or date): 日時
+            date (datetime or date or str): 日時
 
         Returns:
             str: 祝日名（祝日ではない場合はNone）
         """
-        date = self._to_date(date)
+        date = self.to_date(date)
         if self.is_new_year(date):
             return "元日"
         elif self.is_coming_of_age_day(date):
@@ -507,6 +541,22 @@ class JapaneseHolidays:
                     business_days.append(current_date)
             current_date += datetime.timedelta(days=1)
         return business_days
+
+    def get_first_business_day(self, date: datetime.date, days: int = 1) -> datetime.date:
+        """
+        指定された月の営業日を取得（デフォルトは第1営業日）
+
+        Args:
+            date (datetime.date): 日付
+            days (int): 営業日数（デフォルトは1）
+
+        Returns:
+            datetime.date: 営業日
+        """
+        return self.get_business_date_range(
+            datetime.date(date.year, date.month, 1),
+            self.get_last_day(datetime.date(date.year, date.month, 1)),
+        )[days - 1]
 
     def get_last_business_day(self, date: datetime.date) -> datetime.date:
         """

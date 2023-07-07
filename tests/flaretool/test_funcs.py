@@ -22,6 +22,7 @@ class FuncsTest(unittest.TestCase):
     def test_amazon_info(self, mock_requests):
         url = "https://www.amazon.com/example-product"
         response_data = {
+            "result": True,
             "url": url,
             "title": "Example Product",
             "price": 100,

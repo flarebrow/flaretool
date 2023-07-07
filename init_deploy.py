@@ -16,7 +16,6 @@ def main():
                 f.write(lib_name.replace("==", ">=") + "\n")
 
     version_file = "repos/flaretool/VERSION.py"
-    version_setup_file = "version.txt"
 
     # バージョン自動インクリメント
 
@@ -32,9 +31,6 @@ def main():
 
     with open(version_file, "w") as f:
         f.write(re.sub(r'(?<=VERSION\s=\s")[^"]+', new_version, current))
-
-    with open(version_setup_file, "w") as f:
-        f.write(new_version)
 
 
 if __name__ == "__main__":

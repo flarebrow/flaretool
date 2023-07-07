@@ -5,6 +5,7 @@ from flaretool.basemodels import BaseDataModel
 
 
 class AmazonInfo(BaseDataModel):
+    result: bool
     url: str = None
     title: str = None
     price: int = None

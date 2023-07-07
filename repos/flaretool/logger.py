@@ -28,7 +28,7 @@ def setup_logger(
     extra_string = ""
 
     if extra:
-        extra_string = "- %(module)s(%(funcName)s) L:%(lineno)d "
+        extra_string = "- %(pathname)s:%(lineno)d(%(funcName)s) "
     format_string = f"[%(asctime)s] %(levelname)s {extra_string}: %(message)s"
     formatter = logging.Formatter(format_string)
 
@@ -50,7 +50,7 @@ def setup_logger(
     rotating_handler.setFormatter(formatter)
 
     if file:
-        logger.addHandler(file_handler if not rotating else rotating_handler)
+        logger.addHandler(rotating_handler if rotating else file_handler)
 
     if console:
         logger.addHandler(console_handler)

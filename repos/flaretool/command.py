@@ -4,6 +4,7 @@ import inspect
 import argparse
 import flaretool
 from flaretool import nettool
+from flaretool.basemodels import BaseDataModel
 
 current_ver = flaretool.__version__
 
@@ -44,7 +45,9 @@ def main():
             print("country:", network_info.country)
         else:
             try:
-                print(getattr(nettool, args.mode)(*args.args))
+                result = getattr(nettool, args.mode)(*args.args)
+                print(result if not isinstance(
+                    result, BaseDataModel) else result.__trace__())
             except TypeError as e:
                 print(e)
                 exit(9)
