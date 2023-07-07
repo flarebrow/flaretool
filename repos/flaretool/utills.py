@@ -88,10 +88,21 @@ def convert_value(value: str, mode: ConversionMode = ConversionMode.HALF_WIDTH, 
     Raises:
         ValueError: 無効な変換モードが指定された場合
     """
-    if mode == ConversionMode.UPPER:
-        return value.upper()
-    elif mode == ConversionMode.LOWER:
-        return value.lower()
+
+    if non_convert_chars is None:
+        non_convert_chars = []
+    elif isinstance(non_convert_chars, str):
+        non_convert_chars = [non_convert_chars]
+
+    if mode in [ConversionMode.UPPER, ConversionMode.LOWER]:
+        temp = []
+        for c in value:
+            if c in non_convert_chars:
+                temp.append(c)
+            else:
+                temp.append(c.upper() if mode ==
+                            ConversionMode.UPPER else c.lower())
+        return ''.join(temp)
 
     tables = {
         'ascii_zh_table': {},
@@ -125,11 +136,6 @@ def convert_value(value: str, mode: ConversionMode = ConversionMode.HALF_WIDTH, 
     for (z, h) in KANA_MARU_MAP:
         tables['kana_maru_zh_table'][z] = h
         tables['kana_maru_hz_table'][h] = z
-
-    if non_convert_chars is None:
-        non_convert_chars = []
-    elif isinstance(non_convert_chars, str):
-        non_convert_chars = [non_convert_chars]
 
     temp = []
     prev = ''
