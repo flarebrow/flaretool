@@ -25,7 +25,7 @@ jobs:
       - name: Generate release tag
         id: release_tag
         run: |
-          TAG=$(cat version.txt)
+          TAG=$(cat repos/flaretool/VERSION.py | grep -oP '(?<=VERSION = ").*(?=")')
           echo "::set-output name=release_tag::v$TAG"
       - name: Generate release note
         id: release_note
