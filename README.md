@@ -165,6 +165,11 @@ date = "2023/1/1"
 is_holiday = holidays.get_holiday_name(date)
 print(is_holiday)  # "元日" が出力される
 
+# 特定の日付が祝日かどうかを判定(祝日ではない場合)
+date = "2023/1/3"
+is_holiday = holidays.get_holiday_name(date)
+print(is_holiday)  # None が出力される
+
 # 特定の期間内の祝日一覧を取得
 start_date = datetime.date(2023, 1, 1)
 end_date = datetime.date(2023, 12, 31)
@@ -177,10 +182,6 @@ for holiday in holiday_list:
 # ("成人の日", datetime.date(2023, 1, 9))
 # ("建国記念の日", datetime.date(2023, 2, 11))
 # ...
-# 特定の日付が祝日かどうかを判定(祝日ではない場合)
-date = "2023/1/3"
-is_holiday = holidays.get_holiday_name(date)
-print(is_holiday)  # None が出力される
 
 # 営業日を取得(7月)
 date = datetime.date(2023, 7, 1)
