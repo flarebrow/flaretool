@@ -1,7 +1,7 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
 import os
-from pydantic import BaseSettings as bs
+from pydantic_settings import BaseSettings as bs
 from dotenv import load_dotenv
 
 
