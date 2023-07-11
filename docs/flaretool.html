@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool package &mdash; flaretool 0.1.28 documentation</title>
+  <title>flaretool package &mdash; flaretool 0.1.29 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -60,8 +60,10 @@
 </li>
 <li><a class="reference internal" href="#module-flaretool.common">flaretool.common module</a><ul>
 <li><a class="reference internal" href="#flaretool.common.requests"><code class="docutils literal notranslate"><span class="pre">requests</span></code></a><ul>
+<li><a class="reference internal" href="#flaretool.common.requests.delete"><code class="docutils literal notranslate"><span class="pre">requests.delete()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.common.requests.get"><code class="docutils literal notranslate"><span class="pre">requests.get()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.common.requests.post"><code class="docutils literal notranslate"><span class="pre">requests.post()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.common.requests.put"><code class="docutils literal notranslate"><span class="pre">requests.put()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.common.requests.request"><code class="docutils literal notranslate"><span class="pre">requests.request()</span></code></a></li>
 </ul>
 </li>
@@ -221,44 +223,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.holiday.html">flaretool.holiday package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday.JapaneseHolidays">flaretool.holiday.JapaneseHolidays module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday">Module contents</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_business_date_range"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_business_date_range()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_date_information"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_date_information()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_first_business_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_first_business_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_holiday_name"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_holiday_name()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_holidays_in_range"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_holidays_in_range()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_last_business_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_last_business_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_last_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_last_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_rest_days_in_range"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_rest_days_in_range()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_additional_holiday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_additional_holiday()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_autumn_equinox"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_autumn_equinox()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_childrens_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_childrens_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_coming_of_age_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_coming_of_age_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_constitution_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_constitution_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_culture_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_culture_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_emperors_birthday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_emperors_birthday()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_foundation_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_foundation_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_greenery_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_greenery_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_health_and_sports_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_health_and_sports_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_labour_thanksgiving_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_labour_thanksgiving_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_marine_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_marine_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_mountain_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_mountain_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_national_holiday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_national_holiday()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_new_year"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_new_year()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_respect_for_the_aged_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_respect_for_the_aged_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_showa_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_showa_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_spring_equinox"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_spring_equinox()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.is_transfer_holiday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.is_transfer_holiday()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.print_calendar"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.print_calendar()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.set_additional_holiday"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.set_additional_holiday()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.to_date"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.to_date()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.week_day"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.week_day()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#flaretool-holiday-japaneseholidays-module">flaretool.holiday.JapaneseHolidays module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#flaretool-holiday-japaneseholidaysonline-module">flaretool.holiday.JapaneseHolidaysOnline module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday.errors">flaretool.holiday.errors module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.errors.JapaneseHolidaysError"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidaysError</span></code></a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#flaretool-holiday-models-module">flaretool.holiday.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.nettool.html">flaretool.nettool package</a><ul>
@@ -355,6 +327,11 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.common.</span></span><span class="sig-name descname"><span class="pre">requests</span></span><a class="headerlink" href="#flaretool.common.requests" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
+<dt class="sig sig-object py" id="flaretool.common.requests.delete">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#flaretool.common.requests.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="flaretool.common.requests.get">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#flaretool.common.requests.get" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -362,6 +339,11 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.common.requests.post">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#flaretool.common.requests.post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.common.requests.put">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#flaretool.common.requests.put" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
