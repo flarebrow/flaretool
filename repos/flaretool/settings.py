@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import os
 from typing import Union
-from pydantic import ValidationError
 from pydantic_settings import BaseSettings as bs
 from dotenv import load_dotenv
 

@@ -28,7 +28,7 @@ def setup_logger(
     extra_string = ""
 
     if extra:
-        extra_string = "- %(pathname)s:%(lineno)d(%(funcName)s) "
+        extra_string = "- %(pathname)s:%(lineno)d - %(funcName)s "
     format_string = f"[%(asctime)s] %(levelname)s {extra_string}: %(message)s"
     formatter = logging.Formatter(format_string)
 

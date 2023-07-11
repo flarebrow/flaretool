@@ -52,3 +52,11 @@ class requests():
     @staticmethod
     def post(url, **kwargs) -> Response:
         return requests.request("POST", url, **kwargs)
+
+    @staticmethod
+    def put(url, **kwargs) -> Response:
+        return requests.request("PUT", url, **kwargs)
+
+    @staticmethod
+    def delete(url, **kwargs) -> Response:
+        return requests.request("DELETE", url, **kwargs)

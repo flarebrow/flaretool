@@ -16,6 +16,8 @@ class NettoolTest(unittest.TestCase):
                 'country': 'JP'
             }
             ip_info = get_global_ipaddr_info()
+            self.assertEqual(
+                str(ip_info), "IpInfo(ipaddr='192.0.2.1', hostname='example.com', country='JP')")
             self.assertIsInstance(ip_info, IpInfo)
             self.assertEqual(ip_info.ipaddr, '192.0.2.1')
             self.assertEqual(ip_info.hostname, 'example.com')

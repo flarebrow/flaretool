@@ -149,13 +149,18 @@ print(result)  # "ABCABC"
 Supports from 1980/01/01 to 2024/12/31.
 
 ```python
+# オフライン版
 from flaretool.holiday import JapaneseHolidays
+# オンライン版
+from flaretool.holiday import JapaneseHolidaysOnline
 import datetime
 
 # JapaneseHolidaysクラスのインスタンスを作成
 holidays = JapaneseHolidays()
+# オンライン版を使う場合はこちら
+# holidays = JapaneseHolidaysOnline()
 
-# 特定の日付が祝日かどうかを判定1(date型)
+# 特定の日付が祝日かどうかを判定(date型)
 date = datetime.date(2023, 1, 1)
 is_holiday = holidays.get_holiday_name(date)
 print(is_holiday)  # "元日" が出力される
@@ -164,6 +169,11 @@ print(is_holiday)  # "元日" が出力される
 date = "2023/1/1"
 is_holiday = holidays.get_holiday_name(date)
 print(is_holiday)  # "元日" が出力される
+
+# 特定の日付が祝日かどうかを判定(祝日ではない場合)
+date = "2023/1/3"
+is_holiday = holidays.get_holiday_name(date)
+print(is_holiday)  # None が出力される
 
 # 特定の期間内の祝日一覧を取得
 start_date = datetime.date(2023, 1, 1)
@@ -177,10 +187,26 @@ for holiday in holiday_list:
 # ("成人の日", datetime.date(2023, 1, 9))
 # ("建国記念の日", datetime.date(2023, 2, 11))
 # ...
-# 特定の日付が祝日かどうかを判定(祝日ではない場合)
-date = "2023/1/3"
-is_holiday = holidays.get_holiday_name(date)
-print(is_holiday)  # None が出力される
+
+# 2023年の祝日を取得
+holiday_list = holidays.get_holidays("2023")
+for holiday in holiday_list:
+    print(holiday)
+# 出力例:
+# ("元日", datetime.date(2023, 1, 1))
+# ("元日（振替休日）", datetime.date(2023, 1, 2))
+# ("成人の日", datetime.date(2023, 1, 9))
+# ("建国記念の日", datetime.date(2023, 2, 11))
+# ...
+
+# 2023年5月の祝日を取得
+holiday_list = holidays.get_holidays("202305")
+for holiday in holiday_list:
+    print(holiday)
+# 出力例:
+# ('憲法記念日', datetime.date(2023, 5, 3))
+# ('みどりの日', datetime.date(2023, 5, 4))
+# ('こどもの日', datetime.date(2023, 5, 5))
 
 # 営業日を取得(7月)
 date = datetime.date(2023, 7, 1)
