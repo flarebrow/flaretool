@@ -9,8 +9,7 @@ __all__ = []
 
 class JapaneseHolidays:
     """
-    日本の祝日を管理するクラス
-    オフライン版（オンライン版はComing Soon）
+    日本の祝日を管理するクラス(オフライン版)
     """
     _additional_holidays: dict[datetime.date, str]
 
@@ -420,7 +419,7 @@ class JapaneseHolidays:
 
     def get_holiday_name(self, date: Union[
         str, datetime.datetime, datetime.date
-    ]) -> str:
+    ]) -> Union[str, None]:
         """
         祝日名を取得
 
@@ -475,6 +474,54 @@ class JapaneseHolidays:
             return self._additional_holidays.get(date)
         else:
             return None
+
+    def get_holidays(self, date: str) -> list[tuple[str, datetime.datetime]]:
+        """
+        祝日の一覧を取得
+
+        Args:
+            date (str): 年 or 年月 の日時
+
+        Raises:
+            ValueError: 日時のフォーマットエラー
+
+        Returns:
+            list[tuple[str, datetime.datetime]]: 祝日リスト
+
+        Example:
+            >>> get_holidays("2023")
+            >>> get_holidays("2023-01")
+            >>> get_holidays("2023/01")
+            >>> get_holidays("202301")
+        """
+        start_date = date
+        try:
+            start_date = datetime.datetime.strptime(start_date, '%Y').date()
+            end_date = datetime.date(start_date.year, 12, 31)
+        except ValueError:
+            pass
+
+        if isinstance(start_date, str):
+            for fmt in ['%Y/%m', '%Y-%m', '%Y%m']:
+                try:
+                    start_date = datetime.datetime.strptime(
+                        start_date, fmt).date()
+                    end_date = self.get_last_day(start_date)
+                    break
+                except ValueError:
+                    pass
+
+        if isinstance(start_date, str):
+            raise ValueError("Unsupported date format")
+
+        holidays = []
+        current_date = start_date
+        while current_date <= end_date:
+            holiday_name = self.get_holiday_name(current_date)
+            if holiday_name is not None:
+                holidays.append((holiday_name, current_date))
+            current_date += datetime.timedelta(days=1)
+        return holidays
 
     def get_rest_days_in_range(self, start_date: datetime.date, end_date: datetime.date) -> list[tuple[str, datetime.datetime]]:
         """

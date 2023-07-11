@@ -100,3 +100,39 @@ class RequestsTestCase(unittest.TestCase):
             headers=self.headers,
             data=data,
         )
+
+    def test_put(self):
+        # テスト用のダミーデータとしてURLとデータを設定します
+        url = "https://example.com"
+        data = {"key": "value"}
+
+        # putメソッドをテストします
+        response = requests.put(url, data=data)
+
+        # レスポンスのステータスコードが正常であることを確認します
+        self.assertEqual(response.status_code, 200)
+
+        self.mock_requests.__enter__.return_value.request.assert_called_with(
+            method="PUT",
+            url=url,
+            headers=self.headers,
+            data=data,
+        )
+
+    def test_delete(self):
+        # テスト用のダミーデータとしてURLとデータを設定します
+        url = "https://example.com"
+        data = {"key": "value"}
+
+        # deleteメソッドをテストします
+        response = requests.delete(url, data=data)
+
+        # レスポンスのステータスコードが正常であることを確認します
+        self.assertEqual(response.status_code, 200)
+
+        self.mock_requests.__enter__.return_value.request.assert_called_with(
+            method="DELETE",
+            url=url,
+            headers=self.headers,
+            data=data,
+        )
