@@ -161,9 +161,9 @@ cython_debug/
 #.idea/
 before_process.py
 *.sh
-work*
+work*.py
 .vscode/
 docs/.*
 work/
-.work/
+.work*
 htmlcov
