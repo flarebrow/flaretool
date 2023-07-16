@@ -1,7 +1,7 @@
 name: JapanHoliday Auto Test
 on:
   schedule:
-    - cron: '30 2 * * *'
+    - cron: '30 2 * */4 *'
   workflow_dispatch:
   workflow_call:
     secrets:
