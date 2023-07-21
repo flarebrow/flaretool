@@ -7,6 +7,7 @@ import flaretool
 from flaretool.ddns.errors import DdnsAuthenticationError, DdnsError
 from flaretool.ddns.models import DdnsInfo
 from flaretool.errors import AuthenticationError
+from flaretool.constants import BASE_API_URL
 
 __all__ = []
 
@@ -49,7 +50,7 @@ class DdnsService:
             DdnsAuthenticationError: If the response code is 401.
             DdnsError: If the response code is not 200.
         """
-        base_url = "https://api.flarebrow.com/v2/ddns"
+        base_url = f"{BASE_API_URL}/ddns"
         params["apikey"] = flaretool.api_key
         response = requests.request(
             method,

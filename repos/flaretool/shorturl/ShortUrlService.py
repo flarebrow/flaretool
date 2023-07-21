@@ -9,6 +9,7 @@ Warning:
 import flaretool
 from flaretool.errors import AuthenticationError
 from flaretool.common import requests
+from flaretool.constants import BASE_API_URL
 from flaretool.shorturl.errors import ShortUrlAuthenticationError, ShortUrlDataUpdateError, ShortUrlError
 from .models import ShortUrlInfo
 import warnings
@@ -55,7 +56,7 @@ class ShortUrlService:
             ShortUrlDataUpdateError: If the response code is 409.
             ShortUrlError: If the response code is not 200.
         """
-        base_url = "https://api.flarebrow.com/v2/shorturl"
+        base_url = f"{BASE_API_URL}/shorturl"
         params["apikey"] = flaretool.api_key
         result = requests.request(
             method,

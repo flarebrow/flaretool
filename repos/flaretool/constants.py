@@ -1,5 +1,9 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
+
+BASE_API_URL = "https://api.flarebrow.com/v2"
+
+
 class ConsoleColor:
     BLACK = '\033[30m'  # (文字)黒
     RED = '\033[31m'  # (文字)赤

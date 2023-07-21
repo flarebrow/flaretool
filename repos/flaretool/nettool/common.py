@@ -5,6 +5,8 @@ import tempfile
 import socket
 import whois
 import ipaddress
+
+from flaretool.constants import BASE_API_URL
 from .models import IpInfo, PunyDomainInfo
 from flaretool.common import requests
 from urllib import robotparser
@@ -29,7 +31,7 @@ def get_global_ipaddr_info(addr: str = None) -> IpInfo:
     """
     addr = "" if addr is None else f"/{addr}"
     result = requests.get(
-        f"https://api.flarebrow.com/v2/ip{addr}".format()).json()
+        f"{BASE_API_URL}/ip{addr}".format()).json()
     return IpInfo(**result)
 
 
@@ -139,7 +141,7 @@ def get_puny_code(domain: str) -> PunyDomainInfo:
     Returns:
         PunyDomainInfo: 取得結果
     """
-    result = requests.get(f"https://api.flarebrow.com/v2/puny/{domain}").json()
+    result = requests.get(f"{BASE_API_URL}/puny/{domain}").json()
     return PunyDomainInfo(**result)
 
 
