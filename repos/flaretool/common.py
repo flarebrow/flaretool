@@ -8,6 +8,7 @@ import requests as req
 from requests.models import Response
 from flaretool.logger import get_logger
 import flaretool
+from flaretool.errors import FlareToolNetworkError
 
 logger = get_logger()
 
@@ -17,6 +18,7 @@ class requests():
     @staticmethod
     def request(method: str, url: str, **kwargs) -> Response:
         from urllib.parse import urlparse
+        is_flare_service = False
         headers = kwargs.pop("headers", {})
         ua = {
             "Mozilla": "5.0",
@@ -30,6 +32,7 @@ class requests():
         headers["User-Agent"] = user_agent
         headers["X-UA"] = user_agent
         if "flarebrow.com" in urlparse(url).netloc:
+            is_flare_service = True
             headers["X-FLAREBROW-AUTH"] = flaretool.api_key
         with req.Session() as session:
             response = session.request(
@@ -43,6 +46,10 @@ class requests():
                     "data": kwargs.get("data", {}),
                 }
             )
+            if is_flare_service and response.status_code == 403:
+                raise FlareToolNetworkError(
+                    message="Only access from Japan is accepted"
+                )
             return response
 
     @staticmethod
