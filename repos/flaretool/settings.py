@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 import os
 from typing import Union
-try:
-    from pydantic_settings import BaseSettings as bs
-except ImportError:
-    from pydantic import BaseSettings as bs
+# try:
+from pydantic_settings import BaseSettings as bs
+# except ImportError:
+#     from pydantic import BaseSettings as bs
 
 from dotenv import load_dotenv
 
