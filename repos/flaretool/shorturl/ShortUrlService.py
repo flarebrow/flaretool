@@ -7,6 +7,7 @@ Warning:
     This class may undergo updates and its usage may change in the near future.
 """
 import flaretool
+from flaretool.decorators import type_check
 from flaretool.errors import AuthenticationError
 from flaretool.common import requests
 from flaretool.constants import BASE_API_URL
@@ -40,6 +41,7 @@ class ShortUrlService:
                 "No API key provided. You can set your API key in code using 'flaretool.api_key = <API-KEY>', or you can set the environment variable api_key=<API-KEY>). "
             )
 
+    @type_check
     def _send_request(self, method, data: dict = {}, params: dict = {}) -> dict:
         """Send a request to the short URL service.
 
@@ -73,6 +75,7 @@ class ShortUrlService:
             raise ShortUrlError(**result)
         return result
 
+    @type_check
     def get_short_url_info_list(self, id: int = None) -> list[ShortUrlInfo]:
         """Get informations about a short URL.
 
@@ -91,11 +94,13 @@ class ShortUrlService:
             "get", params={"id": id if id is not None else 0})["data"]
         return [ShortUrlInfo(**data) for data in result] if result else []
 
-    def create_short_url(self, url: str) -> ShortUrlInfo:
+    @type_check
+    def create_short_url(self, url: str, limited: int = None) -> ShortUrlInfo:
         """Create a new short URL.
 
         Args:
             url (str): Long URL to be shortened.
+            limited (int, optional): link limited(minutes). Defaults to None.
 
         Returns:
             ShortUrlInfo: Information about the created short URL.
@@ -105,8 +110,11 @@ class ShortUrlService:
             ShortUrlDataUpdateError: If the response code is 409.
             ShortUrlError: If the response code is not 200.
         """
-        return ShortUrlInfo(**self._send_request("post", data={"url": url})["data"][0])
+        data = {"url": url, "limited": limited} if limited is not None else \
+            {"url": url}
+        return ShortUrlInfo(**self._send_request("post", data=data)["data"][0])
 
+    @type_check
     def update_short_url(self, url_info: ShortUrlInfo) -> ShortUrlInfo:
         """Update a short URL.
 
@@ -124,6 +132,7 @@ class ShortUrlService:
         return ShortUrlInfo(**self._send_request("put", data=url_info.dict(), params={
             "id": url_info.id})["data"]["after"][0])
 
+    @type_check
     def delete_short_url(self, url_info: ShortUrlInfo) -> ShortUrlInfo:
         """Delete a short URL.
 
@@ -139,3 +148,7 @@ class ShortUrlService:
             ShortUrlError: If the response code is not 200.
         """
         return ShortUrlInfo(**self._send_request("delete", params={"id": url_info.id})["data"][0])
+
+    @type_check
+    def get_qr_code_raw_data(self, url_info: ShortUrlInfo) -> bytes:
+        return requests.get(url_info.qr_url).content

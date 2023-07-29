@@ -7,6 +7,34 @@ from flaretool.errors import FlareToolNetworkError
 from flaretool.decorators import *
 
 
+class TestTypeCheckDecorator(unittest.TestCase):
+
+    @type_check
+    def add_numbers(self, a: int, b: int) -> int:
+        return a + b
+
+    @type_check
+    def greet_person(self, name: str) -> str:
+        return f"Hello, {name}!"
+
+    def test_add_numbers(self):
+        result = self.add_numbers(5, 10)
+        self.assertEqual(result, 15)
+
+        with self.assertRaises(TypeError):
+            self.add_numbers("hello", 10)
+
+    def test_greet_person(self):
+        result = self.greet_person("Alice")
+        self.assertEqual(result, "Hello, Alice!")
+
+        with self.assertRaises(TypeError):
+            self.greet_person(123)
+
+        with self.assertRaises(TypeError):
+            self.greet_person(name=123)
+
+
 class NetworkRequiredDecoratorTests(unittest.TestCase):
 
     @network_required

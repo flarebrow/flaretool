@@ -38,7 +38,7 @@ print("hostname:", ip_info.hostname)
 print("country:", ip_info.country)
 # 出力例：
 # ip: 192.168.0.1
-# hostname: sample.com
+# hostname: example.com
 # country: earth
 
 # ドメイン名からIPアドレスを取得する例
