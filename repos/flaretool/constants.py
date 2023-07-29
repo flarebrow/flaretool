@@ -3,6 +3,10 @@
 
 BASE_API_URL = "https://api.flarebrow.com/v2"
 
+ADHOST_DATA_URL = "https://raw.githubusercontent.com/flarebrow/public/master/Adhost/hostlist.txt"
+
+JAPAN_IPV4_DATA_URL = "https://raw.githubusercontent.com/flarebrow/public/master/IPAddress/japan_ipv4.txt"
+
 
 class ConsoleColor:
     BLACK = '\033[30m'  # (文字)黒
