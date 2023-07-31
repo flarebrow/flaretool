@@ -49,5 +49,6 @@ setup(
     project_urls={
         "Documentation": "https://flarebrow.github.io/flaretool/",
         "Source": "https://github.com/flarebrow/flaretool",
+        "Funding": "https://github.com/sponsors/flarebrow",
     },
 )
