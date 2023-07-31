@@ -6,13 +6,21 @@ from flaretool.holiday.errors import JapaneseHolidaysError
 import datetime
 from unittest.mock import patch
 from io import StringIO
+import json
+import base64
 
 import calendar
 
 
 class JapaneseHolidaysTest(unittest.TestCase):
-    def setUp(self):
+    @patch("flaretool.common.requests.request")
+    def setUp(self, mock_requests):
         self.holidays = JapaneseHolidays()
+        mock_requests.return_value.status_code = 200
+        with open("tests/flaretool/testdata/japanholiday.dat", "rb") as f:
+            japanholiday_json = json.loads(
+                base64.b64decode(f.read()).decode('utf-8'))
+        mock_requests.return_value.json.return_value = japanholiday_json
         self.holidays_online = JapaneseHolidaysOnline()
         self.holidays_online.show_info()
 
