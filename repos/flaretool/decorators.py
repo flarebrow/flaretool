@@ -29,7 +29,7 @@ def type_check(func):
         TypeError: 引数の型が予期された型と一致しない場合に発生します。
 
     Examples:
-        >>> @type_check_decorator
+        >>> @type_check
         ... def my_function(arg1: int, arg2: str):
         ...     # 関数の処理...
         ...     pass
