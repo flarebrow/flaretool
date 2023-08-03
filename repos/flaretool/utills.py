@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import base64
 import hashlib
-from .enums import ConversionMode, Base64Mode, HashMode
+from flaretool.enums import ConversionMode, Base64Mode, HashMode
 
 
 ASCII_ZENKAKU_CHARS = (

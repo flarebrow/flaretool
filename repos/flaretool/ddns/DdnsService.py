@@ -29,7 +29,7 @@ class DdnsService:
         """
         message = "This class may undergo updates and its usage may change in the near future."
         warnings.warn(message, DeprecationWarning)
-        if flaretool.api_key is None:
+        if not flaretool.api_key:
             raise AuthenticationError(
                 "No API key provided. You can set your API key in code using 'flaretool.api_key = <API-KEY>', or you can set the environment variable api_key=<API-KEY>). "
             )

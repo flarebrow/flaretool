@@ -11,8 +11,8 @@ from flaretool.decorators import type_check
 from flaretool.errors import AuthenticationError
 from flaretool.common import requests
 from flaretool.constants import BASE_API_URL
-from flaretool.shorturl.errors import ShortUrlAuthenticationError, ShortUrlDataUpdateError, ShortUrlError
-from .models import ShortUrlInfo
+from flaretool.shorturl.errors import *
+from flaretool.shorturl.models import ShortUrlInfo
 import warnings
 
 __all__ = []
@@ -36,7 +36,7 @@ class ShortUrlService:
         """
         message = "This class may undergo updates and its usage may change in the near future."
         warnings.warn(message, DeprecationWarning)
-        if flaretool.api_key is None:
+        if not flaretool.api_key:
             raise AuthenticationError(
                 "No API key provided. You can set your API key in code using 'flaretool.api_key = <API-KEY>', or you can set the environment variable api_key=<API-KEY>). "
             )
@@ -151,4 +151,12 @@ class ShortUrlService:
 
     @type_check
     def get_qr_code_raw_data(self, url_info: ShortUrlInfo) -> bytes:
+        """Get QR Code raw data
+
+        Args:
+            url_info (ShortUrlInfo): target information about the short URL.
+
+        Returns:
+            bytes: image bytes data.
+        """
         return requests.get(url_info.qr_url).content

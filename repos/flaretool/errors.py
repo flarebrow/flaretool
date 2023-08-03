@@ -1,6 +1,6 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
-from .logger import get_logger
+from flaretool.logger import get_logger
 
 logger = get_logger()
 

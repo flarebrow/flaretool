@@ -3,7 +3,7 @@
 import warnings
 from flaretool.decorators import network_required
 from flaretool.constants import BASE_API_URL
-from .models import AmazonInfo
+from flaretool.funcs.models import AmazonInfo
 
 
 @network_required

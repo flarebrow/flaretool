@@ -7,7 +7,7 @@ import whois
 import ipaddress
 
 from flaretool.constants import ADHOST_DATA_URL, BASE_API_URL, JAPAN_IPV4_DATA_URL
-from .models import IpInfo, PunyDomainInfo
+from flaretool.nettool.models import IpInfo, PunyDomainInfo
 from flaretool.common import requests
 from urllib import robotparser
 from urllib.parse import urlparse, urlunparse
