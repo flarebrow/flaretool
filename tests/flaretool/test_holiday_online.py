@@ -17,8 +17,6 @@ def test_syukujitsu():
         raise AssertionError("date unknown")
     csv_data = response.text.splitlines()
     reader = csv.reader(csv_data[1:])
-    # with open("tests/flaretool/work_holiday.txt", "r") as f:
-    #     reader = csv.reader(f.readlines()[1:])
     holiday_list = {}
     for date_value, name in reader:
         date_value = datetime.strptime(date_value, "%Y/%m/%d").date()

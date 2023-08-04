@@ -5,11 +5,12 @@ import datetime
 from typing import Any, Union
 import warnings
 from flaretool.holiday import JapaneseHolidays
-from flaretool.holiday.errors import *
+from flaretool.holiday.errors import JapaneseHolidaysError
 from flaretool.holiday.models import HolidaysResponseModel
 from flaretool.common import requests
 from flaretool.decorators import network_required
 from flaretool.logger import get_logger
+from flaretool.constants import BASE_API_URL
 
 logger = get_logger()
 
@@ -24,6 +25,7 @@ class JapaneseHolidaysOnline(JapaneseHolidays):
         self.holidays = self.__request_get_holiday()
         self.version = self.holidays.version
         self.__is_warning = False
+        logger.info(str(self).replace("\n", " "))
 
     def __str__(self):
         return "{}\n{} v{}\nPowered By {}\nUpdated {}\nSupported {} ~ {}\n".format(
@@ -37,12 +39,14 @@ class JapaneseHolidaysOnline(JapaneseHolidays):
         )
 
     def show_info(self):
+        """
+        祝日の対応情報を表示
+        """
         print(self.__str__())
 
     @network_required
     def __request_get_holiday(self) -> HolidaysResponseModel:
-        response = requests.get(
-            "https://api.flarebrow.com/v2/japanholiday.json")
+        response = requests.get(f"{BASE_API_URL}/japanholiday.json")
         result = response.json()
         holidays = HolidaysResponseModel(**result)
         if not holidays.status:

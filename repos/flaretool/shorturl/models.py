@@ -14,6 +14,7 @@ class ShortUrlInfo(BaseDataModel):
     insert_time: datetime
     limit_time: Union[datetime, str]
     link: str
+    qr_url: str
 
     def __init__(self, *args, **param):
         limit_time = param.pop("limit_time")

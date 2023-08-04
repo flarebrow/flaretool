@@ -7,6 +7,7 @@ import flaretool
 from flaretool.ddns.errors import DdnsAuthenticationError, DdnsError
 from flaretool.ddns.models import DdnsInfo
 from flaretool.errors import AuthenticationError
+from flaretool.constants import BASE_API_URL
 
 __all__ = []
 
@@ -28,7 +29,7 @@ class DdnsService:
         """
         message = "This class may undergo updates and its usage may change in the near future."
         warnings.warn(message, DeprecationWarning)
-        if flaretool.api_key is None:
+        if not flaretool.api_key:
             raise AuthenticationError(
                 "No API key provided. You can set your API key in code using 'flaretool.api_key = <API-KEY>', or you can set the environment variable api_key=<API-KEY>). "
             )
@@ -49,7 +50,7 @@ class DdnsService:
             DdnsAuthenticationError: If the response code is 401.
             DdnsError: If the response code is not 200.
         """
-        base_url = "https://api.flarebrow.com/v2/ddns"
+        base_url = f"{BASE_API_URL}/ddns"
         params["apikey"] = flaretool.api_key
         response = requests.request(
             method,

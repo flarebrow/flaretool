@@ -5,7 +5,9 @@ import tempfile
 import socket
 import whois
 import ipaddress
-from .models import IpInfo, PunyDomainInfo
+
+from flaretool.constants import ADHOST_DATA_URL, BASE_API_URL, JAPAN_IPV4_DATA_URL
+from flaretool.nettool.models import IpInfo, PunyDomainInfo
 from flaretool.common import requests
 from urllib import robotparser
 from urllib.parse import urlparse, urlunparse
@@ -28,8 +30,7 @@ def get_global_ipaddr_info(addr: str = None) -> IpInfo:
 
     """
     addr = "" if addr is None else f"/{addr}"
-    result = requests.get(
-        f"https://api.flarebrow.com/v2/ip{addr}".format()).json()
+    result = requests.get(f"{BASE_API_URL}/ip{addr}").json()
     return IpInfo(**result)
 
 
@@ -111,9 +112,7 @@ def get_japanip_list() -> list[str]:
     Returns:
         list[str]: 日本のIPアドレスのリスト
     """
-    return requests.get(
-        "https://raw.githubusercontent.com/flarebrow/public/master/IPAddress/japan_ipv4.txt"
-    ).text.splitlines()
+    return requests.get(JAPAN_IPV4_DATA_URL).text.splitlines()
 
 
 def is_japan_ip(ipaddr: str) -> bool:
@@ -139,7 +138,7 @@ def get_puny_code(domain: str) -> PunyDomainInfo:
     Returns:
         PunyDomainInfo: 取得結果
     """
-    result = requests.get(f"https://api.flarebrow.com/v2/puny/{domain}").json()
+    result = requests.get(f"{BASE_API_URL}/puny/{domain}").json()
     return PunyDomainInfo(**result)
 
 
@@ -153,13 +152,12 @@ def get_adhost(domain: str = None) -> list[str]:
     Returns:
         list[str]: ホストリスト
     """
-    url = "https://raw.githubusercontent.com/flarebrow/public/master/Adhost/hostlist.txt"
 
     with tempfile.TemporaryDirectory() as temp_dir:
-        file_path = os.path.join(temp_dir, os.path.basename(url))
+        file_path = os.path.join(temp_dir, os.path.basename(ADHOST_DATA_URL))
 
         with open(file_path, "wb") as file:
-            response = requests.get(url)
+            response = requests.get(ADHOST_DATA_URL)
             file.write(response.content)
 
         with open(file_path, "r") as file:

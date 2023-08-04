@@ -1,5 +1,6 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
+import sys
 import inspect
 import argparse
 import flaretool
@@ -13,7 +14,7 @@ description = """
 """.format(flaretool.__name__, current_ver)
 
 
-def main():
+def cli():
 
     parser = argparse.ArgumentParser(description=description)
     subparsers = parser.add_subparsers(dest='func', required=True)
@@ -50,5 +51,9 @@ def main():
                     result, BaseDataModel) else result.__trace__())
             except TypeError as e:
                 print(e)
-                exit(9)
-    exit(0)
+                return 1
+    return 0
+
+
+def main():
+    sys.exit(cli())

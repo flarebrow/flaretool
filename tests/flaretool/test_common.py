@@ -37,7 +37,7 @@ class RequestsTestCase(unittest.TestCase):
         user_agent = " ".join([f"{key}/{value}" for key, value in ua.items()])
         self.headers = {
             'User-Agent': user_agent,
-            'X-UA': user_agent
+            'X-UA': user_agent,
         }
 
     def tearDown(self):
@@ -66,6 +66,19 @@ class RequestsTestCase(unittest.TestCase):
             headers=headers,
             params=params
         )
+
+    def test_requests_403(self):
+        response = MagicMock()
+        response.status_code = 403
+        self.mock_requests.request.return_value = response
+        self.mock_requests.__enter__.return_value.request.return_value = response
+        url = "https://example.flarebrow.com"
+        params = {"key": "value"}
+
+        with self.assertRaises(FlareToolNetworkError) as e:
+            response = requests.request("GET", url, params=params)
+            self.assertEqual(e.exception.message,
+                             "Only access from Japan is accepted")
 
     def test_get(self):
         # テスト用のダミーデータとしてURLを設定します

@@ -511,7 +511,7 @@ class JapaneseHolidays:
                 except ValueError:
                     pass
 
-        if isinstance(start_date, str):
+        if not isinstance(start_date, datetime.date):
             raise ValueError("Unsupported date format")
 
         holidays = []

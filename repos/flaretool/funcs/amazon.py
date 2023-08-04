@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 import warnings
 from flaretool.decorators import network_required
-from .models import AmazonInfo
+from flaretool.constants import BASE_API_URL
+from flaretool.funcs.models import AmazonInfo
 
 
 @network_required
@@ -22,7 +23,6 @@ def amazon_info(url: str) -> AmazonInfo:
     message = "This feature is unstable. It is considered experimental and subject to potential changes in future versions."
     warnings.warn(message, DeprecationWarning)
     from flaretool.common import requests
-    result = requests.post(
-        "https://api.flarebrow.com/v2/amazon", data={"url": url})
+    result = requests.post(f"{BASE_API_URL}/amazon", data={"url": url})
     result_json = result.json()
     return AmazonInfo(**result_json)

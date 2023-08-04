@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import time
 import socket
+import inspect
 from functools import wraps
 from flaretool.errors import FlareToolNetworkError
 from flaretool.logger import get_logger
@@ -10,7 +11,61 @@ __all__ = [
     "network_required",
     "retry",
     "repeat",
+    "type_check",
 ]
+
+
+def type_check(func):
+    """
+    型チェックを行うデコレーター
+
+    Parameters:
+        func (callable): 型チェックを行う関数。
+
+    Returns:
+        callable: デコレートされた関数。
+
+    Raises:
+        TypeError: 引数の型が予期された型と一致しない場合に発生します。
+
+    Examples:
+        >>> @type_check
+        ... def my_function(arg1: int, arg2: str):
+        ...     # 関数の処理...
+        ...     pass
+
+        >>> my_function(10, "Hello")
+        10 Hello
+
+        >>> my_function("10", 20)
+        TypeError: Argument 'arg1' has unexpected type 'str' (expected 'int').
+    """
+    # デコレートされた関数の引数と型アノテーションを取得
+    sig = inspect.signature(func)
+    parameters = sig.parameters
+
+    def wrapper(*args, **kwargs):
+        # 引数の型チェックを実施
+        for name, value in zip(parameters.keys(), args):
+            if name in func.__annotations__:
+                expected_type = func.__annotations__[name]
+                if not isinstance(value, expected_type):
+                    raise TypeError(
+                        f"Argument '{name}' has unexpected type '{type(value).__name__}' (expected '{expected_type.__name__}')."
+                    )
+
+        # キーワード引数がある場合の型チェックを実施
+        for name, value in kwargs.items():
+            if name in func.__annotations__:
+                expected_type = func.__annotations__[name]
+                if not isinstance(value, expected_type):
+                    raise TypeError(
+                        f"Argument '{name}' has unexpected type '{type(value).__name__}' (expected '{expected_type.__name__}')."
+                    )
+
+        return func(*args, **kwargs)
+
+    return wrapper
 
 
 def network_required(func):

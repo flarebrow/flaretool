@@ -1,6 +1,6 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
-from .DdnsService import DdnsService
+from flaretool.ddns.DdnsService import DdnsService
 
 __all__ = [
     "DdnsService",

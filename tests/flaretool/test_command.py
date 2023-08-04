@@ -30,8 +30,8 @@ class CommandTest(unittest.TestCase):
                         func='nettool', mode='info', args=[])
                     self.mock_create_connection.return_value = args
                     main()
-                    self.assertEqual(e.type, SystemExit)
-                    self.assertEqual(e.value.code, 0)
+                self.assertEqual(e.type, SystemExit)
+                self.assertEqual(e.value.code, 0)
                 self.assertEqual(fake_out.getvalue(
                 ), "=== Your IP Infomation ===\nip: 192.168.0.1\nhostname: example.com\ncountry: US\n")
 
@@ -46,8 +46,8 @@ class CommandTest(unittest.TestCase):
                         func='nettool', mode='get_global_ipaddr_info', args=[])
                     self.mock_create_connection.return_value = args
                     main()
-                    self.assertEqual(e.type, SystemExit)
-                    self.assertEqual(e.value.code, 0)
+                self.assertEqual(e.type, SystemExit)
+                self.assertEqual(e.value.code, 0)
                 self.assertEqual(fake_out.getvalue(
                 ), "ipaddr='192.168.0.1'\nhostname='example.com'\ncountry='US'\n")
 
@@ -62,7 +62,7 @@ class CommandTest(unittest.TestCase):
                         func='nettool', mode='lookup_ip', args=[])
                     self.mock_create_connection.return_value = args
                     main()
-                    self.assertEqual(e.type, SystemExit)
-                    self.assertEqual(e.value.code, 9)
+                self.assertEqual(e.type, SystemExit)
+                self.assertEqual(e.value.code, 1)
                 self.assertEqual(fake_out.getvalue(
                 ), "lookup_ip() missing 1 required positional argument: 'domain'\n")

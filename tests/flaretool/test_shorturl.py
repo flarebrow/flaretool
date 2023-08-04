@@ -67,7 +67,8 @@ class ShortUrlServiceTest(unittest.TestCase):
                     "disabled": False,
                     "insert_time": "2023-06-10T12:00:00",
                     "limit_time": "2023-06-20 12:00:00",
-                    "link": "https://exsample.com/abcd",
+                    "link": "https://example.com/abcd",
+                    "qr_url": "https://example.com/qrcode",
                 },
                 {
                     "id": 2,
@@ -77,7 +78,8 @@ class ShortUrlServiceTest(unittest.TestCase):
                     "disabled": True,
                     "insert_time": "2023-06-11T12:00:00",
                     "limit_time": "2023-06-20 12:00:00",
-                    "link": "https://exsample.com/efgh",
+                    "link": "https://example.com/efgh",
+                    "qr_url": "https://example.com/qrcode",
                 },
             ],
         }
@@ -96,7 +98,7 @@ class ShortUrlServiceTest(unittest.TestCase):
                          datetime.fromisoformat("2023-06-10T12:00:00"))
         self.assertEqual(result[0].limit_time,
                          datetime.fromisoformat("2023-06-20T12:00:00"))
-        self.assertEqual(result[0].link, "https://exsample.com/abcd")
+        self.assertEqual(result[0].link, "https://example.com/abcd")
 
         self.assertIsInstance(result[1], ShortUrlInfo)
         self.assertEqual(result[1].id, 2)
@@ -108,7 +110,7 @@ class ShortUrlServiceTest(unittest.TestCase):
                          datetime.fromisoformat("2023-06-11T12:00:00"))
         self.assertEqual(result[1].limit_time,
                          datetime.fromisoformat("2023-06-20T12:00:00"))
-        self.assertEqual(result[1].link, "https://exsample.com/efgh")
+        self.assertEqual(result[1].link, "https://example.com/efgh")
 
     @patch("flaretool.common.requests.request")
     def test_create_short_url(self, mock_request):
@@ -123,7 +125,8 @@ class ShortUrlServiceTest(unittest.TestCase):
                     "disabled": False,
                     "insert_time": "2023-06-10T12:00:00",
                     "limit_time": "2023-06-20 12:00:00",
-                    "link": "https://exsample.com/abcd",
+                    "link": "https://example.com/abcd",
+                    "qr_url": "https://example.com/qrcode",
                 }
             ],
         }
@@ -141,7 +144,8 @@ class ShortUrlServiceTest(unittest.TestCase):
                          datetime.fromisoformat("2023-06-10T12:00:00"))
         self.assertEqual(result.limit_time,
                          datetime.fromisoformat("2023-06-20T12:00:00"))
-        self.assertEqual(result.link, "https://exsample.com/abcd")
+        self.assertEqual(result.link, "https://example.com/abcd")
+        self.assertEqual(result.qr_url, "https://example.com/qrcode")
 
     @patch("flaretool.common.requests.request")
     def test_update_short_url(self, mock_request):
@@ -157,7 +161,8 @@ class ShortUrlServiceTest(unittest.TestCase):
                         "disabled": False,
                         "insert_time": "2023-06-10T12:00:00",
                         "limit_time": "2023-06-20 12:00:00",
-                        "link": "https://exsample.com/abcd",
+                        "link": "https://example.com/abcd",
+                        "qr_url": "https://example.com/qrcode",
                     }
                 ],
                 "after": [
@@ -169,7 +174,8 @@ class ShortUrlServiceTest(unittest.TestCase):
                         "disabled": True,
                         "insert_time": "2023-06-11T12:00:00",
                         "limit_time": "2023-06-20 12:00:00",
-                        "link": "https://exsample.com/efgh",
+                        "link": "https://example.com/efgh",
+                        "qr_url": "https://example.com/qrcode",
                     }
                 ],
             },
@@ -184,7 +190,8 @@ class ShortUrlServiceTest(unittest.TestCase):
             disabled=False,
             insert_time=datetime.fromisoformat("2023-06-10T12:00:00"),
             limit_time=datetime.fromisoformat("2023-06-20T12:00:00"),
-            link="https://exsample.com/abcd",
+            link="https://example.com/abcd",
+            qr_url="https://example.com/qrcode",
         )
         result = service.update_short_url(url_info)
         result_diff = url_info - result
@@ -193,7 +200,7 @@ class ShortUrlServiceTest(unittest.TestCase):
         self.assertEqual(result_diff["disabled"], True)
         self.assertEqual(result_diff["insert_time"],
                          datetime.fromisoformat("2023-06-11T12:00:00"))
-        self.assertEqual(result_diff["link"], "https://exsample.com/efgh")
+        self.assertEqual(result_diff["link"], "https://example.com/efgh")
 
         self.assertIsInstance(result, ShortUrlInfo)
         self.assertEqual(result.id, 1)
@@ -205,7 +212,8 @@ class ShortUrlServiceTest(unittest.TestCase):
                          datetime.fromisoformat("2023-06-11T12:00:00"))
         self.assertEqual(result.limit_time,
                          datetime.fromisoformat("2023-06-20T12:00:00"))
-        self.assertEqual(result.link, "https://exsample.com/efgh")
+        self.assertEqual(result.link, "https://example.com/efgh")
+        self.assertEqual(result.qr_url, "https://example.com/qrcode")
 
     @patch("flaretool.common.requests.request")
     def test_delete_short_url(self, mock_request):
@@ -220,7 +228,8 @@ class ShortUrlServiceTest(unittest.TestCase):
                     "disabled": False,
                     "insert_time": "2023-06-10T12:00:00",
                     "limit_time": "2023-06-20 12:00:00",
-                    "link": "https://exsample.com/abcd",
+                    "link": "https://example.com/abcd",
+                    "qr_url": "https://example.com/qrcode",
                 }
             ],
         }
@@ -234,7 +243,8 @@ class ShortUrlServiceTest(unittest.TestCase):
             disabled=False,
             insert_time=datetime.fromisoformat("2023-06-10T12:00:00"),
             limit_time=datetime.fromisoformat("2023-06-20T12:00:00"),
-            link="https://exsample.com/abcd",
+            link="https://example.com/abcd",
+            qr_url="https://example.com/qrcode",
         )
         result = service.delete_short_url(url_info)
 
@@ -248,4 +258,19 @@ class ShortUrlServiceTest(unittest.TestCase):
                          datetime.fromisoformat("2023-06-10T12:00:00"))
         self.assertEqual(result.limit_time,
                          datetime.fromisoformat("2023-06-20T12:00:00"))
-        self.assertEqual(result.link, "https://exsample.com/abcd")
+        self.assertEqual(result.link, "https://example.com/abcd")
+
+    def test_get_qr_code_raw_data(self):
+        url_info = ShortUrlInfo(
+            id=1,
+            url="https://example.com",
+            title="Example",
+            code="abcd",
+            disabled=False,
+            insert_time=datetime.fromisoformat("2023-06-10T12:00:00"),
+            limit_time=datetime.fromisoformat("2023-06-20T12:00:00"),
+            link="https://example.com/abcd",
+            qr_url="https://example.com/qrcode",
+        )
+        service = ShortUrlService()
+        service.get_qr_code_raw_data(url_info)

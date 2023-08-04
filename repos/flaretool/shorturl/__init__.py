@@ -1,6 +1,6 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
-from .ShortUrlService import ShortUrlService
+from flaretool.shorturl.ShortUrlService import ShortUrlService
 
 __all__ = [
     "ShortUrlService",
