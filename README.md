@@ -344,6 +344,13 @@ print("OriginalURL:", result.url)  # https://example.com/sample
 
 # 削除
 shorturl.delete_short_url(result)
+
+# QRコード取得
+image_data = shorturl.get_qr_code_raw_data(result)
+image_path = "image.png"
+with open(image_path, 'wb') as image_file:
+    image_file.write(image_data) # image.png にQRコード画像が保存されます
+# ※ QRコードは(株)デンソーウェーブの登録商標です
 ```
 
 ## Dynamic DNS Service Usage
