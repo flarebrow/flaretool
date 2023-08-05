@@ -44,14 +44,37 @@
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">flaretool.ddns package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#flaretool-ddns-ddnsservice-module">flaretool.ddns.DdnsService module</a></li>
+<li><a class="reference internal" href="#module-flaretool.ddns.DdnsService">flaretool.ddns.DdnsService module</a></li>
 <li><a class="reference internal" href="#module-flaretool.ddns.errors">flaretool.ddns.errors module</a><ul>
 <li><a class="reference internal" href="#flaretool.ddns.errors.DdnsAuthenticationError"><code class="docutils literal notranslate"><span class="pre">DdnsAuthenticationError</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.ddns.errors.DdnsError"><code class="docutils literal notranslate"><span class="pre">DdnsError</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#flaretool-ddns-models-module">flaretool.ddns.models module</a></li>
-<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li><a class="reference internal" href="#module-flaretool.ddns.models">flaretool.ddns.models module</a><ul>
+<li><a class="reference internal" href="#flaretool.ddns.models.DdnsInfo"><code class="docutils literal notranslate"><span class="pre">DdnsInfo</span></code></a><ul>
+<li><a class="reference internal" href="#flaretool.ddns.models.DdnsInfo.result"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.result</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.ddns.models.DdnsInfo.status"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.status</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.ddns.models.DdnsInfo.currentIp"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.currentIp</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.ddns.models.DdnsInfo.updateIp"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.updateIp</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.ddns.models.DdnsInfo.domain"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.domain</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.currentIp</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.domain</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.ddns.models.DdnsInfo.model_config"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.model_config</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.ddns.models.DdnsInfo.model_fields"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.model_fields</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.result</span></code></a></li>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.status</span></code></a></li>
+<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.updateIp</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-flaretool.ddns">Module contents</a><ul>
+<li><a class="reference internal" href="#flaretool.ddns.DdnsService"><code class="docutils literal notranslate"><span class="pre">DdnsService</span></code></a><ul>
+<li><a class="reference internal" href="#flaretool.ddns.DdnsService.update_ddns"><code class="docutils literal notranslate"><span class="pre">DdnsService.update_ddns()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -85,8 +108,8 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
 </section>
-<section id="flaretool-ddns-ddnsservice-module">
-<h2>flaretool.ddns.DdnsService module<a class="headerlink" href="#flaretool-ddns-ddnsservice-module" title="Permalink to this heading">¶</a></h2>
+<section id="module-flaretool.ddns.DdnsService">
+<span id="flaretool-ddns-ddnsservice-module"></span><h2>flaretool.ddns.DdnsService module<a class="headerlink" href="#module-flaretool.ddns.DdnsService" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="module-flaretool.ddns.errors">
 <span id="flaretool-ddns-errors-module"></span><h2>flaretool.ddns.errors module<a class="headerlink" href="#module-flaretool.ddns.errors" title="Permalink to this heading">¶</a></h2>
@@ -103,11 +126,156 @@
 </dd></dl>
 
 </section>
-<section id="flaretool-ddns-models-module">
-<h2>flaretool.ddns.models module<a class="headerlink" href="#flaretool-ddns-models-module" title="Permalink to this heading">¶</a></h2>
+<section id="module-flaretool.ddns.models">
+<span id="flaretool-ddns-models-module"></span><h2>flaretool.ddns.models module<a class="headerlink" href="#module-flaretool.ddns.models" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="flaretool.ddns.models.DdnsInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.ddns.models.</span></span><span class="sig-name descname"><span class="pre">DdnsInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currentIp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updateIp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.ddns.models.DdnsInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="flaretool.html#flaretool.basemodels.BaseDataModel" title="flaretool.basemodels.BaseDataModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a></p>
+<p>Represents the Dynamic DNS (DDNS) information.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.ddns.models.DdnsInfo.result">
+<span class="sig-name descname"><span class="pre">result</span></span><a class="headerlink" href="#flaretool.ddns.models.DdnsInfo.result" title="Permalink to this definition">¶</a></dt>
+<dd><p>The result code of the DDNS update.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.ddns.models.DdnsInfo.status">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="headerlink" href="#flaretool.ddns.models.DdnsInfo.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of the DDNS update.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.ddns.models.DdnsInfo.currentIp">
+<span class="sig-name descname"><span class="pre">currentIp</span></span><a class="headerlink" href="#flaretool.ddns.models.DdnsInfo.currentIp" title="Permalink to this definition">¶</a></dt>
+<dd><p>The current IP address associated with the domain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.ddns.models.DdnsInfo.updateIp">
+<span class="sig-name descname"><span class="pre">updateIp</span></span><a class="headerlink" href="#flaretool.ddns.models.DdnsInfo.updateIp" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IP address that was updated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.ddns.models.DdnsInfo.domain">
+<span class="sig-name descname"><span class="pre">domain</span></span><a class="headerlink" href="#flaretool.ddns.models.DdnsInfo.domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>The domain associated with the DDNS update.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">currentIp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">domain</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.ddns.models.DdnsInfo.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#flaretool.ddns.models.DdnsInfo.model_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flaretool.ddns.models.DdnsInfo.model_fields">
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'currentIp':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False),</span> <span class="pre">'domain':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'result':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=True),</span> <span class="pre">'status':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'updateIp':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#flaretool.ddns.models.DdnsInfo.model_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metadata about the fields defined on the model,
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">result</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">updateIp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<section id="module-flaretool.ddns">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-flaretool.ddns" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="flaretool.ddns.DdnsService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.ddns.</span></span><span class="sig-name descname"><span class="pre">DdnsService</span></span><a class="headerlink" href="#flaretool.ddns.DdnsService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Service class for Dynamic DNS (DDNS) functionality.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This class may undergo updates and its usage may change in the near future.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="flaretool.ddns.DdnsService.update_ddns">
+<span class="sig-name descname"><span class="pre">update_ddns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#flaretool.ddns.models.DdnsInfo" title="flaretool.ddns.models.DdnsInfo"><span class="pre">DdnsInfo</span></a></span></span><a class="headerlink" href="#flaretool.ddns.DdnsService.update_ddns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the Dynamic DNS (DDNS) for the specified host.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host</strong> (<em>str</em>) – The host to update the DDNS for.</p></li>
+<li><p><strong>ip</strong> (<em>str</em><em>, </em><em>optional</em>) – The IP address to set for the host. If not provided, the current IP will be used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The updated DDNS information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#flaretool.ddns.models.DdnsInfo" title="flaretool.ddns.models.DdnsInfo">DdnsInfo</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#flaretool.ddns.errors.DdnsAuthenticationError" title="flaretool.ddns.errors.DdnsAuthenticationError"><strong>DdnsAuthenticationError</strong></a> – If the response code is 401.</p></li>
+<li><p><a class="reference internal" href="#flaretool.ddns.errors.DdnsError" title="flaretool.ddns.errors.DdnsError"><strong>DdnsError</strong></a> – If the response code is not 200.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">service</span> <span class="o">=</span> <span class="n">DdnsService</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">info</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">update_ddns</span><span class="p">(</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.0.100&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+<span class="go">DdnsInfo(result=200, status=&#39;success&#39;, currentIp=&#39;192.168.0.99&#39;, updateIp=&#39;192.168.0.100&#39;, domain=&#39;example.○○○.○○&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
