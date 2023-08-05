@@ -25,8 +25,10 @@ release = flaretool.__version__
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
+    "sphinx.ext.autosummary",
     "sphinxcontrib.jquery",
 ]
+autosummary_generate = True
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
