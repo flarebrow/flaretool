@@ -2,6 +2,10 @@
 # -*- coding: utf-8 -*-
 import base64
 import hashlib
+import os
+import tempfile
+import time
+import flaretool
 from flaretool.enums import ConversionMode, Base64Mode, HashMode
 
 
@@ -277,3 +281,38 @@ class DictToFieldConverter:
         else:
             raise AttributeError(
                 f"'DictToFieldConverter' object has no attribute '{field_name}'")
+
+
+def get_temp_dir_path():
+    """
+    Get the path to a temporary dir path.
+
+    Returns:
+        str: The path to the temporary path.
+    """
+    temp_dir = os.path.join(
+        tempfile.gettempdir(),
+        "python_{}".format(flaretool.__name__),
+    )
+    os.makedirs(temp_dir, exist_ok=True)
+    return temp_dir
+
+
+def is_file_fresh(file_path: str, days: int) -> bool:
+    """
+    Check if the given file has been modified within the specified number of days.
+
+    Args:
+        file_path (str): The path to the file.
+        days (int): The number of days to check for freshness.
+
+    Returns:
+        bool: True if the file is fresh, False otherwise.
+    """
+    try:
+        file_modified_time = os.path.getmtime(file_path)
+        current_time = time.time()
+        time_difference = current_time - file_modified_time
+        return time_difference <= (days * 24 * 60 * 60)
+    except FileNotFoundError:
+        return False

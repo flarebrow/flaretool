@@ -27,7 +27,7 @@ class ShortUrlInfo(BaseDataModel):
 
     def __sub__(self, other):
         diff = {}
-        for field, value in other.dict().items():
-            if field not in diff and self.dict().get(field) != value:
+        for field, value in other.model_dump().items():
+            if field not in diff and self.model_dump().get(field) != value:
                 diff[field] = value
         return diff

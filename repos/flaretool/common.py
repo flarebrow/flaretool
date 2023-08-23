@@ -23,7 +23,7 @@ class requests():
         ua = {
             "Mozilla": "5.0",
             "publisher": flaretool.__name__,
-            "flaretool": flaretool.VERSION,
+            "flaretool": flaretool.__version__,
             "lang_version": platform.python_version(),
             "os": platform.system(),
             "platform": platform.platform(),

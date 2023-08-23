@@ -6,6 +6,7 @@ from flaretool.common import requests
 import flaretool
 from flaretool.ddns.errors import DdnsAuthenticationError, DdnsError
 from flaretool.ddns.models import DdnsInfo
+from flaretool.decorators import type_check
 from flaretool.errors import AuthenticationError
 from flaretool.constants import BASE_API_URL
 
@@ -65,6 +66,7 @@ class DdnsService:
             raise DdnsError(**result)
         return result
 
+    @type_check
     def update_ddns(self, host: str, ip: str = None) -> DdnsInfo:
         """
         Update the Dynamic DNS (DDNS) for the specified host.
