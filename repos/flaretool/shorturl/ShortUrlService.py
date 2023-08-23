@@ -129,7 +129,7 @@ class ShortUrlService:
             ShortUrlDataUpdateError: If the response code is 409.
             ShortUrlError: If the response code is not 200.
         """
-        return ShortUrlInfo(**self._send_request("put", data=url_info.dict(), params={
+        return ShortUrlInfo(**self._send_request("put", data=url_info.model_dump(), params={
             "id": url_info.id})["data"]["after"][0])
 
     @type_check

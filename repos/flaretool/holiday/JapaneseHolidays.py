@@ -358,7 +358,8 @@ class JapaneseHolidays:
             days.append(line[weekday - 1])
         return datetime.date(date.year, date.month, days[week - 1])
 
-    def to_date(self, date: Union[
+    @staticmethod
+    def to_date(date: Union[
         str, datetime.datetime, datetime.date
     ]) -> datetime.date:
         """
@@ -403,7 +404,8 @@ class JapaneseHolidays:
 
         raise ValueError("Unsupported date format")
 
-    def get_last_day(self, date: datetime.date):
+    @staticmethod
+    def get_last_day(date: datetime.date) -> datetime.date:
         """
         指定された月の最終日を取得
 

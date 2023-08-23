@@ -44,6 +44,7 @@ def type_check(func):
     sig = inspect.signature(func)
     parameters = sig.parameters
 
+    @wraps(func)
     def wrapper(*args, **kwargs):
         # 引数の型チェックを実施
         for name, value in zip(parameters.keys(), args):
