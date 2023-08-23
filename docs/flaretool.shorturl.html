@@ -4,18 +4,18 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool.shorturl package &mdash; flaretool 0.1.30 documentation</title>
+  <title>flaretool.shorturl package &mdash; flaretool 0.1.31 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d71dfaa1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -44,14 +44,14 @@
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">flaretool.shorturl package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-flaretool.shorturl.ShortUrlService">flaretool.shorturl.ShortUrlService module</a></li>
-<li><a class="reference internal" href="#module-flaretool.shorturl.errors">flaretool.shorturl.errors module</a><ul>
+<li><a class="reference internal" href="#flaretool-shorturl-shorturlservice-module">flaretool.shorturl.ShortUrlService module</a></li>
+<li><a class="reference internal" href="#flaretool-shorturl-errors-module">flaretool.shorturl.errors module</a><ul>
 <li><a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlAuthenticationError"><code class="docutils literal notranslate"><span class="pre">ShortUrlAuthenticationError</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlDataUpdateError"><code class="docutils literal notranslate"><span class="pre">ShortUrlDataUpdateError</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlError"><code class="docutils literal notranslate"><span class="pre">ShortUrlError</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-flaretool.shorturl.models">flaretool.shorturl.models module</a><ul>
+<li><a class="reference internal" href="#flaretool-shorturl-models-module">flaretool.shorturl.models module</a><ul>
 <li><a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo"><code class="docutils literal notranslate"><span class="pre">ShortUrlInfo</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo.code"><code class="docutils literal notranslate"><span class="pre">ShortUrlInfo.code</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo.disabled"><code class="docutils literal notranslate"><span class="pre">ShortUrlInfo.disabled</span></code></a></li>
@@ -68,7 +68,7 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-flaretool.shorturl">Module contents</a><ul>
+<li><a class="reference internal" href="#module-contents">Module contents</a><ul>
 <li><a class="reference internal" href="#flaretool.shorturl.ShortUrlService"><code class="docutils literal notranslate"><span class="pre">ShortUrlService</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.shorturl.ShortUrlService.create_short_url"><code class="docutils literal notranslate"><span class="pre">ShortUrlService.create_short_url()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.shorturl.ShortUrlService.delete_short_url"><code class="docutils literal notranslate"><span class="pre">ShortUrlService.delete_short_url()</span></code></a></li>
@@ -108,84 +108,84 @@
            <div itemprop="articleBody">
              
   <section id="flaretool-shorturl-package">
-<h1>flaretool.shorturl package<a class="headerlink" href="#flaretool-shorturl-package" title="Permalink to this heading">¶</a></h1>
+<h1>flaretool.shorturl package<a class="headerlink" href="#flaretool-shorturl-package" title="Link to this heading">¶</a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
 </section>
-<section id="module-flaretool.shorturl.ShortUrlService">
-<span id="flaretool-shorturl-shorturlservice-module"></span><h2>flaretool.shorturl.ShortUrlService module<a class="headerlink" href="#module-flaretool.shorturl.ShortUrlService" title="Permalink to this heading">¶</a></h2>
-<p>Class for interacting with a short URL service.</p>
+<section id="flaretool-shorturl-shorturlservice-module">
+<h2>flaretool.shorturl.ShortUrlService module<a class="headerlink" href="#flaretool-shorturl-shorturlservice-module" title="Link to this heading">¶</a></h2>
+<p id="module-flaretool.shorturl.ShortUrlService">Class for interacting with a short URL service.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This class may undergo updates and its usage may change in the near future.</p>
 </div>
 </section>
-<section id="module-flaretool.shorturl.errors">
-<span id="flaretool-shorturl-errors-module"></span><h2>flaretool.shorturl.errors module<a class="headerlink" href="#module-flaretool.shorturl.errors" title="Permalink to this heading">¶</a></h2>
-<dl class="py exception">
+<section id="flaretool-shorturl-errors-module">
+<h2>flaretool.shorturl.errors module<a class="headerlink" href="#flaretool-shorturl-errors-module" title="Link to this heading">¶</a></h2>
+<dl class="py exception" id="module-flaretool.shorturl.errors">
 <dt class="sig sig-object py" id="flaretool.shorturl.errors.ShortUrlAuthenticationError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.shorturl.errors.</span></span><span class="sig-name descname"><span class="pre">ShortUrlAuthenticationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">author</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.errors.ShortUrlAuthenticationError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.shorturl.errors.</span></span><span class="sig-name descname"><span class="pre">ShortUrlAuthenticationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">author</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.errors.ShortUrlAuthenticationError" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlError" title="flaretool.shorturl.errors.ShortUrlError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShortUrlError</span></code></a></p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="flaretool.shorturl.errors.ShortUrlDataUpdateError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.shorturl.errors.</span></span><span class="sig-name descname"><span class="pre">ShortUrlDataUpdateError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">author</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.errors.ShortUrlDataUpdateError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.shorturl.errors.</span></span><span class="sig-name descname"><span class="pre">ShortUrlDataUpdateError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">author</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.errors.ShortUrlDataUpdateError" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlError" title="flaretool.shorturl.errors.ShortUrlError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShortUrlError</span></code></a></p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="flaretool.shorturl.errors.ShortUrlError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.shorturl.errors.</span></span><span class="sig-name descname"><span class="pre">ShortUrlError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">author</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.errors.ShortUrlError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.shorturl.errors.</span></span><span class="sig-name descname"><span class="pre">ShortUrlError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">author</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.errors.ShortUrlError" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="flaretool.html#flaretool.errors.FlareToolError" title="flaretool.errors.FlareToolError"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlareToolError</span></code></a></p>
 </dd></dl>
 
 </section>
-<section id="module-flaretool.shorturl.models">
-<span id="flaretool-shorturl-models-module"></span><h2>flaretool.shorturl.models module<a class="headerlink" href="#module-flaretool.shorturl.models" title="Permalink to this heading">¶</a></h2>
-<dl class="py class">
+<section id="flaretool-shorturl-models-module">
+<h2>flaretool.shorturl.models module<a class="headerlink" href="#flaretool-shorturl-models-module" title="Link to this heading">¶</a></h2>
+<dl class="py class" id="module-flaretool.shorturl.models">
 <dt class="sig sig-object py" id="flaretool.shorturl.models.ShortUrlInfo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.shorturl.models.</span></span><span class="sig-name descname"><span class="pre">ShortUrlInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disabled</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insert_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qr_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.shorturl.models.</span></span><span class="sig-name descname"><span class="pre">ShortUrlInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disabled</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insert_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qr_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="flaretool.html#flaretool.basemodels.BaseDataModel" title="flaretool.basemodels.BaseDataModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.shorturl.models.ShortUrlInfo.code">
-<span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.code" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.code" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.shorturl.models.ShortUrlInfo.disabled">
-<span class="sig-name descname"><span class="pre">disabled</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.disabled" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">disabled</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.disabled" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.shorturl.models.ShortUrlInfo.id">
-<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.id" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.id" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.shorturl.models.ShortUrlInfo.insert_time">
-<span class="sig-name descname"><span class="pre">insert_time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.insert_time" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">insert_time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.insert_time" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.shorturl.models.ShortUrlInfo.limit_time">
-<span class="sig-name descname"><span class="pre">limit_time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.limit_time" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">limit_time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.limit_time" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.shorturl.models.ShortUrlInfo.link">
-<span class="sig-name descname"><span class="pre">link</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.link" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">link</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.link" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.shorturl.models.ShortUrlInfo.model_config">
-<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.model_config" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.model_config" title="Link to this definition">¶</a></dt>
 <dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.shorturl.models.ShortUrlInfo.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'code':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'disabled':</span> <span class="pre">FieldInfo(annotation=bool,</span> <span class="pre">required=True),</span> <span class="pre">'id':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=True),</span> <span class="pre">'insert_time':</span> <span class="pre">FieldInfo(annotation=datetime,</span> <span class="pre">required=True),</span> <span class="pre">'limit_time':</span> <span class="pre">FieldInfo(annotation=Union[datetime,</span> <span class="pre">str],</span> <span class="pre">required=True),</span> <span class="pre">'link':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'qr_url':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'title':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'url':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.model_fields" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'code':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'disabled':</span> <span class="pre">FieldInfo(annotation=bool,</span> <span class="pre">required=True),</span> <span class="pre">'id':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=True),</span> <span class="pre">'insert_time':</span> <span class="pre">FieldInfo(annotation=datetime,</span> <span class="pre">required=True),</span> <span class="pre">'limit_time':</span> <span class="pre">FieldInfo(annotation=Union[datetime,</span> <span class="pre">str],</span> <span class="pre">required=True),</span> <span class="pre">'link':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'qr_url':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'title':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'url':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.model_fields" title="Link to this definition">¶</a></dt>
 <dd><p>Metadata about the fields defined on the model,
 mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
@@ -193,27 +193,27 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.shorturl.models.ShortUrlInfo.qr_url">
-<span class="sig-name descname"><span class="pre">qr_url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.qr_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">qr_url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.qr_url" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.shorturl.models.ShortUrlInfo.title">
-<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.title" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.title" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.shorturl.models.ShortUrlInfo.url">
-<span class="sig-name descname"><span class="pre">url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#flaretool.shorturl.models.ShortUrlInfo.url" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
-<section id="module-flaretool.shorturl">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-flaretool.shorturl" title="Permalink to this heading">¶</a></h2>
-<dl class="py class">
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class" id="module-flaretool.shorturl">
 <dt class="sig sig-object py" id="flaretool.shorturl.ShortUrlService">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.shorturl.</span></span><span class="sig-name descname"><span class="pre">ShortUrlService</span></span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.shorturl.</span></span><span class="sig-name descname"><span class="pre">ShortUrlService</span></span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class for interacting with a short URL service.
 WebAPI Wrapper class.</p>
@@ -223,27 +223,27 @@ WebAPI Wrapper class.</p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.shorturl.ShortUrlService.create_short_url">
-<span class="sig-name descname"><span class="pre">create_short_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.create_short_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">create_short_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.create_short_url" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.shorturl.ShortUrlService.delete_short_url">
-<span class="sig-name descname"><span class="pre">delete_short_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.delete_short_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">delete_short_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.delete_short_url" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.shorturl.ShortUrlService.get_qr_code_raw_data">
-<span class="sig-name descname"><span class="pre">get_qr_code_raw_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.get_qr_code_raw_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_qr_code_raw_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.get_qr_code_raw_data" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.shorturl.ShortUrlService.get_short_url_info_list">
-<span class="sig-name descname"><span class="pre">get_short_url_info_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.get_short_url_info_list" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_short_url_info_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.get_short_url_info_list" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.shorturl.ShortUrlService.update_short_url">
-<span class="sig-name descname"><span class="pre">update_short_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.update_short_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update_short_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.update_short_url" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

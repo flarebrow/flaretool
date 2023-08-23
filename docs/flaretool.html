@@ -4,18 +4,18 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool package &mdash; flaretool 0.1.30 documentation</title>
+  <title>flaretool package &mdash; flaretool 0.1.31 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d71dfaa1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -45,8 +45,8 @@
 <li><a class="reference internal" href="#">flaretool package</a><ul>
 <li><a class="reference internal" href="#subpackages">Subpackages</a></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-flaretool.VERSION">flaretool.VERSION module</a></li>
-<li><a class="reference internal" href="#module-flaretool.basemodels">flaretool.basemodels module</a><ul>
+<li><a class="reference internal" href="#flaretool-version-module">flaretool.VERSION module</a></li>
+<li><a class="reference internal" href="#flaretool-basemodels-module">flaretool.basemodels module</a><ul>
 <li><a class="reference internal" href="#flaretool.basemodels.BaseDataModel"><code class="docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.basemodels.BaseDataModel.model_config"><code class="docutils literal notranslate"><span class="pre">BaseDataModel.model_config</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.basemodels.BaseDataModel.model_fields"><code class="docutils literal notranslate"><span class="pre">BaseDataModel.model_fields</span></code></a></li>
@@ -54,12 +54,12 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-flaretool.command">flaretool.command module</a><ul>
+<li><a class="reference internal" href="#flaretool-command-module">flaretool.command module</a><ul>
 <li><a class="reference internal" href="#flaretool.command.cli"><code class="docutils literal notranslate"><span class="pre">cli()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.command.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-flaretool.common">flaretool.common module</a><ul>
+<li><a class="reference internal" href="#flaretool-common-module">flaretool.common module</a><ul>
 <li><a class="reference internal" href="#flaretool.common.requests"><code class="docutils literal notranslate"><span class="pre">requests</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.common.requests.delete"><code class="docutils literal notranslate"><span class="pre">requests.delete()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.common.requests.get"><code class="docutils literal notranslate"><span class="pre">requests.get()</span></code></a></li>
@@ -70,7 +70,7 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-flaretool.constants">flaretool.constants module</a><ul>
+<li><a class="reference internal" href="#flaretool-constants-module">flaretool.constants module</a><ul>
 <li><a class="reference internal" href="#flaretool.constants.ConsoleColor"><code class="docutils literal notranslate"><span class="pre">ConsoleColor</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BG_BLACK"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BG_BLACK</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BG_BLUE"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BG_BLUE</span></code></a></li>
@@ -99,14 +99,14 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-flaretool.decorators">flaretool.decorators module</a><ul>
+<li><a class="reference internal" href="#flaretool-decorators-module">flaretool.decorators module</a><ul>
 <li><a class="reference internal" href="#flaretool.decorators.network_required"><code class="docutils literal notranslate"><span class="pre">network_required()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.decorators.repeat"><code class="docutils literal notranslate"><span class="pre">repeat()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.decorators.retry"><code class="docutils literal notranslate"><span class="pre">retry()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.decorators.type_check"><code class="docutils literal notranslate"><span class="pre">type_check()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-flaretool.enums">flaretool.enums module</a><ul>
+<li><a class="reference internal" href="#flaretool-enums-module">flaretool.enums module</a><ul>
 <li><a class="reference internal" href="#flaretool.enums.Base64Mode"><code class="docutils literal notranslate"><span class="pre">Base64Mode</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.enums.Base64Mode.DECODE"><code class="docutils literal notranslate"><span class="pre">Base64Mode.DECODE</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.enums.Base64Mode.ENCODE"><code class="docutils literal notranslate"><span class="pre">Base64Mode.ENCODE</span></code></a></li>
@@ -128,18 +128,18 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-flaretool.errors">flaretool.errors module</a><ul>
+<li><a class="reference internal" href="#flaretool-errors-module">flaretool.errors module</a><ul>
 <li><a class="reference internal" href="#flaretool.errors.AuthenticationError"><code class="docutils literal notranslate"><span class="pre">AuthenticationError</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.errors.FlareToolError"><code class="docutils literal notranslate"><span class="pre">FlareToolError</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.errors.FlareToolNetworkError"><code class="docutils literal notranslate"><span class="pre">FlareToolNetworkError</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-flaretool.logger">flaretool.logger module</a><ul>
+<li><a class="reference internal" href="#flaretool-logger-module">flaretool.logger module</a><ul>
 <li><a class="reference internal" href="#flaretool.logger.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.logger.setup_logger"><code class="docutils literal notranslate"><span class="pre">setup_logger()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-flaretool.settings">flaretool.settings module</a><ul>
+<li><a class="reference internal" href="#flaretool-settings-module">flaretool.settings module</a><ul>
 <li><a class="reference internal" href="#flaretool.settings.BaseSettings"><code class="docutils literal notranslate"><span class="pre">BaseSettings</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.settings.BaseSettings.Config"><code class="docutils literal notranslate"><span class="pre">BaseSettings.Config</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.settings.BaseSettings.Config.env_prefix"><code class="docutils literal notranslate"><span class="pre">BaseSettings.Config.env_prefix</span></code></a></li>
@@ -154,7 +154,7 @@
 <li><a class="reference internal" href="#flaretool.settings.get_settings"><code class="docutils literal notranslate"><span class="pre">get_settings()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-flaretool.utills">flaretool.utills module</a><ul>
+<li><a class="reference internal" href="#flaretool-utills-module">flaretool.utills module</a><ul>
 <li><a class="reference internal" href="#flaretool.utills.DictToFieldConverter"><code class="docutils literal notranslate"><span class="pre">DictToFieldConverter</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.utills.DictToFieldConverter.dictionary"><code class="docutils literal notranslate"><span class="pre">DictToFieldConverter.dictionary</span></code></a></li>
 </ul>
@@ -164,7 +164,7 @@
 <li><a class="reference internal" href="#flaretool.utills.hash_value"><code class="docutils literal notranslate"><span class="pre">hash_value()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-flaretool">Module contents</a></li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -194,20 +194,20 @@
            <div itemprop="articleBody">
              
   <section id="flaretool-package">
-<h1>flaretool package<a class="headerlink" href="#flaretool-package" title="Permalink to this heading">¶</a></h1>
+<h1>flaretool package<a class="headerlink" href="#flaretool-package" title="Link to this heading">¶</a></h1>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">¶</a></h2>
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.ddns.html">flaretool.ddns package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#module-flaretool.ddns.DdnsService">flaretool.ddns.DdnsService module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#module-flaretool.ddns.errors">flaretool.ddns.errors module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#flaretool-ddns-ddnsservice-module">flaretool.ddns.DdnsService module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#flaretool-ddns-errors-module">flaretool.ddns.errors module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.errors.DdnsAuthenticationError"><code class="docutils literal notranslate"><span class="pre">DdnsAuthenticationError</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.errors.DdnsError"><code class="docutils literal notranslate"><span class="pre">DdnsError</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#module-flaretool.ddns.models">flaretool.ddns.models module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#flaretool-ddns-models-module">flaretool.ddns.models module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.models.DdnsInfo"><code class="docutils literal notranslate"><span class="pre">DdnsInfo</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.models.DdnsInfo.result"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.result</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.models.DdnsInfo.status"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.status</span></code></a></li>
@@ -225,7 +225,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#module-flaretool.ddns">Module contents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#module-contents">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.DdnsService"><code class="docutils literal notranslate"><span class="pre">DdnsService</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.DdnsService.update_ddns"><code class="docutils literal notranslate"><span class="pre">DdnsService.update_ddns()</span></code></a></li>
 </ul>
@@ -236,11 +236,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.funcs.html">flaretool.funcs package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.amazon">flaretool.funcs.amazon module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#flaretool-funcs-amazon-module">flaretool.funcs.amazon module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.amazon.amazon_info"><code class="docutils literal notranslate"><span class="pre">amazon_info()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.models">flaretool.funcs.models module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#flaretool-funcs-models-module">flaretool.funcs.models module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.models.AmazonInfo"><code class="docutils literal notranslate"><span class="pre">AmazonInfo</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.models.AmazonInfo.distributor"><code class="docutils literal notranslate"><span class="pre">AmazonInfo.distributor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.models.AmazonInfo.evaluation"><code class="docutils literal notranslate"><span class="pre">AmazonInfo.evaluation</span></code></a></li>
@@ -256,18 +256,18 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.tracking">flaretool.funcs.tracking module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#flaretool-funcs-tracking-module">flaretool.funcs.tracking module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.tracking.japanpost"><code class="docutils literal notranslate"><span class="pre">japanpost()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.tracking.yamato"><code class="docutils literal notranslate"><span class="pre">yamato()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.holiday.html">flaretool.holiday package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday.JapaneseHolidays">flaretool.holiday.JapaneseHolidays module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday.JapaneseHolidaysOnline">flaretool.holiday.JapaneseHolidaysOnline module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#flaretool-holiday-japaneseholidays-module">flaretool.holiday.JapaneseHolidays module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#flaretool-holiday-japaneseholidaysonline-module">flaretool.holiday.JapaneseHolidaysOnline module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidaysOnline.JapaneseHolidaysOnline"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidaysOnline</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidaysOnline.JapaneseHolidaysOnline.get_holiday_name"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidaysOnline.get_holiday_name()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidaysOnline.JapaneseHolidaysOnline.is_autumn_equinox"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidaysOnline.is_autumn_equinox()</span></code></a></li>
@@ -291,11 +291,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday.errors">flaretool.holiday.errors module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#flaretool-holiday-errors-module">flaretool.holiday.errors module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.errors.JapaneseHolidaysError"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidaysError</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday.models">flaretool.holiday.models module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#flaretool-holiday-models-module">flaretool.holiday.models module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.models.HolidaysResponseModel"><code class="docutils literal notranslate"><span class="pre">HolidaysResponseModel</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.models.HolidaysResponseModel.author"><code class="docutils literal notranslate"><span class="pre">HolidaysResponseModel.author</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.models.HolidaysResponseModel.count"><code class="docutils literal notranslate"><span class="pre">HolidaysResponseModel.count</span></code></a></li>
@@ -319,7 +319,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday">Module contents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-contents">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_business_date_range"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_business_date_range()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_date_information"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_date_information()</span></code></a></li>
@@ -382,8 +382,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.nettool.html">flaretool.nettool package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#module-flaretool.nettool.common">flaretool.nettool.common module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#module-flaretool.nettool.models">flaretool.nettool.models module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#flaretool-nettool-common-module">flaretool.nettool.common module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#flaretool-nettool-models-module">flaretool.nettool.models module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.models.IpInfo"><code class="docutils literal notranslate"><span class="pre">IpInfo</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.models.IpInfo.country"><code class="docutils literal notranslate"><span class="pre">IpInfo.country</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.models.IpInfo.hostname"><code class="docutils literal notranslate"><span class="pre">IpInfo.hostname</span></code></a></li>
@@ -402,7 +402,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#module-flaretool.nettool">Module contents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#module-contents">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.domain_exists"><code class="docutils literal notranslate"><span class="pre">domain_exists()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.get_adhost"><code class="docutils literal notranslate"><span class="pre">get_adhost()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.get_global_ipaddr_info"><code class="docutils literal notranslate"><span class="pre">get_global_ipaddr_info()</span></code></a></li>
@@ -420,14 +420,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.shorturl.html">flaretool.shorturl package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#module-flaretool.shorturl.ShortUrlService">flaretool.shorturl.ShortUrlService module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#module-flaretool.shorturl.errors">flaretool.shorturl.errors module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#flaretool-shorturl-shorturlservice-module">flaretool.shorturl.ShortUrlService module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#flaretool-shorturl-errors-module">flaretool.shorturl.errors module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.errors.ShortUrlAuthenticationError"><code class="docutils literal notranslate"><span class="pre">ShortUrlAuthenticationError</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.errors.ShortUrlDataUpdateError"><code class="docutils literal notranslate"><span class="pre">ShortUrlDataUpdateError</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.errors.ShortUrlError"><code class="docutils literal notranslate"><span class="pre">ShortUrlError</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#module-flaretool.shorturl.models">flaretool.shorturl.models module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#flaretool-shorturl-models-module">flaretool.shorturl.models module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.models.ShortUrlInfo"><code class="docutils literal notranslate"><span class="pre">ShortUrlInfo</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.models.ShortUrlInfo.code"><code class="docutils literal notranslate"><span class="pre">ShortUrlInfo.code</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.models.ShortUrlInfo.disabled"><code class="docutils literal notranslate"><span class="pre">ShortUrlInfo.disabled</span></code></a></li>
@@ -444,7 +444,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#module-flaretool.shorturl">Module contents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#module-contents">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.ShortUrlService"><code class="docutils literal notranslate"><span class="pre">ShortUrlService</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.ShortUrlService.create_short_url"><code class="docutils literal notranslate"><span class="pre">ShortUrlService.create_short_url()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.ShortUrlService.delete_short_url"><code class="docutils literal notranslate"><span class="pre">ShortUrlService.delete_short_url()</span></code></a></li>
@@ -461,26 +461,26 @@
 </div>
 </section>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
 </section>
-<section id="module-flaretool.VERSION">
-<span id="flaretool-version-module"></span><h2>flaretool.VERSION module<a class="headerlink" href="#module-flaretool.VERSION" title="Permalink to this heading">¶</a></h2>
+<section id="flaretool-version-module">
+<h2>flaretool.VERSION module<a class="headerlink" href="#flaretool-version-module" title="Link to this heading">¶</a></h2>
 </section>
-<section id="module-flaretool.basemodels">
-<span id="flaretool-basemodels-module"></span><h2>flaretool.basemodels module<a class="headerlink" href="#module-flaretool.basemodels" title="Permalink to this heading">¶</a></h2>
-<dl class="py class">
+<section id="flaretool-basemodels-module">
+<span id="module-flaretool.VERSION"></span><h2>flaretool.basemodels module<a class="headerlink" href="#flaretool-basemodels-module" title="Link to this heading">¶</a></h2>
+<dl class="py class" id="module-flaretool.basemodels">
 <dt class="sig sig-object py" id="flaretool.basemodels.BaseDataModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.basemodels.</span></span><span class="sig-name descname"><span class="pre">BaseDataModel</span></span><a class="headerlink" href="#flaretool.basemodels.BaseDataModel" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.basemodels.</span></span><span class="sig-name descname"><span class="pre">BaseDataModel</span></span><a class="headerlink" href="#flaretool.basemodels.BaseDataModel" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.basemodels.BaseDataModel.model_config">
-<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#flaretool.basemodels.BaseDataModel.model_config" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#flaretool.basemodels.BaseDataModel.model_config" title="Link to this definition">¶</a></dt>
 <dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.basemodels.BaseDataModel.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#flaretool.basemodels.BaseDataModel.model_fields" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#flaretool.basemodels.BaseDataModel.model_fields" title="Link to this definition">¶</a></dt>
 <dd><p>Metadata about the fields defined on the model,
 mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
@@ -489,182 +489,182 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 </dd></dl>
 
 </section>
-<section id="module-flaretool.command">
-<span id="flaretool-command-module"></span><h2>flaretool.command module<a class="headerlink" href="#module-flaretool.command" title="Permalink to this heading">¶</a></h2>
-<dl class="py function">
+<section id="flaretool-command-module">
+<h2>flaretool.command module<a class="headerlink" href="#flaretool-command-module" title="Link to this heading">¶</a></h2>
+<dl class="py function" id="module-flaretool.command">
 <dt class="sig sig-object py" id="flaretool.command.cli">
-<span class="sig-prename descclassname"><span class="pre">flaretool.command.</span></span><span class="sig-name descname"><span class="pre">cli</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.command.cli" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">flaretool.command.</span></span><span class="sig-name descname"><span class="pre">cli</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.command.cli" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="flaretool.command.main">
-<span class="sig-prename descclassname"><span class="pre">flaretool.command.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.command.main" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">flaretool.command.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.command.main" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
-<section id="module-flaretool.common">
-<span id="flaretool-common-module"></span><h2>flaretool.common module<a class="headerlink" href="#module-flaretool.common" title="Permalink to this heading">¶</a></h2>
-<dl class="py class">
+<section id="flaretool-common-module">
+<h2>flaretool.common module<a class="headerlink" href="#flaretool-common-module" title="Link to this heading">¶</a></h2>
+<dl class="py class" id="module-flaretool.common">
 <dt class="sig sig-object py" id="flaretool.common.requests">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.common.</span></span><span class="sig-name descname"><span class="pre">requests</span></span><a class="headerlink" href="#flaretool.common.requests" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.common.</span></span><span class="sig-name descname"><span class="pre">requests</span></span><a class="headerlink" href="#flaretool.common.requests" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.common.requests.delete">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#flaretool.common.requests.delete" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#flaretool.common.requests.delete" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.common.requests.get">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#flaretool.common.requests.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#flaretool.common.requests.get" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.common.requests.post">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#flaretool.common.requests.post" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#flaretool.common.requests.post" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.common.requests.put">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#flaretool.common.requests.put" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#flaretool.common.requests.put" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.common.requests.request">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#flaretool.common.requests.request" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#flaretool.common.requests.request" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
-<section id="module-flaretool.constants">
-<span id="flaretool-constants-module"></span><h2>flaretool.constants module<a class="headerlink" href="#module-flaretool.constants" title="Permalink to this heading">¶</a></h2>
-<dl class="py class">
+<section id="flaretool-constants-module">
+<h2>flaretool.constants module<a class="headerlink" href="#flaretool-constants-module" title="Link to this heading">¶</a></h2>
+<dl class="py class" id="module-flaretool.constants">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.constants.</span></span><span class="sig-name descname"><span class="pre">ConsoleColor</span></span><a class="headerlink" href="#flaretool.constants.ConsoleColor" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.constants.</span></span><span class="sig-name descname"><span class="pre">ConsoleColor</span></span><a class="headerlink" href="#flaretool.constants.ConsoleColor" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_BLACK">
-<span class="sig-name descname"><span class="pre">BG_BLACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[40m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_BLACK" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BG_BLACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[40m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_BLACK" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_BLUE">
-<span class="sig-name descname"><span class="pre">BG_BLUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[44m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_BLUE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BG_BLUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[44m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_BLUE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_CYAN">
-<span class="sig-name descname"><span class="pre">BG_CYAN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[46m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_CYAN" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BG_CYAN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[46m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_CYAN" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_DEFAULT">
-<span class="sig-name descname"><span class="pre">BG_DEFAULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[49m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_DEFAULT" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BG_DEFAULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[49m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_DEFAULT" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_GREEN">
-<span class="sig-name descname"><span class="pre">BG_GREEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[42m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_GREEN" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BG_GREEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[42m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_GREEN" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_MAGENTA">
-<span class="sig-name descname"><span class="pre">BG_MAGENTA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[45m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_MAGENTA" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BG_MAGENTA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[45m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_MAGENTA" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_RED">
-<span class="sig-name descname"><span class="pre">BG_RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[41m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_RED" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BG_RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[41m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_RED" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_WHITE">
-<span class="sig-name descname"><span class="pre">BG_WHITE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[47m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_WHITE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BG_WHITE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[47m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_WHITE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BG_YELLOW">
-<span class="sig-name descname"><span class="pre">BG_YELLOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[43m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_YELLOW" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BG_YELLOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[43m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BG_YELLOW" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BLACK">
-<span class="sig-name descname"><span class="pre">BLACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[30m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BLACK" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BLACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[30m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BLACK" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BLUE">
-<span class="sig-name descname"><span class="pre">BLUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[34m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BLUE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BLUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[34m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BLUE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.BOLD">
-<span class="sig-name descname"><span class="pre">BOLD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[1m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BOLD" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BOLD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[1m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.BOLD" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.COLOR_DEFAULT">
-<span class="sig-name descname"><span class="pre">COLOR_DEFAULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[39m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.COLOR_DEFAULT" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">COLOR_DEFAULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[39m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.COLOR_DEFAULT" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.CYAN">
-<span class="sig-name descname"><span class="pre">CYAN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[36m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.CYAN" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CYAN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[36m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.CYAN" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.GREEN">
-<span class="sig-name descname"><span class="pre">GREEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[32m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.GREEN" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GREEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[32m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.GREEN" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.INVISIBLE">
-<span class="sig-name descname"><span class="pre">INVISIBLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[08m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.INVISIBLE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">INVISIBLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[08m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.INVISIBLE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.MAGENTA">
-<span class="sig-name descname"><span class="pre">MAGENTA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[35m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.MAGENTA" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">MAGENTA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[35m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.MAGENTA" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.RED">
-<span class="sig-name descname"><span class="pre">RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[31m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.RED" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[31m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.RED" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.RESET">
-<span class="sig-name descname"><span class="pre">RESET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[0m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.RESET" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">RESET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[0m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.RESET" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.REVERCE">
-<span class="sig-name descname"><span class="pre">REVERCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[07m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.REVERCE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">REVERCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[07m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.REVERCE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.UNDERLINE">
-<span class="sig-name descname"><span class="pre">UNDERLINE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[4m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.UNDERLINE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">UNDERLINE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[4m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.UNDERLINE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.WHITE">
-<span class="sig-name descname"><span class="pre">WHITE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[37m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.WHITE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">WHITE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[37m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.WHITE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor.YELLOW">
-<span class="sig-name descname"><span class="pre">YELLOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[33m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.YELLOW" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">YELLOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[33m'</span></em><a class="headerlink" href="#flaretool.constants.ConsoleColor.YELLOW" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
-<section id="module-flaretool.decorators">
-<span id="flaretool-decorators-module"></span><h2>flaretool.decorators module<a class="headerlink" href="#module-flaretool.decorators" title="Permalink to this heading">¶</a></h2>
-<dl class="py function">
+<section id="flaretool-decorators-module">
+<h2>flaretool.decorators module<a class="headerlink" href="#flaretool-decorators-module" title="Link to this heading">¶</a></h2>
+<dl class="py function" id="module-flaretool.decorators">
 <dt class="sig sig-object py" id="flaretool.decorators.network_required">
-<span class="sig-prename descclassname"><span class="pre">flaretool.decorators.</span></span><span class="sig-name descname"><span class="pre">network_required</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.decorators.network_required" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">flaretool.decorators.</span></span><span class="sig-name descname"><span class="pre">network_required</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.decorators.network_required" title="Link to this definition">¶</a></dt>
 <dd><p>ネットワーク接続のチェックを行い、接続されている場合には指定されたメソッドを実行します。
 接続されていない場合にはFlareToolNetworkErrorを発生させます。</p>
 <dl class="field-list simple">
@@ -685,7 +685,7 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py function">
 <dt class="sig sig-object py" id="flaretool.decorators.repeat">
-<span class="sig-prename descclassname"><span class="pre">flaretool.decorators.</span></span><span class="sig-name descname"><span class="pre">repeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repeat_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.decorators.repeat" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">flaretool.decorators.</span></span><span class="sig-name descname"><span class="pre">repeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repeat_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.decorators.repeat" title="Link to this definition">¶</a></dt>
 <dd><p>指定された間隔で関数を指定回数再実行するデコレーター。</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -720,7 +720,7 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py function">
 <dt class="sig sig-object py" id="flaretool.decorators.retry">
-<span class="sig-prename descclassname"><span class="pre">flaretool.decorators.</span></span><span class="sig-name descname"><span class="pre">retry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_attempts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.decorators.retry" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">flaretool.decorators.</span></span><span class="sig-name descname"><span class="pre">retry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_attempts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.decorators.retry" title="Link to this definition">¶</a></dt>
 <dd><p>リトライ処理を行うデコレーター。</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -746,7 +746,7 @@ def example_function():</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="flaretool.decorators.type_check">
-<span class="sig-prename descclassname"><span class="pre">flaretool.decorators.</span></span><span class="sig-name descname"><span class="pre">type_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.decorators.type_check" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">flaretool.decorators.</span></span><span class="sig-name descname"><span class="pre">type_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.decorators.type_check" title="Link to this definition">¶</a></dt>
 <dd><p>型チェックを行うデコレーター</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -780,151 +780,151 @@ def example_function():</p>
 </dd></dl>
 
 </section>
-<section id="module-flaretool.enums">
-<span id="flaretool-enums-module"></span><h2>flaretool.enums module<a class="headerlink" href="#module-flaretool.enums" title="Permalink to this heading">¶</a></h2>
-<dl class="py class">
+<section id="flaretool-enums-module">
+<h2>flaretool.enums module<a class="headerlink" href="#flaretool-enums-module" title="Link to this heading">¶</a></h2>
+<dl class="py class" id="module-flaretool.enums">
 <dt class="sig sig-object py" id="flaretool.enums.Base64Mode">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.enums.</span></span><span class="sig-name descname"><span class="pre">Base64Mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.enums.Base64Mode" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.enums.</span></span><span class="sig-name descname"><span class="pre">Base64Mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.enums.Base64Mode" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
 <p>An enumeration.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.enums.Base64Mode.DECODE">
-<span class="sig-name descname"><span class="pre">DECODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#flaretool.enums.Base64Mode.DECODE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">DECODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#flaretool.enums.Base64Mode.DECODE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.enums.Base64Mode.ENCODE">
-<span class="sig-name descname"><span class="pre">ENCODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#flaretool.enums.Base64Mode.ENCODE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ENCODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#flaretool.enums.Base64Mode.ENCODE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flaretool.enums.ConversionMode">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.enums.</span></span><span class="sig-name descname"><span class="pre">ConversionMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.enums.ConversionMode" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.enums.</span></span><span class="sig-name descname"><span class="pre">ConversionMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.enums.ConversionMode" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
 <p>An enumeration.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.enums.ConversionMode.FULL_WIDTH">
-<span class="sig-name descname"><span class="pre">FULL_WIDTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#flaretool.enums.ConversionMode.FULL_WIDTH" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">FULL_WIDTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#flaretool.enums.ConversionMode.FULL_WIDTH" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.enums.ConversionMode.HALF_WIDTH">
-<span class="sig-name descname"><span class="pre">HALF_WIDTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#flaretool.enums.ConversionMode.HALF_WIDTH" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">HALF_WIDTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#flaretool.enums.ConversionMode.HALF_WIDTH" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.enums.ConversionMode.LOWER">
-<span class="sig-name descname"><span class="pre">LOWER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#flaretool.enums.ConversionMode.LOWER" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">LOWER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#flaretool.enums.ConversionMode.LOWER" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.enums.ConversionMode.UPPER">
-<span class="sig-name descname"><span class="pre">UPPER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#flaretool.enums.ConversionMode.UPPER" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">UPPER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#flaretool.enums.ConversionMode.UPPER" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flaretool.enums.HashMode">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.enums.</span></span><span class="sig-name descname"><span class="pre">HashMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.enums.HashMode" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.enums.</span></span><span class="sig-name descname"><span class="pre">HashMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.enums.HashMode" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
 <p>An enumeration.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.enums.HashMode.MD5">
-<span class="sig-name descname"><span class="pre">MD5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#flaretool.enums.HashMode.MD5" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">MD5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#flaretool.enums.HashMode.MD5" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.enums.HashMode.SHA1">
-<span class="sig-name descname"><span class="pre">SHA1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#flaretool.enums.HashMode.SHA1" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">SHA1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#flaretool.enums.HashMode.SHA1" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.enums.HashMode.SHA256">
-<span class="sig-name descname"><span class="pre">SHA256</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#flaretool.enums.HashMode.SHA256" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">SHA256</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#flaretool.enums.HashMode.SHA256" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.enums.HashMode.SHA512">
-<span class="sig-name descname"><span class="pre">SHA512</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#flaretool.enums.HashMode.SHA512" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">SHA512</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#flaretool.enums.HashMode.SHA512" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
-<section id="module-flaretool.errors">
-<span id="flaretool-errors-module"></span><h2>flaretool.errors module<a class="headerlink" href="#module-flaretool.errors" title="Permalink to this heading">¶</a></h2>
-<dl class="py exception">
+<section id="flaretool-errors-module">
+<h2>flaretool.errors module<a class="headerlink" href="#flaretool-errors-module" title="Link to this heading">¶</a></h2>
+<dl class="py exception" id="module-flaretool.errors">
 <dt class="sig sig-object py" id="flaretool.errors.AuthenticationError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.errors.</span></span><span class="sig-name descname"><span class="pre">AuthenticationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.errors.AuthenticationError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.errors.</span></span><span class="sig-name descname"><span class="pre">AuthenticationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.errors.AuthenticationError" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flaretool.errors.FlareToolError" title="flaretool.errors.FlareToolError"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlareToolError</span></code></a></p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="flaretool.errors.FlareToolError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.errors.</span></span><span class="sig-name descname"><span class="pre">FlareToolError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.errors.FlareToolError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.errors.</span></span><span class="sig-name descname"><span class="pre">FlareToolError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.errors.FlareToolError" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>Base exception class for FlareTool errors.</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="flaretool.errors.FlareToolNetworkError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.errors.</span></span><span class="sig-name descname"><span class="pre">FlareToolNetworkError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">http_body</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">http_status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_body</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">param</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.errors.FlareToolNetworkError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.errors.</span></span><span class="sig-name descname"><span class="pre">FlareToolNetworkError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">http_body</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">http_status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_body</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">param</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.errors.FlareToolNetworkError" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flaretool.errors.FlareToolError" title="flaretool.errors.FlareToolError"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlareToolError</span></code></a></p>
 </dd></dl>
 
 </section>
-<section id="module-flaretool.logger">
-<span id="flaretool-logger-module"></span><h2>flaretool.logger module<a class="headerlink" href="#module-flaretool.logger" title="Permalink to this heading">¶</a></h2>
-<dl class="py function">
+<section id="flaretool-logger-module">
+<h2>flaretool.logger module<a class="headerlink" href="#flaretool-logger-module" title="Link to this heading">¶</a></h2>
+<dl class="py function" id="module-flaretool.logger">
 <dt class="sig sig-object py" id="flaretool.logger.get_logger">
-<span class="sig-prename descclassname"><span class="pre">flaretool.logger.</span></span><span class="sig-name descname"><span class="pre">get_logger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Logger</span></span></span><a class="headerlink" href="#flaretool.logger.get_logger" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">flaretool.logger.</span></span><span class="sig-name descname"><span class="pre">get_logger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Logger</span></span></span><a class="headerlink" href="#flaretool.logger.get_logger" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="flaretool.logger.setup_logger">
-<span class="sig-prename descclassname"><span class="pre">flaretool.logger.</span></span><span class="sig-name descname"><span class="pre">setup_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loglevel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">console</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'flaretool.log'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotating</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1024000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backup_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Logger</span></span></span><a class="headerlink" href="#flaretool.logger.setup_logger" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">flaretool.logger.</span></span><span class="sig-name descname"><span class="pre">setup_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loglevel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">console</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'flaretool.log'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotating</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1024000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backup_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Logger</span></span></span><a class="headerlink" href="#flaretool.logger.setup_logger" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
-<section id="module-flaretool.settings">
-<span id="flaretool-settings-module"></span><h2>flaretool.settings module<a class="headerlink" href="#module-flaretool.settings" title="Permalink to this heading">¶</a></h2>
-<dl class="py class">
+<section id="flaretool-settings-module">
+<h2>flaretool.settings module<a class="headerlink" href="#flaretool-settings-module" title="Link to this heading">¶</a></h2>
+<dl class="py class" id="module-flaretool.settings">
 <dt class="sig sig-object py" id="flaretool.settings.BaseSettings">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.settings.</span></span><span class="sig-name descname"><span class="pre">BaseSettings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_case_sensitive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DotenvType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('.')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_file_encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_nested_delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_secrets_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.settings.BaseSettings" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.settings.</span></span><span class="sig-name descname"><span class="pre">BaseSettings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_case_sensitive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DotenvType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('.')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_file_encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_nested_delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_secrets_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.settings.BaseSettings" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseSettings</span></code></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="flaretool.settings.BaseSettings.Config">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#flaretool.settings.BaseSettings.Config" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#flaretool.settings.BaseSettings.Config" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.settings.BaseSettings.Config.env_prefix">
-<span class="sig-name descname"><span class="pre">env_prefix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#flaretool.settings.BaseSettings.Config.env_prefix" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">env_prefix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#flaretool.settings.BaseSettings.Config.env_prefix" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.settings.BaseSettings.api_key">
-<span class="sig-name descname"><span class="pre">api_key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#flaretool.settings.BaseSettings.api_key" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">api_key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#flaretool.settings.BaseSettings.api_key" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.settings.BaseSettings.get">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.settings.BaseSettings.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.settings.BaseSettings.get" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.settings.BaseSettings.model_config">
-<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">SettingsConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'_get_environment_variable':</span> <span class="pre">&lt;bound</span> <span class="pre">method</span> <span class="pre">BaseSettings.Config._get_environment_variable</span> <span class="pre">of</span> <span class="pre">&lt;class</span> <span class="pre">'flaretool.settings.BaseSettings.Config'&gt;&gt;,</span> <span class="pre">'_load_env_file':</span> <span class="pre">&lt;bound</span> <span class="pre">method</span> <span class="pre">BaseSettings.Config._load_env_file</span> <span class="pre">of</span> <span class="pre">&lt;class</span> <span class="pre">'flaretool.settings.BaseSettings.Config'&gt;&gt;,</span> <span class="pre">'arbitrary_types_allowed':</span> <span class="pre">True,</span> <span class="pre">'case_sensitive':</span> <span class="pre">False,</span> <span class="pre">'env_file':</span> <span class="pre">None,</span> <span class="pre">'env_file_encoding':</span> <span class="pre">None,</span> <span class="pre">'env_nested_delimiter':</span> <span class="pre">None,</span> <span class="pre">'env_prefix':</span> <span class="pre">'',</span> <span class="pre">'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'protected_namespaces':</span> <span class="pre">('model_',</span> <span class="pre">'settings_'),</span> <span class="pre">'secrets_dir':</span> <span class="pre">None,</span> <span class="pre">'validate_default':</span> <span class="pre">True}</span></em><a class="headerlink" href="#flaretool.settings.BaseSettings.model_config" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">SettingsConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'_get_environment_variable':</span> <span class="pre">&lt;bound</span> <span class="pre">method</span> <span class="pre">BaseSettings.Config._get_environment_variable</span> <span class="pre">of</span> <span class="pre">&lt;class</span> <span class="pre">'flaretool.settings.BaseSettings.Config'&gt;&gt;,</span> <span class="pre">'_load_env_file':</span> <span class="pre">&lt;bound</span> <span class="pre">method</span> <span class="pre">BaseSettings.Config._load_env_file</span> <span class="pre">of</span> <span class="pre">&lt;class</span> <span class="pre">'flaretool.settings.BaseSettings.Config'&gt;&gt;,</span> <span class="pre">'arbitrary_types_allowed':</span> <span class="pre">True,</span> <span class="pre">'case_sensitive':</span> <span class="pre">False,</span> <span class="pre">'env_file':</span> <span class="pre">None,</span> <span class="pre">'env_file_encoding':</span> <span class="pre">None,</span> <span class="pre">'env_nested_delimiter':</span> <span class="pre">None,</span> <span class="pre">'env_prefix':</span> <span class="pre">'',</span> <span class="pre">'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'protected_namespaces':</span> <span class="pre">('model_',</span> <span class="pre">'settings_'),</span> <span class="pre">'secrets_dir':</span> <span class="pre">None,</span> <span class="pre">'validate_default':</span> <span class="pre">True}</span></em><a class="headerlink" href="#flaretool.settings.BaseSettings.model_config" title="Link to this definition">¶</a></dt>
 <dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.settings.BaseSettings.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'api_key':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False)}</span></em><a class="headerlink" href="#flaretool.settings.BaseSettings.model_fields" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'api_key':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False)}</span></em><a class="headerlink" href="#flaretool.settings.BaseSettings.model_fields" title="Link to this definition">¶</a></dt>
 <dd><p>Metadata about the fields defined on the model,
 mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
@@ -934,15 +934,15 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py function">
 <dt class="sig sig-object py" id="flaretool.settings.get_settings">
-<span class="sig-prename descclassname"><span class="pre">flaretool.settings.</span></span><span class="sig-name descname"><span class="pre">get_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.settings.get_settings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">flaretool.settings.</span></span><span class="sig-name descname"><span class="pre">get_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.settings.get_settings" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
-<section id="module-flaretool.utills">
-<span id="flaretool-utills-module"></span><h2>flaretool.utills module<a class="headerlink" href="#module-flaretool.utills" title="Permalink to this heading">¶</a></h2>
-<dl class="py class">
+<section id="flaretool-utills-module">
+<h2>flaretool.utills module<a class="headerlink" href="#flaretool-utills-module" title="Link to this heading">¶</a></h2>
+<dl class="py class" id="module-flaretool.utills">
 <dt class="sig sig-object py" id="flaretool.utills.DictToFieldConverter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.utills.</span></span><span class="sig-name descname"><span class="pre">DictToFieldConverter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.utills.DictToFieldConverter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.utills.</span></span><span class="sig-name descname"><span class="pre">DictToFieldConverter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.utills.DictToFieldConverter" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class converts a dictionary into field values.</p>
 <dl class="field-list simple">
@@ -952,7 +952,7 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="flaretool.utills.DictToFieldConverter.dictionary">
-<span class="sig-name descname"><span class="pre">dictionary</span></span><a class="headerlink" href="#flaretool.utills.DictToFieldConverter.dictionary" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dictionary</span></span><a class="headerlink" href="#flaretool.utills.DictToFieldConverter.dictionary" title="Link to this definition">¶</a></dt>
 <dd><p>The dictionary being converted.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -982,7 +982,7 @@ print(city)  # Output: ‘Tokyo’</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="flaretool.utills.base64_convert">
-<span class="sig-prename descclassname"><span class="pre">flaretool.utills.</span></span><span class="sig-name descname"><span class="pre">base64_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#flaretool.enums.Base64Mode" title="flaretool.enums.Base64Mode"><span class="pre">Base64Mode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Base64Mode.ENCODE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#flaretool.utills.base64_convert" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">flaretool.utills.</span></span><span class="sig-name descname"><span class="pre">base64_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#flaretool.enums.Base64Mode" title="flaretool.enums.Base64Mode"><span class="pre">Base64Mode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Base64Mode.ENCODE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#flaretool.utills.base64_convert" title="Link to this definition">¶</a></dt>
 <dd><p>文字列のBase64エンコードまたはデコードを行います。</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1006,7 +1006,7 @@ print(city)  # Output: ‘Tokyo’</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="flaretool.utills.convert_value">
-<span class="sig-prename descclassname"><span class="pre">flaretool.utills.</span></span><span class="sig-name descname"><span class="pre">convert_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#flaretool.enums.ConversionMode" title="flaretool.enums.ConversionMode"><span class="pre">ConversionMode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ConversionMode.HALF_WIDTH</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kana</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">non_convert_chars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#flaretool.utills.convert_value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">flaretool.utills.</span></span><span class="sig-name descname"><span class="pre">convert_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#flaretool.enums.ConversionMode" title="flaretool.enums.ConversionMode"><span class="pre">ConversionMode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ConversionMode.HALF_WIDTH</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kana</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">non_convert_chars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#flaretool.utills.convert_value" title="Link to this definition">¶</a></dt>
 <dd><p>文字列を変換(半角/全角/大文字/小文字)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1033,7 +1033,7 @@ print(city)  # Output: ‘Tokyo’</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="flaretool.utills.hash_value">
-<span class="sig-prename descclassname"><span class="pre">flaretool.utills.</span></span><span class="sig-name descname"><span class="pre">hash_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#flaretool.enums.HashMode" title="flaretool.enums.HashMode"><span class="pre">HashMode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">HashMode.MD5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#flaretool.utills.hash_value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">flaretool.utills.</span></span><span class="sig-name descname"><span class="pre">hash_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#flaretool.enums.HashMode" title="flaretool.enums.HashMode"><span class="pre">HashMode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">HashMode.MD5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#flaretool.utills.hash_value" title="Link to this definition">¶</a></dt>
 <dd><p>文字列のハッシュ計算を行います。</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1056,9 +1056,9 @@ print(city)  # Output: ‘Tokyo’</p>
 </dd></dl>
 
 </section>
-<section id="module-flaretool">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-flaretool" title="Permalink to this heading">¶</a></h2>
-<p>flaretool python module
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<p id="module-flaretool">flaretool python module
 [Terms of service](<a class="reference external" href="https://main.flarebrow.com/terms">https://main.flarebrow.com/terms</a>)</p>
 </section>
 </section>
