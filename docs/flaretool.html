@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool package &mdash; flaretool 0.1.31 documentation</title>
+  <title>flaretool package &mdash; flaretool 0.1.32 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,7 +13,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=d71dfaa1"></script>
+        <script src="_static/documentation_options.js?v=e0e570cb"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -161,7 +161,9 @@
 </li>
 <li><a class="reference internal" href="#flaretool.utills.base64_convert"><code class="docutils literal notranslate"><span class="pre">base64_convert()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.utills.convert_value"><code class="docutils literal notranslate"><span class="pre">convert_value()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.utills.get_temp_dir_path"><code class="docutils literal notranslate"><span class="pre">get_temp_dir_path()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.utills.hash_value"><code class="docutils literal notranslate"><span class="pre">hash_value()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.utills.is_file_fresh"><code class="docutils literal notranslate"><span class="pre">is_file_fresh()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-contents">Module contents</a></li>
@@ -1032,6 +1034,20 @@ print(city)  # Output: ‘Tokyo’</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="flaretool.utills.get_temp_dir_path">
+<span class="sig-prename descclassname"><span class="pre">flaretool.utills.</span></span><span class="sig-name descname"><span class="pre">get_temp_dir_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.utills.get_temp_dir_path" title="Link to this definition">¶</a></dt>
+<dd><p>Get the path to a temporary dir path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The path to the temporary path.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="flaretool.utills.hash_value">
 <span class="sig-prename descclassname"><span class="pre">flaretool.utills.</span></span><span class="sig-name descname"><span class="pre">hash_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#flaretool.enums.HashMode" title="flaretool.enums.HashMode"><span class="pre">HashMode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">HashMode.MD5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#flaretool.utills.hash_value" title="Link to this definition">¶</a></dt>
 <dd><p>文字列のハッシュ計算を行います。</p>
@@ -1051,6 +1067,26 @@ print(city)  # Output: ‘Tokyo’</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ValueError</strong> – 無効なハッシュモードが指定された場合</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flaretool.utills.is_file_fresh">
+<span class="sig-prename descclassname"><span class="pre">flaretool.utills.</span></span><span class="sig-name descname"><span class="pre">is_file_fresh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">days</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.utills.is_file_fresh" title="Link to this definition">¶</a></dt>
+<dd><p>Check if the given file has been modified within the specified number of days.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> (<em>str</em>) – The path to the file.</p></li>
+<li><p><strong>days</strong> (<em>int</em>) – The number of days to check for freshness.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the file is fresh, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>

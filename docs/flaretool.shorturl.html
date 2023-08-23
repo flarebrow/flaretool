@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool.shorturl package &mdash; flaretool 0.1.31 documentation</title>
+  <title>flaretool.shorturl package &mdash; flaretool 0.1.32 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,7 +13,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=d71dfaa1"></script>
+        <script src="_static/documentation_options.js?v=e0e570cb"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -223,28 +223,119 @@ WebAPI Wrapper class.</p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.shorturl.ShortUrlService.create_short_url">
-<span class="sig-name descname"><span class="pre">create_short_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.create_short_url" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">create_short_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limited</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo" title="flaretool.shorturl.models.ShortUrlInfo"><span class="pre">ShortUrlInfo</span></a></span></span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.create_short_url" title="Link to this definition">¶</a></dt>
+<dd><p>Create a new short URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>str</em>) – Long URL to be shortened.</p></li>
+<li><p><strong>limited</strong> (<em>int</em><em>, </em><em>optional</em>) – link limited(minutes). Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Information about the created short URL.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo" title="flaretool.shorturl.models.ShortUrlInfo">ShortUrlInfo</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlAuthenticationError" title="flaretool.shorturl.errors.ShortUrlAuthenticationError"><strong>ShortUrlAuthenticationError</strong></a> – If the response code is 401.</p></li>
+<li><p><a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlDataUpdateError" title="flaretool.shorturl.errors.ShortUrlDataUpdateError"><strong>ShortUrlDataUpdateError</strong></a> – If the response code is 409.</p></li>
+<li><p><a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlError" title="flaretool.shorturl.errors.ShortUrlError"><strong>ShortUrlError</strong></a> – If the response code is not 200.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.shorturl.ShortUrlService.delete_short_url">
-<span class="sig-name descname"><span class="pre">delete_short_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.delete_short_url" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">delete_short_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url_info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo" title="flaretool.shorturl.models.ShortUrlInfo"><span class="pre">ShortUrlInfo</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo" title="flaretool.shorturl.models.ShortUrlInfo"><span class="pre">ShortUrlInfo</span></a></span></span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.delete_short_url" title="Link to this definition">¶</a></dt>
+<dd><p>Delete a short URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>url_info</strong> (<a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo" title="flaretool.shorturl.models.ShortUrlInfo"><em>ShortUrlInfo</em></a>) – Updated information about the short URL.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Information about the delete short URL.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo" title="flaretool.shorturl.models.ShortUrlInfo">ShortUrlInfo</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlAuthenticationError" title="flaretool.shorturl.errors.ShortUrlAuthenticationError"><strong>ShortUrlAuthenticationError</strong></a> – If the response code is 401.</p></li>
+<li><p><a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlDataUpdateError" title="flaretool.shorturl.errors.ShortUrlDataUpdateError"><strong>ShortUrlDataUpdateError</strong></a> – If the response code is 409.</p></li>
+<li><p><a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlError" title="flaretool.shorturl.errors.ShortUrlError"><strong>ShortUrlError</strong></a> – If the response code is not 200.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.shorturl.ShortUrlService.get_qr_code_raw_data">
-<span class="sig-name descname"><span class="pre">get_qr_code_raw_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.get_qr_code_raw_data" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">get_qr_code_raw_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url_info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo" title="flaretool.shorturl.models.ShortUrlInfo"><span class="pre">ShortUrlInfo</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.get_qr_code_raw_data" title="Link to this definition">¶</a></dt>
+<dd><p>Get QR Code raw data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>url_info</strong> (<a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo" title="flaretool.shorturl.models.ShortUrlInfo"><em>ShortUrlInfo</em></a>) – target information about the short URL.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>image bytes data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.shorturl.ShortUrlService.get_short_url_info_list">
-<span class="sig-name descname"><span class="pre">get_short_url_info_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.get_short_url_info_list" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">get_short_url_info_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo" title="flaretool.shorturl.models.ShortUrlInfo"><span class="pre">ShortUrlInfo</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.get_short_url_info_list" title="Link to this definition">¶</a></dt>
+<dd><p>Get informations about a short URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em>) – ID of the short URL (default: None).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Information about the short URL.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo" title="flaretool.shorturl.models.ShortUrlInfo">ShortUrlInfo</a>]</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlAuthenticationError" title="flaretool.shorturl.errors.ShortUrlAuthenticationError"><strong>ShortUrlAuthenticationError</strong></a> – If the response code is 401.</p></li>
+<li><p><a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlDataUpdateError" title="flaretool.shorturl.errors.ShortUrlDataUpdateError"><strong>ShortUrlDataUpdateError</strong></a> – If the response code is 409.</p></li>
+<li><p><a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlError" title="flaretool.shorturl.errors.ShortUrlError"><strong>ShortUrlError</strong></a> – If the response code is not 200.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flaretool.shorturl.ShortUrlService.update_short_url">
-<span class="sig-name descname"><span class="pre">update_short_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.update_short_url" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">update_short_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url_info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo" title="flaretool.shorturl.models.ShortUrlInfo"><span class="pre">ShortUrlInfo</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo" title="flaretool.shorturl.models.ShortUrlInfo"><span class="pre">ShortUrlInfo</span></a></span></span><a class="headerlink" href="#flaretool.shorturl.ShortUrlService.update_short_url" title="Link to this definition">¶</a></dt>
+<dd><p>Update a short URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>url_info</strong> (<a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo" title="flaretool.shorturl.models.ShortUrlInfo"><em>ShortUrlInfo</em></a>) – Updated information about the short URL.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Information about the updated short URL.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#flaretool.shorturl.models.ShortUrlInfo" title="flaretool.shorturl.models.ShortUrlInfo">ShortUrlInfo</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlAuthenticationError" title="flaretool.shorturl.errors.ShortUrlAuthenticationError"><strong>ShortUrlAuthenticationError</strong></a> – If the response code is 401.</p></li>
+<li><p><a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlDataUpdateError" title="flaretool.shorturl.errors.ShortUrlDataUpdateError"><strong>ShortUrlDataUpdateError</strong></a> – If the response code is 409.</p></li>
+<li><p><a class="reference internal" href="#flaretool.shorturl.errors.ShortUrlError" title="flaretool.shorturl.errors.ShortUrlError"><strong>ShortUrlError</strong></a> – If the response code is not 200.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
