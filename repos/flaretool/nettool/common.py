@@ -6,7 +6,7 @@ import socket
 import whois
 import ipaddress
 
-from flaretool.constants import ADHOST_DATA_URL, BASE_API_URL, JAPAN_IPV4_DATA_URL
+from flaretool.constants import ADHOST_DATA_URL, BASE_API_URL, COUNTRY_IPV4_DATA_URL, Country
 from flaretool.nettool.models import IpInfo, PunyDomainInfo
 from flaretool.common import requests
 from urllib import robotparser
@@ -105,6 +105,33 @@ def domain_exists(domain: str) -> bool:
         return False
 
 
+def get_country_ip_list(country: Country = Country.JP) -> list[str]:
+    """
+    特定の国のIPアドレスを取得（デフォルトは日本）
+
+    Args:
+        country (Country, optional): 国コード. Defaults to Country.JP.
+
+    Returns:
+        list[str]: IPアドレスのリスト
+    """
+    return requests.get(COUNTRY_IPV4_DATA_URL.format(cc=country.name)).text.splitlines()
+
+
+def is_country_ip(ipaddr: str, country: Country = Country.JP) -> bool:
+    """
+    指定されたアドレスが指定の国のIPアドレスか確認する関数（デフォルトは日本）
+
+    Args:
+        ipaddr (str): IPアドレス
+        country (Country, optional): 国コード. Defaults to Country.JP.
+
+    Returns:
+        bool: 指定されたIPアドレスが指定した国のIPの場合はTrue、それ以外の場合はFalse
+    """
+    return is_ip_in_allowed_networks(ipaddr, get_country_ip_list(country))
+
+
 def get_japanip_list() -> list[str]:
     """
     日本のIPアドレスを取得する関数
@@ -112,7 +139,7 @@ def get_japanip_list() -> list[str]:
     Returns:
         list[str]: 日本のIPアドレスのリスト
     """
-    return requests.get(JAPAN_IPV4_DATA_URL).text.splitlines()
+    return get_country_ip_list()
 
 
 def is_japan_ip(ipaddr: str) -> bool:

@@ -76,6 +76,21 @@ class NettoolTest(unittest.TestCase):
             result = domain_exists('example.com')
             self.assertFalse(result)
 
+    def test_is_country_ip_success(self):
+        # 日本のIPアドレスの場合のテスト
+        with patch('flaretool.nettool.common.get_country_ip_list') as mock_get_japanip_list:
+            mock_get_japanip_list.return_value = [
+                '192.0.2.0/24', '198.51.100.0/24']
+            result = is_country_ip('192.0.2.1')
+            self.assertTrue(result)
+
+        # 日本のIPアドレスではない場合のテスト
+        with patch('flaretool.nettool.common.get_country_ip_list') as mock_get_japanip_list:
+            mock_get_japanip_list.return_value = [
+                '192.0.2.0/24', '198.51.100.0/24']
+            result = is_country_ip('203.0.113.1')
+            self.assertFalse(result)
+
     @patch('flaretool.common.requests.get')
     def test_get_japanip_list_success(self, mock_get):
         # モックの振る舞いを設定
@@ -87,7 +102,7 @@ class NettoolTest(unittest.TestCase):
 
         # requests.getが呼ばれたことを検証
         mock_get.assert_called_with(
-            "https://raw.githubusercontent.com/flarebrow/public/master/IPAddress/japan_ipv4.txt"
+            "https://raw.githubusercontent.com/flarebrow/public/master/IPAddress/country/JP.txt"
         )
 
     def test_is_japan_ip(self):
