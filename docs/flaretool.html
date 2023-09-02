@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool package &mdash; flaretool 0.1.32 documentation</title>
+  <title>flaretool package &mdash; flaretool 0.1.33 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,7 +13,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=e0e570cb"></script>
+        <script src="_static/documentation_options.js?v=449df4d2"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -45,8 +45,8 @@
 <li><a class="reference internal" href="#">flaretool package</a><ul>
 <li><a class="reference internal" href="#subpackages">Subpackages</a></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#flaretool-version-module">flaretool.VERSION module</a></li>
-<li><a class="reference internal" href="#flaretool-basemodels-module">flaretool.basemodels module</a><ul>
+<li><a class="reference internal" href="#module-flaretool.VERSION">flaretool.VERSION module</a></li>
+<li><a class="reference internal" href="#module-flaretool.basemodels">flaretool.basemodels module</a><ul>
 <li><a class="reference internal" href="#flaretool.basemodels.BaseDataModel"><code class="docutils literal notranslate"><span class="pre">BaseDataModel</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.basemodels.BaseDataModel.model_config"><code class="docutils literal notranslate"><span class="pre">BaseDataModel.model_config</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.basemodels.BaseDataModel.model_fields"><code class="docutils literal notranslate"><span class="pre">BaseDataModel.model_fields</span></code></a></li>
@@ -54,12 +54,12 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#flaretool-command-module">flaretool.command module</a><ul>
+<li><a class="reference internal" href="#module-flaretool.command">flaretool.command module</a><ul>
 <li><a class="reference internal" href="#flaretool.command.cli"><code class="docutils literal notranslate"><span class="pre">cli()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.command.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#flaretool-common-module">flaretool.common module</a><ul>
+<li><a class="reference internal" href="#module-flaretool.common">flaretool.common module</a><ul>
 <li><a class="reference internal" href="#flaretool.common.requests"><code class="docutils literal notranslate"><span class="pre">requests</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.common.requests.delete"><code class="docutils literal notranslate"><span class="pre">requests.delete()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.common.requests.get"><code class="docutils literal notranslate"><span class="pre">requests.get()</span></code></a></li>
@@ -70,7 +70,7 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#flaretool-constants-module">flaretool.constants module</a><ul>
+<li><a class="reference internal" href="#module-flaretool.constants">flaretool.constants module</a><ul>
 <li><a class="reference internal" href="#flaretool.constants.ConsoleColor"><code class="docutils literal notranslate"><span class="pre">ConsoleColor</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BG_BLACK"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BG_BLACK</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.constants.ConsoleColor.BG_BLUE"><code class="docutils literal notranslate"><span class="pre">ConsoleColor.BG_BLUE</span></code></a></li>
@@ -99,14 +99,14 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#flaretool-decorators-module">flaretool.decorators module</a><ul>
+<li><a class="reference internal" href="#module-flaretool.decorators">flaretool.decorators module</a><ul>
 <li><a class="reference internal" href="#flaretool.decorators.network_required"><code class="docutils literal notranslate"><span class="pre">network_required()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.decorators.repeat"><code class="docutils literal notranslate"><span class="pre">repeat()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.decorators.retry"><code class="docutils literal notranslate"><span class="pre">retry()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.decorators.type_check"><code class="docutils literal notranslate"><span class="pre">type_check()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#flaretool-enums-module">flaretool.enums module</a><ul>
+<li><a class="reference internal" href="#module-flaretool.enums">flaretool.enums module</a><ul>
 <li><a class="reference internal" href="#flaretool.enums.Base64Mode"><code class="docutils literal notranslate"><span class="pre">Base64Mode</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.enums.Base64Mode.DECODE"><code class="docutils literal notranslate"><span class="pre">Base64Mode.DECODE</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.enums.Base64Mode.ENCODE"><code class="docutils literal notranslate"><span class="pre">Base64Mode.ENCODE</span></code></a></li>
@@ -128,18 +128,18 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#flaretool-errors-module">flaretool.errors module</a><ul>
+<li><a class="reference internal" href="#module-flaretool.errors">flaretool.errors module</a><ul>
 <li><a class="reference internal" href="#flaretool.errors.AuthenticationError"><code class="docutils literal notranslate"><span class="pre">AuthenticationError</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.errors.FlareToolError"><code class="docutils literal notranslate"><span class="pre">FlareToolError</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.errors.FlareToolNetworkError"><code class="docutils literal notranslate"><span class="pre">FlareToolNetworkError</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#flaretool-logger-module">flaretool.logger module</a><ul>
+<li><a class="reference internal" href="#module-flaretool.logger">flaretool.logger module</a><ul>
 <li><a class="reference internal" href="#flaretool.logger.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.logger.setup_logger"><code class="docutils literal notranslate"><span class="pre">setup_logger()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#flaretool-settings-module">flaretool.settings module</a><ul>
+<li><a class="reference internal" href="#module-flaretool.settings">flaretool.settings module</a><ul>
 <li><a class="reference internal" href="#flaretool.settings.BaseSettings"><code class="docutils literal notranslate"><span class="pre">BaseSettings</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.settings.BaseSettings.Config"><code class="docutils literal notranslate"><span class="pre">BaseSettings.Config</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.settings.BaseSettings.Config.env_prefix"><code class="docutils literal notranslate"><span class="pre">BaseSettings.Config.env_prefix</span></code></a></li>
@@ -154,7 +154,7 @@
 <li><a class="reference internal" href="#flaretool.settings.get_settings"><code class="docutils literal notranslate"><span class="pre">get_settings()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#flaretool-utills-module">flaretool.utills module</a><ul>
+<li><a class="reference internal" href="#module-flaretool.utills">flaretool.utills module</a><ul>
 <li><a class="reference internal" href="#flaretool.utills.DictToFieldConverter"><code class="docutils literal notranslate"><span class="pre">DictToFieldConverter</span></code></a><ul>
 <li><a class="reference internal" href="#flaretool.utills.DictToFieldConverter.dictionary"><code class="docutils literal notranslate"><span class="pre">DictToFieldConverter.dictionary</span></code></a></li>
 </ul>
@@ -166,7 +166,7 @@
 <li><a class="reference internal" href="#flaretool.utills.is_file_fresh"><code class="docutils literal notranslate"><span class="pre">is_file_fresh()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li><a class="reference internal" href="#module-flaretool">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -203,13 +203,13 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.ddns.html">flaretool.ddns package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#flaretool-ddns-ddnsservice-module">flaretool.ddns.DdnsService module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#flaretool-ddns-errors-module">flaretool.ddns.errors module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#module-flaretool.ddns.DdnsService">flaretool.ddns.DdnsService module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#module-flaretool.ddns.errors">flaretool.ddns.errors module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.errors.DdnsAuthenticationError"><code class="docutils literal notranslate"><span class="pre">DdnsAuthenticationError</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.errors.DdnsError"><code class="docutils literal notranslate"><span class="pre">DdnsError</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#flaretool-ddns-models-module">flaretool.ddns.models module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#module-flaretool.ddns.models">flaretool.ddns.models module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.models.DdnsInfo"><code class="docutils literal notranslate"><span class="pre">DdnsInfo</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.models.DdnsInfo.result"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.result</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.models.DdnsInfo.status"><code class="docutils literal notranslate"><span class="pre">DdnsInfo.status</span></code></a></li>
@@ -227,7 +227,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#module-contents">Module contents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.ddns.html#module-flaretool.ddns">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.DdnsService"><code class="docutils literal notranslate"><span class="pre">DdnsService</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.ddns.html#flaretool.ddns.DdnsService.update_ddns"><code class="docutils literal notranslate"><span class="pre">DdnsService.update_ddns()</span></code></a></li>
 </ul>
@@ -238,11 +238,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.funcs.html">flaretool.funcs package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#flaretool-funcs-amazon-module">flaretool.funcs.amazon module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.amazon">flaretool.funcs.amazon module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.amazon.amazon_info"><code class="docutils literal notranslate"><span class="pre">amazon_info()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#flaretool-funcs-models-module">flaretool.funcs.models module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.models">flaretool.funcs.models module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.models.AmazonInfo"><code class="docutils literal notranslate"><span class="pre">AmazonInfo</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.models.AmazonInfo.distributor"><code class="docutils literal notranslate"><span class="pre">AmazonInfo.distributor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.models.AmazonInfo.evaluation"><code class="docutils literal notranslate"><span class="pre">AmazonInfo.evaluation</span></code></a></li>
@@ -258,18 +258,18 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#flaretool-funcs-tracking-module">flaretool.funcs.tracking module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs.tracking">flaretool.funcs.tracking module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.tracking.japanpost"><code class="docutils literal notranslate"><span class="pre">japanpost()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.funcs.html#flaretool.funcs.tracking.yamato"><code class="docutils literal notranslate"><span class="pre">yamato()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.funcs.html#module-flaretool.funcs">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.holiday.html">flaretool.holiday package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#flaretool-holiday-japaneseholidays-module">flaretool.holiday.JapaneseHolidays module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#flaretool-holiday-japaneseholidaysonline-module">flaretool.holiday.JapaneseHolidaysOnline module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday.JapaneseHolidays">flaretool.holiday.JapaneseHolidays module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday.JapaneseHolidaysOnline">flaretool.holiday.JapaneseHolidaysOnline module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidaysOnline.JapaneseHolidaysOnline"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidaysOnline</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidaysOnline.JapaneseHolidaysOnline.get_holiday_name"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidaysOnline.get_holiday_name()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidaysOnline.JapaneseHolidaysOnline.is_autumn_equinox"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidaysOnline.is_autumn_equinox()</span></code></a></li>
@@ -293,11 +293,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#flaretool-holiday-errors-module">flaretool.holiday.errors module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday.errors">flaretool.holiday.errors module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.errors.JapaneseHolidaysError"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidaysError</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#flaretool-holiday-models-module">flaretool.holiday.models module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday.models">flaretool.holiday.models module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.models.HolidaysResponseModel"><code class="docutils literal notranslate"><span class="pre">HolidaysResponseModel</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.models.HolidaysResponseModel.author"><code class="docutils literal notranslate"><span class="pre">HolidaysResponseModel.author</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.models.HolidaysResponseModel.count"><code class="docutils literal notranslate"><span class="pre">HolidaysResponseModel.count</span></code></a></li>
@@ -321,7 +321,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-contents">Module contents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.holiday.html#module-flaretool.holiday">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_business_date_range"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_business_date_range()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.holiday.html#flaretool.holiday.JapaneseHolidays.get_date_information"><code class="docutils literal notranslate"><span class="pre">JapaneseHolidays.get_date_information()</span></code></a></li>
@@ -384,8 +384,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.nettool.html">flaretool.nettool package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#flaretool-nettool-common-module">flaretool.nettool.common module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#flaretool-nettool-models-module">flaretool.nettool.models module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#module-flaretool.nettool.common">flaretool.nettool.common module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#module-flaretool.nettool.models">flaretool.nettool.models module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.models.IpInfo"><code class="docutils literal notranslate"><span class="pre">IpInfo</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.models.IpInfo.country"><code class="docutils literal notranslate"><span class="pre">IpInfo.country</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.models.IpInfo.hostname"><code class="docutils literal notranslate"><span class="pre">IpInfo.hostname</span></code></a></li>
@@ -404,7 +404,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#module-contents">Module contents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.nettool.html#module-flaretool.nettool">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.domain_exists"><code class="docutils literal notranslate"><span class="pre">domain_exists()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.get_adhost"><code class="docutils literal notranslate"><span class="pre">get_adhost()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.nettool.html#flaretool.nettool.get_global_ipaddr_info"><code class="docutils literal notranslate"><span class="pre">get_global_ipaddr_info()</span></code></a></li>
@@ -422,14 +422,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="flaretool.shorturl.html">flaretool.shorturl package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#flaretool-shorturl-shorturlservice-module">flaretool.shorturl.ShortUrlService module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#flaretool-shorturl-errors-module">flaretool.shorturl.errors module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#module-flaretool.shorturl.ShortUrlService">flaretool.shorturl.ShortUrlService module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#module-flaretool.shorturl.errors">flaretool.shorturl.errors module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.errors.ShortUrlAuthenticationError"><code class="docutils literal notranslate"><span class="pre">ShortUrlAuthenticationError</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.errors.ShortUrlDataUpdateError"><code class="docutils literal notranslate"><span class="pre">ShortUrlDataUpdateError</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.errors.ShortUrlError"><code class="docutils literal notranslate"><span class="pre">ShortUrlError</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#flaretool-shorturl-models-module">flaretool.shorturl.models module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#module-flaretool.shorturl.models">flaretool.shorturl.models module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.models.ShortUrlInfo"><code class="docutils literal notranslate"><span class="pre">ShortUrlInfo</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.models.ShortUrlInfo.code"><code class="docutils literal notranslate"><span class="pre">ShortUrlInfo.code</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.models.ShortUrlInfo.disabled"><code class="docutils literal notranslate"><span class="pre">ShortUrlInfo.disabled</span></code></a></li>
@@ -446,7 +446,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#module-contents">Module contents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flaretool.shorturl.html#module-flaretool.shorturl">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.ShortUrlService"><code class="docutils literal notranslate"><span class="pre">ShortUrlService</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.ShortUrlService.create_short_url"><code class="docutils literal notranslate"><span class="pre">ShortUrlService.create_short_url()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flaretool.shorturl.html#flaretool.shorturl.ShortUrlService.delete_short_url"><code class="docutils literal notranslate"><span class="pre">ShortUrlService.delete_short_url()</span></code></a></li>
@@ -465,12 +465,12 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
 </section>
-<section id="flaretool-version-module">
-<h2>flaretool.VERSION module<a class="headerlink" href="#flaretool-version-module" title="Link to this heading">¶</a></h2>
+<section id="module-flaretool.VERSION">
+<span id="flaretool-version-module"></span><h2>flaretool.VERSION module<a class="headerlink" href="#module-flaretool.VERSION" title="Link to this heading">¶</a></h2>
 </section>
-<section id="flaretool-basemodels-module">
-<span id="module-flaretool.VERSION"></span><h2>flaretool.basemodels module<a class="headerlink" href="#flaretool-basemodels-module" title="Link to this heading">¶</a></h2>
-<dl class="py class" id="module-flaretool.basemodels">
+<section id="module-flaretool.basemodels">
+<span id="flaretool-basemodels-module"></span><h2>flaretool.basemodels module<a class="headerlink" href="#module-flaretool.basemodels" title="Link to this heading">¶</a></h2>
+<dl class="py class">
 <dt class="sig sig-object py" id="flaretool.basemodels.BaseDataModel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.basemodels.</span></span><span class="sig-name descname"><span class="pre">BaseDataModel</span></span><a class="headerlink" href="#flaretool.basemodels.BaseDataModel" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
@@ -491,9 +491,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 </dd></dl>
 
 </section>
-<section id="flaretool-command-module">
-<h2>flaretool.command module<a class="headerlink" href="#flaretool-command-module" title="Link to this heading">¶</a></h2>
-<dl class="py function" id="module-flaretool.command">
+<section id="module-flaretool.command">
+<span id="flaretool-command-module"></span><h2>flaretool.command module<a class="headerlink" href="#module-flaretool.command" title="Link to this heading">¶</a></h2>
+<dl class="py function">
 <dt class="sig sig-object py" id="flaretool.command.cli">
 <span class="sig-prename descclassname"><span class="pre">flaretool.command.</span></span><span class="sig-name descname"><span class="pre">cli</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.command.cli" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -504,9 +504,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 <dd></dd></dl>
 
 </section>
-<section id="flaretool-common-module">
-<h2>flaretool.common module<a class="headerlink" href="#flaretool-common-module" title="Link to this heading">¶</a></h2>
-<dl class="py class" id="module-flaretool.common">
+<section id="module-flaretool.common">
+<span id="flaretool-common-module"></span><h2>flaretool.common module<a class="headerlink" href="#module-flaretool.common" title="Link to this heading">¶</a></h2>
+<dl class="py class">
 <dt class="sig sig-object py" id="flaretool.common.requests">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.common.</span></span><span class="sig-name descname"><span class="pre">requests</span></span><a class="headerlink" href="#flaretool.common.requests" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
@@ -538,9 +538,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 </dd></dl>
 
 </section>
-<section id="flaretool-constants-module">
-<h2>flaretool.constants module<a class="headerlink" href="#flaretool-constants-module" title="Link to this heading">¶</a></h2>
-<dl class="py class" id="module-flaretool.constants">
+<section id="module-flaretool.constants">
+<span id="flaretool-constants-module"></span><h2>flaretool.constants module<a class="headerlink" href="#module-flaretool.constants" title="Link to this heading">¶</a></h2>
+<dl class="py class">
 <dt class="sig sig-object py" id="flaretool.constants.ConsoleColor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.constants.</span></span><span class="sig-name descname"><span class="pre">ConsoleColor</span></span><a class="headerlink" href="#flaretool.constants.ConsoleColor" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
@@ -662,9 +662,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 </dd></dl>
 
 </section>
-<section id="flaretool-decorators-module">
-<h2>flaretool.decorators module<a class="headerlink" href="#flaretool-decorators-module" title="Link to this heading">¶</a></h2>
-<dl class="py function" id="module-flaretool.decorators">
+<section id="module-flaretool.decorators">
+<span id="flaretool-decorators-module"></span><h2>flaretool.decorators module<a class="headerlink" href="#module-flaretool.decorators" title="Link to this heading">¶</a></h2>
+<dl class="py function">
 <dt class="sig sig-object py" id="flaretool.decorators.network_required">
 <span class="sig-prename descclassname"><span class="pre">flaretool.decorators.</span></span><span class="sig-name descname"><span class="pre">network_required</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.decorators.network_required" title="Link to this definition">¶</a></dt>
 <dd><p>ネットワーク接続のチェックを行い、接続されている場合には指定されたメソッドを実行します。
@@ -782,9 +782,9 @@ def example_function():</p>
 </dd></dl>
 
 </section>
-<section id="flaretool-enums-module">
-<h2>flaretool.enums module<a class="headerlink" href="#flaretool-enums-module" title="Link to this heading">¶</a></h2>
-<dl class="py class" id="module-flaretool.enums">
+<section id="module-flaretool.enums">
+<span id="flaretool-enums-module"></span><h2>flaretool.enums module<a class="headerlink" href="#module-flaretool.enums" title="Link to this heading">¶</a></h2>
+<dl class="py class">
 <dt class="sig sig-object py" id="flaretool.enums.Base64Mode">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.enums.</span></span><span class="sig-name descname"><span class="pre">Base64Mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.enums.Base64Mode" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
@@ -856,9 +856,9 @@ def example_function():</p>
 </dd></dl>
 
 </section>
-<section id="flaretool-errors-module">
-<h2>flaretool.errors module<a class="headerlink" href="#flaretool-errors-module" title="Link to this heading">¶</a></h2>
-<dl class="py exception" id="module-flaretool.errors">
+<section id="module-flaretool.errors">
+<span id="flaretool-errors-module"></span><h2>flaretool.errors module<a class="headerlink" href="#module-flaretool.errors" title="Link to this heading">¶</a></h2>
+<dl class="py exception">
 <dt class="sig sig-object py" id="flaretool.errors.AuthenticationError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.errors.</span></span><span class="sig-name descname"><span class="pre">AuthenticationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.errors.AuthenticationError" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flaretool.errors.FlareToolError" title="flaretool.errors.FlareToolError"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlareToolError</span></code></a></p>
@@ -878,9 +878,9 @@ def example_function():</p>
 </dd></dl>
 
 </section>
-<section id="flaretool-logger-module">
-<h2>flaretool.logger module<a class="headerlink" href="#flaretool-logger-module" title="Link to this heading">¶</a></h2>
-<dl class="py function" id="module-flaretool.logger">
+<section id="module-flaretool.logger">
+<span id="flaretool-logger-module"></span><h2>flaretool.logger module<a class="headerlink" href="#module-flaretool.logger" title="Link to this heading">¶</a></h2>
+<dl class="py function">
 <dt class="sig sig-object py" id="flaretool.logger.get_logger">
 <span class="sig-prename descclassname"><span class="pre">flaretool.logger.</span></span><span class="sig-name descname"><span class="pre">get_logger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Logger</span></span></span><a class="headerlink" href="#flaretool.logger.get_logger" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -891,9 +891,9 @@ def example_function():</p>
 <dd></dd></dl>
 
 </section>
-<section id="flaretool-settings-module">
-<h2>flaretool.settings module<a class="headerlink" href="#flaretool-settings-module" title="Link to this heading">¶</a></h2>
-<dl class="py class" id="module-flaretool.settings">
+<section id="module-flaretool.settings">
+<span id="flaretool-settings-module"></span><h2>flaretool.settings module<a class="headerlink" href="#module-flaretool.settings" title="Link to this heading">¶</a></h2>
+<dl class="py class">
 <dt class="sig sig-object py" id="flaretool.settings.BaseSettings">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.settings.</span></span><span class="sig-name descname"><span class="pre">BaseSettings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_case_sensitive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DotenvType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('.')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_file_encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_nested_delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_secrets_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.settings.BaseSettings" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseSettings</span></code></p>
@@ -940,9 +940,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 <dd></dd></dl>
 
 </section>
-<section id="flaretool-utills-module">
-<h2>flaretool.utills module<a class="headerlink" href="#flaretool-utills-module" title="Link to this heading">¶</a></h2>
-<dl class="py class" id="module-flaretool.utills">
+<section id="module-flaretool.utills">
+<span id="flaretool-utills-module"></span><h2>flaretool.utills module<a class="headerlink" href="#module-flaretool.utills" title="Link to this heading">¶</a></h2>
+<dl class="py class">
 <dt class="sig sig-object py" id="flaretool.utills.DictToFieldConverter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flaretool.utills.</span></span><span class="sig-name descname"><span class="pre">DictToFieldConverter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flaretool.utills.DictToFieldConverter" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
@@ -1092,9 +1092,9 @@ print(city)  # Output: ‘Tokyo’</p>
 </dd></dl>
 
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
-<p id="module-flaretool">flaretool python module
+<section id="module-flaretool">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-flaretool" title="Link to this heading">¶</a></h2>
+<p>flaretool python module
 [Terms of service](<a class="reference external" href="https://main.flarebrow.com/terms">https://main.flarebrow.com/terms</a>)</p>
 </section>
 </section>
