@@ -1,12 +1,13 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
+from typing import Union
 from flaretool.basemodels import BaseDataModel
 
 
 class IpInfo(BaseDataModel):
-    ipaddr: str = None
-    hostname: str = None
-    country: str = None
+    ipaddr: Union[str, None] = None
+    hostname: Union[str, None] = None
+    country: Union[str, None] = None
 
 
 class PunyDomainInfo(BaseDataModel):

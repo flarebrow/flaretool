@@ -1,5 +1,6 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
+from typing import Union
 from flaretool.basemodels import BaseDataModel
 
 
@@ -16,6 +17,6 @@ class DdnsInfo(BaseDataModel):
     """
     result: int
     status: str
-    currentIp: str = None
+    currentIp: Union[str, None] = None
     updateIp: str
     domain: str

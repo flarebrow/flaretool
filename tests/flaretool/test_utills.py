@@ -1,3 +1,7 @@
+import os
+import shutil
+import tempfile
+import time
 import unittest
 from flaretool.utills import *
 
@@ -182,3 +186,45 @@ class UtillsTestCase(unittest.TestCase):
             converter.gender
         self.assertEqual(
             str(e.exception), "'DictToFieldConverter' object has no attribute 'gender'")
+
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp()
+
+    def tearDown(self):
+        # テストで作成した一時ディレクトリを削除
+        # os.rmdir(self.temp_dir)
+        shutil.rmtree(self.temp_dir)
+
+    def test_get_temp_dir_path(self):
+        temp_path = get_temp_dir_path()
+
+        # パスが存在することを確認
+        self.assertTrue(os.path.exists(temp_path))
+
+        # 正しいディレクトリが作成されたことを確認
+        expected_dir = os.path.join(
+            tempfile.gettempdir(),
+            "python_{}".format(flaretool.__name__),
+        )
+        self.assertEqual(temp_path, expected_dir)
+
+    def test_is_file_fresh(self):
+        # テスト用のファイルを作成
+        file_path = os.path.join(self.temp_dir, "test_file.txt")
+        with open(file_path, 'w') as file:
+            file.write("Test content")
+
+        # ファイルが存在し、現在の時間から24時間以内に変更されていることを確認
+        self.assertTrue(is_file_fresh(file_path, days=1))
+
+        # ファイルを24時間以上前に変更
+        file_modified_time = os.path.getmtime(file_path)
+        os.utime(file_path, (file_modified_time - 2 * 24 * 60 *
+                 60, file_modified_time - 2 * 24 * 60 * 60))
+
+        # ファイルが24時間以内に変更されていないことを確認
+        self.assertFalse(is_file_fresh(file_path, days=1))
+
+        # ファイルが存在しない場合も考慮
+        self.assertFalse(is_file_fresh(
+            "non_existent_file.txt", days=1))
