@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flaretool.nettool package &mdash; flaretool 0.1.33 documentation</title>
+  <title>flaretool.nettool package &mdash; flaretool 0.1.34 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,7 +13,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=449df4d2"></script>
+        <script src="_static/documentation_options.js?v=8f14641f"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -67,10 +67,12 @@
 <li><a class="reference internal" href="#module-flaretool.nettool">Module contents</a><ul>
 <li><a class="reference internal" href="#flaretool.nettool.domain_exists"><code class="docutils literal notranslate"><span class="pre">domain_exists()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.get_adhost"><code class="docutils literal notranslate"><span class="pre">get_adhost()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.nettool.get_country_ip_list"><code class="docutils literal notranslate"><span class="pre">get_country_ip_list()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.get_global_ipaddr_info"><code class="docutils literal notranslate"><span class="pre">get_global_ipaddr_info()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.get_japanip_list"><code class="docutils literal notranslate"><span class="pre">get_japanip_list()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.get_puny_code"><code class="docutils literal notranslate"><span class="pre">get_puny_code()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.get_robots_txt_url"><code class="docutils literal notranslate"><span class="pre">get_robots_txt_url()</span></code></a></li>
+<li><a class="reference internal" href="#flaretool.nettool.is_country_ip"><code class="docutils literal notranslate"><span class="pre">is_country_ip()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.is_ip_in_allowed_networks"><code class="docutils literal notranslate"><span class="pre">is_ip_in_allowed_networks()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.is_japan_ip"><code class="docutils literal notranslate"><span class="pre">is_japan_ip()</span></code></a></li>
 <li><a class="reference internal" href="#flaretool.nettool.is_scraping_allowed"><code class="docutils literal notranslate"><span class="pre">is_scraping_allowed()</span></code></a></li>
@@ -224,6 +226,23 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="flaretool.nettool.get_country_ip_list">
+<span class="sig-prename descclassname"><span class="pre">flaretool.nettool.</span></span><span class="sig-name descname"><span class="pre">get_country_ip_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="flaretool.html#flaretool.constants.Country" title="flaretool.constants.Country"><span class="pre">Country</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Country.JP</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#flaretool.nettool.get_country_ip_list" title="Link to this definition">¶</a></dt>
+<dd><p>特定の国のIPアドレスを取得（デフォルトは日本）</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>country</strong> (<a class="reference internal" href="flaretool.html#flaretool.constants.Country" title="flaretool.constants.Country"><em>Country</em></a><em>, </em><em>optional</em>) – 国コード. Defaults to Country.JP.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>IPアドレスのリスト</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="flaretool.nettool.get_global_ipaddr_info">
 <span class="sig-prename descclassname"><span class="pre">flaretool.nettool.</span></span><span class="sig-name descname"><span class="pre">get_global_ipaddr_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#flaretool.nettool.models.IpInfo" title="flaretool.nettool.models.IpInfo"><span class="pre">IpInfo</span></a></span></span><a class="headerlink" href="#flaretool.nettool.get_global_ipaddr_info" title="Link to this definition">¶</a></dt>
 <dd><p>指定されたグローバルIPアドレスの情報を取得する関数
@@ -285,6 +304,26 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flaretool.nettool.is_country_ip">
+<span class="sig-prename descclassname"><span class="pre">flaretool.nettool.</span></span><span class="sig-name descname"><span class="pre">is_country_ip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ipaddr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="flaretool.html#flaretool.constants.Country" title="flaretool.constants.Country"><span class="pre">Country</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Country.JP</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#flaretool.nettool.is_country_ip" title="Link to this definition">¶</a></dt>
+<dd><p>指定されたアドレスが指定の国のIPアドレスか確認する関数（デフォルトは日本）</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ipaddr</strong> (<em>str</em>) – IPアドレス</p></li>
+<li><p><strong>country</strong> (<a class="reference internal" href="flaretool.html#flaretool.constants.Country" title="flaretool.constants.Country"><em>Country</em></a><em>, </em><em>optional</em>) – 国コード. Defaults to Country.JP.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>指定されたIPアドレスが指定した国のIPの場合はTrue、それ以外の場合はFalse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
