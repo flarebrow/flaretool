@@ -24,7 +24,7 @@ def test_syukujitsu():
     jh = JapaneseHolidays()
     jho = JapaneseHolidaysOnline()
 
-    year = int(datetime.now().strftime("%Y")) + 1
+    year = datetime.now().year + 1
     start_date = date(1980, 1, 1)
     end_date = date(year, 12, 31)
     current_date = start_date
