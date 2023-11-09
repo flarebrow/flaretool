@@ -100,7 +100,7 @@ def retry(max_attempts: int, delay: int = 1):
 
     Args:
         max_attempts (int): 最大リトライ回数
-        delay (float, optional): リトライ間隔（秒）（デフォルトは1秒）
+        delay (int, optional): リトライ間隔（秒）（デフォルトは1秒）
 
     Returns:
         function: デコレートされた関数を実行する
