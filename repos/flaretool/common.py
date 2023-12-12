@@ -67,3 +67,8 @@ class requests():
     @staticmethod
     def delete(url, **kwargs) -> Response:
         return requests.request("DELETE", url, **kwargs)
+
+    @staticmethod
+    def head(url, **kwargs) -> Response:
+        kwargs.setdefault("allow_redirects", False)
+        return requests.request("HEAD", url, **kwargs)

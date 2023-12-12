@@ -149,3 +149,20 @@ class RequestsTestCase(unittest.TestCase):
             headers=self.headers,
             data=data,
         )
+
+    def test_head(self):
+        # テスト用のダミーデータとしてURLとデータを設定します
+        url = "https://example.com"
+
+        # headメソッドをテストします
+        response = requests.head(url)
+
+        # レスポンスのステータスコードが正常であることを確認します
+        self.assertEqual(response.status_code, 200)
+
+        self.mock_requests.__enter__.return_value.request.assert_called_with(
+            method="HEAD",
+            url=url,
+            headers=self.headers,
+            allow_redirects=False,
+        )
