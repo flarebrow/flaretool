@@ -513,6 +513,16 @@ class JapaneseHolidays:
                 except ValueError:
                     pass
 
+        if isinstance(start_date, str):
+            for fmt in ['%Y/%m/%d', '%Y-%m-%d', '%Y%m%d']:
+                try:
+                    start_date = datetime.datetime.strptime(
+                        start_date, fmt).date()
+                    end_date = start_date
+                    break
+                except ValueError:
+                    pass
+
         if not isinstance(start_date, datetime.date):
             raise ValueError("Unsupported date format")
 

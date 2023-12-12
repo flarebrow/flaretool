@@ -321,6 +321,7 @@ class JapaneseHolidaysTest(unittest.TestCase):
     def test_get_holidays(self):
         self.holidays.get_holidays("2023")
         self.holidays.get_holidays("2023/01")
+        self.holidays.get_holidays("2023/01/01")
         with self.assertRaises(ValueError):
             self.holidays.get_holidays("aaaa")
 
