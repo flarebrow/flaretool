@@ -21,7 +21,7 @@ def amazon_info(url: str) -> AmazonInfo:
         This feature is unstable. It is considered experimental and subject to potential changes in future versions.
     """
     message = "This feature is unstable. It is considered experimental and subject to potential changes in future versions."
-    warnings.warn(message, DeprecationWarning)
+    warnings.warn(message, Warning)
     from flaretool.common import requests
     result = requests.post(f"{BASE_API_URL}/amazon", data={"url": url})
     result_json = result.json()
