@@ -58,7 +58,7 @@ class JapaneseHolidaysOnline(JapaneseHolidays):
     def __super_method(self, method: str, date: datetime.date):
         if not self.holidays.supported.from_date <= date <= self.holidays.supported.to_date:
             if not self.__is_warning:
-                message = "The online version does not support '{}'. It supports dates from '{}' to '{}'. Therefore, I will execute it offline.".format(
+                message = "The online version does not support '{}'. It supports dates from '{}' to '{}'. execute it offline.".format(
                     date, self.holidays.supported.from_date, self.holidays.supported.to_date)
                 warnings.warn(message, Warning)
                 self.__is_warning = True

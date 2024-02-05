@@ -32,7 +32,7 @@ def test_syukujitsu():
         holiday_name = jh.get_holiday_name(current_date)
         holidayo_name = jho.get_holiday_name(current_date)
         syukujitsu_name = holiday_list.get(current_date, None)
-        if holiday_name or syukujitsu_name:
+        if holiday_name or syukujitsu_name or holidayo_name:
             try:
                 if "休日" == syukujitsu_name or "祝日扱い" in syukujitsu_name:
                     assert "振替" in holiday_name or "休日" in holiday_name
@@ -45,6 +45,6 @@ def test_syukujitsu():
                     assert holidayo_name == syukujitsu_name
             except:
                 print(current_date.strftime("%Y/%m/%d"),
-                      holiday_name, syukujitsu_name)
+                      holiday_name, holidayo_name, syukujitsu_name)
                 raise
         current_date += timedelta(days=1)
