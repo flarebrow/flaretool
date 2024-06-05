@@ -25,8 +25,7 @@ class TestVersionCheck(unittest.TestCase):
         with warnings.catch_warnings(record=True) as warning_list:
             check_version()
 
-        self.assertEqual(len(warning_list),
-                         1 if 'GITHUB_ACTION' not in os.environ else 3)
+        self.assertEqual(len(warning_list), 1)
         self.assertTrue(issubclass(warning_list[0].category, Warning))
 
     @patch('flaretool.common.requests.get')
@@ -43,8 +42,7 @@ class TestVersionCheck(unittest.TestCase):
         with warnings.catch_warnings(record=True) as warning_list:
             check_version()
 
-        self.assertEqual(len(warning_list),
-                         0 if 'GITHUB_ACTION' not in os.environ else 2)
+        self.assertEqual(len(warning_list), 0)
 
     @patch('flaretool.common.requests.get')
     def test_check_version_exception(self, mock_get):
@@ -55,5 +53,4 @@ class TestVersionCheck(unittest.TestCase):
         with warnings.catch_warnings(record=True) as warning_list:
             check_version()
 
-        self.assertEqual(len(warning_list),
-                         0 if 'GITHUB_ACTION' not in os.environ else 2)
+        self.assertEqual(len(warning_list), 0)

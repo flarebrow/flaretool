@@ -167,3 +167,4 @@ docs/.*
 work/
 .work*
 htmlcov
+.venv*

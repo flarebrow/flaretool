@@ -67,37 +67,80 @@ class NetworkRequiredDecoratorTests(unittest.TestCase):
 
 
 class RetryDecoratorTestCase(unittest.TestCase):
+    def setUp(self):
+        self.logger = LogCapturing()
 
-    # テスト用のダミー関数
-    def always_fail(self):
-        raise ValueError("Always fails")
-
-    @retry(max_attempts=3, delay=1)
-    def retry_function(self):
-        return "Success"
-
-    @retry(max_attempts=2, delay=1)
-    def retry_function2(self):
-        self.always_fail()
+    def tearDown(self):
+        self.logger.reset()
 
     def test_retry_success(self):
-        result = self.retry_function()
+        # Mock function that always succeeds
+        @retry(3)
+        def success_function():
+            return "Success"
+
+        result = success_function()
         self.assertEqual(result, "Success")
 
     def test_retry_failure(self):
-        with self.assertRaises(ValueError):
-            self.retry_function2()
+        # Mock function that always fails
+        @retry(3)
+        def failure_function():
+            raise ValueError("Always fails")
 
-    def test_error_logging(self):
+        with self.assertRaises(ValueError):
+            failure_function()
+
+    def test_retry_error_logging(self):
+        # Mock function that always fails
+        @retry(3)
+        def failure_function():
+            raise ValueError("Always fails")
+
         with patch('logging.getLogger') as mock_logger:
             mock_logger.return_value = self.logger
 
             with self.assertRaises(ValueError):
-                self.retry_function2()
+                failure_function()
 
             self.assertIn(
-                "Error occurred: Always fails. Retrying in 1 second(s).", self.logger.log)
+                "Error occurred: Always fails. Retrying in 0 second(s).", self.logger.log)
             self.assertIn("Max attempts reached. Giving up.", self.logger.log)
+
+
+# class RetryDecoratorTestCase(unittest.TestCase):
+
+#     # テスト用のダミー関数
+#     def always_fail(self):
+#         raise ValueError("Always fails")
+
+#     @retry()
+#     def retry_function(self):
+#         return "Success"
+
+#     @retry()
+#     def retry_function2(self):
+#         self.always_fail()
+
+#     def test_retry_success(self):
+#         result = self.retry_function()
+#         self.assertEqual(result, "Success")
+
+#     def test_retry_failure(self):
+#         with self.assertRaises(ValueError):
+#             self.retry_function2()
+
+#     def test_error_logging(self):
+#         with patch('logging.getLogger') as mock_logger:
+#             mock_logger.return_value = self.logger
+
+#             with self.assertRaises(ValueError):
+#                 self.retry_function2()
+
+#             self.assertIn(
+#                 "Error occurred: Always fails. Retrying in 1 second(s).", self.logger.log)
+#             self.assertIn("Max attempts reached. Giving up.", self.logger.log)
+
 
     def setUp(self):
         self.logger = LogCapturing()

@@ -31,7 +31,7 @@ def get_latest_version() -> str:
 def check_version():
     current_ver = VERSION
     latest_ver = get_latest_version()
-    from distutils.version import StrictVersion
+    from packaging.version import parse as StrictVersion
     import warnings
     if StrictVersion(current_ver) < StrictVersion(latest_ver):
         warnings.warn(

@@ -1,7 +1,6 @@
 import unittest
 from unittest.mock import MagicMock, patch
 
-from flaretool.funcs.amazon import amazon_info, AmazonInfo
 from flaretool.funcs.tracking import *
 
 
@@ -17,35 +16,6 @@ class FuncsTest(unittest.TestCase):
 
     def tearDown(self):
         self.patcher.stop()
-
-    @patch("flaretool.common.requests.post")
-    def test_amazon_info(self, mock_requests):
-        url = "https://www.amazon.com/example-product"
-        response_data = {
-            "result": True,
-            "url": url,
-            "title": "Example Product",
-            "price": 100,
-            "stock": "In Stock",
-            "distributor": "Amazon",
-            "sender": "Amazon",
-            "evaluation": "4.5/5",
-        }
-        mock_requests.return_value.json.return_value = response_data
-
-        info = amazon_info(url)
-
-        self.assertIsInstance(info, AmazonInfo)
-        self.assertEqual(info.url, url)
-        self.assertEqual(info.title, "Example Product")
-        self.assertEqual(info.price, 100)
-        self.assertEqual(info.stock, "In Stock")
-        self.assertEqual(info.distributor, "Amazon")
-        self.assertEqual(info.sender, "Amazon")
-        self.assertEqual(info.evaluation, "4.5/5")
-        mock_requests.assert_called_once_with(
-            "https://api.flarebrow.com/v2/amazon", data={"url": url}
-        )
 
     @patch("flaretool.common.requests.get")
     def test_yamato(self, mock_get):

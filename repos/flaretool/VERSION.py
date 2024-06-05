@@ -1,3 +1,3 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
-VERSION = "0.1.36"
+VERSION = "0.2.-1"
