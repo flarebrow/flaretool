@@ -4,7 +4,6 @@
 
 ![License](https://img.shields.io/github/license/flarebrow/flaretool)
 [![python](https://img.shields.io/badge/python-%3E%3D3.9-blue)](https://github.com/flarebrow/flaretool)
-![CodeSize](https://img.shields.io/github/languages/code-size/flarebrow/flaretool)
 [![version](https://img.shields.io/github/v/release/flarebrow/flaretool?include_prereleases)](https://github.com/flarebrow/flaretool/releases/latest)
 [![ReleaseDate](https://img.shields.io/github/release-date/flarebrow/flaretool)](https://github.com/flarebrow/flaretool/releases/latest)
 ![build](https://img.shields.io/github/actions/workflow/status/flarebrow/flaretool/auto_test.yml)
@@ -146,7 +145,9 @@ print(result)  # "ABCABC"
 
 [Holiday Usage Document](https://flarebrow.github.io/flaretool/flaretool.holiday.html#module-flaretool.holiday)
 
-Supports from 1980/01/01 to 2024/12/31.
+Support Range
+
+![online](https://img.shields.io/endpoint?url=https%3A%2F%2Fpublic.flarebrow.com%2Fjapanholiday-badge.json?ver=2025)
 
 ```python
 # オフライン版
@@ -257,13 +258,13 @@ def main():
         pass
 
 # 例外が発生した場合にリトライを行うデコレーター
-@retry(max_attempts=3, delay=2) # 2秒毎に3回までリトライ
+@retry(tries=3, delay=2) # 2秒毎に3回までリトライ
 # @retry(3) # ←この場合は1秒毎に3回までリトライ
 def retry_function():
     pass
 
 # 複数回実行を行うデコレーター
-@repeat(repeat_count=3, interval=2) # 2秒毎に3回メソッドを実行
+@repeat(tries=3, interval=2) # 2秒毎に3回メソッドを実行
 # @repeat(2) # ←この場合は連続で2回実行
 def repeat_function():
     # 強制的に実行を止めたい場合はStopIterationをraiseさせる

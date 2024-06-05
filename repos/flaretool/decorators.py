@@ -94,59 +94,53 @@ def network_required(func):
     return wrapper
 
 
-def retry(max_attempts: int, delay: int = 1):
-    """
-    リトライ処理を行うデコレーター。
+def retry(tries: int, delay: float = 0, backoff: float = 1, target_exception: Exception = None):
+    """指定された例外（またはすべての例外）が発生した場合に関数をリトライするデコレーター。
 
     Args:
-        max_attempts (int): 最大リトライ回数
-        delay (int, optional): リトライ間隔（秒）（デフォルトは1秒）
+        tries (int): 最大リトライ回数。
+        delay (float): 最初のリトライまでの遅延秒数。デフォルトは0。
+        backoff (float): リトライ間の遅延時間を増加させる係数。デフォルトは1。
+        target_exception (Exception, optional): リトライのトリガーとなる例外クラス。
+            Noneの場合はすべての例外をキャッチします。デフォルトはNone。
 
     Returns:
-        function: デコレートされた関数を実行する
+        function: デコレートされた関数の戻り値。
 
-    Examples:
-        @retry(max_attempts=3, delay=2)
-        def example_function():
-            pass
+    Raises:
+        Exception: 最後のリトライでも例外が発生した場合、その例外を発生させる。
     """
-    def decorator(func):
+    # 例外が指定されていない場合、すべての例外をキャッチする
+    target_exception = target_exception or Exception
+
+    def decorator_retry(func):
         @wraps(func)
-        def wrapper(*args, **kwargs):
-            """
-            リトライを行うラッパー関数
-
-            Args:
-                *args: 関数への位置引数
-                **kwargs: 関数へのキーワード引数
-
-            Returns:
-                Any: 関数の戻り値（もしくはリトライ上限に達した場合はNone）
-            """
+        def f_retry(*args, **kwargs):
+            mtries, mdelay = tries, delay
             logger = get_logger()
-            attempts = 0
-            while attempts < max_attempts:
+            while mtries > 0:
                 try:
                     return func(*args, **kwargs)
-                except Exception as e:
-                    attempts += 1
-                    if attempts >= max_attempts:
+                except target_exception as e:
+                    logger.error(
+                        f"Error occurred: {e}. Retrying in {mdelay} second(s).")
+                    time.sleep(mdelay)
+                    mtries -= 1
+                    mdelay *= backoff
+                    if mtries <= 0:
                         logger.error(f"Max attempts reached. Giving up.")
                         raise e
-                    logger.error(
-                        f"Error occurred: {e}. Retrying in {delay} second(s).")
-                    time.sleep(delay)
-        return wrapper
-    return decorator
+        return f_retry
+    return decorator_retry
 
 
-def repeat(repeat_count: int, interval: int = 0):
+def repeat(tries: int, interval: float = 0):
     """
     指定された間隔で関数を指定回数再実行するデコレーター。
 
     Args:
-        repeat_count (int): リピートする回数
-        interval (int, optional): 実行間隔（秒単位）。デフォルト値は0。
+        tries (int): リピートする回数
+        interval (float, optional): 実行間隔（秒単位）。デフォルト値は0。
 
     Returns:
         function: デコレートされた関数
@@ -169,7 +163,7 @@ def repeat(repeat_count: int, interval: int = 0):
         @wraps(func)
         def wrapper(*args, **kwargs):
             logger = get_logger()
-            for _ in range(repeat_count):
+            for _ in range(tries):
                 try:
                     result = func(*args, **kwargs)
                 except StopIteration as e:
