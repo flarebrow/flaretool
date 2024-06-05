@@ -1,8 +1,7 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
-from flaretool.funcs import tracking, amazon
+from flaretool.funcs import tracking
 
 __all__ = [
     "tracking",
-    "amazon",
 ]
