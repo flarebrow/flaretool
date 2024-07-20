@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.abspath('..'))
 year = datetime.now().strftime("%Y")
 
 project = 'flaretool'
-copyright = f'Copyright© 2018-{year} FlareBrow All Rights Reserved.'
+copyright = f'2018-{year} FlareBrow All Rights Reserved.'
 author = 'flarebrow'
 release = flaretool.__version__
 
