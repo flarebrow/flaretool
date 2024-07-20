@@ -14,6 +14,7 @@ from flaretool.constants import BASE_API_URL
 
 logger = get_logger()
 
+__all__ = []
 
 class JapaneseHolidaysOnline(JapaneseHolidays):
     """

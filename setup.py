@@ -18,14 +18,14 @@ with open("repos/flaretool/VERSION.py") as f:
     version = re.search(r'(?<=VERSION\s=\s")[^"]+', f.read()).group(0)
 
 setup(
-    name='flaretool',  # パッケージ名（pip listで表示される）
-    version=version,  # バージョン
-    description="this is flarebrow package",  # 説明
+    name='flaretool',
+    version=version,
+    description="this is flarebrow package",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://main.flarebrow.com",
-    author='flarebrow',  # 作者名
-    license='MIT',  # ライセンス
+    author='flarebrow',
+    license='MIT',
     keywords='flaretool',
     packages=find_packages("repos"),
     package_dir={"": "repos"},
