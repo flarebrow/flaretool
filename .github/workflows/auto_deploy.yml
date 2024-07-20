@@ -14,7 +14,7 @@ jobs:
         uses: ./.github/workflows/version_increment.yml
     update-docs:
         needs: version-increment
-        uses: ./.github/workflows/updatedoc.yml
+        uses: ./.github/workflows/deploy_page.yml
     deploy-prod:
         needs: update-docs
         uses: ./.github/workflows/deploy_prod.yml
