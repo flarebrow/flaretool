@@ -31,6 +31,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade setuptools wheel twine sphinx sphinx_rtd_theme
+          pip install -r requirements.txt
+
+      - name: Documnt ReMake
+        run: |
+          export PYTHONPATH=./repos/
+          rm ./docs_src/f*.rst
+          sphinx-apidoc -f -o ./docs_src ./repos/flaretool
+          sphinx-build ./docs_src ./docs
+          touch ./docs/.nojekyll
+          touch ./docs/.docs
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
