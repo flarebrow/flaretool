@@ -1,6 +1,8 @@
 import unittest
 from unittest.mock import patch, MagicMock
+import flaretool
 from flaretool.common import *
+from flaretool.errors import *
 from flaretool.logger import Logger
 from logging import DEBUG
 
@@ -51,20 +53,23 @@ class RequestsTestCase(unittest.TestCase):
         params = {"key": "value"}
 
         # requestメソッドをテストします
-        response = requests.request("GET", url, params=params)
+        response = requests.request(
+            "GET", url, params=params, auth_enabled=True)
 
         # レスポンスのステータスコードが正常であることを確認します
         self.assertEqual(response.status_code, 200)
 
         headers = self.headers
         headers["X-FLAREBROW-AUTH"] = "test"
+        headers["Authorization"] = "Bearer test"
+        params["apikey"] = "test"
 
        # モックされたrequestsクラスのrequestメソッドが正しく呼び出されたことを確認します
         self.mock_requests.__enter__.return_value.request.assert_called_with(
             method="GET",
             url=url,
             headers=headers,
-            params=params
+            params=params,
         )
 
     def test_requests_403(self):
@@ -76,7 +81,8 @@ class RequestsTestCase(unittest.TestCase):
         params = {"key": "value"}
 
         with self.assertRaises(FlareToolNetworkError) as e:
-            response = requests.request("GET", url, params=params)
+            response = requests.request(
+                "GET", url, params=params, auth_enabled=True)
             self.assertEqual(e.exception.message,
                              "Only access from Japan is accepted")
 
