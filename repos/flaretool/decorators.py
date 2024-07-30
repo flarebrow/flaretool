@@ -1,5 +1,6 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
+import threading
 import time
 import socket
 import inspect
@@ -12,6 +13,8 @@ __all__ = [
     "retry",
     "repeat",
     "type_check",
+    "timeout",
+    "timer",
 ]
 
 
@@ -109,8 +112,24 @@ def retry(tries: int, delay: float = 0, backoff: float = 1, target_exception: Ex
 
     Raises:
         Exception: 最後のリトライでも例外が発生した場合、その例外を発生させる。
+
+    Examples:
+        >>> @retry(3, target_exception=ValueError)
+        ... def my_function():
+        ...    # Some code that may raise a ValueError
+        ...    print("Function executed successfully")
+        ...    raise ValueError("Error")
+        ...    pass
+
+        >>> try:
+        ...    my_function()
+        ... except ValueError:
+        ...    print("ValueError occurred")
+        Function executed successfully
+        Function executed successfully
+        Function executed successfully
+        ValueError occurred
     """
-    # 例外が指定されていない場合、すべての例外をキャッチする
     target_exception = target_exception or Exception
 
     def decorator_retry(func):
@@ -151,7 +170,7 @@ def repeat(tries: int, interval: float = 0):
         ...     print("Hello, world!")
         ...     if some_condition: # 実行を止めたい場合の条件
         ...         raise StopIteration("Stop the loop")
-        ...
+
         >>> print_hello()
         Hello, world!
         Hello, world!
@@ -173,3 +192,117 @@ def repeat(tries: int, interval: float = 0):
             return result
         return wrapper
     return decorator
+
+
+def timeout(timeout):
+    """
+    指定した時間内に処理が完了しない場合に TimeoutError を発生させるデコレーター。
+
+    Args:
+        timeout (int or float): タイムアウト時間（秒）。
+
+    Returns:
+        function: タイムアウト付きのデコレーター。
+
+    Raises:
+        TimeoutError: タイムアウトが発生した場合に送出されます。
+
+    Examples:
+        >>> @timeout(5)
+        ... def my_function():
+        ...    # Some time-consuming operation
+        ...    time.sleep(10)
+        ...    return "Operation completed"
+
+        >>> try:
+        ...    result = my_function()
+        ...    print(result)
+        ... except TimeoutError:
+        ...    print("Operation timed out")
+        Operation timed out
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            """
+            関数をスレッドで実行し、指定したタイムアウト時間内に処理が完了するかをチェックします。
+
+            Args:
+                *args: デコレートする関数に渡される位置引数。
+                **kwargs: デコレートする関数に渡されるキーワード引数。
+
+            Returns:
+                任意の: デコレートされた関数の戻り値。
+
+            Raises:
+                TimeoutError: タイムアウトが発生した場合に送出されます。
+            """
+            result = [None]
+            exception = [None]
+
+            def target():
+                try:
+                    result[0] = func(*args, **kwargs)
+                except Exception as e:
+                    exception[0] = e
+
+            thread = threading.Thread(target=target)
+            thread.start()
+            thread.join(timeout)
+            if thread.is_alive():
+                thread.join(0)  # タイムアウト後にスレッドを強制終了するため
+                raise TimeoutError(
+                    f"Function '{func.__name__}' timed out after {timeout} seconds.")
+            if exception[0]:
+                raise exception[0]
+            return result[0]
+
+        return wrapper
+    return decorator
+
+
+def timer(func):
+    """
+    デコレートされた関数の実行時間を測定するデコレーター。
+    flaretoolのloggerに出力。
+
+    Args:
+        timeout (int or float): タイムアウト時間（秒）。
+
+    Returns:
+        function: 実行時間を表示し、元の関数の結果を返すラッパー関数。
+
+    Examples:
+        >>> # Logger Setup
+        ... from flaretool.logger import setup_logger
+        ... logger = setup_logger(logging.DEBUG, console=True)
+        ...
+        >>> @timer
+        ... def example_function(x):
+        ...     time.sleep(x)
+        ...     return x
+
+        >>> example_function(2)
+        [2024-08-01 00:00:00,000] DEBUG : example_function took 2.0000 seconds to execute.
+    """
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        """
+        元の関数の実行時間を計算して表示するラッパー関数。
+
+        引数:
+            *args: デコレートされた関数に渡される位置引数。
+            **kwargs: デコレートされた関数に渡されるキーワード引数。
+
+        戻り値:
+            任意の: デコレートされた関数の戻り値。
+        """
+        logger = get_logger()
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        logger.debug(
+            f"{func.__name__} took {end_time - start_time:.4f} seconds to execute.")
+        return result
+
+    return wrapper

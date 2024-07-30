@@ -1,4 +1,5 @@
 from time import sleep
+import time
 import unittest
 from unittest.mock import MagicMock
 from unittest.mock import patch
@@ -189,3 +190,73 @@ class LogCapturing:
 
     def reset(self):
         self.log = []
+
+
+class TestTimeoutDecorator(unittest.TestCase):
+
+    def test_timeout_success(self):
+        """
+        Test the `timeout` decorator with a function that completes within the timeout period.
+        """
+        @timeout(2)
+        def quick_function():
+            time.sleep(1)
+            return "Completed"
+
+        result = quick_function()
+        self.assertEqual(result, "Completed")
+
+    def test_timeout_failure(self):
+        """
+        Test the `timeout` decorator with a function that exceeds the timeout period.
+        """
+        @timeout(2)
+        def slow_function():
+            time.sleep(5)
+            return "Should not reach here"
+
+        with self.assertRaises(TimeoutError):
+            slow_function()
+
+    def test_timeout_exception(self):
+        """
+        Test the `timeout` decorator with a function that raises an exception.
+        """
+        @timeout(2)
+        def function_with_exception():
+            time.sleep(1)
+            raise ValueError("An error occurred")
+
+        with self.assertRaises(ValueError):
+            function_with_exception()
+
+
+class TimerDecoratorTestCase(unittest.TestCase):
+    def test_timer_decorator(self):
+        # Mock function that takes some time to execute
+        @timer
+        def long_running_function():
+            time.sleep(2)
+            return "Success"
+
+        result = long_running_function()
+        self.assertEqual(result, "Success")
+
+    def test_timer_decorator_with_mock_logger(self):
+        # Mock function that takes some time to execute
+        @timer
+        def long_running_function():
+            time.sleep(2)
+            return "Success"
+
+        with patch('flaretool.decorators.get_logger') as mock_get_logger:
+            mock_logger = MagicMock()
+            mock_get_logger.return_value = mock_logger
+
+            result = long_running_function()
+            self.assertEqual(result, "Success")
+
+            self.assertIn("long_running_function took",
+                          mock_logger.debug.call_args[0][0])
+            self.assertIn("seconds to execute.",
+                          mock_logger.debug.call_args[0][0])
