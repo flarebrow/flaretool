@@ -290,6 +290,18 @@ except TimeoutError:
     print("Operation timed out")
 ## 出力例
 # Operation timed out
+
+# メソッドの実行時間を計測するデコレーター
+## Logger Setup
+from flaretool.logger import setup_logger
+logger = setup_logger(logging.DEBUG, console=True)
+@timer
+def example_function(x):
+    time.sleep(x)
+    return x
+
+example_function(2)
+[2024-08-01 00:00:00,000] DEBUG : example_function took 2.0000 seconds to execute.
 ```
 
 # Flarebrow Service
