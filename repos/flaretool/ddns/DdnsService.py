@@ -52,12 +52,12 @@ class DdnsService:
             DdnsError: If the response code is not 200.
         """
         base_url = f"{BASE_API_URL}/ddns"
-        params["apikey"] = flaretool.api_key
         response = requests.request(
             method,
             base_url,
             params=params,
             data=data,
+            auth_enabled=True,
         )
         result = response.json()
         if response.status_code == 401:

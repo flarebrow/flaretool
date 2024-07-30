@@ -59,12 +59,12 @@ class ShortUrlService:
             ShortUrlError: If the response code is not 200.
         """
         base_url = f"{BASE_API_URL}/shorturl"
-        params["apikey"] = flaretool.api_key
         result = requests.request(
             method,
             base_url,
             params=params,
             data=data,
+            auth_enabled=True,
         ).json()
         response = result["response"]
         if response == 401:

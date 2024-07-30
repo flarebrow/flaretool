@@ -67,8 +67,12 @@ class DdnsServiceTest(unittest.TestCase):
         self.assertEqual(info.currentIp, "192.168.0.99")
         self.assertEqual(info.updateIp, "192.168.0.100")
         self.assertEqual(info.domain, "example.○○○.○○")
-        mock_requests.assert_called_once_with("post", "https://api.flarebrow.com/v2/ddns", params={
-            "apikey": flaretool.api_key}, data={"host": "example", "ip": "192.168.0.100"})
+        mock_requests.assert_called_once_with("post", "https://api.flarebrow.com/v2/ddns",
+                                              params={},
+                                              data={"host": "example",
+                                                    "ip": "192.168.0.100"},
+                                              auth_enabled=True,
+                                              )
 
     @patch("flaretool.common.requests.request")
     def test_update_ddns_without_ip(self, mock_requests):
@@ -83,4 +87,8 @@ class DdnsServiceTest(unittest.TestCase):
         self.assertEqual(info.updateIp, "192.168.0.100")
         self.assertEqual(info.domain, "example.○○○.○○")
         mock_requests.assert_called_once_with(
-            "post", "https://api.flarebrow.com/v2/ddns", params={"apikey": flaretool.api_key}, data={"host": "example"})
+            "post", "https://api.flarebrow.com/v2/ddns",
+            params={},
+            data={"host": "example"},
+            auth_enabled=True,
+        )
