@@ -301,7 +301,8 @@ def example_function(x):
     return x
 
 example_function(2)
-[2024-08-01 00:00:00,000] DEBUG : example_function took 2.0000 seconds to execute.
+## 出力例
+# [2024-08-01 00:00:00,000] DEBUG : example_function took 2.0000 seconds to execute.
 ```
 
 # Flarebrow Service
