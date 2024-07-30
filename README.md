@@ -241,7 +241,7 @@ for business_day in business_days:
 
 ```python
 from flaretool.errors import FlareToolNetworkError
-from flaretool.decorators import network_required, retry, repeat
+from flaretool.decorators import network_required, retry, repeat, timeout, timer
 
 # ネットワーク接続を必須とするデコレーター
 @network_required
@@ -268,10 +268,28 @@ def retry_function():
 # @repeat(2) # ←この場合は連続で2回実行
 def repeat_function():
     # 強制的に実行を止めたい場合はStopIterationをraiseさせる
+    print("repeat message")
     if 複数回の実行をとめたい条件:
         raise StopIteration("Stop the loop!")
     pass
+## 出力例
+# repeat message
+# repeat message
+# repeat message
 
+# 制限時間をつけるデコレーター
+@timeout(5)
+def my_function():
+    # Some time-consuming operation
+    time.sleep(10)
+    return "Operation completed"
+try:
+    result = my_function()
+    print(result)
+except TimeoutError:
+    print("Operation timed out")
+## 出力例
+# Operation timed out
 ```
 
 # Flarebrow Service

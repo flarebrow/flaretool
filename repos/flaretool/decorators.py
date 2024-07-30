@@ -5,6 +5,7 @@ import time
 import socket
 import inspect
 from functools import wraps
+from typing import Union
 from flaretool.errors import FlareToolNetworkError
 from flaretool.logger import get_logger
 
@@ -194,7 +195,7 @@ def repeat(tries: int, interval: float = 0):
     return decorator
 
 
-def timeout(timeout):
+def timeout(timeout: Union[int, float]):
     """
     指定した時間内に処理が完了しない場合に TimeoutError を発生させるデコレーター。
 
