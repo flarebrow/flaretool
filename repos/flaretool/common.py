@@ -16,9 +16,23 @@ logger = get_logger()
 class requests():
 
     @staticmethod
-    def request(method: str, url: str, **kwargs) -> Response:
-        from urllib.parse import urlparse
-        is_flare_service = False
+    def request(method: str, url: str, auth_enabled: bool = False, **kwargs) -> Response:
+        """
+        Send an HTTP request with the specified method, URL, and optional parameters.
+
+        Args:
+            method (str): The HTTP method to use for the request (e.g., 'GET', 'POST', 'PUT', 'DELETE').
+            url (str): The URL to send the request to.
+            auth_enabled (bool, optional): Whether to force authentication for the request. Defaults to False.
+            **kwargs: Additional keyword arguments to be passed to the underlying request method.
+
+        Returns:
+            Response: The response object representing the server's response to the request.
+
+        Raises:
+            FlareToolNetworkError: If the request is made to a Flare service and the response status code is 403.
+
+        """
         headers = kwargs.pop("headers", {})
         ua = {
             "Mozilla": "5.0",
@@ -31,8 +45,11 @@ class requests():
         user_agent = " ".join([f"{key}/{value}" for key, value in ua.items()])
         headers["User-Agent"] = user_agent
         headers["X-UA"] = user_agent
-        if "flarebrow.com" in urlparse(url).netloc:
-            is_flare_service = True
+        if auth_enabled:
+            params = kwargs.get("params", {})
+            params["apikey"] = flaretool.api_key
+            kwargs.update({"params": params})
+            headers["Authorization"] = f"Bearer {flaretool.api_key}"
             headers["X-FLAREBROW-AUTH"] = flaretool.api_key
         with req.Session() as session:
             response = session.request(
@@ -42,11 +59,11 @@ class requests():
                     "status_code": response.status_code,
                     "method": method,
                     "url": url,
-                    "param": kwargs.get("param", {}),
+                    "params": kwargs.get("params", {}),
                     "data": kwargs.get("data", {}),
                 }
             )
-            if is_flare_service and response.status_code == 403:
+            if auth_enabled and response.status_code == 403:
                 raise FlareToolNetworkError(
                     message="Only access from Japan is accepted"
                 )
