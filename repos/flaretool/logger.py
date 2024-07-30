@@ -15,6 +15,7 @@ def setup_logger(
     max_bytes: int = 1024000,
     backup_count: int = 5,
     extra: bool = False,
+    encoding: str = 'utf-8',
 ) -> Logger:
     if max_bytes < 0:
         raise ValueError("max_bytes must be a non-negative value")
@@ -32,25 +33,26 @@ def setup_logger(
     format_string = f"[%(asctime)s] %(levelname)s {extra_string}: %(message)s"
     formatter = logging.Formatter(format_string)
 
-    file_handler = logging.FileHandler(file_name)
-    file_handler.setLevel(loglevel)
-    file_handler.setFormatter(formatter)
-
     console_handler = logging.StreamHandler()
     console_handler.setLevel(loglevel)
     console_handler.setFormatter(formatter)
 
-    rotating_handler = logging.handlers.RotatingFileHandler(
-        file_name,
-        encoding='utf-8',
-        maxBytes=max_bytes,
-        backupCount=backup_count,
-    )
-    rotating_handler.setLevel(loglevel)
-    rotating_handler.setFormatter(formatter)
-
     if file:
-        logger.addHandler(rotating_handler if rotating else file_handler)
+        if rotating:
+            rotating_handler = logging.handlers.RotatingFileHandler(
+                file_name,
+                encoding=encoding,
+                maxBytes=max_bytes,
+                backupCount=backup_count,
+            )
+            rotating_handler.setLevel(loglevel)
+            rotating_handler.setFormatter(formatter)
+            logger.addHandler(rotating_handler)
+        else:
+            file_handler = logging.FileHandler(file_name)
+            file_handler.setLevel(loglevel)
+            file_handler.setFormatter(formatter)
+            logger.addHandler(file_handler)
 
     if console:
         logger.addHandler(console_handler)
