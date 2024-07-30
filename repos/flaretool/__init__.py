@@ -23,7 +23,7 @@ def get_lib_version():
 def get_latest_version() -> str:
     try:
         from flaretool.common import requests
-        return requests.get("https://pypi.org/pypi/flaretool/json").json()["info"]["version"]
+        return requests.get("https://pypi.org/pypi/flaretool/json", timeout=5).json()["info"]["version"]
     except:
         return VERSION
 
