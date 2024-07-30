@@ -63,7 +63,7 @@ class requests():
                     "data": kwargs.get("data", {}),
                 }
             )
-            if auth_enabled and response.status_code == 403:
+            if (auth_enabled or "flarebrow.com" in response.url) and response.status_code == 403:
                 raise FlareToolNetworkError(
                     message="Only access from Japan is accepted"
                 )

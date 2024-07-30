@@ -12,10 +12,10 @@ import flaretool
 from datetime import datetime
 sys.path.insert(0, os.path.abspath('..'))
 
-year = datetime.now().strftime("%Y")
+year = datetime.now().year
 
 project = 'flaretool'
-copyright = f'2018-{year} FlareBrow All Rights Reserved.'
+copyright = f'2018-{year} flarebrow All Rights Reserved.'
 author = 'flarebrow'
 release = flaretool.__version__
 
