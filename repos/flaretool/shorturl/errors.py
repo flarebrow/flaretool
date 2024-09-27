@@ -19,3 +19,7 @@ class ShortUrlAuthenticationError(ShortUrlError):
 
 class ShortUrlDataUpdateError(ShortUrlError):
     pass
+
+
+class ShortUrlValidError(ShortUrlError):
+    pass

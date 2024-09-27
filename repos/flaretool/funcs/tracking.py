@@ -1,7 +1,7 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
 from flaretool.decorators import network_required
-from flaretool.constants import BASE_API_URL
+from flaretool.constants import API_BASE_URL_OLD
 
 
 @network_required
@@ -28,7 +28,7 @@ def yamato(codes: list[str]) -> list[dict]:
         number_list.append(code)
         post_data[f"n{str(i)}"] = code
     return requests.get(
-        f"{BASE_API_URL}/yamato",
+        f"{API_BASE_URL_OLD}/yamato",
         params=post_data,
     ).json()["result"]
 
@@ -56,7 +56,7 @@ def japanpost(code: str) -> dict:
     number_list.append(code)
     post_data["n"] = code
     return requests.get(
-        f"{BASE_API_URL}/japanpost",
+        f"{API_BASE_URL_OLD}/japanpost",
         params=post_data,
     ).json()
 
