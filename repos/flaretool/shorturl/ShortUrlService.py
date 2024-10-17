@@ -49,6 +49,7 @@ class ShortUrlService:
         Raises:
             ShortUrlAuthenticationError: If the response code is 401.
             ShortUrlDataUpdateError: If the response code is 409.
+            ShortUrlValidError: If the response code is 422.
             ShortUrlError: If the response code is not 200.
         """
         base_url = f"{API_BASE_URL}/short"
@@ -84,6 +85,7 @@ class ShortUrlService:
         Raises:
             ShortUrlAuthenticationError: If the response code is 401.
             ShortUrlDataUpdateError: If the response code is 409.
+            ShortUrlValidError: If the response code is 422.
             ShortUrlError: If the response code is not 200.
         """
         result = self._send_request("get")["result"]
@@ -113,6 +115,7 @@ class ShortUrlService:
         Raises:
             ShortUrlAuthenticationError: If the response code is 401.
             ShortUrlDataUpdateError: If the response code is 409.
+            ShortUrlValidError: If the response code is 422.
             ShortUrlError: If the response code is not 200.
         """
         data = {
