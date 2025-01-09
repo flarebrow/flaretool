@@ -93,7 +93,10 @@ class CommandTest(unittest.TestCase):
             with patch.object(ShortUrlService, "create") as mock_method:
                 mock_method.return_value = "http://short.url/test"
                 args = argparse.Namespace(
-                    func="shorturl", url="http://example.com", apikey="apikey"
+                    func="shorturl",
+                    url="http://example.com",
+                    apikey="apikey",
+                    mode="create",
                 )
                 self.mock_create_connection.return_value = args
                 result = cli()
@@ -104,7 +107,12 @@ class CommandTest(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as fake_out:
             with patch.object(ShortUrlService, "create") as mock_method:
                 mock_method.return_value = "http://short.url/test"
-                args = argparse.Namespace(func="shorturl", url=None, apikey="apikey")
+                args = argparse.Namespace(
+                    func="shorturl",
+                    url=None,
+                    apikey="apikey",
+                    mode="show",
+                )
                 self.mock_create_connection.return_value = args
                 result = cli()
                 # self.assertEqual(result, 0)
