@@ -41,8 +41,9 @@ def cli():
 
     # shorturl
     parser_shorturl = subparsers.add_parser("shorturl")
-    parser_shorturl.add_argument("url", help="URL to shorten")
     parser_shorturl.add_argument("--apikey", "-key", help="API Key")
+    parser_shorturl.add_argument("mode", choices=["create", "show"], help="Mode")
+    parser_shorturl.add_argument("url", help="URL to shorten")
 
     args = parser.parse_args()
 
@@ -50,7 +51,7 @@ def cli():
         if args.apikey:
             flaretool.api_key = args.apikey
         sus = ShortUrlService()
-        if args.url:
+        if args.mode == "create" and args.url:
             result = sus.create(args.url)
         else:
             result = sus.get_short_url_info_list()
