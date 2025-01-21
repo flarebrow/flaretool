@@ -56,7 +56,7 @@ class FlareToolNetworkError(FlareToolError):
         code=None,
         **param,
     ):
-        super(FlareToolError, self).__init__(message)
+        super().__init__(message)
 
         # if http_body and hasattr(http_body, "decode"):
         #     try:

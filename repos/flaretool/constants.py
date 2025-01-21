@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 from enum import Enum
 
-BASE_API_URL = "https://api.flarebrow.com/v2"
+API_BASE_URL_OLD = "https://api.flarebrow.com/v2"
+API_BASE_URL = "https://api.fbs.ms"
 
 ADHOST_DATA_URL = "https://raw.githubusercontent.com/flarebrow/public/master/Adhost/hostlist.txt"
 

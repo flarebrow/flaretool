@@ -10,11 +10,12 @@ from flaretool.holiday.models import HolidaysResponseModel
 from flaretool.common import requests
 from flaretool.decorators import network_required
 from flaretool.logger import get_logger
-from flaretool.constants import BASE_API_URL
+from flaretool.constants import API_BASE_URL_OLD
 
 logger = get_logger()
 
 __all__ = []
+
 
 class JapaneseHolidaysOnline(JapaneseHolidays):
     """
@@ -47,7 +48,7 @@ class JapaneseHolidaysOnline(JapaneseHolidays):
 
     @network_required
     def __request_get_holiday(self) -> HolidaysResponseModel:
-        response = requests.get(f"{BASE_API_URL}/japanholiday.json")
+        response = requests.get(f"{API_BASE_URL_OLD}/japanholiday.json")
         result = response.json()
         holidays = HolidaysResponseModel(**result)
         if not holidays.status:

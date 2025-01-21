@@ -6,7 +6,7 @@ import socket
 import whois
 import ipaddress
 
-from flaretool.constants import ADHOST_DATA_URL, BASE_API_URL, COUNTRY_IPV4_DATA_URL, Country
+from flaretool.constants import ADHOST_DATA_URL, API_BASE_URL_OLD, COUNTRY_IPV4_DATA_URL, Country
 from flaretool.nettool.models import IpInfo, PunyDomainInfo
 from flaretool.common import requests
 from urllib import robotparser
@@ -30,7 +30,7 @@ def get_global_ipaddr_info(addr: str = None) -> IpInfo:
 
     """
     addr = "" if addr is None else f"/{addr}"
-    result = requests.get(f"{BASE_API_URL}/ip{addr}").json()
+    result = requests.get(f"{API_BASE_URL_OLD}/ip{addr}").json()
     return IpInfo(**result)
 
 
@@ -165,7 +165,7 @@ def get_puny_code(domain: str) -> PunyDomainInfo:
     Returns:
         PunyDomainInfo: 取得結果
     """
-    result = requests.get(f"{BASE_API_URL}/puny/{domain}").json()
+    result = requests.get(f"{API_BASE_URL_OLD}/puny/{domain}").json()
     return PunyDomainInfo(**result)
 
 
