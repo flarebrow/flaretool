@@ -3,7 +3,7 @@
 import os
 from typing import Union
 # try:
-from pydantic_settings import BaseSettings as bs
+from pydantic_settings import BaseSettings as bs, SettingsConfigDict
 # except ImportError:
 #     from pydantic import BaseSettings as bs
 
@@ -13,21 +13,11 @@ from dotenv import load_dotenv
 class BaseSettings(bs):
     api_key: Union[str, None] = None
 
-    class Config:
-        env_prefix = ""
-
-        @classmethod
-        def _load_env_file(cls):
-            load_dotenv()
-
-        @classmethod
-        def _get_environment_variable(cls, name, default):
-            return os.getenv(name, default)
-
-    @classmethod
-    def get(cls):
-        return cls()
-
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
 
 def get_settings():
     return BaseSettings()
