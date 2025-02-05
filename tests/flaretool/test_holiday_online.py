@@ -6,7 +6,9 @@ from datetime import datetime, date, timedelta
 from flaretool.holiday import JapaneseHolidays, JapaneseHolidaysOnline
 
 
-@pytest.mark.skipif('HOLIDAY_TEST_URL' not in os.environ, reason="skip external api call during CI")
+@pytest.mark.skipif(
+    "HOLIDAY_TEST_URL" not in os.environ, reason="skip external api call during CI"
+)
 def test_syukujitsu():
     url = os.environ["HOLIDAY_TEST_URL"]
     try:
@@ -44,7 +46,11 @@ def test_syukujitsu():
                     assert holiday_name in syukujitsu_name
                     assert holidayo_name == syukujitsu_name
             except:
-                print(current_date.strftime("%Y/%m/%d"),
-                      holiday_name, holidayo_name, syukujitsu_name)
+                print(
+                    current_date.strftime("%Y/%m/%d"),
+                    holiday_name,
+                    holidayo_name,
+                    syukujitsu_name,
+                )
                 raise
         current_date += timedelta(days=1)

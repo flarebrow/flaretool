@@ -308,7 +308,7 @@ class JapaneseHolidays:
         """
         if date.weekday() == 0:  # 月曜日の場合
             return bool(self.get_holiday_name(date - datetime.timedelta(days=1)))
-        if date.year in [2008, 2009, 2014, 2015, 2020, 2025] and date.month == 5 and date.day == 6:
+        if date.year in [2008, 2009, 2014, 2015, 2020, 2025, 2026] and date.month == 5 and date.day == 6:
             return True
         return False
 

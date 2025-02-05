@@ -43,7 +43,7 @@ def cli():
     parser_shorturl = subparsers.add_parser("shorturl")
     parser_shorturl.add_argument("--apikey", "-key", help="API Key")
     parser_shorturl.add_argument("mode", choices=["create", "show"], help="Mode")
-    parser_shorturl.add_argument("url", help="URL to shorten")
+    parser_shorturl.add_argument("url", nargs="?", help="URL to shorten (required for 'create' mode)")
 
     args = parser.parse_args()
 
