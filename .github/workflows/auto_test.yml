@@ -83,11 +83,24 @@ jobs:
           echo -e ${{ steps.coverageComment.outputs.summaryReport }} >> $GITHUB_STEP_SUMMARY
   
       - name: Create Coverage Badge
+        if: github.ref == 'refs/heads/main'
         uses: schneegans/dynamic-badges-action@v1.3.0
         with:
           auth: ${{ secrets.TOKEN }}
           gistID: e31fc348a9dea0098de9540dc5961668
-          filename: ${{ github.ref == 'refs/heads/main' && format('pytest-coverage-{}.json', matrix.python-version) || format('pytest-coverage-dev-{}.json', matrix.python-version) }}
+          filename: pytest-coverage-${{ matrix.python-version }}.json
+          label: Coverage
+          message: ${{ steps.coverageComment.outputs.coverage }}
+          color: ${{ steps.coverageComment.outputs.color }}
+          namedLogo: python
+  
+      - name: Create Coverage Badge
+        if: github.ref != 'refs/heads/main'
+        uses: schneegans/dynamic-badges-action@v1.3.0
+        with:
+          auth: ${{ secrets.TOKEN }}
+          gistID: e31fc348a9dea0098de9540dc5961668
+          filename: pytest-coverage-dev-${{ matrix.python-version }}.json
           label: Coverage
           message: ${{ steps.coverageComment.outputs.coverage }}
           color: ${{ steps.coverageComment.outputs.color }}
