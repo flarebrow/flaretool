@@ -87,7 +87,7 @@ jobs:
         with:
           auth: ${{ secrets.TOKEN }}
           gistID: e31fc348a9dea0098de9540dc5961668
-          filename: ${{ github.ref == 'refs/heads/main' && 'pytest-coverage-${{ matrix.python-version }}.json' || 'pytest-coverage-dev-${{ matrix.python-version }}.json' }}
+          filename: ${{ github.ref == 'refs/heads/main' && format('pytest-coverage-{}.json', matrix.python-version) || format('pytest-coverage-dev-{}.json', matrix.python-version) }}
           label: Coverage
           message: ${{ steps.coverageComment.outputs.coverage }}
           color: ${{ steps.coverageComment.outputs.color }}
