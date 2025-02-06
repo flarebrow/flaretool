@@ -308,8 +308,19 @@ class JapaneseHolidays:
         """
         if date.weekday() == 0:  # 月曜日の場合
             return bool(self.get_holiday_name(date - datetime.timedelta(days=1)))
-        if date.year in [2008, 2009, 2014, 2015, 2020, 2025, 2026] and date.month == 5 and date.day == 6:
-            return True
+
+        # 5月6日が振替休日となる条件:
+        # ・5月3日が日曜日 → 5月4日が振替休日 → 5月5日が祝日 → 5月6日も振替休日
+        # ・5月4日が日曜日 → 5月5日が振替休日 → 5月6日が振替休日
+        # ・5月5日が日曜日 → 5月6日が振替休日
+        if date.month == 5 and date.day == 6 and date.year >= 2007:
+            may_3 = datetime.date(date.year, 5, 3)
+            may_4 = datetime.date(date.year, 5, 4)
+            may_5 = datetime.date(date.year, 5, 5)
+
+            if may_5.weekday() == 6 or may_4.weekday() == 6 or may_3.weekday() == 6:
+                return True
+
         return False
 
     def is_additional_holiday(self, date: datetime.date) -> bool:
