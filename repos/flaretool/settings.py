@@ -1,13 +1,13 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
-import os
 from typing import Union
+
 # try:
-from pydantic_settings import BaseSettings as bs, SettingsConfigDict
+from pydantic_settings import BaseSettings as bs
+from pydantic_settings import SettingsConfigDict
+
 # except ImportError:
 #     from pydantic import BaseSettings as bs
-
-from dotenv import load_dotenv
 
 
 class BaseSettings(bs):
@@ -18,6 +18,7 @@ class BaseSettings(bs):
         env_file_encoding="utf-8",
         extra="ignore",
     )
+
 
 def get_settings():
     return BaseSettings()
