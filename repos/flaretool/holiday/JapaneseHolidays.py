@@ -1,7 +1,7 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
-import datetime
 import calendar
+import datetime
 from typing import Union
 
 __all__ = []
@@ -11,6 +11,7 @@ class JapaneseHolidays:
     """
     日本の祝日を管理するクラス(オフライン版)
     """
+
     _additional_holidays: dict[datetime.date, str]
 
     def __init__(self):
@@ -68,8 +69,9 @@ class JapaneseHolidays:
         """
         if date.year < 1900 or date.year > 2099:
             return False
-        spring_equinox = 20.8431 + 0.242194 * \
-            (date.year - 1980) - (date.year - 1980) // 4
+        spring_equinox = (
+            20.8431 + 0.242194 * (date.year - 1980) - (date.year - 1980) // 4
+        )
         return date == datetime.date(date.year, 3, int(spring_equinox))
 
     def is_showa_day(self, date: datetime.date) -> bool:
@@ -192,8 +194,9 @@ class JapaneseHolidays:
         """
         if date.year < 1900 or date.year > 2099:
             return False
-        autumn_equinox = 23.2488 + 0.242194 * \
-            (date.year - 1980) - (date.year - 1980) // 4
+        autumn_equinox = (
+            23.2488 + 0.242194 * (date.year - 1980) - (date.year - 1980) // 4
+        )
         return date == datetime.date(date.year, 9, int(autumn_equinox))
 
     def is_health_and_sports_day(self, date: datetime.date) -> bool:
@@ -212,7 +215,11 @@ class JapaneseHolidays:
             return date == datetime.date(2020, 7, 24)
         if date.year == 2021:
             return date == datetime.date(2021, 7, 23)
-        if date.year >= 2020 and date.month == 10 and date.day == self.week_day(date, 2, 1).day:
+        if (
+            date.year >= 2020
+            and date.month == 10
+            and date.day == self.week_day(date, 2, 1).day
+        ):
             return True
 
         return date.month == 10 and date.weekday() == 0 and 8 <= date.day <= 14
@@ -289,9 +296,11 @@ class JapaneseHolidays:
         previous_date = date - datetime.timedelta(days=1)
         next_date = date + datetime.timedelta(days=1)
         is_may_holiday = self.is_constitution_day(
-            previous_date) and self.is_childrens_day(next_date)
+            previous_date
+        ) and self.is_childrens_day(next_date)
         is_sep_holiday = self.is_respect_for_the_aged_day(
-            previous_date) and self.is_autumn_equinox(next_date)
+            previous_date
+        ) and self.is_autumn_equinox(next_date)
         if (is_may_holiday or is_sep_holiday) and date.weekday() < 6:
             return True
         return False
@@ -370,9 +379,7 @@ class JapaneseHolidays:
         return datetime.date(date.year, date.month, days[week - 1])
 
     @staticmethod
-    def to_date(date: Union[
-        str, datetime.datetime, datetime.date
-    ]) -> datetime.date:
+    def to_date(date: Union[str, datetime.datetime, datetime.date]) -> datetime.date:
         """
         日付文字列をdateオブジェクトに変換します
 
@@ -391,20 +398,20 @@ class JapaneseHolidays:
             return date
 
         formats = [
-            '%Y-%m-%d',           # 2021-01-01
-            '%Y-%m-%d %H:%M',     # 2021-01-01 12:34
-            '%Y-%m-%d %H:%M:%S',  # 2021-01-01 12:34:56
-            '%Y/%m/%d',           # 2021/01/01
-            '%Y/%m/%d %H:%M',     # 2021/01/01 12:34
-            '%Y/%m/%d %H:%M:%S',  # 2021/01/01 12:34:56
-            '%Y%m%d',             # 20210101
-            '%d-%b-%Y',           # 01-Jan-2021
-            '%d-%b-%Y %H:%M:%S',  # 01-Jan-2021 12:34:56
-            '%m-%d-%Y',           # 01-01-2021
-            '%b %d, %Y',          # Jan 01, 2021
-            '%B %d, %Y',          # January 01, 2021
-            '%d %b %Y',           # 01 Jan 2021
-            '%d %B %Y',           # 01 January 2021
+            "%Y-%m-%d",  # 2021-01-01
+            "%Y-%m-%d %H:%M",  # 2021-01-01 12:34
+            "%Y-%m-%d %H:%M:%S",  # 2021-01-01 12:34:56
+            "%Y/%m/%d",  # 2021/01/01
+            "%Y/%m/%d %H:%M",  # 2021/01/01 12:34
+            "%Y/%m/%d %H:%M:%S",  # 2021/01/01 12:34:56
+            "%Y%m%d",  # 20210101
+            "%d-%b-%Y",  # 01-Jan-2021
+            "%d-%b-%Y %H:%M:%S",  # 01-Jan-2021 12:34:56
+            "%m-%d-%Y",  # 01-01-2021
+            "%b %d, %Y",  # Jan 01, 2021
+            "%B %d, %Y",  # January 01, 2021
+            "%d %b %Y",  # 01 Jan 2021
+            "%d %B %Y",  # 01 January 2021
         ]
 
         for fmt in formats:
@@ -430,9 +437,9 @@ class JapaneseHolidays:
         last_date = datetime.date(date.year, date.month, last_day)
         return last_date
 
-    def get_holiday_name(self, date: Union[
-        str, datetime.datetime, datetime.date
-    ]) -> Union[str, None]:
+    def get_holiday_name(
+        self, date: Union[str, datetime.datetime, datetime.date]
+    ) -> Union[str, None]:
         """
         祝日名を取得
 
@@ -482,7 +489,10 @@ class JapaneseHolidays:
         elif self.is_emperors_birthday(date):
             return "天皇誕生日"
         elif self.is_transfer_holiday(date):
-            return self.get_holiday_name(date - datetime.timedelta(days=1)) + "（振替休日）"
+            return (
+                self.get_holiday_name(date - datetime.timedelta(days=1))
+                + "（振替休日）"
+            )
         elif self.is_additional_holiday(date):
             return self._additional_holidays.get(date)
         else:
@@ -509,26 +519,24 @@ class JapaneseHolidays:
         """
         start_date = date
         try:
-            start_date = datetime.datetime.strptime(start_date, '%Y').date()
+            start_date = datetime.datetime.strptime(start_date, "%Y").date()
             end_date = datetime.date(start_date.year, 12, 31)
         except ValueError:
             pass
 
         if isinstance(start_date, str):
-            for fmt in ['%Y/%m', '%Y-%m', '%Y%m']:
+            for fmt in ["%Y/%m", "%Y-%m", "%Y%m"]:
                 try:
-                    start_date = datetime.datetime.strptime(
-                        start_date, fmt).date()
+                    start_date = datetime.datetime.strptime(start_date, fmt).date()
                     end_date = self.get_last_day(start_date)
                     break
                 except ValueError:
                     pass
 
         if isinstance(start_date, str):
-            for fmt in ['%Y/%m/%d', '%Y-%m-%d', '%Y%m%d']:
+            for fmt in ["%Y/%m/%d", "%Y-%m-%d", "%Y%m%d"]:
                 try:
-                    start_date = datetime.datetime.strptime(
-                        start_date, fmt).date()
+                    start_date = datetime.datetime.strptime(start_date, fmt).date()
                     end_date = start_date
                     break
                 except ValueError:
@@ -546,7 +554,9 @@ class JapaneseHolidays:
             current_date += datetime.timedelta(days=1)
         return holidays
 
-    def get_rest_days_in_range(self, start_date: datetime.date, end_date: datetime.date) -> list[tuple[str, datetime.datetime]]:
+    def get_rest_days_in_range(
+        self, start_date: datetime.date, end_date: datetime.date
+    ) -> list[tuple[datetime.datetime, str]]:
         """
         特定の期間内の休みの一覧を取得（土日含む）
 
@@ -555,23 +565,25 @@ class JapaneseHolidays:
             end_date (datetime.date): 終了日
 
         Returns:
-            list[tuple[str, datetime.datetime]]: 休み一覧
+            list[tuple[datetime.datetime, str]]: 休日一覧
         """
         holidays = []
         current_date = start_date
         while current_date <= end_date:
             if current_date.weekday() == 5:
-                holidays.append(("土曜日", current_date))
+                holidays.append((current_date, "土曜日"))
             elif current_date.weekday() == 6:
-                holidays.append(("日曜日", current_date))
+                holidays.append((current_date, "日曜日"))
             else:
                 holiday_name = self.get_holiday_name(current_date)
                 if holiday_name is not None:
-                    holidays.append((holiday_name, current_date))
+                    holidays.append((current_date, holiday_name))
             current_date += datetime.timedelta(days=1)
         return holidays
 
-    def get_holidays_in_range(self, start_date: datetime.date, end_date: datetime.date) -> list[tuple[str, datetime.datetime]]:
+    def get_holidays_in_range(
+        self, start_date: datetime.date, end_date: datetime.date
+    ) -> list[tuple[datetime.datetime, str]]:
         """
         特定の期間内の祝日一覧を取得
 
@@ -580,18 +592,20 @@ class JapaneseHolidays:
             end_date (datetime.date): 終了日
 
         Returns:
-            list[tuple[str, datetime.datetime]]: 祝日一覧
+            list[tuple[datetime.datetime, str]]: 祝日一覧
         """
         holidays = []
         current_date = start_date
         while current_date <= end_date:
             holiday_name = self.get_holiday_name(current_date)
             if holiday_name is not None:
-                holidays.append((holiday_name, current_date))
+                holidays.append((current_date, holiday_name))
             current_date += datetime.timedelta(days=1)
         return holidays
 
-    def get_business_date_range(self, start_date: datetime.date, end_date: datetime.date) -> list[datetime.date]:
+    def get_business_date_range(
+        self, start_date: datetime.date, end_date: datetime.date
+    ) -> list[datetime.date]:
         """
         指定期間内の営業日の一覧を取得
 
@@ -612,7 +626,9 @@ class JapaneseHolidays:
             current_date += datetime.timedelta(days=1)
         return business_days
 
-    def get_first_business_day(self, date: datetime.date, days: int = 1) -> datetime.date:
+    def get_first_business_day(
+        self, date: datetime.date, days: int = 1
+    ) -> datetime.date:
         """
         指定された月の営業日を取得（デフォルトは第1営業日）
 
@@ -652,19 +668,21 @@ class JapaneseHolidays:
 
         """
         from flaretool.constants import ConsoleColor as Color
+
         year = date.year
         month = date.month
 
         def format_day(year, month, day, weekday):
             if weekday == 0:
-                return f'{Color.RED}{day:2d}{Color.RESET} '
+                return f"{Color.RED}{day:2d}{Color.RESET} "
             elif weekday == 6:
-                return f'{Color.BLUE}{day:2d}{Color.RESET} '
+                return f"{Color.BLUE}{day:2d}{Color.RESET} "
             else:
                 if self.get_holiday_name(datetime.date(year, month, day)):
-                    return f'{Color.GREEN}{day:2d}{Color.RESET} '
+                    return f"{Color.GREEN}{day:2d}{Color.RESET} "
                 else:
                     return f"{day:2d} "
+
         calendar.setfirstweekday(calendar.SUNDAY)
 
         # カレンダーを取得
@@ -700,15 +718,23 @@ class JapaneseHolidays:
         if first_day.weekday() == 6:
             first_sunday = first_day
         else:
-            first_sunday = first_day + \
-                datetime.timedelta(days=(6 - first_day.weekday() + 1))
+            first_sunday = first_day + datetime.timedelta(
+                days=(6 - first_day.weekday() + 1)
+            )
         weeks = ((date - first_sunday).days + 1) // 7
         if date.day > last_day - 6:
             weeks += 1
         week_number = weeks
 
-        weekdays = ['Monday', 'Tuesday', 'Wednesday',
-                    'Thursday', 'Friday', 'Saturday', 'Sunday']
+        weekdays = [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+        ]
         weekday = weekdays[date.weekday()]
 
         holiday_name = self.get_holiday_name(date)
