@@ -1,24 +1,22 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
-import sys
-import inspect
 import argparse
+import inspect
+import sys
+
 import flaretool
 from flaretool import nettool
-from flaretool.shorturl import ShortUrlService
 from flaretool.basemodels import BaseDataModel
+from flaretool.shorturl import ShortUrlService
 
 current_ver = flaretool.__version__
 
 description = """
 {} ver{}
-""".format(
-    flaretool.__name__, current_ver
-)
+""".format(flaretool.__name__, current_ver)
 
 
 def cli():
-
     parser = argparse.ArgumentParser(description=description)
     subparsers = parser.add_subparsers(dest="func", required=True)
 
@@ -43,7 +41,9 @@ def cli():
     parser_shorturl = subparsers.add_parser("shorturl")
     parser_shorturl.add_argument("--apikey", "-key", help="API Key")
     parser_shorturl.add_argument("mode", choices=["create", "show"], help="Mode")
-    parser_shorturl.add_argument("url", nargs="?", help="URL to shorten (required for 'create' mode)")
+    parser_shorturl.add_argument(
+        "url", nargs="?", help="URL to shorten (required for 'create' mode)"
+    )
 
     args = parser.parse_args()
 

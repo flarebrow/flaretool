@@ -1,22 +1,25 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
-import os
-import sys
 import json
+import os
 import platform
+import sys
+
 import requests as req
 from requests.models import Response
-from flaretool.logger import get_logger
+
 import flaretool
 from flaretool.errors import FlareToolNetworkError
+from flaretool.logger import get_logger
 
 logger = get_logger()
 
 
-class requests():
-
+class requests:
     @staticmethod
-    def request(method: str, url: str, auth_enabled: bool = False, **kwargs) -> Response:
+    def request(
+        method: str, url: str, auth_enabled: bool = False, **kwargs
+    ) -> Response:
         """
         Send an HTTP request with the specified method, URL, and optional parameters.
 
@@ -53,7 +56,8 @@ class requests():
             headers["X-FLAREBROW-AUTH"] = flaretool.api_key
         with req.Session() as session:
             response = session.request(
-                method=method, url=url, headers=headers, **kwargs)
+                method=method, url=url, headers=headers, **kwargs
+            )
             logger.debug(
                 {
                     "status_code": response.status_code,
@@ -63,7 +67,9 @@ class requests():
                     "data": kwargs.get("data", {}),
                 }
             )
-            if (auth_enabled or "flarebrow.com" in response.url) and response.status_code == 403:
+            if (
+                auth_enabled or "flarebrow.com" in response.url
+            ) and response.status_code == 403:
                 raise FlareToolNetworkError(
                     message="Only access from Japan is accepted"
                 )

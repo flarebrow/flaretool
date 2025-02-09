@@ -35,14 +35,15 @@ class FlareToolError(Exception):
         Returns:
             str: String representation of the exception.
         """
-        columns = ', '.join([
-            '{0}={1}'.format(k, repr(self.__dict__[k]))
-            for k in self.__dict__.keys() if not k.startswith("_")
-        ])
-
-        return '<{0}({1})>'.format(
-            self.__class__.__name__, columns
+        columns = ", ".join(
+            [
+                "{0}={1}".format(k, repr(self.__dict__[k]))
+                for k in self.__dict__.keys()
+                if not k.startswith("_")
+            ]
         )
+
+        return "<{0}({1})>".format(self.__class__.__name__, columns)
 
 
 class FlareToolNetworkError(FlareToolError):
