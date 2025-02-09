@@ -21,7 +21,7 @@
 > 
 > Please note that some formats have changed in version 0.2.7 and above, as well as in earlier versions, so be careful when updating.
 >
-> バージョン0.2.7以降およびそれ以前のバージョンでいくつかのフォーマットが変更されているため、アップデート時には注意してください。
+> バージョン0.2.7以降のバージョンでいくつかのフォーマットが変更されているため、アップデート時には注意してください。
 
 
 
