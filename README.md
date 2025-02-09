@@ -7,14 +7,23 @@
 [![version](https://img.shields.io/github/v/release/flarebrow/flaretool?include_prereleases)](https://github.com/flarebrow/flaretool/releases/latest)
 [![ReleaseDate](https://img.shields.io/github/release-date/flarebrow/flaretool)](https://github.com/flarebrow/flaretool/releases/latest)
 ![build](https://img.shields.io/github/actions/workflow/status/flarebrow/flaretool/auto_test.yml)
-![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/flarebrow/e31fc348a9dea0098de9540dc5961668/raw/pytest-coverage-3.9.json)
+![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/flarebrow/e31fc348a9dea0098de9540dc5961668/raw/pytest-coverage-3.12.json)
 [![Downloads](https://static.pepy.tech/badge/flaretool)](https://pepy.tech/project/flaretool)
 
-[API Doc](https://flarebrow.github.io/flaretool/)
+[Library Document](https://flarebrow.github.io/flaretool/)
 
-**Attention**
+> [!IMPORTANT]
+> 
+> This library is under development and may exhibit unexpected behavior. New features will be released soon. Please stay tuned.
 
-This library is under development and may exhibit unexpected behavior. New features will be released soon. Please stay tuned.
+
+> [!WARNING]
+> 
+> Please note that some formats have changed in version 0.2.7 and above, as well as in earlier versions, so be careful when updating.
+>
+> バージョン0.2.7以降およびそれ以前のバージョンでいくつかのフォーマットが変更されているため、アップデート時には注意してください。
+
+
 
 ## install
 ```bash
@@ -76,13 +85,11 @@ print("decodevalue:", puny_info.decodevalue)
 # encodevalue: xn--eckwd4c7c5976acvb2w6i.jp
 # decodevalue: 日本語ドメイン.jp
 
-# 特定のユーザーエージェントでスクレイピング可否を確認する例
+# robots.txtをもとに特定のユーザーエージェントでスクレイピング可否を確認する例
 url = "http://example.com/page.html"
 user_agent = "MyScraperBot"
 allowed = nettool.is_scraping_allowed(url, user_agent) # user_agentはオプション引数
-if allowed:
-    print(f"{url} はユーザーエージェント '{user_agent}' でのスクレイピングが許可されています。")
-else:
+if not allowed:
     print(f"{url} はユーザーエージェント '{user_agent}' でのスクレイピングが禁止されています。")
 ```
 
@@ -145,8 +152,6 @@ print(result)  # "ABCABC"
 
 [Holiday Usage Document](https://flarebrow.github.io/flaretool/flaretool.holiday.html#module-flaretool.holiday)
 
-Support Range
-
 ![online](https://img.shields.io/endpoint?url=https%3A%2F%2Fpublic.flarebrow.com%2Fjapanholiday-badge.json?ver=2025)
 
 ```python
@@ -183,10 +188,10 @@ holiday_list = holidays.get_holidays_in_range(start_date, end_date)
 for holiday in holiday_list:
     print(holiday)
 # 出力例:
-# ("元日", datetime.date(2023, 1, 1))
-# ("元日（振替休日）", datetime.date(2023, 1, 2))
-# ("成人の日", datetime.date(2023, 1, 9))
-# ("建国記念の日", datetime.date(2023, 2, 11))
+# (datetime.date(2023, 1, 1), "元日")
+# (datetime.date(2023, 1, 2), "元日（振替休日）")
+# (datetime.date(2023, 1, 9), "成人の日")
+# (datetime.date(2023, 2, 11), "建国記念の日")
 # ...
 
 # 2023年の祝日を取得
@@ -194,10 +199,10 @@ holiday_list = holidays.get_holidays("2023")
 for holiday in holiday_list:
     print(holiday)
 # 出力例:
-# ("元日", datetime.date(2023, 1, 1))
-# ("元日（振替休日）", datetime.date(2023, 1, 2))
-# ("成人の日", datetime.date(2023, 1, 9))
-# ("建国記念の日", datetime.date(2023, 2, 11))
+# (datetime.date(2023, 1, 1), "元日")
+# (datetime.date(2023, 1, 2), "元日（振替休日）")
+# (datetime.date(2023, 1, 9), "成人の日")
+# (datetime.date(2023, 2, 11), "建国記念の日")
 # ...
 
 # 2023年5月の祝日を取得
@@ -205,9 +210,9 @@ holiday_list = holidays.get_holidays("202305")
 for holiday in holiday_list:
     print(holiday)
 # 出力例:
-# ('憲法記念日', datetime.date(2023, 5, 3))
-# ('みどりの日', datetime.date(2023, 5, 4))
-# ('こどもの日', datetime.date(2023, 5, 5))
+# (datetime.date(2023, 5, 3), '憲法記念日')
+# (datetime.date(2023, 5, 4), 'みどりの日')
+# (datetime.date(2023, 5, 5), 'こどもの日')
 
 # 営業日を取得(7月)
 date = datetime.date(2023, 7, 1)
@@ -359,23 +364,23 @@ from flaretool.shorturl import ShortUrlService
 shorturl = ShortUrlService()
 
 # 新規登録
-result = shorturl.create_short_url("https://example.com")
-print("ShortLink:", result.link)   # https://○○○/○○○
+result = shorturl.create("https://example.com")
+print("ShortLink:", result.short_url)   # https://○○○/○○○
 print("OriginalURL:", result.url)  # https://example.com
 
 # 情報取得
-result = shorturl.get_short_url_info_list(result.id)[0]
-print("ShortLink:", result.link)   # https://○○○/○○○
+result = shorturl.get(result.id)[0]
+print("ShortLink:", result.short_url)   # https://○○○/○○○
 print("OriginalURL:", result.url)  # https://example.com
 
 # 更新
 result.url = "https://example.com/sample"
-result = shorturl.update_short_url(result)
-print("ShortLink:", result.link)   # https://○○○/○○○
+result = shorturl.update(result)
+print("ShortLink:", result.short_url)   # https://○○○/○○○
 print("OriginalURL:", result.url)  # https://example.com/sample
 
 # 削除
-shorturl.delete_short_url(result)
+shorturl.delete(result)
 
 # QRコード取得
 image_data = shorturl.get_qr_code_raw_data(result)
