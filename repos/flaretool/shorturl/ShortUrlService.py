@@ -6,14 +6,16 @@ Class for interacting with a short URL service.
 Warning:
     This class may undergo updates and its usage may change in the near future.
 """
+
+import warnings
+
 import flaretool
-from flaretool.decorators import type_check
-from flaretool.errors import AuthenticationError
 from flaretool.common import requests
 from flaretool.constants import API_BASE_URL, API_BASE_URL_OLD
+from flaretool.decorators import type_check
+from flaretool.errors import AuthenticationError
 from flaretool.shorturl.errors import *
 from flaretool.shorturl.models import ShortUrlInfo
-import warnings
 
 __all__ = []
 
@@ -73,7 +75,7 @@ class ShortUrlService:
         return result
 
     @type_check
-    def get_short_url_info_list(self, id: int = None) -> list[ShortUrlInfo]:
+    def get(self, id: int = None) -> list[ShortUrlInfo]:
         """Get informations about a short URL.
 
         Args:
@@ -88,8 +90,8 @@ class ShortUrlService:
             ShortUrlValidError: If the response code is 422.
             ShortUrlError: If the response code is not 200.
         """
-        result = self._send_request("get")["result"]
-        return [ShortUrlInfo(**data) for data in result] if result else []
+        result = self._send_request("get").get("result", [])
+        return [ShortUrlInfo(**data) for data in result if not id or data["id"] == id]
 
     @type_check
     def create(
@@ -152,24 +154,21 @@ class ShortUrlService:
         )
 
     @type_check
-    def delete_short_url(self, url_info: ShortUrlInfo) -> ShortUrlInfo:
+    def delete(self, url_info: ShortUrlInfo):
         """Delete a short URL.
 
         Args:
             url_info (ShortUrlInfo): Updated information about the short URL.
-
-        Returns:
-            ShortUrlInfo: Information about the delete short URL.
 
         Raises:
             ShortUrlAuthenticationError: If the response code is 401.
             ShortUrlDataUpdateError: If the response code is 409.
             ShortUrlError: If the response code is not 200.
         """
-        raise ShortUrlError("Service is under maintenance. Please try again later.")
-        # return ShortUrlInfo(
-        #     **self._send_request("delete", params={"id": url_info.id})["data"][0]
-        # )
+        self._send_request(
+            "delete",
+            json=url_info.model_dump(),
+        )["result"]
 
     @type_check
     def get_qr_code_raw_data(self, url_info: ShortUrlInfo) -> bytes:

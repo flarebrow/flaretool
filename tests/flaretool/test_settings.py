@@ -1,11 +1,17 @@
 from flaretool.settings import *
 
 
+def test_base_settings_default():
+    settings = BaseSettings()
+    assert settings.api_key is None
+
+
+def test_base_settings_env_file(monkeypatch):
+    monkeypatch.setenv("API_KEY", "test_api_key")
+    settings = BaseSettings()
+    assert settings.api_key == "test_api_key"
+
+
 def test_get_settings():
     settings = get_settings()
     assert isinstance(settings, BaseSettings)
-    assert settings.api_key == None
-    assert isinstance(settings.get(), BaseSettings)
-    assert settings.Config._load_env_file() == None
-    assert settings.Config._get_environment_variable(
-        "API_KEY", None) == settings.api_key

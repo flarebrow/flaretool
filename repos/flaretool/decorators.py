@@ -1,11 +1,12 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
+import inspect
+import socket
 import threading
 import time
-import socket
-import inspect
 from functools import wraps
 from typing import Union
+
 from flaretool.errors import FlareToolNetworkError
 from flaretool.logger import get_logger
 
@@ -87,6 +88,7 @@ def network_required(func):
     Raises:
         FlareToolNetworkError: ネットワークに接続されていない場合に発生する例外。
     """
+
     @wraps(func)
     def wrapper(*args, **kwargs):
         try:
@@ -98,7 +100,9 @@ def network_required(func):
     return wrapper
 
 
-def retry(tries: int, delay: float = 0, backoff: float = 1, target_exception: Exception = None):
+def retry(
+    tries: int, delay: float = 0, backoff: float = 1, target_exception: Exception = None
+):
     """指定された例外（またはすべての例外）が発生した場合に関数をリトライするデコレーター。
 
     Args:
@@ -143,14 +147,17 @@ def retry(tries: int, delay: float = 0, backoff: float = 1, target_exception: Ex
                     return func(*args, **kwargs)
                 except target_exception as e:
                     logger.error(
-                        f"Error occurred: {e}. Retrying in {mdelay} second(s).")
+                        f"Error occurred: {e}. Retrying in {mdelay} second(s)."
+                    )
                     time.sleep(mdelay)
                     mtries -= 1
                     mdelay *= backoff
                     if mtries <= 0:
                         logger.error(f"Max attempts reached. Giving up.")
                         raise e
+
         return f_retry
+
     return decorator_retry
 
 
@@ -179,6 +186,7 @@ def repeat(tries: int, interval: float = 0):
         Hello, world!
         Hello, world!
     """
+
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
@@ -191,7 +199,9 @@ def repeat(tries: int, interval: float = 0):
                     break
                 time.sleep(interval)
             return result
+
         return wrapper
+
     return decorator
 
 
@@ -222,6 +232,7 @@ def timeout(timeout: Union[int, float]):
         ...    print("Operation timed out")
         Operation timed out
     """
+
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
@@ -253,12 +264,14 @@ def timeout(timeout: Union[int, float]):
             if thread.is_alive():
                 thread.join(0)  # タイムアウト後にスレッドを強制終了するため
                 raise TimeoutError(
-                    f"Function '{func.__name__}' timed out after {timeout} seconds.")
+                    f"Function '{func.__name__}' timed out after {timeout} seconds."
+                )
             if exception[0]:
                 raise exception[0]
             return result[0]
 
         return wrapper
+
     return decorator
 
 
@@ -286,6 +299,7 @@ def timer(func):
         >>> example_function(2)
         [2024-08-01 00:00:00,000] DEBUG : example_function took 2.0000 seconds to execute.
     """
+
     @wraps(func)
     def wrapper(*args, **kwargs):
         """
@@ -303,7 +317,8 @@ def timer(func):
         result = func(*args, **kwargs)
         end_time = time.time()
         logger.debug(
-            f"{func.__name__} took {end_time - start_time:.4f} seconds to execute.")
+            f"{func.__name__} took {end_time - start_time:.4f} seconds to execute."
+        )
         return result
 
     return wrapper

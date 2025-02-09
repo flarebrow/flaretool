@@ -1,28 +1,30 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
 import logging
-import flaretool
-from logging import Logger
 import logging.handlers
+from logging import Logger
+
+import flaretool
 
 
 def setup_logger(
     loglevel: int = logging.INFO,
-    console: bool = False,
+    logger_name: str = flaretool.__name__,
+    console: bool = True,
     file: bool = False,
-    file_name: str = 'flaretool.log',
+    file_name: str = "flaretool.log",
     rotating: bool = False,
     max_bytes: int = 1024000,
     backup_count: int = 5,
     extra: bool = False,
-    encoding: str = 'utf-8',
+    encoding: str = "utf-8",
 ) -> Logger:
     if max_bytes < 0:
         raise ValueError("max_bytes must be a non-negative value")
     if backup_count < 0:
         raise ValueError("backup_count must be a non-negative value")
 
-    logger = logging.getLogger(flaretool.__name__)
+    logger = logging.getLogger(logger_name)
     logger.setLevel(loglevel)
     logger.handlers.clear()
 
@@ -30,7 +32,9 @@ def setup_logger(
 
     if extra:
         extra_string = "- %(pathname)s:%(lineno)d - %(funcName)s "
-    format_string = f"[%(asctime)s] %(levelname)s {extra_string}: %(message)s"
+    format_string = (
+        f"[%(asctime)s] - %(name)s - [%(levelname)s] {extra_string}: %(message)s"
+    )
     formatter = logging.Formatter(format_string)
 
     console_handler = logging.StreamHandler()
@@ -60,5 +64,5 @@ def setup_logger(
     return logger
 
 
-def get_logger() -> Logger:
-    return logging.getLogger(flaretool.__name__)
+def get_logger(logger_name: str = flaretool.__name__) -> Logger:
+    return logging.getLogger(logger_name)

@@ -4,11 +4,12 @@
 flaretool python module
 [Terms of service](https://main.flarebrow.com/terms)
 """
-from flaretool.VERSION import VERSION
-from flaretool import nettool
-from flaretool.settings import get_settings
-from flaretool import logger
+
 import logging
+
+from flaretool import logger, nettool
+from flaretool.settings import get_settings
+from flaretool.VERSION import VERSION
 
 logging.getLogger(__name__).addHandler(logging.NullHandler())
 
@@ -23,7 +24,10 @@ def get_lib_version():
 def get_latest_version() -> str:
     try:
         from flaretool.common import requests
-        return requests.get("https://pypi.org/pypi/flaretool/json", timeout=5).json()["info"]["version"]
+
+        return requests.get("https://pypi.org/pypi/flaretool/json", timeout=5).json()[
+            "info"
+        ]["version"]
     except:
         return VERSION
 
@@ -31,8 +35,10 @@ def get_latest_version() -> str:
 def check_version():
     current_ver = VERSION
     latest_ver = get_latest_version()
-    from packaging.version import parse as StrictVersion
     import warnings
+
+    from packaging.version import parse as StrictVersion
+
     if StrictVersion(current_ver) < StrictVersion(latest_ver):
         warnings.warn(
             f"flaretool a new version has been released. Please update to the latest version as it has been released."

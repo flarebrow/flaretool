@@ -8,6 +8,7 @@ on:
     push:
         branches:
         - develop
+        - main
 
 jobs:
   pytest:
@@ -21,11 +22,11 @@ jobs:
     steps:
       # リポジトリをチェックアウト
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4.2.2
 
       # Pythonの環境をセットアップ
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5.4.0
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -42,7 +43,6 @@ jobs:
           set -o pipefail
           export PYTHONPATH=./repos/
           pytest tests --junit-xml results/pytest.xml --disable-warnings --cov=repos/ --cov-report=term-missing:skip-covered | tee pytest-coverage.txt
-        continue-on-error: true
 
       # テスト結果の表示
       # - name: Upload Unit Test Results
@@ -64,11 +64,13 @@ jobs:
       #     junit_files: artifacts/**/*.xml
 
       - name: Print Name
+        if: ${{ always() }}
         run: |
           echo "This is Python ${{ matrix.python-version }} summary!" >> $GITHUB_STEP_SUMMARY
       
       - name: Pytest coverage comment
         # if: ${{ steps.is_main.outputs.flag == '1' }}
+        if: ${{ always() }}
         id: coverageComment
         uses: MishaKav/pytest-coverage-comment@main
         with:
@@ -78,15 +80,29 @@ jobs:
 
       - name: Write job summary
         id: check_status
+        if: ${{ always() }}
         run: |
           echo -e ${{ steps.coverageComment.outputs.summaryReport }} >> $GITHUB_STEP_SUMMARY
   
       - name: Create Coverage Badge
+        if: github.ref == 'refs/heads/main'
         uses: schneegans/dynamic-badges-action@v1.3.0
         with:
           auth: ${{ secrets.TOKEN }}
           gistID: e31fc348a9dea0098de9540dc5961668
           filename: pytest-coverage-${{ matrix.python-version }}.json
+          label: Coverage
+          message: ${{ steps.coverageComment.outputs.coverage }}
+          color: ${{ steps.coverageComment.outputs.color }}
+          namedLogo: python
+  
+      - name: Create Coverage Badge
+        if: github.ref != 'refs/heads/main'
+        uses: schneegans/dynamic-badges-action@v1.3.0
+        with:
+          auth: ${{ secrets.TOKEN }}
+          gistID: e31fc348a9dea0098de9540dc5961668
+          filename: pytest-coverage-dev-${{ matrix.python-version }}.json
           label: Coverage
           message: ${{ steps.coverageComment.outputs.coverage }}
           color: ${{ steps.coverageComment.outputs.color }}
