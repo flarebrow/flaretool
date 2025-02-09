@@ -1,17 +1,15 @@
 import unittest
-from unittest.mock import patch, MagicMock
 from io import StringIO
+from unittest.mock import MagicMock, patch
+
+import pytest
 from flaretool import nettool
 from flaretool.command import *
-import pytest
 
 
 class CommandTest(unittest.TestCase):
-
     def setUp(self):
         self.mock_create_connection = MagicMock()
-        # self.mock_create_connection.return_value = [
-        #     "command.py", "nettool", "info"]
         self.patcher = patch(
             "argparse.ArgumentParser.parse_args", self.mock_create_connection
         )
@@ -105,7 +103,7 @@ class CommandTest(unittest.TestCase):
 
     def test_cli_with_shorturl_none(self):
         with patch("sys.stdout", new=StringIO()) as fake_out:
-            with patch.object(ShortUrlService, "create") as mock_method:
+            with patch.object(ShortUrlService, "get") as mock_method:
                 mock_method.return_value = "http://short.url/test"
                 args = argparse.Namespace(
                     func="shorturl",
