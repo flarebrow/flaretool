@@ -1,20 +1,20 @@
 import unittest
-from unittest.mock import patch
 from datetime import datetime
+from unittest.mock import patch
+
 import flaretool
 from flaretool.errors import AuthenticationError
+from flaretool.shorturl import ShortUrlService
 from flaretool.shorturl.errors import (
-    ShortUrlError,
     ShortUrlAuthenticationError,
     ShortUrlDataUpdateError,
+    ShortUrlError,
     ShortUrlValidError,
 )
 from flaretool.shorturl.models import ShortUrlInfo
-from flaretool.shorturl import ShortUrlService
 
 
 class ShortUrlServiceTest(unittest.TestCase):
-
     def setUp(self):
         flaretool.api_key = "API_KEY"
         self.service = ShortUrlService()
@@ -107,7 +107,7 @@ class ShortUrlServiceTest(unittest.TestCase):
         }
 
         service = ShortUrlService()
-        result = service.get_short_url_info_list()
+        result = service.get()
 
         self.assertEqual(len(result), 2)
         self.assertIsInstance(result[0], ShortUrlInfo)
@@ -234,60 +234,14 @@ class ShortUrlServiceTest(unittest.TestCase):
         self.assertEqual(result.short_url, "https://example.com/efgh")
         self.assertEqual(result.qr_url, "https://example.com/efgh/qr")
 
-    # @patch("flaretool.common.requests.request")
-    # def test_delete_short_url(self, mock_request):
-    #     mock_request.return_value.json.return_value = {
-    #         "response": 200,
-    #         "result": [
-    #             {
-    #                 "id": 1,
-    #                 "url": "https://example.com",
-    #                 "title": "Example",
-    #                 "code": "abcd",
-    #                 "owner": "owner",
-    #                 "is_active": False,
-    #                 "is_eternal": False,
-    #                 "limited_at": None,
-    #                 "created_at": "2023-06-10T12:00:00",
-    #                 "updated_at": "2023-06-20 12:00:00",
-    #                 "link": "https://example.com/abcd",
-    #                 "qr_url": "https://example.com/qrcode",
-    #             }
-    #         ],
-    #     }
+    @patch("flaretool.common.requests.request")
+    def test_delete_short_url(self, mock_request):
+        mock_request.return_value.status_code = 200
+        mock_request.return_value.json.return_value = {
+            "response": 200,
+            "result": [],
+        }
 
-    #     service = ShortUrlService()
-    #     url_info = ShortUrlInfo(
-    #         id=1,
-    #         url="https://example.com",
-    #         title="Example",
-    #         code="abcd",
-    #         owner="owner",
-    #         is_active=False,
-    #         is_eternal=False,
-    #         limited_at=None,
-    #         created_at=datetime.fromisoformat("2023-06-10T12:00:00"),
-    #         updated_at=datetime.fromisoformat("2023-06-20T12:00:00"),
-    #         short_url="https://example.com/abcd",
-    #         qr_url="https://example.com/qrcode",
-    #     )
-    #     result = service.delete_short_url(url_info)
-
-    #     self.assertIsInstance(result, ShortUrlInfo)
-    #     self.assertEqual(result.id, 1)
-    #     self.assertEqual(result.url, "https://example.com")
-    #     self.assertEqual(result.title, "Example")
-    #     self.assertEqual(result.code, "abcd")
-    #     self.assertEqual(result.is_active, False)
-    #     self.assertEqual(
-    #         result.created_at, datetime.fromisoformat("2023-06-10T12:00:00")
-    #     )
-    #     self.assertEqual(
-    #         result.updated_at, datetime.fromisoformat("2023-06-20T12:00:00")
-    #     )
-    #     self.assertEqual(result.short_url, "https://example.com/abcd")
-
-    def test_delete_short_url_error(self):
         service = ShortUrlService()
         url_info = ShortUrlInfo(
             id=1,
@@ -303,8 +257,8 @@ class ShortUrlServiceTest(unittest.TestCase):
             short_url="https://example.com/abcd",
             qr_url="https://example.com/qrcode",
         )
-        with self.assertRaises(ShortUrlError):
-            service.delete_short_url(url_info)
+        result = service.delete(url_info)
+        self.assertIsNone(result)
 
     def test_get_qr_code_raw_data(self):
         url_info = ShortUrlInfo(

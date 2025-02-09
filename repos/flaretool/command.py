@@ -54,7 +54,7 @@ def cli():
         if args.mode == "create" and args.url:
             result = sus.create(args.url)
         else:
-            result = sus.get_short_url_info_list()
+            result = sus.get()
         print(result if not isinstance(result, BaseDataModel) else result.__trace__())
     elif args.func == "nettool":
         if args.mode == "info":
