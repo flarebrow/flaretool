@@ -3,11 +3,11 @@ import shutil
 import tempfile
 import time
 import unittest
+
 from flaretool.utills import *
 
 
 class UtillsTestCase(unittest.TestCase):
-
     def test_convert_value_half(self):
         test_cases = [
             ("ｱｲｳｴｵ", "アイウエオ"),
@@ -42,31 +42,50 @@ class UtillsTestCase(unittest.TestCase):
         assert convert_value("カタカナ") == "ｶﾀｶﾅ"
 
         # テストケース2: フルウィズモード (全角に変換)
-        assert convert_value(
-            "Hello", mode=ConversionMode.FULL_WIDTH) == "Ｈｅｌｌｏ"
-        assert convert_value(
-            "12345", mode=ConversionMode.FULL_WIDTH) == "１２３４５"
-        assert convert_value(
-            "ｶﾀｶﾅ", mode=ConversionMode.FULL_WIDTH) == "カタカナ"
+        assert convert_value("Hello", mode=ConversionMode.FULL_WIDTH) == "Ｈｅｌｌｏ"
+        assert convert_value("12345", mode=ConversionMode.FULL_WIDTH) == "１２３４５"
+        assert convert_value("ｶﾀｶﾅ", mode=ConversionMode.FULL_WIDTH) == "カタカナ"
 
         # テストケース3: 変換しない文字列を指定
-        assert convert_value(
-            "Ｈｅｌｌｏ", non_convert_chars="ｏ") == "Hellｏ"  # 'ｏ' は変換しない
-        assert convert_value("Ｈｅｌｌｏ", non_convert_chars=[
-            "Ｈ", "ｅ"]) == "Ｈｅllo"  # 'Ｈ', 'ｅ' は変換しない
+        assert (
+            convert_value("Ｈｅｌｌｏ", non_convert_chars="ｏ") == "Hellｏ"
+        )  # 'ｏ' は変換しない
+        assert (
+            convert_value("Ｈｅｌｌｏ", non_convert_chars=["Ｈ", "ｅ"]) == "Ｈｅllo"
+        )  # 'Ｈ', 'ｅ' は変換しない
+
+        # テストケース4: ひらがな、カタカナに変換
+        assert convert_value("あいうえお", mode=ConversionMode.HIRAGANA) == "あいうえお"
+        assert convert_value("アイウエオ", mode=ConversionMode.KATAKANA) == "アイウエオ"
+        assert convert_value("カタカナ", mode=ConversionMode.KATAKANA) == "カタカナ"
+        assert convert_value("カタカナ", mode=ConversionMode.HIRAGANA) == "かたかな"
+        assert convert_value("ひらがな", mode=ConversionMode.KATAKANA) == "ヒラガナ"
+        assert convert_value("ひらがな", mode=ConversionMode.HIRAGANA) == "ひらがな"
+        assert (
+            convert_value(
+                "ひらがな", mode=ConversionMode.KATAKANA, non_convert_chars=["ひ"]
+            )
+            == "ひラガナ"
+        )
+        assert (
+            convert_value(
+                "カタカナ", mode=ConversionMode.HIRAGANA, non_convert_chars=["カ"]
+            )
+            == "カたカな"
+        )
 
     def test_zen_to_han_ascii(self):
         text = "ＡＢＣａｂｃ１２３"
         expected = "ABCabc１２３"
-        result = convert_value(
-            text, ascii=True, digit=False, kana=False)
+        result = convert_value(text, ascii=True, digit=False, kana=False)
         self.assertEqual(result, expected)
 
     def test_han_to_zen_ascii(self):
         text = "ABCabc123"
         expected = "ＡＢＣａｂｃ123"
         result = convert_value(
-            text, ConversionMode.FULL_WIDTH, ascii=True, digit=False, kana=False)
+            text, ConversionMode.FULL_WIDTH, ascii=True, digit=False, kana=False
+        )
         self.assertEqual(result, expected)
 
     def test_zen_to_han_digit(self):
@@ -79,7 +98,8 @@ class UtillsTestCase(unittest.TestCase):
         text = "0123456789"
         expected = "０１２３４５６７８９"
         result = convert_value(
-            text, ConversionMode.FULL_WIDTH, ascii=False, digit=True, kana=False)
+            text, ConversionMode.FULL_WIDTH, ascii=False, digit=True, kana=False
+        )
         self.assertEqual(result, expected)
 
     def test_zen_to_han_kana(self):
@@ -92,7 +112,8 @@ class UtillsTestCase(unittest.TestCase):
         text = "ｱｲｳｴｵｶﾞｷﾞｸﾞｹﾞｺﾞ"
         expected = "アイウエオガギグゲゴ"
         result = convert_value(
-            text, ConversionMode.FULL_WIDTH, ascii=False, digit=False, kana=True)
+            text, ConversionMode.FULL_WIDTH, ascii=False, digit=False, kana=True
+        )
         self.assertEqual(result, expected)
 
     def test_zen_to_han_all(self):
@@ -105,33 +126,30 @@ class UtillsTestCase(unittest.TestCase):
         text = "ABCabc1230123456789ｱｲｳｴｵｶﾞｷﾞｸﾞｹﾞｺﾞﾊﾟ"
         expected = "ＡＢＣａｂｃ１２３０１２３４５６７８９アイウエオガギグゲゴパ"
         result = convert_value(
-            text, ConversionMode.FULL_WIDTH, ascii=True, digit=True, kana=True)
+            text, ConversionMode.FULL_WIDTH, ascii=True, digit=True, kana=True
+        )
         self.assertEqual(result, expected)
 
     def test_lower(self):
         text = "ABCabc"
         expected = "abcabc"
-        result = convert_value(
-            text, ConversionMode.LOWER)
+        result = convert_value(text, ConversionMode.LOWER)
         self.assertEqual(result, expected)
 
         text = "ABCabc"
         expected = "aBcabc"
-        result = convert_value(
-            text, ConversionMode.LOWER, non_convert_chars="B")
+        result = convert_value(text, ConversionMode.LOWER, non_convert_chars="B")
         self.assertEqual(result, expected)
 
     def test_upper(self):
         text = "ABCabc"
         expected = "ABCABC"
-        result = convert_value(
-            text, ConversionMode.UPPER)
+        result = convert_value(text, ConversionMode.UPPER)
         self.assertEqual(result, expected)
 
         text = "ABCabc"
         expected = "ABCaBc"
-        result = convert_value(
-            text, ConversionMode.UPPER, non_convert_chars=["a", "c"])
+        result = convert_value(text, ConversionMode.UPPER, non_convert_chars=["a", "c"])
         self.assertEqual(result, expected)
 
     def test_convert_value_raise(self):
@@ -163,29 +181,33 @@ class UtillsTestCase(unittest.TestCase):
         # HashMode.SHA256の場合
         result = hash_value("Hello, World!", HashMode.SHA256)
         self.assertEqual(
-            result, "dffd6021bb2bd5b0af676290809ec3a53191dd81c7f70a4b28688a362182986f")
+            result, "dffd6021bb2bd5b0af676290809ec3a53191dd81c7f70a4b28688a362182986f"
+        )
 
         # HashMode.SHA512の場合
         result = hash_value("Hello, World!", HashMode.SHA512)
         self.assertEqual(
-            result, "374d794a95cdcfd8b35993185fef9ba368f160d8daf432d08ba9f1ed1e5abe6cc69291e0fa2fe0006a52570ef18c19def4e617c33ce52ef0a6e5fbe318cb0387")
+            result,
+            "374d794a95cdcfd8b35993185fef9ba368f160d8daf432d08ba9f1ed1e5abe6cc69291e0fa2fe0006a52570ef18c19def4e617c33ce52ef0a6e5fbe318cb0387",
+        )
 
         # error
         with self.assertRaises(ValueError):
             hash_value("test", "test")
 
     def test_dict_to_field_converter(self):
-        dictionary = {'name': 'John', 'age': 30, 'city': 'Tokyo'}
+        dictionary = {"name": "John", "age": 30, "city": "Tokyo"}
         converter = DictToFieldConverter(dictionary)
 
-        self.assertEqual(converter.name, 'John')
+        self.assertEqual(converter.name, "John")
         self.assertEqual(converter.age, 30)
-        self.assertEqual(converter.city, 'Tokyo')
+        self.assertEqual(converter.city, "Tokyo")
 
         with self.assertRaises(AttributeError) as e:
             converter.gender
         self.assertEqual(
-            str(e.exception), "'DictToFieldConverter' object has no attribute 'gender'")
+            str(e.exception), "'DictToFieldConverter' object has no attribute 'gender'"
+        )
 
     def setUp(self):
         self.temp_dir = tempfile.mkdtemp()
@@ -211,7 +233,7 @@ class UtillsTestCase(unittest.TestCase):
     def test_is_file_fresh(self):
         # テスト用のファイルを作成
         file_path = os.path.join(self.temp_dir, "test_file.txt")
-        with open(file_path, 'w') as file:
+        with open(file_path, "w") as file:
             file.write("Test content")
 
         # ファイルが存在し、現在の時間から24時間以内に変更されていることを確認
@@ -219,12 +241,16 @@ class UtillsTestCase(unittest.TestCase):
 
         # ファイルを24時間以上前に変更
         file_modified_time = os.path.getmtime(file_path)
-        os.utime(file_path, (file_modified_time - 2 * 24 * 60 *
-                 60, file_modified_time - 2 * 24 * 60 * 60))
+        os.utime(
+            file_path,
+            (
+                file_modified_time - 2 * 24 * 60 * 60,
+                file_modified_time - 2 * 24 * 60 * 60,
+            ),
+        )
 
         # ファイルが24時間以内に変更されていないことを確認
         self.assertFalse(is_file_fresh(file_path, days=1))
 
         # ファイルが存在しない場合も考慮
-        self.assertFalse(is_file_fresh(
-            "non_existent_file.txt", days=1))
+        self.assertFalse(is_file_fresh("non_existent_file.txt", days=1))

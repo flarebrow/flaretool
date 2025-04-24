@@ -5,10 +5,11 @@ import hashlib
 import os
 import tempfile
 import time
+
 import flaretool
-from flaretool.enums import ConversionMode, Base64Mode, HashMode
+from flaretool.enums import Base64Mode, ConversionMode, HashMode
 
-
+# fmt: off
 ASCII_ZENKAKU_CHARS = (
     u'ａ', u'ｂ', u'ｃ', u'ｄ', u'ｅ', u'ｆ', u'ｇ', u'ｈ', u'ｉ', u'ｊ', u'ｋ',
     u'ｌ', u'ｍ', u'ｎ', u'ｏ', u'ｐ', u'ｑ', u'ｒ', u'ｓ', u'ｔ', u'ｕ', u'ｖ',
@@ -72,11 +73,20 @@ KANA_TEN_MAP = (
 KANA_MARU_MAP = (
     (u'パ', u'ﾊ'), (u'ピ', u'ﾋ'), (u'プ', u'ﾌ'), (u'ペ', u'ﾍ'), (u'ポ', u'ﾎ')
 )
+# fmt: on
 
 
-def convert_value(value: str, mode: ConversionMode = ConversionMode.HALF_WIDTH, ascii=True, digit=True, kana=True, non_convert_chars=None) -> str:
+def convert_value(
+    value: str,
+    mode: ConversionMode = ConversionMode.HALF_WIDTH,
+    ascii=True,
+    digit=True,
+    kana=True,
+    non_convert_chars=None,
+) -> str:
     """
-    文字列を変換(半角/全角/大文字/小文字)
+    文字列を変換(半角/全角/大文字/小文字/ひらがな/カタカナ)<br>
+    ひらがな/カタカナの変換は全角に変換されます
 
     Args:
         value (str): 変換する文字列
@@ -92,57 +102,56 @@ def convert_value(value: str, mode: ConversionMode = ConversionMode.HALF_WIDTH, 
     Raises:
         ValueError: 無効な変換モードが指定された場合
     """
-
     if non_convert_chars is None:
         non_convert_chars = []
     elif isinstance(non_convert_chars, str):
         non_convert_chars = [non_convert_chars]
 
-    if mode in [ConversionMode.UPPER, ConversionMode.LOWER]:
-        temp = []
-        for c in value:
-            if c in non_convert_chars:
-                temp.append(c)
-            else:
-                temp.append(c.upper() if mode ==
-                            ConversionMode.UPPER else c.lower())
-        return ''.join(temp)
+    if mode == ConversionMode.HIRAGANA:
+        value = convert_value(
+            value, ConversionMode.FULL_WIDTH, non_convert_chars=non_convert_chars
+        )
+        return "".join(
+            char
+            if char in non_convert_chars
+            else (chr(ord(char) - 96) if "ァ" <= char <= "ヶ" else char)
+            for char in value
+        )
+
+    elif mode == ConversionMode.KATAKANA:
+        value = convert_value(
+            value, ConversionMode.FULL_WIDTH, non_convert_chars=non_convert_chars
+        )
+        return "".join(
+            char
+            if char in non_convert_chars
+            else (chr(ord(char) + 96) if "ぁ" <= char <= "ゖ" else char)
+            for char in value
+        )
+
+    elif mode in [ConversionMode.UPPER, ConversionMode.LOWER]:
+        return "".join(
+            c
+            if c in non_convert_chars
+            else (c.upper() if mode == ConversionMode.UPPER else c.lower())
+            for c in value
+        )
 
     tables = {
-        'ascii_zh_table': {},
-        'ascii_hz_table': {},
-        'kana_zh_table': {},
-        'kana_hz_table': {},
-        'digit_zh_table': {},
-        'digit_hz_table': {},
-        'kana_ten_zh_table': {},
-        'kana_ten_hz_table': {},
-        'kana_maru_zh_table': {},
-        'kana_maru_hz_table': {},
+        "ascii_zh_table": dict(zip(ASCII_ZENKAKU_CHARS, ASCII_HANKAKU_CHARS)),
+        "ascii_hz_table": dict(zip(ASCII_HANKAKU_CHARS, ASCII_ZENKAKU_CHARS)),
+        "kana_zh_table": dict(zip(KANA_ZENKAKU_CHARS, KANA_HANKAKU_CHARS)),
+        "kana_hz_table": dict(zip(KANA_HANKAKU_CHARS, KANA_ZENKAKU_CHARS)),
+        "digit_zh_table": dict(zip(DIGIT_ZENKAKU_CHARS, DIGIT_HANKAKU_CHARS)),
+        "digit_hz_table": dict(zip(DIGIT_HANKAKU_CHARS, DIGIT_ZENKAKU_CHARS)),
+        "kana_ten_zh_table": dict(KANA_TEN_MAP),
+        "kana_ten_hz_table": dict((h, z) for z, h in KANA_TEN_MAP),
+        "kana_maru_zh_table": dict(KANA_MARU_MAP),
+        "kana_maru_hz_table": dict((h, z) for z, h in KANA_MARU_MAP),
     }
 
-    for (z, h) in zip(ASCII_ZENKAKU_CHARS, ASCII_HANKAKU_CHARS):
-        tables['ascii_zh_table'][z] = h
-        tables['ascii_hz_table'][h] = z
-
-    for (z, h) in zip(KANA_ZENKAKU_CHARS, KANA_HANKAKU_CHARS):
-        tables['kana_zh_table'][z] = h
-        tables['kana_hz_table'][h] = z
-
-    for (z, h) in zip(DIGIT_ZENKAKU_CHARS, DIGIT_HANKAKU_CHARS):
-        tables['digit_zh_table'][z] = h
-        tables['digit_hz_table'][h] = z
-
-    for (z, h) in KANA_TEN_MAP:
-        tables['kana_ten_zh_table'][z] = h
-        tables['kana_ten_hz_table'][h] = z
-
-    for (z, h) in KANA_MARU_MAP:
-        tables['kana_maru_zh_table'][z] = h
-        tables['kana_maru_hz_table'][h] = z
-
     temp = []
-    prev = ''
+    prev = ""
     for c in value:
         if c in non_convert_chars:
             temp.append(c)
@@ -150,42 +159,44 @@ def convert_value(value: str, mode: ConversionMode = ConversionMode.HALF_WIDTH, 
             continue
 
         if mode == ConversionMode.HALF_WIDTH:
-            if ascii and c in tables['ascii_zh_table']:
-                temp.append(tables['ascii_zh_table'][c])
-            elif digit and c in tables['digit_zh_table']:
-                temp.append(tables['digit_zh_table'][c])
-            elif kana and c in tables['kana_zh_table']:
-                temp.append(tables['kana_zh_table'][c])
-            elif kana and c in tables['kana_ten_zh_table']:
-                temp.append(tables['kana_ten_zh_table'][c])
-                temp.append('ﾞ')
-            elif kana and c in tables['kana_maru_zh_table']:
-                temp.append(tables['kana_maru_zh_table'][c])
-                temp.append('ﾟ')
+            if ascii and c in tables["ascii_zh_table"]:
+                temp.append(tables["ascii_zh_table"][c])
+            elif digit and c in tables["digit_zh_table"]:
+                temp.append(tables["digit_zh_table"][c])
+            elif kana and c in tables["kana_zh_table"]:
+                temp.append(tables["kana_zh_table"][c])
+            elif kana and c in tables["kana_ten_zh_table"]:
+                temp.append(tables["kana_ten_zh_table"][c])
+                temp.append("ﾞ")
+            elif kana and c in tables["kana_maru_zh_table"]:
+                temp.append(tables["kana_maru_zh_table"][c])
+                temp.append("ﾟ")
             else:
                 temp.append(c)
         elif mode == ConversionMode.FULL_WIDTH:
-            if ascii and c in tables['ascii_hz_table']:
-                temp.append(tables['ascii_hz_table'][c])
-            elif digit and c in tables['digit_hz_table']:
-                temp.append(tables['digit_hz_table'][c])
-            elif kana and c == 'ﾞ' and prev in tables['kana_ten_hz_table']:
+            if ascii and c in tables["ascii_hz_table"]:
+                temp.append(tables["ascii_hz_table"][c])
+            elif digit and c in tables["digit_hz_table"]:
+                temp.append(tables["digit_hz_table"][c])
+            elif kana and c == "ﾞ" and prev in tables["kana_ten_hz_table"]:
                 temp.pop()
-                temp.append(tables['kana_ten_hz_table'][prev])
-            elif kana and c == 'ﾟ' and prev in tables['kana_maru_hz_table']:
+                temp.append(tables["kana_ten_hz_table"][prev])
+            elif kana and c == "ﾟ" and prev in tables["kana_maru_hz_table"]:
                 temp.pop()
-                temp.append(tables['kana_maru_hz_table'][prev])
-            elif kana and c in tables['kana_hz_table']:
-                temp.append(tables['kana_hz_table'][c])
+                temp.append(tables["kana_maru_hz_table"][prev])
+            elif kana and c in tables["kana_hz_table"]:
+                temp.append(tables["kana_hz_table"][c])
             else:
                 temp.append(c)
         else:
             raise ValueError("Invalid conversion mode")
         prev = c
-    return ''.join(temp)
+    return "".join(temp)
 
 
-def base64_convert(value: str, mode: Base64Mode = Base64Mode.ENCODE, encoding: str = 'utf-8') -> str:
+def base64_convert(
+    value: str, mode: Base64Mode = Base64Mode.ENCODE, encoding: str = "utf-8"
+) -> str:
     """
     文字列のBase64エンコードまたはデコードを行います。
 
@@ -212,7 +223,9 @@ def base64_convert(value: str, mode: Base64Mode = Base64Mode.ENCODE, encoding: s
         raise ValueError("Invalid base64 mode")
 
 
-def hash_value(value: str, mode: HashMode = HashMode.MD5, encoding: str = 'utf-8') -> str:
+def hash_value(
+    value: str, mode: HashMode = HashMode.MD5, encoding: str = "utf-8"
+) -> str:
     """
     文字列のハッシュ計算を行います。
 
@@ -280,7 +293,8 @@ class DictToFieldConverter:
             return self.dictionary[field_name]
         else:
             raise AttributeError(
-                f"'DictToFieldConverter' object has no attribute '{field_name}'")
+                f"'DictToFieldConverter' object has no attribute '{field_name}'"
+            )
 
 
 def get_temp_dir_path():
