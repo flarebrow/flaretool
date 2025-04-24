@@ -9,6 +9,8 @@ class ConversionMode(Enum):
     FULL_WIDTH = 2
     UPPER = 3
     LOWER = 4
+    HIRAGANA = 5
+    KATAKANA = 6
 
 
 class Base64Mode(Enum):
