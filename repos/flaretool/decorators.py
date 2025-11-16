@@ -4,8 +4,9 @@ import inspect
 import socket
 import threading
 import time
+import warnings
 from functools import wraps
-from typing import Union
+from typing import Union, Optional, Callable, Any
 
 from flaretool.errors import FlareToolNetworkError
 from flaretool.logger import get_logger
@@ -17,6 +18,8 @@ __all__ = [
     "type_check",
     "timeout",
     "timer",
+    "cache",
+    "deprecate",
 ]
 
 
@@ -322,3 +325,177 @@ def timer(func):
         return result
 
     return wrapper
+
+
+def cache(ttl: Optional[int] = None, maxsize: int = 128):
+    """
+    関数の結果をキャッシュするデコレーター。TTL（Time To Live）とキャッシュサイズの制限をサポート。
+
+    Args:
+        ttl (int, optional): キャッシュの有効期限（秒）。Noneの場合は無期限。デフォルトはNone。
+        maxsize (int, optional): キャッシュの最大サイズ。デフォルトは128。
+
+    Returns:
+        function: デコレートされた関数の戻り値。
+
+    Examples:
+        >>> @cache(ttl=300)  # 5分間キャッシュ
+        ... def expensive_function(x, y):
+        ...     time.sleep(2)
+        ...     return x + y
+
+        >>> result = expensive_function(1, 2)  # 2秒かかる
+        >>> result = expensive_function(1, 2)  # すぐに返る（キャッシュから）
+
+        >>> @cache(ttl=10, maxsize=100)
+        ... def api_call(endpoint):
+        ...     return requests.get(endpoint).json()
+    """
+
+    def decorator(func):
+        cache_data = {}
+        cache_times = {}
+        cache_lock = threading.Lock()
+
+        def _make_key(args, kwargs):
+            """引数からキャッシュキーを生成"""
+            # 関数のシグネチャを取得して引数を正規化
+            sig = inspect.signature(func)
+            try:
+                bound_args = sig.bind(*args, **kwargs)
+                bound_args.apply_defaults()
+
+                # 正規化された引数からキーを生成
+                key_parts = []
+                for param_name, param_value in bound_args.arguments.items():
+                    key_parts.append(f"{param_name}={param_value}")
+                return "|".join(key_parts)
+            except:
+                # バインドに失敗した場合は単純なキーを使用
+                key_parts = [str(arg) for arg in args]
+                key_parts.extend(f"{k}={v}" for k, v in sorted(kwargs.items()))
+                return "|".join(key_parts)
+
+        def _is_expired(cache_time):
+            """キャッシュが期限切れかチェック"""
+            if ttl is None:
+                return False
+            return time.time() - cache_time > ttl
+
+        def _evict_oldest():
+            """最も古いキャッシュエントリを削除"""
+            if cache_times:
+                oldest_key = min(cache_times, key=cache_times.get)
+                del cache_data[oldest_key]
+                del cache_times[oldest_key]
+
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            key = _make_key(args, kwargs)
+
+            with cache_lock:
+                # キャッシュが存在し、有効期限内の場合
+                if key in cache_data:
+                    if not _is_expired(cache_times.get(key, 0)):
+                        logger = get_logger()
+                        logger.debug(f"Cache hit for {func.__name__} with key: {key}")
+                        # LRUのためにアクセス時刻を更新
+                        cache_times[key] = time.time()
+                        return cache_data[key]
+                    else:
+                        # 期限切れのエントリを削除
+                        del cache_data[key]
+                        del cache_times[key]
+
+            # ロックを解除して関数を実行（他のスレッドをブロックしないため）
+            result = func(*args, **kwargs)
+
+            with cache_lock:
+                # キャッシュサイズ制限チェック（キーが既に存在しない場合のみ）
+                if key not in cache_data and len(cache_data) >= maxsize:
+                    _evict_oldest()
+
+                # キャッシュに保存
+                cache_data[key] = result
+                cache_times[key] = time.time()
+
+                logger = get_logger()
+                logger.debug(f"Cache miss for {func.__name__} with key: {key}")
+                return result
+
+        def clear_cache():
+            """キャッシュをクリア"""
+            with cache_lock:
+                cache_data.clear()
+                cache_times.clear()
+
+        # キャッシュクリア用のメソッドを追加
+        wrapper.clear_cache = clear_cache
+        wrapper.cache_info = lambda: {
+            "size": len(cache_data),
+            "maxsize": maxsize,
+            "ttl": ttl,
+        }
+
+        return wrapper
+
+    return decorator
+
+
+def deprecate(
+    version: Optional[str] = None,
+    alternative: Optional[str] = None,
+    message: Optional[str] = None,
+):
+    """
+    関数が非推奨であることを警告するデコレーター。
+
+    Args:
+        version (str, optional): この関数が非推奨になるバージョン。デフォルトはNone。
+        alternative (str, optional): 代替として推奨される関数名。デフォルトはNone。
+        message (str, optional): カスタム警告メッセージ。デフォルトはNone。
+
+    Returns:
+        function: デコレートされた関数。
+
+    Examples:
+        >>> @deprecate(version="2.0.0", alternative="new_function")
+        ... def old_function():
+        ...     return "old"
+
+        >>> old_function()
+        DeprecationWarning: old_function is deprecated and will be removed in version 2.0.0. Use new_function instead.
+        'old'
+
+        >>> @deprecate(message="この関数は使用しないでください")
+        ... def legacy_function():
+        ...     return "legacy"
+    """
+
+    def decorator(func: Callable) -> Callable:
+        @wraps(func)
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
+            # カスタムメッセージがある場合はそれを使用
+            if message:
+                warning_message = message
+            else:
+                # デフォルトメッセージを構築
+                warning_message = f"{func.__name__} is deprecated"
+
+                if version:
+                    warning_message += f" and will be removed in version {version}"
+
+                if alternative:
+                    warning_message += f". Use {alternative} instead"
+
+                warning_message += "."
+
+            # DeprecationWarningを発行
+            warnings.warn(warning_message, DeprecationWarning, stacklevel=2)
+
+            # 元の関数を実行
+            return func(*args, **kwargs)
+
+        return wrapper
+
+    return decorator
