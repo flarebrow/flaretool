@@ -69,10 +69,9 @@ class NettoolTest(unittest.TestCase):
             result = domain_exists('example.com')
             self.assertTrue(result)
 
-        # 存在しないドメイン名の場合のテスト
+        # 存在しないドメイン名の場合のテスト（whoisライブラリが例外を投げる）
         with patch('whois.whois') as mock_whois:
-            import whois
-            mock_whois.side_effect = whois.parser.PywhoisError
+            mock_whois.side_effect = Exception("Domain not found")
             result = domain_exists('example.com')
             self.assertFalse(result)
 

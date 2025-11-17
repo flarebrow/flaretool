@@ -101,7 +101,9 @@ def domain_exists(domain: str) -> bool:
     try:
         w = whois.whois(domain)
         return True if w.status else False
-    except whois.parser.PywhoisError:
+    except Exception:
+        # whoisライブラリのバージョンによって例外の種類が異なるため、
+        # すべての例外をキャッチしてFalseを返す
         return False
 
 
