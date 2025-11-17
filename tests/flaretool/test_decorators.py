@@ -405,6 +405,33 @@ class CacheDecoratorTestCase(unittest.TestCase):
         result3 = kwargs_function(x=5, y=10)
         self.assertEqual(call_count["count"], 1)
 
+    def test_cache_with_bind_failure(self):
+        """inspect.signature().bind()が失敗した場合のフォールバック処理テスト"""
+        call_count = {"count": 0}
+
+        # デコレーター適用前にinspect.signatureをモック
+        with patch('flaretool.decorators.inspect.signature') as mock_signature:
+            # bind()が呼ばれた時に例外を投げる
+            mock_sig = MagicMock()
+            mock_sig.bind.side_effect = TypeError("Mock bind error")
+            mock_signature.return_value = mock_sig
+
+            # デコレーターを適用（この時点でモックされたinspectが使われる）
+            @cache()
+            def test_function(x, y):
+                call_count["count"] += 1
+                return x + y
+
+            # 関数を呼び出し（フォールバックロジックが使用される）
+            result1 = test_function(1, 2)
+            self.assertEqual(result1, 3)
+            self.assertEqual(call_count["count"], 1)
+
+            # 同じ引数で再度呼び出し（キャッシュヒット）
+            result2 = test_function(1, 2)
+            self.assertEqual(result2, 3)
+            self.assertEqual(call_count["count"], 1)
+
 
 class DeprecateDecoratorTestCase(unittest.TestCase):
     def test_deprecate_with_version(self):
