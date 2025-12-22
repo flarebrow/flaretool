@@ -120,8 +120,9 @@ class ShortUrlService:
             ShortUrlValidError: If the response code is 422.
             ShortUrlError: If the response code is not 200.
         """
+        encoded_url = url.replace("-", "%2D")
         data = {
-            "url": url,
+            "url": encoded_url,
             **({"code": code} if code else {}),
             **({"description": description} if description else {}),
             **({"is_eternal": is_eternal} if is_eternal else {}),
