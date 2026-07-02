@@ -4,7 +4,7 @@ import os
 
 def main():
 
-    folder_path = "./repos/"
+    folder_path = "./src/"
     prefix = "#!/bin/python\n# -*- coding: utf-8 -*-\n"
 
     for root, dirs, files in os.walk(folder_path):

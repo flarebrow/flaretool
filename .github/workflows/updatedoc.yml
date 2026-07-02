@@ -27,7 +27,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
@@ -36,9 +36,9 @@ jobs:
 
       - name: Documnt ReMake
         run: |
-          export PYTHONPATH=./repos/
+          export PYTHONPATH=./src/
           rm ./docs_src/f*.rst
-          sphinx-apidoc -f -o ./docs_src ./repos/flaretool
+          sphinx-apidoc -f -o ./docs_src ./src/flaretool
           sphinx-build ./docs_src ./docs
 
       - name: Update Document

@@ -15,7 +15,7 @@ def main():
             if check(lib_name):
                 f.write(lib_name.replace("==", ">=") + "\n")
 
-    version_file = "repos/flaretool/VERSION.py"
+    version_file = "src/flaretool/VERSION.py"
 
     # バージョン自動インクリメント
 
@@ -31,6 +31,11 @@ def main():
 
     with open(version_file, "w") as f:
         f.write(re.sub(r'(?<=VERSION\s=\s")[^"]+', new_version, current))
+
+    # deploy_dev.yml のリリースタグ生成と version_increment.yml のコミット対象が
+    # version.txt を参照するため、ここで書き出す
+    with open("version.txt", "w") as f:
+        f.write(new_version + "\n")
 
 
 if __name__ == "__main__":

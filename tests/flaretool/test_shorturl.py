@@ -180,6 +180,156 @@ class ShortUrlServiceTest(unittest.TestCase):
         self.assertEqual(result.qr_url, "https://example.com/abcd/qr")
 
     @patch("flaretool.common.requests.request")
+    def test_create_short_url_sends_false_flags(self, mock_request):
+        # is_eternal=False / is_active=False が省略されずに送信されることを検証
+        mock_request.return_value.status_code = 200
+        mock_request.return_value.json.return_value = {
+            "response": 200,
+            "result": {
+                "id": 1,
+                "url": "https://example.com",
+                "title": "Example",
+                "code": "abcd",
+                "owner": "owner",
+                "is_active": False,
+                "is_eternal": False,
+                "limited_at": None,
+                "created_at": "2023-06-10T12:00:00",
+                "updated_at": "2023-06-10T12:00:00",
+                "short_url": "https://example.com/abcd",
+                "qr_url": "https://example.com/abcd/qr",
+            },
+        }
+
+        service = ShortUrlService()
+        service.create("https://example.com", is_eternal=False, is_active=False)
+
+        _, kwargs = mock_request.call_args
+        self.assertEqual(
+            kwargs["json"],
+            {
+                "url": "https://example.com",
+                "is_eternal": False,
+                "is_active": False,
+            },
+        )
+
+    def test_encode_url_for_api_is_idempotent(self):
+        # ハイフンは%2Dにエンコードされ、二重適用しても二重エンコードされない
+        from flaretool.shorturl.ShortUrlService import _encode_url_for_api
+
+        encoded = _encode_url_for_api("https://example.com/foo-bar")
+        self.assertEqual(encoded, "https://example.com/foo%2Dbar")
+        self.assertEqual(_encode_url_for_api(encoded), encoded)
+
+    @patch("flaretool.common.requests.request")
+    def test_create_short_url_encodes_hyphen(self, mock_request):
+        # create() はサーバー仕様に合わせてURL中のハイフンを%2Dエンコードして送信する
+        mock_request.return_value.status_code = 200
+        mock_request.return_value.json.return_value = {
+            "response": 200,
+            "result": {
+                "id": 1,
+                "url": "https://example.com/foo-bar",
+                "title": "Example",
+                "code": "abcd",
+                "owner": "owner",
+                "is_active": True,
+                "is_eternal": False,
+                "limited_at": None,
+                "created_at": "2023-06-10T12:00:00",
+                "updated_at": "2023-06-10T12:00:00",
+                "short_url": "https://example.com/abcd",
+                "qr_url": "https://example.com/abcd/qr",
+            },
+        }
+
+        service = ShortUrlService()
+        service.create("https://example.com/foo-bar")
+
+        _, kwargs = mock_request.call_args
+        self.assertEqual(kwargs["json"]["url"], "https://example.com/foo%2Dbar")
+
+    @patch("flaretool.common.requests.request")
+    def test_update_short_url_encodes_hyphen(self, mock_request):
+        # update() も create() と同様にURL中のハイフンを%2Dエンコードして送信する
+        mock_request.return_value.status_code = 200
+        mock_request.return_value.json.return_value = {
+            "response": 200,
+            "result": {
+                "id": 1,
+                "url": "https://example.com/foo-bar",
+                "title": "Example",
+                "code": "abcd",
+                "owner": "owner",
+                "is_active": True,
+                "is_eternal": False,
+                "limited_at": None,
+                "created_at": "2023-06-10T12:00:00",
+                "updated_at": "2023-06-10T12:00:00",
+                "short_url": "https://example.com/abcd",
+                "qr_url": "https://example.com/abcd/qr",
+            },
+        }
+
+        service = ShortUrlService()
+        url_info = ShortUrlInfo(
+            id=1,
+            url="https://example.com/foo-bar",
+            title="Example",
+            code="abcd",
+            owner="owner",
+            is_active=True,
+            is_eternal=False,
+            limited_at=None,
+            created_at=datetime.fromisoformat("2023-06-10T12:00:00"),
+            updated_at=datetime.fromisoformat("2023-06-10T12:00:00"),
+            short_url="https://example.com/abcd",
+            qr_url="https://example.com/abcd/qr",
+        )
+        service.update(url_info)
+
+        _, kwargs = mock_request.call_args
+        payload = kwargs["json"]
+        self.assertEqual(payload["url"], "https://example.com/foo%2Dbar")
+        # 除外フィールドは送信されない（既存仕様の維持）
+        for excluded in ("limited_at", "updated_at", "created_at"):
+            self.assertNotIn(excluded, payload)
+
+    def test_qr_url_is_derived_from_short_url(self):
+        # qr_url は常に short_url から導出される
+        info = ShortUrlInfo(
+            id=1,
+            url="https://example.com",
+            title="Example",
+            code="abcd",
+            owner="owner",
+            is_active=False,
+            is_eternal=False,
+            created_at=datetime.fromisoformat("2023-06-10T12:00:00"),
+            updated_at=datetime.fromisoformat("2023-06-10T12:00:00"),
+            short_url="https://example.com/abcd/",
+            qr_url="https://example.com/qrcode",
+        )
+        self.assertEqual(info.qr_url, "https://example.com/abcd/qr")
+
+    def test_qr_url_none_when_short_url_missing(self):
+        # short_url がない場合、qr_url は "None/qr" ではなく None になる
+        info = ShortUrlInfo(
+            id=1,
+            url="https://example.com",
+            title="Example",
+            code="abcd",
+            owner="owner",
+            is_active=False,
+            is_eternal=False,
+            created_at=datetime.fromisoformat("2023-06-10T12:00:00"),
+            updated_at=datetime.fromisoformat("2023-06-10T12:00:00"),
+        )
+        self.assertIsNone(info.short_url)
+        self.assertIsNone(info.qr_url)
+
+    @patch("flaretool.common.requests.request")
     def test_update_short_url(self, mock_request):
         mock_request.return_value.status_code = 200
         mock_request.return_value.json.return_value = {

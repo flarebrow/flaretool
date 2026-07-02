@@ -1,0 +1,86 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flaretool"
+dynamic = ["version"]
+description = "this is flarebrow package"
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "flarebrow" }]
+keywords = ["flaretool"]
+requires-python = ">=3.12"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Natural Language :: Japanese",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+dependencies = [
+    "requests>=2.32",
+    "pydantic>=2.11",
+    "pydantic-settings>=2.7",
+    "python-whois>=0.9.4",
+    "packaging>=24",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "pytest-asyncio",
+    "ruff",
+    "mypy",
+    "types-requests",
+]
+
+[project.scripts]
+flaretool = "flaretool.command:main"
+
+[project.urls]
+Homepage = "https://main.flarebrow.com"
+Documentation = "https://flarebrow.github.io/flaretool/"
+Source = "https://github.com/flarebrow/flaretool"
+Funding = "https://github.com/sponsors/flarebrow"
+
+[tool.setuptools.dynamic]
+version = { attr = "flaretool.VERSION.VERSION" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+flaretool = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+pythonpath = ["src"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = [
+    "E501", # line too long (existing code style)
+]
+
+[tool.ruff.lint.per-file-ignores]
+# テストは star import（ライブラリの公開APIをそのまま使う既存スタイル）と
+# 検証目的のイディオム（未使用変数・blind exception 等）を許容する
+"tests/**" = ["F403", "F405", "F841", "B006", "B017", "B018", "B904", "B905"]
+
+[tool.coverage.run]
+source = ["src/flaretool"]

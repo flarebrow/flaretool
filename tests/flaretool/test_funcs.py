@@ -30,6 +30,12 @@ class FuncsTest(unittest.TestCase):
             params={"n1": "1234-5678-9012-3", "n2": "9876-5432-1098-7"},
         )
 
+    def test_yamato_too_many_codes(self):
+        # ドキュメント記載の最大10件を超えた場合はValueError
+        codes = [str(1000000000000 + i) for i in range(11)]
+        with self.assertRaises(ValueError):
+            yamato(codes)
+
     @patch("flaretool.common.requests.get")
     def test_japanpost(self, mock_get):
         code = "1234567890123"

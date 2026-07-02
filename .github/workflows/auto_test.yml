@@ -1,5 +1,5 @@
 name: Run pytest
-on: 
+on:
     workflow_dispatch:
     repository_dispatch:
         types:
@@ -14,7 +14,7 @@ jobs:
   pytest:
     strategy:
       matrix:
-        python-version: [3.9, '3.10', 3.11, 3.12]
+        python-version: ["3.12", "3.13", "3.14"]
     permissions: write-all
 
     runs-on: ubuntu-latest
@@ -30,46 +30,25 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      # pytestをインストール
+      # 依存関係をインストール
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pytest-cov
+          pip install pytest pytest-cov pytest-asyncio
           pip install -r requirements.txt
 
       # pytest -> JUnit xml形式で結果を出力
       - name: PyTest
         run: |
           set -o pipefail
-          export PYTHONPATH=./repos/
-          pytest tests --junit-xml results/pytest.xml --disable-warnings --cov=repos/ --cov-report=term-missing:skip-covered | tee pytest-coverage.txt
-
-      # テスト結果の表示
-      # - name: Upload Unit Test Results
-      #   if: ${{ always() }}
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: Unit Test Results (Python ${{ matrix.python-version }})
-      #     path: results/*.xml
-
-      # - name: Download Artifacts
-      #   if: success() || failure()
-      #   uses: actions/download-artifact@v2
-      #   with:
-      #     path: artifacts
-
-      # - name: Publish Unit Test Results
-      #   uses: EnricoMi/publish-unit-test-result-action@v2
-      #   with:
-      #     junit_files: artifacts/**/*.xml
+          pytest tests --junit-xml results/pytest.xml --disable-warnings --cov=src/ --cov-report=term-missing:skip-covered | tee pytest-coverage.txt
 
       - name: Print Name
         if: ${{ always() }}
         run: |
           echo "This is Python ${{ matrix.python-version }} summary!" >> $GITHUB_STEP_SUMMARY
-      
+
       - name: Pytest coverage comment
-        # if: ${{ steps.is_main.outputs.flag == '1' }}
         if: ${{ always() }}
         id: coverageComment
         uses: MishaKav/pytest-coverage-comment@main
@@ -83,7 +62,7 @@ jobs:
         if: ${{ always() }}
         run: |
           echo -e ${{ steps.coverageComment.outputs.summaryReport }} >> $GITHUB_STEP_SUMMARY
-  
+
       - name: Create Coverage Badge
         if: github.ref == 'refs/heads/main'
         uses: schneegans/dynamic-badges-action@v1.3.0
@@ -95,7 +74,7 @@ jobs:
           message: ${{ steps.coverageComment.outputs.coverage }}
           color: ${{ steps.coverageComment.outputs.color }}
           namedLogo: python
-  
+
       - name: Create Coverage Badge
         if: github.ref != 'refs/heads/main'
         uses: schneegans/dynamic-badges-action@v1.3.0
