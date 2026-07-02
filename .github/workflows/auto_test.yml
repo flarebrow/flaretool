@@ -65,8 +65,6 @@ jobs:
 
       - name: Create Coverage Badge
         if: github.ref == 'refs/heads/main'
-        # バッジ更新は装飾のため、トークン失効等で失敗してもCIは落とさない
-        continue-on-error: true
         uses: schneegans/dynamic-badges-action@v1.3.0
         with:
           auth: ${{ secrets.TOKEN }}
@@ -79,8 +77,6 @@ jobs:
 
       - name: Create Coverage Badge
         if: github.ref != 'refs/heads/main'
-        # バッジ更新は装飾のため、トークン失効等で失敗してもCIは落とさない
-        continue-on-error: true
         uses: schneegans/dynamic-badges-action@v1.3.0
         with:
           auth: ${{ secrets.TOKEN }}
