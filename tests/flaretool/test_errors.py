@@ -1,9 +1,9 @@
 import unittest
+
 from flaretool.errors import *
 
 
 class ErrorTest(unittest.TestCase):
-
     def test_flaretool_error(self):
         error = FlareToolError("message")
         self.assertEqual(str(error), "message")

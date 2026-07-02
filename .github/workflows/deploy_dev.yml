@@ -23,14 +23,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
-          pip install --upgrade setuptools wheel twine
+          pip install --upgrade build twine
 
       - name: Build package
-        run: python setup.py sdist bdist_wheel
+        run: python -m build
 
       - name: Publish to test.pypi.org
         run: |
@@ -54,7 +54,7 @@ jobs:
       - name: Generate release tag
         id: release_tag
         run: |
-          TAG=$(cat version.txt)
+          TAG=$(sed -n 's/^VERSION = "\(.*\)"/\1/p' src/flaretool/VERSION.py)
           echo "::set-output name=release_tag::v$TAG"
       - name: Generate release note
         id: release_note

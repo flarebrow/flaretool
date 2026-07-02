@@ -1,8 +1,10 @@
-import os
-import pytest
 import csv
+import os
+from datetime import date, datetime, timedelta
+
+import pytest
 import requests
-from datetime import datetime, date, timedelta
+
 from flaretool.holiday import JapaneseHolidays, JapaneseHolidaysOnline
 
 
@@ -15,7 +17,7 @@ def test_syukujitsu():
         response = requests.get(url)
         response.encoding = response.apparent_encoding
         response.raise_for_status()
-    except Exception as e:
+    except Exception:
         raise AssertionError("date unknown")
     csv_data = response.text.splitlines()
     reader = csv.reader(csv_data[1:])

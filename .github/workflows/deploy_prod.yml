@@ -26,14 +26,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.12
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
-          pip install --upgrade setuptools wheel twine
+          pip install --upgrade build twine
 
       - name: Build package
-        run: python setup.py sdist bdist_wheel
+        run: python -m build
 
       - name: Publish to pypi.org
         run: |

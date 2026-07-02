@@ -10,10 +10,9 @@ on:
     #     types: [closed]
     workflow_dispatch:
 jobs:
-    version-increment:
-        uses: ./.github/workflows/version_increment.yml
+    # バージョンは src/flaretool/VERSION.py を手動で更新する運用
+    # （自動パッチインクリメントは v0.3.0 で廃止）
     update-docs:
-        needs: version-increment
         uses: ./.github/workflows/deploy_page.yml
     deploy-prod:
         needs: update-docs

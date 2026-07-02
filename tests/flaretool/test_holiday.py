@@ -1,5 +1,4 @@
 #!/bin/python
-# -*- coding: utf-8 -*-
 import base64
 import calendar
 import datetime
@@ -230,6 +229,76 @@ class JapaneseHolidaysTest(unittest.TestCase):
         self.assertTrue(self.holidays.is_transfer_holiday(date))
         self.assertTrue(self.holidays_online.is_transfer_holiday(date))
 
+    def test_is_transfer_holiday_golden_week(self):
+        # 2026年は5月3日（憲法記念日）が日曜日 → 振替休日は5月6日のみ。
+        # 5月4日はみどりの日（祝日そのもの）であり振替休日ではない。
+        self.assertFalse(self.holidays.is_transfer_holiday(datetime.date(2026, 5, 4)))
+        self.assertEqual(
+            self.holidays.get_holiday_name(datetime.date(2026, 5, 4)), "みどりの日"
+        )
+        self.assertTrue(self.holidays.is_transfer_holiday(datetime.date(2026, 5, 6)))
+        self.assertEqual(
+            self.holidays.get_holiday_name(datetime.date(2026, 5, 6)),
+            "こどもの日（振替休日）",
+        )
+        self.assertFalse(
+            self.holidays_online.is_transfer_holiday(datetime.date(2026, 5, 4))
+        )
+        self.assertTrue(
+            self.holidays_online.is_transfer_holiday(datetime.date(2026, 5, 6))
+        )
+        # 2009年も同じ並び（5月3日が日曜日）
+        self.assertFalse(self.holidays.is_transfer_holiday(datetime.date(2009, 5, 4)))
+        self.assertTrue(self.holidays.is_transfer_holiday(datetime.date(2009, 5, 6)))
+        self.assertFalse(
+            self.holidays_online.is_transfer_holiday(datetime.date(2009, 5, 4))
+        )
+        self.assertTrue(
+            self.holidays_online.is_transfer_holiday(datetime.date(2009, 5, 6))
+        )
+        # 祝日当日（日曜日）は振替休日ではない
+        self.assertFalse(self.holidays.is_transfer_holiday(datetime.date(2026, 5, 3)))
+
+    def test_transfer_holiday_law_boundary(self):
+        # 振替休日制度は1973年4月12日施行（昭和48年 祝日法改正）。
+        # それより前の年に振替休日は存在しない。
+        from flaretool.holiday.algorithms import holidays_of_year
+
+        self.assertFalse(
+            any("振替休日" in name for name in holidays_of_year(1970).values())
+        )
+        # 施行前の日曜祝日（1973年2月11日 建国記念の日）も振替なし
+        self.assertIsNone(self.holidays.get_holiday_name(datetime.date(1973, 2, 12)))
+        self.assertFalse(self.holidays.is_transfer_holiday(datetime.date(1973, 2, 12)))
+        # 史上初の振替休日は1973年4月30日
+        self.assertEqual(
+            self.holidays.get_holiday_name(datetime.date(1973, 4, 30)),
+            "天皇誕生日（振替休日）",
+        )
+        self.assertTrue(self.holidays.is_transfer_holiday(datetime.date(1973, 4, 30)))
+
+    def test_additional_sunday_holiday_transfer(self):
+        # 追加休日が日曜日の場合、翌月曜日は振替休日となる
+        # （オフライン版・オンライン版で同一の結果になること）
+        sunday = datetime.date(2023, 6, 11)
+        monday = datetime.date(2023, 6, 12)
+        self.holidays.set_additional_holiday("創立記念日", sunday)
+        self.holidays_online.set_additional_holiday("創立記念日", sunday)
+        expected = "創立記念日（振替休日）"
+        self.assertEqual(self.holidays.get_holiday_name(monday), expected)
+        self.assertTrue(self.holidays.is_transfer_holiday(monday))
+        self.assertEqual(self.holidays_online.get_holiday_name(monday), expected)
+        self.assertTrue(self.holidays_online.is_transfer_holiday(monday))
+
+    def test_statutory_holiday_precedence(self):
+        # 法定祝日と重なる追加休日は法定祝日名が優先される
+        # （オフライン版・オンライン版共通）
+        date = datetime.date(2023, 1, 1)
+        self.holidays.set_additional_holiday("MyDay", date)
+        self.holidays_online.set_additional_holiday("MyDay", date)
+        self.assertEqual(self.holidays.get_holiday_name(date), "元日")
+        self.assertEqual(self.holidays_online.get_holiday_name(date), "元日")
+
     def test_is_additional_holiday(self):
         date = datetime.date(2023, 6, 12)
         self.holidays.set_additional_holiday("Additional Holiday", date)
@@ -240,6 +309,54 @@ class JapaneseHolidaysTest(unittest.TestCase):
         self.assertEqual(
             self.holidays_online.get_holiday_name(date), "Additional Holiday"
         )
+
+    def test_is_holiday(self):
+        # 祝日
+        self.assertTrue(self.holidays.is_holiday(datetime.date(2023, 1, 1)))
+        self.assertTrue(self.holidays_online.is_holiday(datetime.date(2023, 1, 1)))
+        # 振替休日
+        self.assertTrue(self.holidays.is_holiday(datetime.date(2023, 1, 2)))
+        self.assertTrue(self.holidays_online.is_holiday(datetime.date(2023, 1, 2)))
+        # 平日
+        self.assertFalse(self.holidays.is_holiday(datetime.date(2023, 6, 12)))
+        self.assertFalse(self.holidays_online.is_holiday(datetime.date(2023, 6, 12)))
+        # 文字列でも判定可能
+        self.assertTrue(self.holidays.is_holiday("2023/05/04"))
+        # 追加休日
+        date = datetime.date(2023, 6, 13)
+        self.holidays.set_additional_holiday("Additional Holiday", date)
+        self.assertTrue(self.holidays.is_holiday(date))
+
+    def test_is_business_day(self):
+        # 平日（月曜日）
+        self.assertTrue(self.holidays.is_business_day(datetime.date(2023, 6, 12)))
+        self.assertTrue(
+            self.holidays_online.is_business_day(datetime.date(2023, 6, 12))
+        )
+        # 土曜日・日曜日
+        self.assertFalse(self.holidays.is_business_day(datetime.date(2023, 6, 10)))
+        self.assertFalse(self.holidays.is_business_day(datetime.date(2023, 6, 11)))
+        # 祝日（成人の日）
+        self.assertFalse(self.holidays.is_business_day(datetime.date(2023, 1, 9)))
+        self.assertFalse(
+            self.holidays_online.is_business_day(datetime.date(2023, 1, 9))
+        )
+        # 文字列でも判定可能
+        self.assertTrue(self.holidays.is_business_day("2023/06/12"))
+
+    def test_legacy_module_paths(self):
+        # 旧モジュールパスからのimport互換性
+        from flaretool.holiday.JapaneseHolidays import (
+            JapaneseHolidays as LegacyJapaneseHolidays,
+        )
+        from flaretool.holiday.JapaneseHolidaysOnline import (
+            JapaneseHolidaysOnline as LegacyJapaneseHolidaysOnline,
+        )
+        from flaretool.holiday.models import SupportedRange, supported
+
+        self.assertIs(LegacyJapaneseHolidays, JapaneseHolidays)
+        self.assertIs(LegacyJapaneseHolidaysOnline, JapaneseHolidaysOnline)
+        self.assertIs(supported, SupportedRange)
 
     def test_set_additional_holiday(self):
         date = datetime.date(2023, 12, 25)
@@ -259,6 +376,9 @@ class JapaneseHolidaysTest(unittest.TestCase):
         self.assertEqual(self.holidays_online.week_day(date, 2, 1), expected_date)
         self.assertIsNone(self.holidays_online.week_day(date, 0, 0))
         self.assertIsNone(self.holidays_online.week_day(date, 1, 0))
+        # 2023年6月に第5月曜日は存在しない
+        self.assertIsNone(self.holidays.week_day(date, 5, 1))
+        self.assertIsNone(self.holidays_online.week_day(date, 5, 1))
 
     def test__to_date(self):
         datetime_value = datetime.datetime(2023, 6, 10, 12, 30, 0)
@@ -308,9 +428,23 @@ class JapaneseHolidaysTest(unittest.TestCase):
         self.assertEqual(self.holidays_online.get_holiday_name(date), expected_name)
 
     def test_get_holidays(self):
-        self.holidays.get_holidays("2023")
-        self.holidays.get_holidays("2023/01")
-        self.holidays.get_holidays("2023/01/01")
+        # v0.3.0: (日付, 祝日名) の順（get_holidays_in_range と統一）
+        result = self.holidays.get_holidays("2023/01")
+        self.assertEqual(
+            result,
+            [
+                (datetime.date(2023, 1, 1), "元日"),
+                (datetime.date(2023, 1, 2), "元日（振替休日）"),
+                (datetime.date(2023, 1, 9), "成人の日"),
+            ],
+        )
+        result_online = self.holidays_online.get_holidays("2023/01")
+        self.assertEqual(result, result_online)
+        self.assertEqual(
+            self.holidays.get_holidays("2023/01/01"),
+            [(datetime.date(2023, 1, 1), "元日")],
+        )
+        self.assertEqual(len(self.holidays.get_holidays("2023")), 17)
         with self.assertRaises(ValueError):
             self.holidays.get_holidays("aaaa")
 
