@@ -54,7 +54,7 @@ jobs:
       - name: Generate release tag
         id: release_tag
         run: |
-          TAG=$(cat version.txt)
+          TAG=$(sed -n 's/^VERSION = "\(.*\)"/\1/p' src/flaretool/VERSION.py)
           echo "::set-output name=release_tag::v$TAG"
       - name: Generate release note
         id: release_note
